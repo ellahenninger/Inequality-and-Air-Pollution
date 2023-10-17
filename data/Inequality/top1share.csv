@@ -1,0 +1,7345 @@
+country;year;top1
+Afghanistan;1998;0.1622
+Afghanistan;1999;0.1622
+Afghanistan;2000;0.1622
+Afghanistan;2001;0.1622
+Afghanistan;2002;0.1622
+Afghanistan;2003;0.1622
+Afghanistan;2004;0.1622
+Afghanistan;2005;0.1622
+Afghanistan;2006;0.1622
+Afghanistan;2007;0.1622
+Afghanistan;2008;0.1622
+Afghanistan;2009;0.1536
+Afghanistan;2010;0.1511
+Afghanistan;2011;0.1432
+Afghanistan;2012;0.1382
+Afghanistan;2013;0.1409
+Afghanistan;2014;0.1429
+Afghanistan;2015;0.1438
+Afghanistan;2016;0.1471
+Afghanistan;2017;0.1508
+Afghanistan;2018;0.1508
+Afghanistan;2019;0.1508
+Afghanistan;2020;0.1508
+Afghanistan;2021;0.1508
+Africa;1998;0.1956
+Africa;1999;0.2004
+Africa;2000;0.2028
+Africa;2001;0.2021
+Africa;2002;0.2015
+Africa;2003;0.2028
+Africa;2004;0.2011
+Africa;2005;0.2028
+Africa;2006;0.2037
+Africa;2007;0.2058
+Africa;2008;0.204
+Africa;2009;0.1968
+Africa;2010;0.194
+Africa;2011;0.1962
+Africa;2012;0.1986
+Africa;2013;0.1977
+Africa;2014;0.1978
+Africa;2015;0.1991
+Africa;2016;0.1978
+Africa;2017;0.1975
+Africa;2018;0.1971
+Africa;2019;0.1954
+Africa;2020;0.1928
+Africa;2021;0.1945
+Africa (at market exchange rate);1998;0.4946
+Africa (at market exchange rate);1999;0.4886
+Africa (at market exchange rate);2000;0.4778
+Africa (at market exchange rate);2001;0.4877
+Africa (at market exchange rate);2002;0.4621
+Africa (at market exchange rate);2003;0.4156
+Africa (at market exchange rate);2004;0.3993
+Africa (at market exchange rate);2005;0.3835
+Africa (at market exchange rate);2006;0.3704
+Africa (at market exchange rate);2007;0.3635
+Africa (at market exchange rate);2008;0.3249
+Africa (at market exchange rate);2009;0.3309
+Africa (at market exchange rate);2010;0.3481
+Africa (at market exchange rate);2011;0.3675
+Africa (at market exchange rate);2012;0.3895
+Africa (at market exchange rate);2013;0.3842
+Africa (at market exchange rate);2014;0.3818
+Africa (at market exchange rate);2015;0.3809
+Africa (at market exchange rate);2016;0.3785
+Africa (at market exchange rate);2017;0.3839
+Africa (at market exchange rate);2018;0.3989
+Africa (at market exchange rate);2019;0.3875
+Africa (at market exchange rate);2020;0.3785
+Africa (at market exchange rate);2021;0.3791
+Alabama;1998;0.156
+Alabama;1999;0.1576
+Alabama;2000;0.1547
+Alabama;2001;0.1441
+Alabama;2002;0.1447
+Alabama;2003;0.1492
+Alabama;2004;0.1641
+Alabama;2005;0.1871
+Alabama;2006;0.2062
+Alabama;2007;0.2011
+Alabama;2008;0.1812
+Alabama;2009;0.1549
+Alabama;2010;0.1696
+Alabama;2011;0.1627
+Alabama;2012;0.1739
+Alabama;2013;0.1473
+Alabama;2014;0.1588
+Alabama;2015;0.1638
+Alabama;2016;0.1706
+Alabama;2017;0.1709
+Alabama;2018;0.1703
+Alabama;2019;
+Alabama;2020;
+Alabama;2021;
+Alaska;1998;0.1097
+Alaska;1999;0.1032
+Alaska;2000;0.1131
+Alaska;2001;0.1019
+Alaska;2002;0.0997
+Alaska;2003;0.1078
+Alaska;2004;0.1138
+Alaska;2005;0.119
+Alaska;2006;0.1271
+Alaska;2007;0.1315
+Alaska;2008;0.1302
+Alaska;2009;0.1149
+Alaska;2010;0.1165
+Alaska;2011;0.1098
+Alaska;2012;0.1235
+Alaska;2013;0.1094
+Alaska;2014;0.1139
+Alaska;2015;0.1163
+Alaska;2016;0.1102
+Alaska;2017;0.108
+Alaska;2018;0.1108
+Alaska;2019;
+Alaska;2020;
+Alaska;2021;
+Albania;1998;0.0851
+Albania;1999;0.085
+Albania;2000;0.0834
+Albania;2001;0.0845
+Albania;2002;0.0863
+Albania;2003;0.0875
+Albania;2004;0.0857
+Albania;2005;0.0842
+Albania;2006;0.0833
+Albania;2007;0.0786
+Albania;2008;0.0858
+Albania;2009;0.0852
+Albania;2010;0.0842
+Albania;2011;0.0859
+Albania;2012;0.0855
+Albania;2013;0.0932
+Albania;2014;0.0959
+Albania;2015;0.0962
+Albania;2016;0.0933
+Albania;2017;0.0948
+Albania;2018;0.0929
+Albania;2019;0.0933
+Albania;2020;0.0921
+Albania;2021;0.0924
+Algeria;1998;0.1149
+Algeria;1999;0.1137
+Algeria;2000;0.1125
+Algeria;2001;0.1113
+Algeria;2002;0.11
+Algeria;2003;0.1088
+Algeria;2004;0.1076
+Algeria;2005;0.1064
+Algeria;2006;0.1052
+Algeria;2007;0.104
+Algeria;2008;0.1028
+Algeria;2009;0.1015
+Algeria;2010;0.1003
+Algeria;2011;0.0991
+Algeria;2012;0.0991
+Algeria;2013;0.0991
+Algeria;2014;0.0991
+Algeria;2015;0.0991
+Algeria;2016;0.0991
+Algeria;2017;0.0991
+Algeria;2018;0.0991
+Algeria;2019;0.0991
+Algeria;2020;0.0991
+Algeria;2021;0.0991
+Angola;1998;0.2198
+Angola;1999;0.2198
+Angola;2000;0.2198
+Angola;2001;0.2115
+Angola;2002;0.2032
+Angola;2003;0.1949
+Angola;2004;0.1865
+Angola;2005;0.1782
+Angola;2006;0.1698
+Angola;2007;0.1614
+Angola;2008;0.153
+Angola;2009;0.1637
+Angola;2010;0.1744
+Angola;2011;0.1851
+Angola;2012;0.1958
+Angola;2013;0.2065
+Angola;2014;0.2172
+Angola;2015;0.2278
+Angola;2016;0.2385
+Angola;2017;0.2491
+Angola;2018;0.2598
+Angola;2019;0.2598
+Angola;2020;0.2598
+Angola;2021;0.2598
+Argentina;1998;0.1398
+Argentina;1999;0.1398
+Argentina;2000;0.1398
+Argentina;2001;0.141
+Argentina;2002;0.1533
+Argentina;2003;0.1534
+Argentina;2004;0.1345
+Argentina;2005;0.1156
+Argentina;2006;0.1036
+Argentina;2007;0.1414
+Argentina;2008;0.1417
+Argentina;2009;0.1181
+Argentina;2010;0.1176
+Argentina;2011;0.1136
+Argentina;2012;0.0834
+Argentina;2013;0.0985
+Argentina;2014;0.1028
+Argentina;2015;0.156
+Argentina;2016;0.2136
+Argentina;2017;0.1386
+Argentina;2018;0.145
+Argentina;2019;0.1514
+Argentina;2020;0.1514
+Argentina;2021;0.1514
+Arizona;1998;0.1761
+Arizona;1999;0.1811
+Arizona;2000;0.1859
+Arizona;2001;0.1603
+Arizona;2002;0.1519
+Arizona;2003;0.1616
+Arizona;2004;0.1955
+Arizona;2005;0.2274
+Arizona;2006;0.2313
+Arizona;2007;0.2165
+Arizona;2008;0.1814
+Arizona;2009;0.1638
+Arizona;2010;0.1729
+Arizona;2011;0.1726
+Arizona;2012;0.1924
+Arizona;2013;0.1708
+Arizona;2014;0.1764
+Arizona;2015;0.1826
+Arizona;2016;0.1804
+Arizona;2017;0.1938
+Arizona;2018;0.1971
+Arizona;2019;
+Arizona;2020;
+Arizona;2021;
+Arkansas;1998;0.1506
+Arkansas;1999;0.1479
+Arkansas;2000;0.1533
+Arkansas;2001;0.1416
+Arkansas;2002;0.1444
+Arkansas;2003;0.1437
+Arkansas;2004;0.1556
+Arkansas;2005;0.1659
+Arkansas;2006;0.1648
+Arkansas;2007;0.1747
+Arkansas;2008;0.1734
+Arkansas;2009;0.1761
+Arkansas;2010;0.1757
+Arkansas;2011;0.1784
+Arkansas;2012;0.2048
+Arkansas;2013;0.1723
+Arkansas;2014;0.1846
+Arkansas;2015;0.1844
+Arkansas;2016;0.1976
+Arkansas;2017;0.2286
+Arkansas;2018;0.2142
+Arkansas;2019;
+Arkansas;2020;
+Arkansas;2021;
+Armenia;1998;0.1777
+Armenia;1999;0.1739
+Armenia;2000;0.1589
+Armenia;2001;0.1471
+Armenia;2002;0.1601
+Armenia;2003;0.1702
+Armenia;2004;0.188
+Armenia;2005;0.1833
+Armenia;2006;0.1315
+Armenia;2007;0.1283
+Armenia;2008;0.1259
+Armenia;2009;0.1219
+Armenia;2010;0.1476
+Armenia;2011;0.1326
+Armenia;2012;0.1358
+Armenia;2013;0.1387
+Armenia;2014;0.1424
+Armenia;2015;0.1504
+Armenia;2016;0.1653
+Armenia;2017;0.1872
+Armenia;2018;0.1746
+Armenia;2019;0.15
+Armenia;2020;0.15
+Armenia;2021;0.15
+Asia;1998;0.2056
+Asia;1999;0.2066
+Asia;2000;0.2109
+Asia;2001;0.2137
+Asia;2002;0.2131
+Asia;2003;0.217
+Asia;2004;0.2161
+Asia;2005;0.2161
+Asia;2006;0.215
+Asia;2007;0.2126
+Asia;2008;0.207
+Asia;2009;0.201
+Asia;2010;0.1974
+Asia;2011;0.1969
+Asia;2012;0.1898
+Asia;2013;0.1898
+Asia;2014;0.1862
+Asia;2015;0.1863
+Asia;2016;0.1857
+Asia;2017;0.1888
+Asia;2018;0.1871
+Asia;2019;0.1839
+Asia;2020;0.1896
+Asia;2021;0.1902
+Asia (at market exchange rate);1998;0.2586
+Asia (at market exchange rate);1999;0.258
+Asia (at market exchange rate);2000;0.2611
+Asia (at market exchange rate);2001;0.2634
+Asia (at market exchange rate);2002;0.2629
+Asia (at market exchange rate);2003;0.264
+Asia (at market exchange rate);2004;0.2632
+Asia (at market exchange rate);2005;0.2607
+Asia (at market exchange rate);2006;0.2555
+Asia (at market exchange rate);2007;0.2527
+Asia (at market exchange rate);2008;0.2462
+Asia (at market exchange rate);2009;0.2366
+Asia (at market exchange rate);2010;0.2356
+Asia (at market exchange rate);2011;0.2294
+Asia (at market exchange rate);2012;0.2215
+Asia (at market exchange rate);2013;0.2193
+Asia (at market exchange rate);2014;0.2143
+Asia (at market exchange rate);2015;0.2144
+Asia (at market exchange rate);2016;0.2147
+Asia (at market exchange rate);2017;0.22
+Asia (at market exchange rate);2018;0.2179
+Asia (at market exchange rate);2019;0.2094
+Asia (at market exchange rate);2020;0.2126
+Asia (at market exchange rate);2021;0.2113
+Asia (excl. Middle East);1998;0.1913
+Asia (excl. Middle East);1999;0.1909
+Asia (excl. Middle East);2000;0.1921
+Asia (excl. Middle East);2001;0.1966
+Asia (excl. Middle East);2002;0.1968
+Asia (excl. Middle East);2003;0.1995
+Asia (excl. Middle East);2004;0.2033
+Asia (excl. Middle East);2005;0.2023
+Asia (excl. Middle East);2006;0.1993
+Asia (excl. Middle East);2007;0.1985
+Asia (excl. Middle East);2008;0.1932
+Asia (excl. Middle East);2009;0.191
+Asia (excl. Middle East);2010;0.1907
+Asia (excl. Middle East);2011;0.1859
+Asia (excl. Middle East);2012;0.1809
+Asia (excl. Middle East);2013;0.1811
+Asia (excl. Middle East);2014;0.1784
+Asia (excl. Middle East);2015;0.1777
+Asia (excl. Middle East);2016;0.1761
+Asia (excl. Middle East);2017;0.1816
+Asia (excl. Middle East);2018;0.1801
+Asia (excl. Middle East);2019;0.179
+Asia (excl. Middle East);2020;0.183
+Asia (excl. Middle East);2021;0.1812
+Asia (excl. Middle East) (at market exchange rate);1998;0.2511
+Asia (excl. Middle East) (at market exchange rate);1999;0.2475
+Asia (excl. Middle East) (at market exchange rate);2000;0.2486
+Asia (excl. Middle East) (at market exchange rate);2001;0.2516
+Asia (excl. Middle East) (at market exchange rate);2002;0.2504
+Asia (excl. Middle East) (at market exchange rate);2003;0.2528
+Asia (excl. Middle East) (at market exchange rate);2004;0.2527
+Asia (excl. Middle East) (at market exchange rate);2005;0.247
+Asia (excl. Middle East) (at market exchange rate);2006;0.2453
+Asia (excl. Middle East) (at market exchange rate);2007;0.2407
+Asia (excl. Middle East) (at market exchange rate);2008;0.2343
+Asia (excl. Middle East) (at market exchange rate);2009;0.2263
+Asia (excl. Middle East) (at market exchange rate);2010;0.2272
+Asia (excl. Middle East) (at market exchange rate);2011;0.2237
+Asia (excl. Middle East) (at market exchange rate);2012;0.2135
+Asia (excl. Middle East) (at market exchange rate);2013;0.212
+Asia (excl. Middle East) (at market exchange rate);2014;0.211
+Asia (excl. Middle East) (at market exchange rate);2015;0.2115
+Asia (excl. Middle East) (at market exchange rate);2016;0.2086
+Asia (excl. Middle East) (at market exchange rate);2017;0.2153
+Asia (excl. Middle East) (at market exchange rate);2018;0.2118
+Asia (excl. Middle East) (at market exchange rate);2019;0.2035
+Asia (excl. Middle East) (at market exchange rate);2020;0.2051
+Asia (excl. Middle East) (at market exchange rate);2021;0.2028
+Australia;1998;0.0901
+Australia;1999;0.1002
+Australia;2000;0.1059
+Australia;2001;0.0965
+Australia;2002;0.1017
+Australia;2003;0.1069
+Australia;2004;0.1117
+Australia;2005;0.1124
+Australia;2006;0.124
+Australia;2007;0.1192
+Australia;2008;0.1062
+Australia;2009;0.1127
+Australia;2010;0.1149
+Australia;2011;0.1094
+Australia;2012;0.1165
+Australia;2013;0.1248
+Australia;2014;0.1191
+Australia;2015;0.1182
+Australia;2016;0.1143
+Australia;2017;0.128
+Australia;2018;0.1123
+Australia;2019;0.1128
+Australia;2020;0.1128
+Australia;2021;0.1128
+Austria;1998;0.1184
+Austria;1999;0.1088
+Austria;2000;0.1186
+Austria;2001;0.1137
+Austria;2002;0.116
+Austria;2003;0.1221
+Austria;2004;0.1148
+Austria;2005;0.1127
+Austria;2006;0.1331
+Austria;2007;0.1149
+Austria;2008;0.1231
+Austria;2009;0.1082
+Austria;2010;0.1137
+Austria;2011;0.1111
+Austria;2012;0.0827
+Austria;2013;0.0896
+Austria;2014;0.111
+Austria;2015;0.1016
+Austria;2016;0.1108
+Austria;2017;0.0988
+Austria;2018;0.0982
+Austria;2019;0.0972
+Austria;2020;0.1086
+Austria;2021;0.1074
+Azerbaijan;1998;0.1622
+Azerbaijan;1999;0.1644
+Azerbaijan;2000;0.1609
+Azerbaijan;2001;0.1598
+Azerbaijan;2002;0.1392
+Azerbaijan;2003;0.1329
+Azerbaijan;2004;0.1426
+Azerbaijan;2005;0.147
+Azerbaijan;2006;0.1754
+Azerbaijan;2007;0.1821
+Azerbaijan;2008;0.1449
+Azerbaijan;2009;0.1426
+Azerbaijan;2010;0.1382
+Azerbaijan;2011;0.142
+Azerbaijan;2012;0.1465
+Azerbaijan;2013;0.1432
+Azerbaijan;2014;0.1432
+Azerbaijan;2015;0.1392
+Azerbaijan;2016;0.1333
+Azerbaijan;2017;0.1399
+Azerbaijan;2018;0.1399
+Azerbaijan;2019;0.1399
+Azerbaijan;2020;0.1399
+Azerbaijan;2021;0.1399
+Baden;1998;
+Baden;1999;
+Baden;2000;
+Baden;2001;
+Baden;2002;
+Baden;2003;
+Baden;2004;
+Baden;2005;
+Baden;2006;
+Baden;2007;
+Baden;2008;
+Baden;2009;
+Baden;2010;
+Baden;2011;
+Baden;2012;
+Baden;2013;
+Baden;2014;
+Baden;2015;
+Baden;2016;
+Baden;2017;
+Baden;2018;
+Baden;2019;
+Baden;2020;
+Baden;2021;
+Bahamas;1998;0.1895
+Bahamas;1999;0.1895
+Bahamas;2000;0.1895
+Bahamas;2001;0.1985
+Bahamas;2002;0.19
+Bahamas;2003;0.2035
+Bahamas;2004;0.1987
+Bahamas;2005;0.189
+Bahamas;2006;0.1895
+Bahamas;2007;0.2087
+Bahamas;2008;0.1994
+Bahamas;2009;0.186
+Bahamas;2010;0.1943
+Bahamas;2011;0.1933
+Bahamas;2012;0.1895
+Bahamas;2013;0.2013
+Bahamas;2014;0.202
+Bahamas;2015;0.1947
+Bahamas;2016;0.1985
+Bahamas;2017;0.1914
+Bahamas;2018;0.1898
+Bahamas;2019;0.183
+Bahamas;2020;0.1962
+Bahamas;2021;0.1962
+Bahrain;1998;0.2064
+Bahrain;1999;0.2058
+Bahrain;2000;0.2051
+Bahrain;2001;0.2044
+Bahrain;2002;0.2038
+Bahrain;2003;0.2031
+Bahrain;2004;0.2024
+Bahrain;2005;0.2017
+Bahrain;2006;0.2055
+Bahrain;2007;0.2093
+Bahrain;2008;0.2133
+Bahrain;2009;0.2173
+Bahrain;2010;0.2214
+Bahrain;2011;0.2256
+Bahrain;2012;0.2299
+Bahrain;2013;0.2343
+Bahrain;2014;0.2388
+Bahrain;2015;0.2434
+Bahrain;2016;0.2434
+Bahrain;2017;0.2434
+Bahrain;2018;0.2434
+Bahrain;2019;0.2434
+Bahrain;2020;0.2434
+Bahrain;2021;0.2434
+Bangladesh;1998;0.1633
+Bangladesh;1999;0.1631
+Bangladesh;2000;0.1623
+Bangladesh;2001;0.1623
+Bangladesh;2002;0.1642
+Bangladesh;2003;0.1669
+Bangladesh;2004;0.167
+Bangladesh;2005;0.1677
+Bangladesh;2006;0.1676
+Bangladesh;2007;0.1682
+Bangladesh;2008;0.1631
+Bangladesh;2009;0.1612
+Bangladesh;2010;0.1636
+Bangladesh;2011;0.1625
+Bangladesh;2012;0.1631
+Bangladesh;2013;0.1633
+Bangladesh;2014;0.1627
+Bangladesh;2015;0.1612
+Bangladesh;2016;0.1615
+Bangladesh;2017;0.1616
+Bangladesh;2018;0.1616
+Bangladesh;2019;0.1616
+Bangladesh;2020;0.1616
+Bangladesh;2021;0.1616
+Bavaria;1998;
+Bavaria;1999;
+Bavaria;2000;
+Bavaria;2001;
+Bavaria;2002;
+Bavaria;2003;
+Bavaria;2004;
+Bavaria;2005;
+Bavaria;2006;
+Bavaria;2007;
+Bavaria;2008;
+Bavaria;2009;
+Bavaria;2010;
+Bavaria;2011;
+Bavaria;2012;
+Bavaria;2013;
+Bavaria;2014;
+Bavaria;2015;
+Bavaria;2016;
+Bavaria;2017;
+Bavaria;2018;
+Bavaria;2019;
+Bavaria;2020;
+Bavaria;2021;
+Belarus;1998;0.1295
+Belarus;1999;0.1193
+Belarus;2000;0.1225
+Belarus;2001;0.1193
+Belarus;2002;0.1205
+Belarus;2003;0.1064
+Belarus;2004;0.1
+Belarus;2005;0.1005
+Belarus;2006;0.1025
+Belarus;2007;0.1203
+Belarus;2008;0.1176
+Belarus;2009;0.1138
+Belarus;2010;0.1
+Belarus;2011;0.1247
+Belarus;2012;0.1169
+Belarus;2013;0.1038
+Belarus;2014;0.1065
+Belarus;2015;0.0903
+Belarus;2016;0.0954
+Belarus;2017;0.1013
+Belarus;2018;0.0995
+Belarus;2019;0.0961
+Belarus;2020;0.0961
+Belarus;2021;0.0961
+Belgium;1998;0.0813
+Belgium;1999;0.0822
+Belgium;2000;0.0819
+Belgium;2001;0.0796
+Belgium;2002;0.0763
+Belgium;2003;0.0767
+Belgium;2004;0.0852
+Belgium;2005;0.0844
+Belgium;2006;0.0871
+Belgium;2007;0.0952
+Belgium;2008;0.085
+Belgium;2009;0.0749
+Belgium;2010;0.0763
+Belgium;2011;0.0794
+Belgium;2012;0.0817
+Belgium;2013;0.082
+Belgium;2014;0.0834
+Belgium;2015;0.0848
+Belgium;2016;0.0863
+Belgium;2017;0.085
+Belgium;2018;0.0858
+Belgium;2019;0.087
+Belgium;2020;0.0854
+Belgium;2021;0.0856
+Belize;1998;0.1895
+Belize;1999;0.1895
+Belize;2000;0.1895
+Belize;2001;0.1985
+Belize;2002;0.19
+Belize;2003;0.2035
+Belize;2004;0.1987
+Belize;2005;0.189
+Belize;2006;0.1895
+Belize;2007;0.2087
+Belize;2008;0.1994
+Belize;2009;0.186
+Belize;2010;0.1943
+Belize;2011;0.1933
+Belize;2012;0.1895
+Belize;2013;0.2013
+Belize;2014;0.202
+Belize;2015;0.1947
+Belize;2016;0.1985
+Belize;2017;0.1914
+Belize;2018;0.1898
+Belize;2019;0.183
+Belize;2020;0.1962
+Belize;2021;0.1962
+Benin;1998;0.1635
+Benin;1999;0.1635
+Benin;2000;0.1635
+Benin;2001;0.1635
+Benin;2002;0.1635
+Benin;2003;0.1635
+Benin;2004;0.1622
+Benin;2005;0.1609
+Benin;2006;0.1597
+Benin;2007;0.1584
+Benin;2008;0.1571
+Benin;2009;0.1559
+Benin;2010;0.1546
+Benin;2011;0.1533
+Benin;2012;0.1588
+Benin;2013;0.1643
+Benin;2014;0.1697
+Benin;2015;0.1751
+Benin;2016;0.1636
+Benin;2017;0.152
+Benin;2018;0.1403
+Benin;2019;0.1403
+Benin;2020;0.1403
+Benin;2021;0.1403
+Bhutan;1998;0.1808
+Bhutan;1999;0.1808
+Bhutan;2000;0.1808
+Bhutan;2001;0.1808
+Bhutan;2002;0.1808
+Bhutan;2003;0.1808
+Bhutan;2004;0.1721
+Bhutan;2005;0.165
+Bhutan;2006;0.1597
+Bhutan;2007;0.1559
+Bhutan;2008;0.1576
+Bhutan;2009;0.1622
+Bhutan;2010;0.17
+Bhutan;2011;0.1719
+Bhutan;2012;0.1751
+Bhutan;2013;0.1678
+Bhutan;2014;0.1601
+Bhutan;2015;0.1516
+Bhutan;2016;0.1454
+Bhutan;2017;0.14
+Bhutan;2018;0.14
+Bhutan;2019;0.14
+Bhutan;2020;0.14
+Bhutan;2021;0.14
+Bolivia;1998;0.1895
+Bolivia;1999;0.1895
+Bolivia;2000;0.1895
+Bolivia;2001;0.1985
+Bolivia;2002;0.19
+Bolivia;2003;0.2035
+Bolivia;2004;0.1987
+Bolivia;2005;0.189
+Bolivia;2006;0.1895
+Bolivia;2007;0.2087
+Bolivia;2008;0.1994
+Bolivia;2009;0.186
+Bolivia;2010;0.1943
+Bolivia;2011;0.1933
+Bolivia;2012;0.1895
+Bolivia;2013;0.2013
+Bolivia;2014;0.202
+Bolivia;2015;0.1947
+Bolivia;2016;0.1985
+Bolivia;2017;0.1914
+Bolivia;2018;0.1898
+Bolivia;2019;0.183
+Bolivia;2020;0.1962
+Bolivia;2021;0.1962
+Bosnia and Herzegovina;1998;0.0915
+Bosnia and Herzegovina;1999;0.0878
+Bosnia and Herzegovina;2000;0.087
+Bosnia and Herzegovina;2001;0.0887
+Bosnia and Herzegovina;2002;0.0898
+Bosnia and Herzegovina;2003;0.0915
+Bosnia and Herzegovina;2004;0.0888
+Bosnia and Herzegovina;2005;0.0908
+Bosnia and Herzegovina;2006;0.0885
+Bosnia and Herzegovina;2007;0.0865
+Bosnia and Herzegovina;2008;0.0933
+Bosnia and Herzegovina;2009;0.0914
+Bosnia and Herzegovina;2010;0.0936
+Bosnia and Herzegovina;2011;0.0976
+Bosnia and Herzegovina;2012;0.0963
+Bosnia and Herzegovina;2013;0.0976
+Bosnia and Herzegovina;2014;0.0975
+Bosnia and Herzegovina;2015;0.0986
+Bosnia and Herzegovina;2016;0.0983
+Bosnia and Herzegovina;2017;0.1006
+Bosnia and Herzegovina;2018;0.0988
+Bosnia and Herzegovina;2019;0.0956
+Bosnia and Herzegovina;2020;0.0941
+Bosnia and Herzegovina;2021;0.0944
+Botswana;1998;0.3152
+Botswana;1999;0.3061
+Botswana;2000;0.297
+Botswana;2001;0.2879
+Botswana;2002;0.2788
+Botswana;2003;0.2809
+Botswana;2004;0.2831
+Botswana;2005;0.2853
+Botswana;2006;0.2875
+Botswana;2007;0.2896
+Botswana;2008;0.2918
+Botswana;2009;0.294
+Botswana;2010;0.2829
+Botswana;2011;0.2718
+Botswana;2012;0.2607
+Botswana;2013;0.2496
+Botswana;2014;0.2385
+Botswana;2015;0.2274
+Botswana;2016;0.2274
+Botswana;2017;0.2274
+Botswana;2018;0.2274
+Botswana;2019;0.2274
+Botswana;2020;0.2274
+Botswana;2021;0.2274
+Brazil;1998;0.2374
+Brazil;1999;0.2374
+Brazil;2000;0.2374
+Brazil;2001;0.2374
+Brazil;2002;0.2151
+Brazil;2003;0.2326
+Brazil;2004;0.2348
+Brazil;2005;0.2385
+Brazil;2006;0.2347
+Brazil;2007;0.2389
+Brazil;2008;0.2342
+Brazil;2009;0.2227
+Brazil;2010;0.2348
+Brazil;2011;0.2467
+Brazil;2012;0.2539
+Brazil;2013;0.2367
+Brazil;2014;0.2402
+Brazil;2015;0.2275
+Brazil;2016;0.211
+Brazil;2017;0.2092
+Brazil;2018;0.2068
+Brazil;2019;0.2034
+Brazil;2020;0.2223
+Brazil;2021;0.2223
+Bremen;1998;
+Bremen;1999;
+Bremen;2000;
+Bremen;2001;
+Bremen;2002;
+Bremen;2003;
+Bremen;2004;
+Bremen;2005;
+Bremen;2006;
+Bremen;2007;
+Bremen;2008;
+Bremen;2009;
+Bremen;2010;
+Bremen;2011;
+Bremen;2012;
+Bremen;2013;
+Bremen;2014;
+Bremen;2015;
+Bremen;2016;
+Bremen;2017;
+Bremen;2018;
+Bremen;2019;
+Bremen;2020;
+Bremen;2021;
+Brunei Darussalam;1998;0.1244
+Brunei Darussalam;1999;0.1244
+Brunei Darussalam;2000;0.1244
+Brunei Darussalam;2001;0.1244
+Brunei Darussalam;2002;0.1244
+Brunei Darussalam;2003;0.1244
+Brunei Darussalam;2004;0.1244
+Brunei Darussalam;2005;0.1244
+Brunei Darussalam;2006;0.123
+Brunei Darussalam;2007;0.1229
+Brunei Darussalam;2008;0.1229
+Brunei Darussalam;2009;0.1252
+Brunei Darussalam;2010;0.1253
+Brunei Darussalam;2011;0.1241
+Brunei Darussalam;2012;0.124
+Brunei Darussalam;2013;0.1256
+Brunei Darussalam;2014;0.1288
+Brunei Darussalam;2015;0.1303
+Brunei Darussalam;2016;0.1325
+Brunei Darussalam;2017;0.1321
+Brunei Darussalam;2018;0.1314
+Brunei Darussalam;2019;0.1314
+Brunei Darussalam;2020;0.1314
+Brunei Darussalam;2021;0.1314
+Bulgaria;1998;0.1117
+Bulgaria;1999;0.1089
+Bulgaria;2000;0.1024
+Bulgaria;2001;0.112
+Bulgaria;2002;0.122
+Bulgaria;2003;0.1097
+Bulgaria;2004;0.1104
+Bulgaria;2005;0.1131
+Bulgaria;2006;0.1151
+Bulgaria;2007;0.0999
+Bulgaria;2008;0.0903
+Bulgaria;2009;0.1187
+Bulgaria;2010;0.1188
+Bulgaria;2011;0.1254
+Bulgaria;2012;0.1396
+Bulgaria;2013;0.1261
+Bulgaria;2014;0.1388
+Bulgaria;2015;0.1426
+Bulgaria;2016;0.1688
+Bulgaria;2017;0.1964
+Bulgaria;2018;0.1906
+Bulgaria;2019;0.165
+Bulgaria;2020;0.1657
+Bulgaria;2021;0.1657
+Burkina Faso;1998;0.2672
+Burkina Faso;1999;0.2476
+Burkina Faso;2000;0.228
+Burkina Faso;2001;0.2083
+Burkina Faso;2002;0.1887
+Burkina Faso;2003;0.169
+Burkina Faso;2004;0.1695
+Burkina Faso;2005;0.1699
+Burkina Faso;2006;0.1704
+Burkina Faso;2007;0.1708
+Burkina Faso;2008;0.1713
+Burkina Faso;2009;0.1717
+Burkina Faso;2010;0.1665
+Burkina Faso;2011;0.1613
+Burkina Faso;2012;0.1561
+Burkina Faso;2013;0.1508
+Burkina Faso;2014;0.1456
+Burkina Faso;2015;0.1481
+Burkina Faso;2016;0.1506
+Burkina Faso;2017;0.1531
+Burkina Faso;2018;0.1556
+Burkina Faso;2019;0.1556
+Burkina Faso;2020;0.1556
+Burkina Faso;2021;0.1556
+Burundi;1998;0.1747
+Burundi;1999;0.169
+Burundi;2000;0.1633
+Burundi;2001;0.1576
+Burundi;2002;0.1519
+Burundi;2003;0.1461
+Burundi;2004;0.1403
+Burundi;2005;0.1345
+Burundi;2006;0.1287
+Burundi;2007;0.1314
+Burundi;2008;0.134
+Burundi;2009;0.1367
+Burundi;2010;0.1394
+Burundi;2011;0.1421
+Burundi;2012;0.1448
+Burundi;2013;0.1474
+Burundi;2014;0.1474
+Burundi;2015;0.1474
+Burundi;2016;0.1474
+Burundi;2017;0.1474
+Burundi;2018;0.1474
+Burundi;2019;0.1474
+Burundi;2020;0.1474
+Burundi;2021;0.1474
+Cabo Verde;1998;0.2319
+Cabo Verde;1999;0.2319
+Cabo Verde;2000;0.2319
+Cabo Verde;2001;0.2319
+Cabo Verde;2002;0.2255
+Cabo Verde;2003;0.2191
+Cabo Verde;2004;0.2127
+Cabo Verde;2005;0.2063
+Cabo Verde;2006;0.1999
+Cabo Verde;2007;0.1934
+Cabo Verde;2008;0.1867
+Cabo Verde;2009;0.1799
+Cabo Verde;2010;0.1731
+Cabo Verde;2011;0.1663
+Cabo Verde;2012;0.1595
+Cabo Verde;2013;0.1527
+Cabo Verde;2014;0.1459
+Cabo Verde;2015;0.1391
+Cabo Verde;2016;0.1391
+Cabo Verde;2017;0.1391
+Cabo Verde;2018;0.1391
+Cabo Verde;2019;0.1391
+Cabo Verde;2020;0.1391
+Cabo Verde;2021;0.1391
+California;1998;0.2018
+California;1999;0.2427
+California;2000;0.2875
+California;2001;0.2008
+California;2002;0.1773
+California;2003;0.19
+California;2004;0.215
+California;2005;0.2393
+California;2006;0.2371
+California;2007;0.243
+California;2008;0.2053
+California;2009;0.1847
+California;2010;0.2125
+California;2011;0.2069
+California;2012;0.2494
+California;2013;0.2181
+California;2014;0.2364
+California;2015;0.2387
+California;2016;0.231
+California;2017;0.2356
+California;2018;0.2391
+California;2019;
+California;2020;
+California;2021;
+Cambodia;1998;0.2679
+Cambodia;1999;0.2679
+Cambodia;2000;0.2679
+Cambodia;2001;0.2679
+Cambodia;2002;0.2679
+Cambodia;2003;0.2679
+Cambodia;2004;0.2679
+Cambodia;2005;0.2679
+Cambodia;2006;0.2679
+Cambodia;2007;0.2679
+Cambodia;2008;0.2679
+Cambodia;2009;0.2679
+Cambodia;2010;0.2766
+Cambodia;2011;0.1937
+Cambodia;2012;0.184
+Cambodia;2013;0.2075
+Cambodia;2014;0.182
+Cambodia;2015;0.1818
+Cambodia;2016;0.1821
+Cambodia;2017;0.1818
+Cambodia;2018;0.1813
+Cambodia;2019;0.1813
+Cambodia;2020;0.1813
+Cambodia;2021;0.1813
+Cameroon;1998;0.1875
+Cameroon;1999;0.1888
+Cameroon;2000;0.1902
+Cameroon;2001;0.1915
+Cameroon;2002;0.1857
+Cameroon;2003;0.1799
+Cameroon;2004;0.1741
+Cameroon;2005;0.1683
+Cameroon;2006;0.1625
+Cameroon;2007;0.1567
+Cameroon;2008;0.1569
+Cameroon;2009;0.1572
+Cameroon;2010;0.1574
+Cameroon;2011;0.1577
+Cameroon;2012;0.158
+Cameroon;2013;0.1582
+Cameroon;2014;0.1585
+Cameroon;2015;0.1585
+Cameroon;2016;0.1585
+Cameroon;2017;0.1585
+Cameroon;2018;0.1585
+Cameroon;2019;0.1585
+Cameroon;2020;0.1585
+Cameroon;2021;0.1585
+Canada;1998;0.1252
+Canada;1999;0.1306
+Canada;2000;0.1473
+Canada;2001;0.1387
+Canada;2002;0.1348
+Canada;2003;0.135
+Canada;2004;0.1443
+Canada;2005;0.1539
+Canada;2006;0.1608
+Canada;2007;0.1633
+Canada;2008;0.1508
+Canada;2009;0.1323
+Canada;2010;0.1398
+Canada;2011;0.1407
+Canada;2012;0.1342
+Canada;2013;0.1457
+Canada;2014;0.1506
+Canada;2015;0.157
+Canada;2016;0.1328
+Canada;2017;0.149
+Canada;2018;0.1395
+Canada;2019;0.1391
+Canada;2020;0.1391
+Canada;2021;0.1391
+Central African Republic;1998;0.2948
+Central African Republic;1999;0.2963
+Central African Republic;2000;0.2978
+Central African Republic;2001;0.2994
+Central African Republic;2002;0.3009
+Central African Republic;2003;0.3024
+Central African Republic;2004;0.3039
+Central African Republic;2005;0.3054
+Central African Republic;2006;0.3069
+Central African Republic;2007;0.3085
+Central African Republic;2008;0.31
+Central African Republic;2009;0.31
+Central African Republic;2010;0.31
+Central African Republic;2011;0.31
+Central African Republic;2012;0.31
+Central African Republic;2013;0.31
+Central African Republic;2014;0.31
+Central African Republic;2015;0.31
+Central African Republic;2016;0.31
+Central African Republic;2017;0.31
+Central African Republic;2018;0.31
+Central African Republic;2019;0.31
+Central African Republic;2020;0.31
+Central African Republic;2021;0.31
+Central Asia;1998;0.1682
+Central Asia;1999;0.1699
+Central Asia;2000;0.1726
+Central Asia;2001;0.181
+Central Asia;2002;0.1889
+Central Asia;2003;0.1796
+Central Asia;2004;0.1671
+Central Asia;2005;0.1832
+Central Asia;2006;0.1914
+Central Asia;2007;0.1806
+Central Asia;2008;0.1796
+Central Asia;2009;0.1821
+Central Asia;2010;0.1795
+Central Asia;2011;0.1711
+Central Asia;2012;0.1736
+Central Asia;2013;0.1728
+Central Asia;2014;0.1686
+Central Asia;2015;0.1631
+Central Asia;2016;0.1754
+Central Asia;2017;0.1782
+Central Asia;2018;0.1803
+Central Asia;2019;0.1842
+Central Asia;2020;0.1816
+Central Asia;2021;0.1823
+Central Asia (at market exchange rate);1998;0.1817
+Central Asia (at market exchange rate);1999;0.1853
+Central Asia (at market exchange rate);2000;0.1907
+Central Asia (at market exchange rate);2001;0.195
+Central Asia (at market exchange rate);2002;0.2072
+Central Asia (at market exchange rate);2003;0.199
+Central Asia (at market exchange rate);2004;0.1813
+Central Asia (at market exchange rate);2005;0.202
+Central Asia (at market exchange rate);2006;0.2047
+Central Asia (at market exchange rate);2007;0.1949
+Central Asia (at market exchange rate);2008;0.1946
+Central Asia (at market exchange rate);2009;0.1997
+Central Asia (at market exchange rate);2010;0.1962
+Central Asia (at market exchange rate);2011;0.1864
+Central Asia (at market exchange rate);2012;0.188
+Central Asia (at market exchange rate);2013;0.1903
+Central Asia (at market exchange rate);2014;0.187
+Central Asia (at market exchange rate);2015;0.1797
+Central Asia (at market exchange rate);2016;0.1947
+Central Asia (at market exchange rate);2017;0.1979
+Central Asia (at market exchange rate);2018;0.1987
+Central Asia (at market exchange rate);2019;0.2012
+Central Asia (at market exchange rate);2020;0.2002
+Central Asia (at market exchange rate);2021;0.2004
+Chad;1998;0.1448
+Chad;1999;0.1448
+Chad;2000;0.1448
+Chad;2001;0.1448
+Chad;2002;0.1448
+Chad;2003;0.1448
+Chad;2004;0.1464
+Chad;2005;0.1479
+Chad;2006;0.1494
+Chad;2007;0.151
+Chad;2008;0.1525
+Chad;2009;0.154
+Chad;2010;0.1555
+Chad;2011;0.1571
+Chad;2012;0.1543
+Chad;2013;0.1515
+Chad;2014;0.1488
+Chad;2015;0.146
+Chad;2016;0.1432
+Chad;2017;0.1404
+Chad;2018;0.1377
+Chad;2019;0.1377
+Chad;2020;0.1377
+Chad;2021;0.1377
+Chile;1998;0.2623
+Chile;1999;0.2623
+Chile;2000;0.2623
+Chile;2001;0.2498
+Chile;2002;0.2372
+Chile;2003;0.2246
+Chile;2004;0.2426
+Chile;2005;0.2601
+Chile;2006;0.2772
+Chile;2007;0.2716
+Chile;2008;0.266
+Chile;2009;0.2601
+Chile;2010;0.263
+Chile;2011;0.2658
+Chile;2012;0.2656
+Chile;2013;0.2655
+Chile;2014;0.2651
+Chile;2015;0.2647
+Chile;2016;0.2634
+Chile;2017;0.262
+Chile;2018;0.2511
+Chile;2019;0.2399
+Chile;2020;0.2287
+Chile;2021;0.2287
+China;1998;0.0994
+China;1999;0.1002
+China;2000;0.1046
+China;2001;0.1096
+China;2002;0.1265
+China;2003;0.1323
+China;2004;0.1393
+China;2005;0.143
+China;2006;0.1487
+China;2007;0.1538
+China;2008;0.1529
+China;2009;0.1552
+China;2010;0.152
+China;2011;0.1467
+China;2012;0.1383
+China;2013;0.1389
+China;2014;0.1374
+China;2015;0.14
+China;2016;0.1405
+China;2017;0.1516
+China;2018;0.1485
+China;2019;0.1466
+China;2020;0.1556
+China;2021;0.1572
+Colombia;1998;0.1993
+Colombia;1999;0.1993
+Colombia;2000;0.1993
+Colombia;2001;0.1993
+Colombia;2002;0.1993
+Colombia;2003;0.1892
+Colombia;2004;0.192
+Colombia;2005;0.1791
+Colombia;2006;0.1788
+Colombia;2007;0.1784
+Colombia;2008;0.178
+Colombia;2009;0.174
+Colombia;2010;0.1667
+Colombia;2011;0.1866
+Colombia;2012;0.1613
+Colombia;2013;0.1697
+Colombia;2014;0.1761
+Colombia;2015;0.1648
+Colombia;2016;0.1728
+Colombia;2017;0.1664
+Colombia;2018;0.1767
+Colombia;2019;0.1773
+Colombia;2020;0.1778
+Colombia;2021;0.1778
+Colorado;1998;0.1756
+Colorado;1999;0.1896
+Colorado;2000;0.212
+Colorado;2001;0.167
+Colorado;2002;0.151
+Colorado;2003;0.1559
+Colorado;2004;0.184
+Colorado;2005;0.1984
+Colorado;2006;0.2159
+Colorado;2007;0.2138
+Colorado;2008;0.1845
+Colorado;2009;0.1604
+Colorado;2010;0.1843
+Colorado;2011;0.1925
+Colorado;2012;0.2154
+Colorado;2013;0.1645
+Colorado;2014;0.1804
+Colorado;2015;0.1786
+Colorado;2016;0.1887
+Colorado;2017;0.1854
+Colorado;2018;0.1936
+Colorado;2019;
+Colorado;2020;
+Colorado;2021;
+Comoros;1998;0.2913
+Comoros;1999;0.2913
+Comoros;2000;0.2913
+Comoros;2001;0.2913
+Comoros;2002;0.2913
+Comoros;2003;0.2913
+Comoros;2004;0.2913
+Comoros;2005;0.2763
+Comoros;2006;0.2614
+Comoros;2007;0.2464
+Comoros;2008;0.2314
+Comoros;2009;0.2164
+Comoros;2010;0.2014
+Comoros;2011;0.1864
+Comoros;2012;0.1715
+Comoros;2013;0.1565
+Comoros;2014;0.1415
+Comoros;2015;0.1415
+Comoros;2016;0.1415
+Comoros;2017;0.1415
+Comoros;2018;0.1415
+Comoros;2019;0.1415
+Comoros;2020;0.1415
+Comoros;2021;0.1415
+Congo;1998;0.1858
+Congo;1999;0.1858
+Congo;2000;0.1858
+Congo;2001;0.1858
+Congo;2002;0.1858
+Congo;2003;0.1858
+Congo;2004;0.1858
+Congo;2005;0.1858
+Congo;2006;0.189
+Congo;2007;0.1923
+Congo;2008;0.1955
+Congo;2009;0.1988
+Congo;2010;0.202
+Congo;2011;0.2052
+Congo;2012;0.2052
+Congo;2013;0.2052
+Congo;2014;0.2052
+Congo;2015;0.2052
+Congo;2016;0.2052
+Congo;2017;0.2052
+Congo;2018;0.2052
+Congo;2019;0.2052
+Congo;2020;0.2052
+Congo;2021;0.2052
+Connecticut;1998;0.2707
+Connecticut;1999;0.2775
+Connecticut;2000;0.3075
+Connecticut;2001;0.2708
+Connecticut;2002;0.2286
+Connecticut;2003;0.2458
+Connecticut;2004;0.2792
+Connecticut;2005;0.3016
+Connecticut;2006;0.3083
+Connecticut;2007;0.3455
+Connecticut;2008;0.267
+Connecticut;2009;0.2348
+Connecticut;2010;0.278
+Connecticut;2011;0.2602
+Connecticut;2012;0.3107
+Connecticut;2013;0.2805
+Connecticut;2014;0.2933
+Connecticut;2015;0.2836
+Connecticut;2016;0.2554
+Connecticut;2017;0.2844
+Connecticut;2018;0.2665
+Connecticut;2019;
+Connecticut;2020;
+Connecticut;2021;
+Costa Rica;1998;0.1941
+Costa Rica;1999;0.1941
+Costa Rica;2000;0.1941
+Costa Rica;2001;0.1941
+Costa Rica;2002;0.1941
+Costa Rica;2003;0.1941
+Costa Rica;2004;0.1941
+Costa Rica;2005;0.1941
+Costa Rica;2006;0.1941
+Costa Rica;2007;0.1941
+Costa Rica;2008;0.1941
+Costa Rica;2009;0.1941
+Costa Rica;2010;0.1941
+Costa Rica;2011;0.1778
+Costa Rica;2012;0.1795
+Costa Rica;2013;0.1779
+Costa Rica;2014;0.1481
+Costa Rica;2015;0.1637
+Costa Rica;2016;0.1991
+Costa Rica;2017;0.1701
+Costa Rica;2018;0.1913
+Costa Rica;2019;0.1811
+Costa Rica;2020;0.1772
+Costa Rica;2021;0.1772
+Cote d'Ivoire;1998;0.1779
+Cote d'Ivoire;1999;0.1855
+Cote d'Ivoire;2000;0.1936
+Cote d'Ivoire;2001;0.2024
+Cote d'Ivoire;2002;0.2118
+Cote d'Ivoire;2003;0.2072
+Cote d'Ivoire;2004;0.2027
+Cote d'Ivoire;2005;0.1982
+Cote d'Ivoire;2006;0.1936
+Cote d'Ivoire;2007;0.1891
+Cote d'Ivoire;2008;0.1845
+Cote d'Ivoire;2009;0.1821
+Cote d'Ivoire;2010;0.1799
+Cote d'Ivoire;2011;0.1778
+Cote d'Ivoire;2012;0.1758
+Cote d'Ivoire;2013;0.1739
+Cote d'Ivoire;2014;0.1721
+Cote d'Ivoire;2015;0.1721
+Cote d'Ivoire;2016;0.1721
+Cote d'Ivoire;2017;0.1721
+Cote d'Ivoire;2018;0.1721
+Cote d'Ivoire;2019;0.1721
+Cote d'Ivoire;2020;0.1721
+Cote d'Ivoire;2021;0.1721
+Croatia;1998;0.0726
+Croatia;1999;0.0738
+Croatia;2000;0.0716
+Croatia;2001;0.0751
+Croatia;2002;0.0771
+Croatia;2003;0.0753
+Croatia;2004;0.0817
+Croatia;2005;0.0919
+Croatia;2006;0.0954
+Croatia;2007;0.1003
+Croatia;2008;0.1
+Croatia;2009;0.0868
+Croatia;2010;0.0893
+Croatia;2011;0.0988
+Croatia;2012;0.0947
+Croatia;2013;0.1013
+Croatia;2014;0.1023
+Croatia;2015;0.1076
+Croatia;2016;0.0963
+Croatia;2017;0.1011
+Croatia;2018;0.0983
+Croatia;2019;0.0963
+Croatia;2020;0.093
+Croatia;2021;0.0934
+Cuba;1998;0.1724
+Cuba;1999;0.1724
+Cuba;2000;0.1724
+Cuba;2001;0.1754
+Cuba;2002;0.1763
+Cuba;2003;0.1858
+Cuba;2004;0.1746
+Cuba;2005;0.151
+Cuba;2006;0.1484
+Cuba;2007;0.1797
+Cuba;2008;0.1657
+Cuba;2009;0.1428
+Cuba;2010;0.1511
+Cuba;2011;0.1328
+Cuba;2012;0.1285
+Cuba;2013;0.1331
+Cuba;2014;0.1339
+Cuba;2015;0.1444
+Cuba;2016;0.1587
+Cuba;2017;0.1424
+Cuba;2018;0.1419
+Cuba;2019;0.1364
+Cuba;2020;0.1513
+Cuba;2021;0.1513
+Cyprus;1998;0.1412
+Cyprus;1999;0.11
+Cyprus;2000;0.1029
+Cyprus;2001;0.1101
+Cyprus;2002;0.1246
+Cyprus;2003;0.1137
+Cyprus;2004;0.0739
+Cyprus;2005;0.0783
+Cyprus;2006;0.0955
+Cyprus;2007;0.0779
+Cyprus;2008;0.1057
+Cyprus;2009;0.1001
+Cyprus;2010;0.091
+Cyprus;2011;0.1166
+Cyprus;2012;0.122
+Cyprus;2013;0.1689
+Cyprus;2014;0.1205
+Cyprus;2015;0.1152
+Cyprus;2016;0.1109
+Cyprus;2017;0.1026
+Cyprus;2018;0.1225
+Cyprus;2019;0.0885
+Cyprus;2020;0.089
+Cyprus;2021;0.089
+Czech Republic;1998;0.1156
+Czech Republic;1999;0.1132
+Czech Republic;2000;0.1119
+Czech Republic;2001;0.1137
+Czech Republic;2002;0.1074
+Czech Republic;2003;0.1068
+Czech Republic;2004;0.1095
+Czech Republic;2005;0.1169
+Czech Republic;2006;0.1069
+Czech Republic;2007;0.1145
+Czech Republic;2008;0.1373
+Czech Republic;2009;0.1154
+Czech Republic;2010;0.1087
+Czech Republic;2011;0.1039
+Czech Republic;2012;0.1126
+Czech Republic;2013;0.1055
+Czech Republic;2014;0.1074
+Czech Republic;2015;0.1139
+Czech Republic;2016;0.1093
+Czech Republic;2017;0.1088
+Czech Republic;2018;0.1032
+Czech Republic;2019;0.1036
+Czech Republic;2020;0.1064
+Czech Republic;2021;0.1061
+DR Congo;1998;0.1441
+DR Congo;1999;0.1441
+DR Congo;2000;0.1441
+DR Congo;2001;0.1441
+DR Congo;2002;0.1441
+DR Congo;2003;0.1441
+DR Congo;2004;0.1441
+DR Congo;2005;0.1444
+DR Congo;2006;0.1446
+DR Congo;2007;0.1449
+DR Congo;2008;0.1452
+DR Congo;2009;0.1455
+DR Congo;2010;0.1458
+DR Congo;2011;0.1461
+DR Congo;2012;0.1463
+DR Congo;2013;0.1463
+DR Congo;2014;0.1463
+DR Congo;2015;0.1463
+DR Congo;2016;0.1463
+DR Congo;2017;0.1463
+DR Congo;2018;0.1463
+DR Congo;2019;0.1463
+DR Congo;2020;0.1463
+DR Congo;2021;0.1463
+Delaware;1998;0.1611
+Delaware;1999;0.2382
+Delaware;2000;0.1645
+Delaware;2001;0.1359
+Delaware;2002;0.1302
+Delaware;2003;0.1394
+Delaware;2004;0.1741
+Delaware;2005;0.2071
+Delaware;2006;0.1876
+Delaware;2007;0.1836
+Delaware;2008;0.1674
+Delaware;2009;0.1392
+Delaware;2010;0.1396
+Delaware;2011;0.1372
+Delaware;2012;0.1592
+Delaware;2013;0.1382
+Delaware;2014;0.1498
+Delaware;2015;0.1552
+Delaware;2016;0.1528
+Delaware;2017;0.1583
+Delaware;2018;0.1634
+Delaware;2019;
+Delaware;2020;
+Delaware;2021;
+Denmark;1998;0.1047
+Denmark;1999;0.116
+Denmark;2000;0.1185
+Denmark;2001;0.1031
+Denmark;2002;0.0977
+Denmark;2003;0.0942
+Denmark;2004;0.0996
+Denmark;2005;0.1121
+Denmark;2006;0.1169
+Denmark;2007;0.1115
+Denmark;2008;0.1058
+Denmark;2009;0.0969
+Denmark;2010;0.1164
+Denmark;2011;0.1169
+Denmark;2012;0.1196
+Denmark;2013;0.1243
+Denmark;2014;0.1314
+Denmark;2015;0.1295
+Denmark;2016;0.1301
+Denmark;2017;0.1275
+Denmark;2018;0.1265
+Denmark;2019;0.1242
+Denmark;2020;0.1282
+Denmark;2021;0.1341
+Djibouti;1998;0.1541
+Djibouti;1999;0.1541
+Djibouti;2000;0.1541
+Djibouti;2001;0.1541
+Djibouti;2002;0.1541
+Djibouti;2003;0.1558
+Djibouti;2004;0.1576
+Djibouti;2005;0.1594
+Djibouti;2006;0.1612
+Djibouti;2007;0.1629
+Djibouti;2008;0.1647
+Djibouti;2009;0.1664
+Djibouti;2010;0.1682
+Djibouti;2011;0.17
+Djibouti;2012;0.1717
+Djibouti;2013;0.1649
+Djibouti;2014;0.1633
+Djibouti;2015;0.1618
+Djibouti;2016;0.1602
+Djibouti;2017;0.1586
+Djibouti;2018;0.1586
+Djibouti;2019;0.1586
+Djibouti;2020;0.1586
+Djibouti;2021;0.1586
+Dominican Republic;1998;0.2861
+Dominican Republic;1999;0.2861
+Dominican Republic;2000;0.2861
+Dominican Republic;2001;0.2861
+Dominican Republic;2002;0.2861
+Dominican Republic;2003;0.2861
+Dominican Republic;2004;0.2861
+Dominican Republic;2005;0.2861
+Dominican Republic;2006;0.2861
+Dominican Republic;2007;0.2861
+Dominican Republic;2008;0.2861
+Dominican Republic;2009;0.2861
+Dominican Republic;2010;0.2861
+Dominican Republic;2011;0.2861
+Dominican Republic;2012;0.2861
+Dominican Republic;2013;0.3026
+Dominican Republic;2014;0.2836
+Dominican Republic;2015;0.3066
+Dominican Republic;2016;0.3147
+Dominican Republic;2017;0.2483
+Dominican Republic;2018;0.3587
+Dominican Republic;2019;0.291
+Dominican Republic;2020;0.291
+Dominican Republic;2021;0.291
+East Africa;1998;0.2241
+East Africa;1999;0.219
+East Africa;2000;0.2196
+East Africa;2001;0.223
+East Africa;2002;0.224
+East Africa;2003;0.2219
+East Africa;2004;0.2217
+East Africa;2005;0.2213
+East Africa;2006;0.2182
+East Africa;2007;0.2171
+East Africa;2008;0.2137
+East Africa;2009;0.2105
+East Africa;2010;0.2083
+East Africa;2011;0.2032
+East Africa;2012;0.2
+East Africa;2013;0.1987
+East Africa;2014;0.1979
+East Africa;2015;0.195
+East Africa;2016;0.1928
+East Africa;2017;0.191
+East Africa;2018;0.1921
+East Africa;2019;0.1878
+East Africa;2020;0.1857
+East Africa;2021;0.1857
+East Africa (at market exchange rate);1998;0.5554
+East Africa (at market exchange rate);1999;0.5567
+East Africa (at market exchange rate);2000;0.5541
+East Africa (at market exchange rate);2001;0.5441
+East Africa (at market exchange rate);2002;0.5369
+East Africa (at market exchange rate);2003;0.5158
+East Africa (at market exchange rate);2004;0.5118
+East Africa (at market exchange rate);2005;0.5066
+East Africa (at market exchange rate);2006;0.4996
+East Africa (at market exchange rate);2007;0.4918
+East Africa (at market exchange rate);2008;0.4622
+East Africa (at market exchange rate);2009;0.471
+East Africa (at market exchange rate);2010;0.4923
+East Africa (at market exchange rate);2011;0.5046
+East Africa (at market exchange rate);2012;0.5266
+East Africa (at market exchange rate);2013;0.5218
+East Africa (at market exchange rate);2014;0.5149
+East Africa (at market exchange rate);2015;0.5109
+East Africa (at market exchange rate);2016;0.5107
+East Africa (at market exchange rate);2017;0.5174
+East Africa (at market exchange rate);2018;0.5391
+East Africa (at market exchange rate);2019;0.5413
+East Africa (at market exchange rate);2020;0.5321
+East Africa (at market exchange rate);2021;0.5318
+East Asia;1998;0.1764
+East Asia;1999;0.1764
+East Asia;2000;0.1771
+East Asia;2001;0.1833
+East Asia;2002;0.184
+East Asia;2003;0.1905
+East Asia;2004;0.1937
+East Asia;2005;0.1901
+East Asia;2006;0.193
+East Asia;2007;0.1905
+East Asia;2008;0.1833
+East Asia;2009;0.1701
+East Asia;2010;0.1819
+East Asia;2011;0.1761
+East Asia;2012;0.1567
+East Asia;2013;0.1556
+East Asia;2014;0.1676
+East Asia;2015;0.1575
+East Asia;2016;0.1589
+East Asia;2017;0.1646
+East Asia;2018;0.1598
+East Asia;2019;0.1575
+East Asia;2020;0.1646
+East Asia;2021;0.1658
+East Asia (at market exchange rate);1998;0.211
+East Asia (at market exchange rate);1999;0.2098
+East Asia (at market exchange rate);2000;0.2126
+East Asia (at market exchange rate);2001;0.2157
+East Asia (at market exchange rate);2002;0.2183
+East Asia (at market exchange rate);2003;0.2201
+East Asia (at market exchange rate);2004;0.2227
+East Asia (at market exchange rate);2005;0.2161
+East Asia (at market exchange rate);2006;0.215
+East Asia (at market exchange rate);2007;0.213
+East Asia (at market exchange rate);2008;0.2058
+East Asia (at market exchange rate);2009;0.1906
+East Asia (at market exchange rate);2010;0.1918
+East Asia (at market exchange rate);2011;0.1874
+East Asia (at market exchange rate);2012;0.1794
+East Asia (at market exchange rate);2013;0.1766
+East Asia (at market exchange rate);2014;0.1714
+East Asia (at market exchange rate);2015;0.1743
+East Asia (at market exchange rate);2016;0.1718
+East Asia (at market exchange rate);2017;0.1752
+East Asia (at market exchange rate);2018;0.171
+East Asia (at market exchange rate);2019;0.1681
+East Asia (at market exchange rate);2020;0.1718
+East Asia (at market exchange rate);2021;0.1715
+Eastern Europe;1998;0.1122
+Eastern Europe;1999;0.1096
+Eastern Europe;2000;0.108
+Eastern Europe;2001;0.1063
+Eastern Europe;2002;0.1112
+Eastern Europe;2003;0.1129
+Eastern Europe;2004;0.1222
+Eastern Europe;2005;0.1284
+Eastern Europe;2006;0.1291
+Eastern Europe;2007;0.1386
+Eastern Europe;2008;0.1415
+Eastern Europe;2009;0.1328
+Eastern Europe;2010;0.1252
+Eastern Europe;2011;0.1284
+Eastern Europe;2012;0.1323
+Eastern Europe;2013;0.131
+Eastern Europe;2014;0.1372
+Eastern Europe;2015;0.1402
+Eastern Europe;2016;0.1328
+Eastern Europe;2017;0.1329
+Eastern Europe;2018;0.1313
+Eastern Europe;2019;0.1361
+Eastern Europe;2020;0.136
+Eastern Europe;2021;0.1382
+Eastern Europe (at market exchange rate);1998;0.1155
+Eastern Europe (at market exchange rate);1999;0.1125
+Eastern Europe (at market exchange rate);2000;0.1112
+Eastern Europe (at market exchange rate);2001;0.1107
+Eastern Europe (at market exchange rate);2002;0.1145
+Eastern Europe (at market exchange rate);2003;0.1165
+Eastern Europe (at market exchange rate);2004;0.1238
+Eastern Europe (at market exchange rate);2005;0.1304
+Eastern Europe (at market exchange rate);2006;0.131
+Eastern Europe (at market exchange rate);2007;0.1421
+Eastern Europe (at market exchange rate);2008;0.1418
+Eastern Europe (at market exchange rate);2009;0.134
+Eastern Europe (at market exchange rate);2010;0.1275
+Eastern Europe (at market exchange rate);2011;0.1296
+Eastern Europe (at market exchange rate);2012;0.1339
+Eastern Europe (at market exchange rate);2013;0.1317
+Eastern Europe (at market exchange rate);2014;0.1383
+Eastern Europe (at market exchange rate);2015;0.1394
+Eastern Europe (at market exchange rate);2016;0.1343
+Eastern Europe (at market exchange rate);2017;0.1329
+Eastern Europe (at market exchange rate);2018;0.1329
+Eastern Europe (at market exchange rate);2019;0.1357
+Eastern Europe (at market exchange rate);2020;0.1364
+Eastern Europe (at market exchange rate);2021;0.1364
+Ecuador;1998;0.2067
+Ecuador;1999;0.2067
+Ecuador;2000;0.2067
+Ecuador;2001;0.2067
+Ecuador;2002;0.209
+Ecuador;2003;0.2113
+Ecuador;2004;0.1948
+Ecuador;2005;0.1783
+Ecuador;2006;0.1634
+Ecuador;2007;0.2024
+Ecuador;2008;0.1428
+Ecuador;2009;0.1407
+Ecuador;2010;0.1783
+Ecuador;2011;0.1293
+Ecuador;2012;0.1844
+Ecuador;2013;0.1614
+Ecuador;2014;0.1575
+Ecuador;2015;0.1308
+Ecuador;2016;0.123
+Ecuador;2017;0.149
+Ecuador;2018;0.1378
+Ecuador;2019;0.1258
+Ecuador;2020;0.1694
+Ecuador;2021;0.1694
+Egypt;1998;0.1883
+Egypt;1999;0.1952
+Egypt;2000;0.1929
+Egypt;2001;0.1908
+Egypt;2002;0.1886
+Egypt;2003;0.1865
+Egypt;2004;0.1845
+Egypt;2005;0.1866
+Egypt;2006;0.1885
+Egypt;2007;0.1904
+Egypt;2008;0.1921
+Egypt;2009;0.1835
+Egypt;2010;0.1749
+Egypt;2011;0.1776
+Egypt;2012;0.1803
+Egypt;2013;0.1878
+Egypt;2014;0.195
+Egypt;2015;0.2021
+Egypt;2016;0.1976
+Egypt;2017;0.1932
+Egypt;2018;0.1889
+Egypt;2019;0.1848
+Egypt;2020;0.1808
+Egypt;2021;0.1808
+El Salvador;1998;0.1625
+El Salvador;1999;0.1625
+El Salvador;2000;0.1625
+El Salvador;2001;0.1625
+El Salvador;2002;0.1788
+El Salvador;2003;0.1578
+El Salvador;2004;0.1699
+El Salvador;2005;0.1985
+El Salvador;2006;0.1588
+El Salvador;2007;0.1786
+El Salvador;2008;0.1686
+El Salvador;2009;0.1586
+El Salvador;2010;0.1327
+El Salvador;2011;0.142
+El Salvador;2012;0.1513
+El Salvador;2013;0.2302
+El Salvador;2014;0.2083
+El Salvador;2015;0.1493
+El Salvador;2016;0.1881
+El Salvador;2017;0.1484
+El Salvador;2018;0.1261
+El Salvador;2019;0.1367
+El Salvador;2020;0.1367
+El Salvador;2021;0.1367
+Equatorial Guinea;1998;0.1715
+Equatorial Guinea;1999;0.1719
+Equatorial Guinea;2000;0.1722
+Equatorial Guinea;2001;0.1711
+Equatorial Guinea;2002;0.1688
+Equatorial Guinea;2003;0.1665
+Equatorial Guinea;2004;0.1643
+Equatorial Guinea;2005;0.1622
+Equatorial Guinea;2006;0.1601
+Equatorial Guinea;2007;0.1581
+Equatorial Guinea;2008;0.157
+Equatorial Guinea;2009;0.1591
+Equatorial Guinea;2010;0.1611
+Equatorial Guinea;2011;0.1632
+Equatorial Guinea;2012;0.1648
+Equatorial Guinea;2013;0.1662
+Equatorial Guinea;2014;0.1676
+Equatorial Guinea;2015;0.169
+Equatorial Guinea;2016;0.1706
+Equatorial Guinea;2017;0.1721
+Equatorial Guinea;2018;0.1737
+Equatorial Guinea;2019;0.1737
+Equatorial Guinea;2020;0.1737
+Equatorial Guinea;2021;0.1737
+Eritrea;1998;0.1762
+Eritrea;1999;0.1356
+Eritrea;2000;0.1387
+Eritrea;2001;0.1419
+Eritrea;2002;0.145
+Eritrea;2003;0.1482
+Eritrea;2004;0.1513
+Eritrea;2005;0.151
+Eritrea;2006;0.1506
+Eritrea;2007;0.1502
+Eritrea;2008;0.1499
+Eritrea;2009;0.1495
+Eritrea;2010;0.1491
+Eritrea;2011;0.147
+Eritrea;2012;0.1448
+Eritrea;2013;0.1426
+Eritrea;2014;0.1404
+Eritrea;2015;0.1382
+Eritrea;2016;0.1382
+Eritrea;2017;0.1382
+Eritrea;2018;0.1382
+Eritrea;2019;0.1382
+Eritrea;2020;0.1382
+Eritrea;2021;0.1382
+Estonia;1998;0.1548
+Estonia;1999;0.1595
+Estonia;2000;0.1514
+Estonia;2001;0.146
+Estonia;2002;0.1637
+Estonia;2003;0.1615
+Estonia;2004;0.154
+Estonia;2005;0.1925
+Estonia;2006;0.1552
+Estonia;2007;0.1556
+Estonia;2008;0.1307
+Estonia;2009;0.0953
+Estonia;2010;0.1101
+Estonia;2011;0.1272
+Estonia;2012;0.142
+Estonia;2013;0.1292
+Estonia;2014;0.131
+Estonia;2015;0.1123
+Estonia;2016;0.1136
+Estonia;2017;0.1253
+Estonia;2018;0.1296
+Estonia;2019;0.1692
+Estonia;2020;0.1617
+Estonia;2021;0.1625
+Ethiopia;1998;0.1762
+Ethiopia;1999;0.1356
+Ethiopia;2000;0.1387
+Ethiopia;2001;0.1419
+Ethiopia;2002;0.145
+Ethiopia;2003;0.1482
+Ethiopia;2004;0.1513
+Ethiopia;2005;0.151
+Ethiopia;2006;0.1506
+Ethiopia;2007;0.1502
+Ethiopia;2008;0.1499
+Ethiopia;2009;0.1495
+Ethiopia;2010;0.1491
+Ethiopia;2011;0.147
+Ethiopia;2012;0.1448
+Ethiopia;2013;0.1426
+Ethiopia;2014;0.1404
+Ethiopia;2015;0.1382
+Ethiopia;2016;0.1382
+Ethiopia;2017;0.1382
+Ethiopia;2018;0.1382
+Ethiopia;2019;0.1382
+Ethiopia;2020;0.1382
+Ethiopia;2021;0.1382
+Europe;1998;0.1126
+Europe;1999;0.1116
+Europe;2000;0.1119
+Europe;2001;0.1108
+Europe;2002;0.1094
+Europe;2003;0.1118
+Europe;2004;0.1156
+Europe;2005;0.1207
+Europe;2006;0.1244
+Europe;2007;0.1272
+Europe;2008;0.1213
+Europe;2009;0.1181
+Europe;2010;0.117
+Europe;2011;0.1198
+Europe;2012;0.1181
+Europe;2013;0.1208
+Europe;2014;0.1235
+Europe;2015;0.1209
+Europe;2016;0.1218
+Europe;2017;0.1232
+Europe;2018;0.1208
+Europe;2019;0.1201
+Europe;2020;0.1185
+Europe;2021;0.1198
+Europe (at market exchange rate);1998;0.1176
+Europe (at market exchange rate);1999;0.1164
+Europe (at market exchange rate);2000;0.1174
+Europe (at market exchange rate);2001;0.1156
+Europe (at market exchange rate);2002;0.1143
+Europe (at market exchange rate);2003;0.1172
+Europe (at market exchange rate);2004;0.1212
+Europe (at market exchange rate);2005;0.1273
+Europe (at market exchange rate);2006;0.1306
+Europe (at market exchange rate);2007;0.1328
+Europe (at market exchange rate);2008;0.1261
+Europe (at market exchange rate);2009;0.1238
+Europe (at market exchange rate);2010;0.1229
+Europe (at market exchange rate);2011;0.1265
+Europe (at market exchange rate);2012;0.1244
+Europe (at market exchange rate);2013;0.1266
+Europe (at market exchange rate);2014;0.1286
+Europe (at market exchange rate);2015;0.1252
+Europe (at market exchange rate);2016;0.1264
+Europe (at market exchange rate);2017;0.1276
+Europe (at market exchange rate);2018;0.1253
+Europe (at market exchange rate);2019;0.1239
+Europe (at market exchange rate);2020;0.1235
+Europe (at market exchange rate);2021;0.1245
+European Union;1998;0.1111
+European Union;1999;0.11
+European Union;2000;0.1101
+European Union;2001;0.1093
+European Union;2002;0.108
+European Union;2003;0.1099
+European Union;2004;0.1141
+European Union;2005;0.119
+European Union;2006;0.1226
+European Union;2007;0.1259
+European Union;2008;0.1207
+European Union;2009;0.1174
+European Union;2010;0.1154
+European Union;2011;0.1186
+European Union;2012;0.1174
+European Union;2013;0.1197
+European Union;2014;0.1226
+European Union;2015;0.1201
+European Union;2016;0.1213
+European Union;2017;0.1223
+European Union;2018;0.1204
+European Union;2019;0.1199
+European Union;2020;0.1182
+European Union;2021;0.1195
+European Union (at market exchange rate);1998;0.1155
+European Union (at market exchange rate);1999;0.1138
+European Union (at market exchange rate);2000;0.1146
+European Union (at market exchange rate);2001;0.1136
+European Union (at market exchange rate);2002;0.1125
+European Union (at market exchange rate);2003;0.1147
+European Union (at market exchange rate);2004;0.1192
+European Union (at market exchange rate);2005;0.1235
+European Union (at market exchange rate);2006;0.127
+European Union (at market exchange rate);2007;0.1306
+European Union (at market exchange rate);2008;0.1244
+European Union (at market exchange rate);2009;0.1222
+European Union (at market exchange rate);2010;0.1203
+European Union (at market exchange rate);2011;0.1241
+European Union (at market exchange rate);2012;0.1211
+European Union (at market exchange rate);2013;0.1243
+European Union (at market exchange rate);2014;0.1263
+European Union (at market exchange rate);2015;0.1235
+European Union (at market exchange rate);2016;0.1249
+European Union (at market exchange rate);2017;0.1264
+European Union (at market exchange rate);2018;0.1237
+European Union (at market exchange rate);2019;0.1231
+European Union (at market exchange rate);2020;0.1223
+European Union (at market exchange rate);2021;0.1236
+Finland;1998;0.1161
+Finland;1999;0.1254
+Finland;2000;0.1348
+Finland;2001;0.1289
+Finland;2002;0.1253
+Finland;2003;0.118
+Finland;2004;0.1295
+Finland;2005;0.1101
+Finland;2006;0.1181
+Finland;2007;0.1155
+Finland;2008;0.1126
+Finland;2009;0.0901
+Finland;2010;0.0962
+Finland;2011;0.0924
+Finland;2012;0.0876
+Finland;2013;0.086
+Finland;2014;0.0901
+Finland;2015;0.0956
+Finland;2016;0.0968
+Finland;2017;0.1061
+Finland;2018;0.1047
+Finland;2019;0.1026
+Finland;2020;0.1112
+Finland;2021;0.1181
+Florida;1998;0.2421
+Florida;1999;0.2412
+Florida;2000;0.253
+Florida;2001;0.2196
+Florida;2002;0.2117
+Florida;2003;0.2089
+Florida;2004;0.2687
+Florida;2005;0.3199
+Florida;2006;0.315
+Florida;2007;0.3061
+Florida;2008;0.2609
+Florida;2009;0.2325
+Florida;2010;0.2379
+Florida;2011;0.2471
+Florida;2012;0.3064
+Florida;2013;0.2616
+Florida;2014;0.2867
+Florida;2015;0.2968
+Florida;2016;0.2537
+Florida;2017;0.3465
+Florida;2018;0.3193
+Florida;2019;
+Florida;2020;
+Florida;2021;
+France;1998;0.1039
+France;1999;0.1058
+France;2000;0.1088
+France;2001;0.1079
+France;2002;0.1045
+France;2003;0.1133
+France;2004;0.1164
+France;2005;0.1144
+France;2006;0.1133
+France;2007;0.1177
+France;2008;0.1151
+France;2009;0.1019
+France;2010;0.1078
+France;2011;0.1147
+France;2012;0.1051
+France;2013;0.1024
+France;2014;0.1046
+France;2015;0.1005
+France;2016;0.0989
+France;2017;0.0977
+France;2018;0.0973
+France;2019;0.0999
+France;2020;0.0884
+France;2021;0.0895
+Gabon;1998;0.1714
+Gabon;1999;0.1714
+Gabon;2000;0.1714
+Gabon;2001;0.1714
+Gabon;2002;0.1714
+Gabon;2003;0.1714
+Gabon;2004;0.1714
+Gabon;2005;0.1714
+Gabon;2006;0.1663
+Gabon;2007;0.1612
+Gabon;2008;0.1561
+Gabon;2009;0.151
+Gabon;2010;0.1459
+Gabon;2011;0.1408
+Gabon;2012;0.1357
+Gabon;2013;0.1306
+Gabon;2014;0.1255
+Gabon;2015;0.1204
+Gabon;2016;0.1153
+Gabon;2017;0.1102
+Gabon;2018;0.1102
+Gabon;2019;0.1102
+Gabon;2020;0.1102
+Gabon;2021;0.1102
+Gambia;1998;0.1856
+Gambia;1999;0.1897
+Gambia;2000;0.1938
+Gambia;2001;0.1979
+Gambia;2002;0.202
+Gambia;2003;0.2061
+Gambia;2004;0.2072
+Gambia;2005;0.2082
+Gambia;2006;0.2093
+Gambia;2007;0.2103
+Gambia;2008;0.2114
+Gambia;2009;0.2124
+Gambia;2010;0.2135
+Gambia;2011;0.198
+Gambia;2012;0.1826
+Gambia;2013;0.1671
+Gambia;2014;0.1516
+Gambia;2015;0.1361
+Gambia;2016;0.1361
+Gambia;2017;0.1361
+Gambia;2018;0.1361
+Gambia;2019;0.1361
+Gambia;2020;0.1361
+Gambia;2021;0.1361
+Georgia;1998;0.2558
+Georgia;1999;0.1965
+Georgia;2000;0.1994
+Georgia;2001;0.2049
+Georgia;2002;0.1803
+Georgia;2003;0.174
+Georgia;2004;0.1718
+Georgia;2005;0.188
+Georgia;2006;0.182
+Georgia;2007;0.2046
+Georgia;2008;0.194
+Georgia;2009;0.1807
+Georgia;2010;0.1816
+Georgia;2011;0.2345
+Georgia;2012;0.1965
+Georgia;2013;0.1992
+Georgia;2014;0.2173
+Georgia;2015;0.206
+Georgia;2016;0.2375
+Georgia;2017;0.2473
+Georgia;2018;0.2204
+Georgia;2019;0.2111
+Georgia;2020;0.2111
+Georgia;2021;0.2111
+Georgia (US);1998;0.1693
+Georgia (US);1999;0.1715
+Georgia (US);2000;0.1802
+Georgia (US);2001;0.158
+Georgia (US);2002;0.148
+Georgia (US);2003;0.1517
+Georgia (US);2004;0.1674
+Georgia (US);2005;0.1886
+Georgia (US);2006;0.2014
+Georgia (US);2007;0.2028
+Georgia (US);2008;0.1776
+Georgia (US);2009;0.1602
+Georgia (US);2010;0.1681
+Georgia (US);2011;0.1666
+Georgia (US);2012;0.1911
+Georgia (US);2013;0.1773
+Georgia (US);2014;0.1898
+Georgia (US);2015;0.1869
+Georgia (US);2016;0.1792
+Georgia (US);2017;0.204
+Georgia (US);2018;0.1976
+Georgia (US);2019;
+Georgia (US);2020;
+Georgia (US);2021;
+German Democratic Republic;1998;
+German Democratic Republic;1999;
+German Democratic Republic;2000;
+German Democratic Republic;2001;
+German Democratic Republic;2002;
+German Democratic Republic;2003;
+German Democratic Republic;2004;
+German Democratic Republic;2005;
+German Democratic Republic;2006;
+German Democratic Republic;2007;
+German Democratic Republic;2008;
+German Democratic Republic;2009;
+German Democratic Republic;2010;
+German Democratic Republic;2011;
+German Democratic Republic;2012;
+German Democratic Republic;2013;
+German Democratic Republic;2014;
+German Democratic Republic;2015;
+German Democratic Republic;2016;
+German Democratic Republic;2017;
+German Democratic Republic;2018;
+German Democratic Republic;2019;
+German Democratic Republic;2020;
+German Democratic Republic;2021;
+Germany;1998;0.1097
+Germany;1999;0.1064
+Germany;2000;0.1049
+Germany;2001;0.1028
+Germany;2002;0.101
+Germany;2003;0.0945
+Germany;2004;0.1058
+Germany;2005;0.1209
+Germany;2006;0.1269
+Germany;2007;0.1361
+Germany;2008;0.1345
+Germany;2009;0.1298
+Germany;2010;0.1287
+Germany;2011;0.128
+Germany;2012;0.1258
+Germany;2013;0.131
+Germany;2014;0.1326
+Germany;2015;0.1326
+Germany;2016;0.1325
+Germany;2017;0.1319
+Germany;2018;0.13
+Germany;2019;0.1305
+Germany;2020;0.1293
+Germany;2021;0.1332
+Ghana;1998;0.1218
+Ghana;1999;0.127
+Ghana;2000;0.1322
+Ghana;2001;0.1375
+Ghana;2002;0.1427
+Ghana;2003;0.1479
+Ghana;2004;0.1531
+Ghana;2005;0.1583
+Ghana;2006;0.1563
+Ghana;2007;0.1542
+Ghana;2008;0.1522
+Ghana;2009;0.1501
+Ghana;2010;0.148
+Ghana;2011;0.146
+Ghana;2012;0.1439
+Ghana;2013;0.146
+Ghana;2014;0.1481
+Ghana;2015;0.1502
+Ghana;2016;0.1523
+Ghana;2017;0.1523
+Ghana;2018;0.1523
+Ghana;2019;0.1523
+Ghana;2020;0.1523
+Ghana;2021;0.1523
+Greece;1998;0.1218
+Greece;1999;0.1287
+Greece;2000;0.1255
+Greece;2001;0.1231
+Greece;2002;0.1093
+Greece;2003;0.1076
+Greece;2004;0.1146
+Greece;2005;0.1143
+Greece;2006;0.1137
+Greece;2007;0.1067
+Greece;2008;0.0892
+Greece;2009;0.0846
+Greece;2010;0.0881
+Greece;2011;0.0728
+Greece;2012;0.0785
+Greece;2013;0.0996
+Greece;2014;0.125
+Greece;2015;0.1229
+Greece;2016;0.1125
+Greece;2017;0.11
+Greece;2018;0.111
+Greece;2019;0.1084
+Greece;2020;0.0992
+Greece;2021;0.1001
+Guatemala;1998;0.1895
+Guatemala;1999;0.1895
+Guatemala;2000;0.1895
+Guatemala;2001;0.1985
+Guatemala;2002;0.19
+Guatemala;2003;0.2035
+Guatemala;2004;0.1987
+Guatemala;2005;0.189
+Guatemala;2006;0.1895
+Guatemala;2007;0.2087
+Guatemala;2008;0.1994
+Guatemala;2009;0.186
+Guatemala;2010;0.1943
+Guatemala;2011;0.1933
+Guatemala;2012;0.1895
+Guatemala;2013;0.2013
+Guatemala;2014;0.202
+Guatemala;2015;0.1947
+Guatemala;2016;0.1985
+Guatemala;2017;0.1914
+Guatemala;2018;0.1898
+Guatemala;2019;0.183
+Guatemala;2020;0.1962
+Guatemala;2021;0.1962
+Guinea;1998;0.1866
+Guinea;1999;0.1864
+Guinea;2000;0.1862
+Guinea;2001;0.186
+Guinea;2002;0.1858
+Guinea;2003;0.1749
+Guinea;2004;0.1641
+Guinea;2005;0.1533
+Guinea;2006;0.1424
+Guinea;2007;0.1316
+Guinea;2008;0.1303
+Guinea;2009;0.1291
+Guinea;2010;0.1278
+Guinea;2011;0.1266
+Guinea;2012;0.1253
+Guinea;2013;0.1189
+Guinea;2014;0.1124
+Guinea;2015;0.1059
+Guinea;2016;0.0994
+Guinea;2017;0.0928
+Guinea;2018;0.0863
+Guinea;2019;0.0863
+Guinea;2020;0.0863
+Guinea;2021;0.0863
+Guinea-Bissau;1998;0.1663
+Guinea-Bissau;1999;0.1603
+Guinea-Bissau;2000;0.1542
+Guinea-Bissau;2001;0.1481
+Guinea-Bissau;2002;0.142
+Guinea-Bissau;2003;0.1457
+Guinea-Bissau;2004;0.1493
+Guinea-Bissau;2005;0.1529
+Guinea-Bissau;2006;0.1565
+Guinea-Bissau;2007;0.1601
+Guinea-Bissau;2008;0.1636
+Guinea-Bissau;2009;0.1672
+Guinea-Bissau;2010;0.1708
+Guinea-Bissau;2011;0.1645
+Guinea-Bissau;2012;0.1581
+Guinea-Bissau;2013;0.1517
+Guinea-Bissau;2014;0.1453
+Guinea-Bissau;2015;0.1389
+Guinea-Bissau;2016;0.1325
+Guinea-Bissau;2017;0.1261
+Guinea-Bissau;2018;0.1196
+Guinea-Bissau;2019;0.1196
+Guinea-Bissau;2020;0.1196
+Guinea-Bissau;2021;0.1196
+Guyana;1998;0.1895
+Guyana;1999;0.1895
+Guyana;2000;0.1895
+Guyana;2001;0.1985
+Guyana;2002;0.19
+Guyana;2003;0.2035
+Guyana;2004;0.1987
+Guyana;2005;0.189
+Guyana;2006;0.1895
+Guyana;2007;0.2087
+Guyana;2008;0.1994
+Guyana;2009;0.186
+Guyana;2010;0.1943
+Guyana;2011;0.1933
+Guyana;2012;0.1895
+Guyana;2013;0.2013
+Guyana;2014;0.202
+Guyana;2015;0.1947
+Guyana;2016;0.1985
+Guyana;2017;0.1914
+Guyana;2018;0.1898
+Guyana;2019;0.183
+Guyana;2020;0.1962
+Guyana;2021;0.1962
+Haiti;1998;0.1895
+Haiti;1999;0.1895
+Haiti;2000;0.1895
+Haiti;2001;0.1985
+Haiti;2002;0.19
+Haiti;2003;0.2035
+Haiti;2004;0.1987
+Haiti;2005;0.189
+Haiti;2006;0.1895
+Haiti;2007;0.2087
+Haiti;2008;0.1994
+Haiti;2009;0.186
+Haiti;2010;0.1943
+Haiti;2011;0.1933
+Haiti;2012;0.1895
+Haiti;2013;0.2013
+Haiti;2014;0.202
+Haiti;2015;0.1947
+Haiti;2016;0.1985
+Haiti;2017;0.1914
+Haiti;2018;0.1898
+Haiti;2019;0.183
+Haiti;2020;0.1962
+Haiti;2021;0.1962
+Hamburg;1998;
+Hamburg;1999;
+Hamburg;2000;
+Hamburg;2001;
+Hamburg;2002;
+Hamburg;2003;
+Hamburg;2004;
+Hamburg;2005;
+Hamburg;2006;
+Hamburg;2007;
+Hamburg;2008;
+Hamburg;2009;
+Hamburg;2010;
+Hamburg;2011;
+Hamburg;2012;
+Hamburg;2013;
+Hamburg;2014;
+Hamburg;2015;
+Hamburg;2016;
+Hamburg;2017;
+Hamburg;2018;
+Hamburg;2019;
+Hamburg;2020;
+Hamburg;2021;
+Hawaii;1998;0.1107
+Hawaii;1999;0.1213
+Hawaii;2000;0.1304
+Hawaii;2001;0.1195
+Hawaii;2002;0.1111
+Hawaii;2003;0.123
+Hawaii;2004;0.1386
+Hawaii;2005;0.1597
+Hawaii;2006;0.1561
+Hawaii;2007;0.1545
+Hawaii;2008;0.1325
+Hawaii;2009;0.1287
+Hawaii;2010;0.1139
+Hawaii;2011;0.1101
+Hawaii;2012;0.1299
+Hawaii;2013;0.1186
+Hawaii;2014;0.1213
+Hawaii;2015;0.125
+Hawaii;2016;0.1297
+Hawaii;2017;0.1365
+Hawaii;2018;0.124
+Hawaii;2019;
+Hawaii;2020;
+Hawaii;2021;
+Hesse;1998;
+Hesse;1999;
+Hesse;2000;
+Hesse;2001;
+Hesse;2002;
+Hesse;2003;
+Hesse;2004;
+Hesse;2005;
+Hesse;2006;
+Hesse;2007;
+Hesse;2008;
+Hesse;2009;
+Hesse;2010;
+Hesse;2011;
+Hesse;2012;
+Hesse;2013;
+Hesse;2014;
+Hesse;2015;
+Hesse;2016;
+Hesse;2017;
+Hesse;2018;
+Hesse;2019;
+Hesse;2020;
+Hesse;2021;
+Honduras;1998;0.1895
+Honduras;1999;0.1895
+Honduras;2000;0.1895
+Honduras;2001;0.1985
+Honduras;2002;0.19
+Honduras;2003;0.2035
+Honduras;2004;0.1987
+Honduras;2005;0.189
+Honduras;2006;0.1895
+Honduras;2007;0.2087
+Honduras;2008;0.1994
+Honduras;2009;0.186
+Honduras;2010;0.1943
+Honduras;2011;0.1933
+Honduras;2012;0.1895
+Honduras;2013;0.2013
+Honduras;2014;0.202
+Honduras;2015;0.1947
+Honduras;2016;0.1985
+Honduras;2017;0.1914
+Honduras;2018;0.1898
+Honduras;2019;0.183
+Honduras;2020;0.1962
+Honduras;2021;0.1962
+Hong Kong;1998;0.1521
+Hong Kong;1999;0.156
+Hong Kong;2000;0.1598
+Hong Kong;2001;0.1634
+Hong Kong;2002;0.1756
+Hong Kong;2003;0.187
+Hong Kong;2004;0.1977
+Hong Kong;2005;0.2077
+Hong Kong;2006;0.2171
+Hong Kong;2007;0.2136
+Hong Kong;2008;0.2103
+Hong Kong;2009;0.2071
+Hong Kong;2010;0.2042
+Hong Kong;2011;0.2014
+Hong Kong;2012;0.1965
+Hong Kong;2013;0.1917
+Hong Kong;2014;0.1872
+Hong Kong;2015;0.1828
+Hong Kong;2016;0.1785
+Hong Kong;2017;0.1785
+Hong Kong;2018;0.1785
+Hong Kong;2019;0.1785
+Hong Kong;2020;0.1785
+Hong Kong;2021;0.1785
+Hungary;1998;0.0871
+Hungary;1999;0.0891
+Hungary;2000;0.0923
+Hungary;2001;0.1011
+Hungary;2002;0.1091
+Hungary;2003;0.1068
+Hungary;2004;0.1058
+Hungary;2005;0.1179
+Hungary;2006;0.1262
+Hungary;2007;0.1141
+Hungary;2008;0.1134
+Hungary;2009;0.1119
+Hungary;2010;0.1146
+Hungary;2011;0.11
+Hungary;2012;0.1037
+Hungary;2013;0.1167
+Hungary;2014;0.1162
+Hungary;2015;0.1164
+Hungary;2016;0.1203
+Hungary;2017;0.1137
+Hungary;2018;0.1097
+Hungary;2019;0.1143
+Hungary;2020;0.1109
+Hungary;2021;0.1112
+Iceland;1998;0.0794
+Iceland;1999;0.0819
+Iceland;2000;0.0847
+Iceland;2001;0.1035
+Iceland;2002;0.1114
+Iceland;2003;0.1107
+Iceland;2004;0.0933
+Iceland;2005;0.1005
+Iceland;2006;0.1055
+Iceland;2007;0.1449
+Iceland;2008;0.0759
+Iceland;2009;0.0656
+Iceland;2010;0.0562
+Iceland;2011;0.059
+Iceland;2012;0.0641
+Iceland;2013;0.0843
+Iceland;2014;0.0857
+Iceland;2015;0.0846
+Iceland;2016;0.0855
+Iceland;2017;0.0896
+Iceland;2018;0.0797
+Iceland;2019;0.0801
+Iceland;2020;0.0804
+Iceland;2021;0.0932
+Idaho;1998;0.1392
+Idaho;1999;0.1501
+Idaho;2000;0.1705
+Idaho;2001;0.1273
+Idaho;2002;0.1244
+Idaho;2003;0.1332
+Idaho;2004;0.1562
+Idaho;2005;0.1853
+Idaho;2006;0.2091
+Idaho;2007;0.1911
+Idaho;2008;0.1654
+Idaho;2009;0.1386
+Idaho;2010;0.1419
+Idaho;2011;0.1424
+Idaho;2012;0.1736
+Idaho;2013;0.1391
+Idaho;2014;0.1507
+Idaho;2015;0.154
+Idaho;2016;0.1663
+Idaho;2017;0.157
+Idaho;2018;0.1726
+Idaho;2019;
+Idaho;2020;
+Idaho;2021;
+Illinois;1998;0.2013
+Illinois;1999;0.2031
+Illinois;2000;0.2108
+Illinois;2001;0.177
+Illinois;2002;0.1725
+Illinois;2003;0.1777
+Illinois;2004;0.1996
+Illinois;2005;0.2157
+Illinois;2006;0.2293
+Illinois;2007;0.2462
+Illinois;2008;0.2208
+Illinois;2009;0.1862
+Illinois;2010;0.2058
+Illinois;2011;0.1996
+Illinois;2012;0.2313
+Illinois;2013;0.1964
+Illinois;2014;0.2106
+Illinois;2015;0.2156
+Illinois;2016;0.2031
+Illinois;2017;0.2028
+Illinois;2018;0.224
+Illinois;2019;
+Illinois;2020;
+Illinois;2021;
+India;1998;0.1473
+India;1999;0.1508
+India;2000;0.1551
+India;2001;0.1629
+India;2002;0.171
+India;2003;0.1794
+India;2004;0.1881
+India;2005;0.1971
+India;2006;0.201
+India;2007;0.205
+India;2008;0.2088
+India;2009;0.2127
+India;2010;0.2164
+India;2011;0.2154
+India;2012;0.217
+India;2013;0.22
+India;2014;0.2173
+India;2015;0.2173
+India;2016;0.2173
+India;2017;0.2173
+India;2018;0.2173
+India;2019;0.2173
+India;2020;0.2173
+India;2021;0.2173
+Indiana;1998;0.1521
+Indiana;1999;0.1458
+Indiana;2000;0.14
+Indiana;2001;0.1303
+Indiana;2002;0.1304
+Indiana;2003;0.1349
+Indiana;2004;0.1437
+Indiana;2005;0.1548
+Indiana;2006;0.1633
+Indiana;2007;0.1658
+Indiana;2008;0.1439
+Indiana;2009;0.1341
+Indiana;2010;0.1388
+Indiana;2011;0.1391
+Indiana;2012;0.1547
+Indiana;2013;0.1363
+Indiana;2014;0.1481
+Indiana;2015;0.1523
+Indiana;2016;0.1575
+Indiana;2017;0.1515
+Indiana;2018;0.1538
+Indiana;2019;
+Indiana;2020;
+Indiana;2021;
+Indonesia;1998;0.1399
+Indonesia;1999;0.1358
+Indonesia;2000;0.137
+Indonesia;2001;0.1467
+Indonesia;2002;0.1429
+Indonesia;2003;0.1388
+Indonesia;2004;0.1517
+Indonesia;2005;0.1612
+Indonesia;2006;0.154
+Indonesia;2007;0.1584
+Indonesia;2008;0.1812
+Indonesia;2009;0.2015
+Indonesia;2010;0.1636
+Indonesia;2011;0.1756
+Indonesia;2012;0.1748
+Indonesia;2013;0.1703
+Indonesia;2014;0.1706
+Indonesia;2015;0.1808
+Indonesia;2016;0.1582
+Indonesia;2017;0.1553
+Indonesia;2018;0.1785
+Indonesia;2019;0.1785
+Indonesia;2020;0.1785
+Indonesia;2021;0.1785
+Iowa;1998;0.1296
+Iowa;1999;0.1327
+Iowa;2000;0.1232
+Iowa;2001;0.111
+Iowa;2002;0.1147
+Iowa;2003;0.1179
+Iowa;2004;0.1255
+Iowa;2005;0.1309
+Iowa;2006;0.1448
+Iowa;2007;0.1459
+Iowa;2008;0.1353
+Iowa;2009;0.1221
+Iowa;2010;0.1279
+Iowa;2011;0.1271
+Iowa;2012;0.1557
+Iowa;2013;0.1258
+Iowa;2014;0.1345
+Iowa;2015;0.1331
+Iowa;2016;0.1309
+Iowa;2017;0.1379
+Iowa;2018;0.1379
+Iowa;2019;
+Iowa;2020;
+Iowa;2021;
+Iran;1998;0.2005
+Iran;1999;0.1982
+Iran;2000;0.1959
+Iran;2001;0.1936
+Iran;2002;0.1914
+Iran;2003;0.1893
+Iran;2004;0.1872
+Iran;2005;0.1852
+Iran;2006;0.1842
+Iran;2007;0.1779
+Iran;2008;0.1715
+Iran;2009;0.1652
+Iran;2010;0.1693
+Iran;2011;0.1643
+Iran;2012;0.1586
+Iran;2013;0.1523
+Iran;2014;0.1636
+Iran;2015;0.168
+Iran;2016;0.1638
+Iran;2017;0.1717
+Iran;2018;0.1807
+Iran;2019;0.1807
+Iran;2020;0.1807
+Iran;2021;0.1807
+Iraq;1998;0.2327
+Iraq;1999;0.2327
+Iraq;2000;0.2327
+Iraq;2001;0.2327
+Iraq;2002;0.2327
+Iraq;2003;0.2327
+Iraq;2004;0.2327
+Iraq;2005;0.2327
+Iraq;2006;0.2327
+Iraq;2007;0.2327
+Iraq;2008;0.2249
+Iraq;2009;0.218
+Iraq;2010;0.2118
+Iraq;2011;0.2063
+Iraq;2012;0.2013
+Iraq;2013;0.2013
+Iraq;2014;0.2013
+Iraq;2015;0.2013
+Iraq;2016;0.2013
+Iraq;2017;0.2013
+Iraq;2018;0.2013
+Iraq;2019;0.2013
+Iraq;2020;0.2013
+Iraq;2021;0.2013
+Ireland;1998;0.1215
+Ireland;1999;0.1177
+Ireland;2000;0.1258
+Ireland;2001;0.1186
+Ireland;2002;0.1207
+Ireland;2003;0.124
+Ireland;2004;0.1234
+Ireland;2005;0.1326
+Ireland;2006;0.1351
+Ireland;2007;0.1204
+Ireland;2008;0.1029
+Ireland;2009;0.1003
+Ireland;2010;0.0991
+Ireland;2011;0.1001
+Ireland;2012;0.0919
+Ireland;2013;0.1004
+Ireland;2014;0.1034
+Ireland;2015;0.1181
+Ireland;2016;0.1226
+Ireland;2017;0.1156
+Ireland;2018;0.1245
+Ireland;2019;0.1271
+Ireland;2020;0.121
+Ireland;2021;0.1216
+Israel;1998;0.1802
+Israel;1999;0.1814
+Israel;2000;0.1826
+Israel;2001;0.1838
+Israel;2002;0.1844
+Israel;2003;0.1851
+Israel;2004;0.1858
+Israel;2005;0.1865
+Israel;2006;0.1864
+Israel;2007;0.1864
+Israel;2008;0.1896
+Israel;2009;0.1927
+Israel;2010;0.1958
+Israel;2011;0.1906
+Israel;2012;0.1856
+Israel;2013;0.1768
+Israel;2014;0.1687
+Israel;2015;0.1645
+Israel;2016;0.1604
+Israel;2017;0.1604
+Israel;2018;0.1604
+Israel;2019;0.1604
+Israel;2020;0.1604
+Israel;2021;0.1604
+Italy;1998;0.0957
+Italy;1999;0.0934
+Italy;2000;0.0993
+Italy;2001;0.1037
+Italy;2002;0.0997
+Italy;2003;0.1007
+Italy;2004;0.0991
+Italy;2005;0.0983
+Italy;2006;0.0987
+Italy;2007;0.0962
+Italy;2008;0.0867
+Italy;2009;0.0889
+Italy;2010;0.0939
+Italy;2011;0.1062
+Italy;2012;0.1139
+Italy;2013;0.1105
+Italy;2014;0.1123
+Italy;2015;0.1056
+Italy;2016;0.1226
+Italy;2017;0.1268
+Italy;2018;0.1255
+Italy;2019;0.1236
+Italy;2020;0.1215
+Italy;2021;0.1217
+Jamaica;1998;0.1895
+Jamaica;1999;0.1895
+Jamaica;2000;0.1895
+Jamaica;2001;0.1985
+Jamaica;2002;0.19
+Jamaica;2003;0.2035
+Jamaica;2004;0.1987
+Jamaica;2005;0.189
+Jamaica;2006;0.1895
+Jamaica;2007;0.2087
+Jamaica;2008;0.1994
+Jamaica;2009;0.186
+Jamaica;2010;0.1943
+Jamaica;2011;0.1933
+Jamaica;2012;0.1895
+Jamaica;2013;0.2013
+Jamaica;2014;0.202
+Jamaica;2015;0.1947
+Jamaica;2016;0.1985
+Jamaica;2017;0.1914
+Jamaica;2018;0.1898
+Jamaica;2019;0.183
+Jamaica;2020;0.1962
+Jamaica;2021;0.1962
+Japan;1998;0.1037
+Japan;1999;0.1063
+Japan;2000;0.113
+Japan;2001;0.1155
+Japan;2002;0.1184
+Japan;2003;0.1231
+Japan;2004;0.1311
+Japan;2005;0.1355
+Japan;2006;0.1371
+Japan;2007;0.1374
+Japan;2008;0.1299
+Japan;2009;0.1227
+Japan;2010;0.1283
+Japan;2011;0.1265
+Japan;2012;0.1272
+Japan;2013;0.1289
+Japan;2014;0.1286
+Japan;2015;0.1296
+Japan;2016;0.129
+Japan;2017;0.1286
+Japan;2018;0.1286
+Japan;2019;0.1286
+Japan;2020;0.1286
+Japan;2021;0.1286
+Jordan;1998;0.156
+Jordan;1999;0.1631
+Jordan;2000;0.1699
+Jordan;2001;0.1764
+Jordan;2002;0.1827
+Jordan;2003;0.1869
+Jordan;2004;0.1907
+Jordan;2005;0.1943
+Jordan;2006;0.1977
+Jordan;2007;0.2011
+Jordan;2008;0.2043
+Jordan;2009;0.215
+Jordan;2010;0.2267
+Jordan;2011;0.2092
+Jordan;2012;0.1905
+Jordan;2013;0.1705
+Jordan;2014;0.1705
+Jordan;2015;0.1705
+Jordan;2016;0.1705
+Jordan;2017;0.1705
+Jordan;2018;0.1705
+Jordan;2019;0.1705
+Jordan;2020;0.1705
+Jordan;2021;0.1705
+Kansas;1998;0.147
+Kansas;1999;0.1528
+Kansas;2000;0.1519
+Kansas;2001;0.131
+Kansas;2002;0.1364
+Kansas;2003;0.1416
+Kansas;2004;0.152
+Kansas;2005;0.1669
+Kansas;2006;0.1774
+Kansas;2007;0.1806
+Kansas;2008;0.1622
+Kansas;2009;0.1445
+Kansas;2010;0.1629
+Kansas;2011;0.1595
+Kansas;2012;0.1776
+Kansas;2013;0.1555
+Kansas;2014;0.1697
+Kansas;2015;0.1612
+Kansas;2016;0.1571
+Kansas;2017;0.1557
+Kansas;2018;0.173
+Kansas;2019;
+Kansas;2020;
+Kansas;2021;
+Kazakhstan;1998;0.1408
+Kazakhstan;1999;0.1427
+Kazakhstan;2000;0.1469
+Kazakhstan;2001;0.1522
+Kazakhstan;2002;0.1618
+Kazakhstan;2003;0.1511
+Kazakhstan;2004;0.1288
+Kazakhstan;2005;0.1558
+Kazakhstan;2006;0.1659
+Kazakhstan;2007;0.1518
+Kazakhstan;2008;0.151
+Kazakhstan;2009;0.1567
+Kazakhstan;2010;0.1518
+Kazakhstan;2011;0.1379
+Kazakhstan;2012;0.1397
+Kazakhstan;2013;0.1418
+Kazakhstan;2014;0.1384
+Kazakhstan;2015;0.1271
+Kazakhstan;2016;0.1461
+Kazakhstan;2017;0.148
+Kazakhstan;2018;0.1488
+Kazakhstan;2019;0.1488
+Kazakhstan;2020;0.1488
+Kazakhstan;2021;0.1488
+Kentucky;1998;0.1526
+Kentucky;1999;0.1486
+Kentucky;2000;0.1448
+Kentucky;2001;0.1345
+Kentucky;2002;0.1331
+Kentucky;2003;0.1387
+Kentucky;2004;0.148
+Kentucky;2005;0.1578
+Kentucky;2006;0.1667
+Kentucky;2007;0.1717
+Kentucky;2008;0.1581
+Kentucky;2009;0.1413
+Kentucky;2010;0.1533
+Kentucky;2011;0.1445
+Kentucky;2012;0.1579
+Kentucky;2013;0.1424
+Kentucky;2014;0.1564
+Kentucky;2015;0.1598
+Kentucky;2016;0.1623
+Kentucky;2017;0.1554
+Kentucky;2018;0.1782
+Kentucky;2019;
+Kentucky;2020;
+Kentucky;2021;
+Kenya;1998;0.1936
+Kenya;1999;0.1966
+Kenya;2000;0.1996
+Kenya;2001;0.2026
+Kenya;2002;0.2056
+Kenya;2003;0.2086
+Kenya;2004;0.2116
+Kenya;2005;0.2147
+Kenya;2006;0.2084
+Kenya;2007;0.2021
+Kenya;2008;0.1959
+Kenya;2009;0.1896
+Kenya;2010;0.1833
+Kenya;2011;0.1771
+Kenya;2012;0.1708
+Kenya;2013;0.1645
+Kenya;2014;0.1582
+Kenya;2015;0.1519
+Kenya;2016;0.1519
+Kenya;2017;0.1519
+Kenya;2018;0.1519
+Kenya;2019;0.1519
+Kenya;2020;0.1519
+Kenya;2021;0.1519
+South Korea;1998;0.0845
+South Korea;1999;0.0845
+South Korea;2000;0.0845
+South Korea;2001;0.0845
+South Korea;2002;0.0845
+South Korea;2003;0.0845
+South Korea;2004;0.0845
+South Korea;2005;0.0845
+South Korea;2006;0.0845
+South Korea;2007;0.0843
+South Korea;2008;0.0927
+South Korea;2009;0.0922
+South Korea;2010;0.1036
+South Korea;2011;0.1035
+South Korea;2012;0.0903
+South Korea;2013;0.0902
+South Korea;2014;0.0895
+South Korea;2015;0.1176
+South Korea;2016;0.1176
+South Korea;2017;0.1174
+South Korea;2018;0.1174
+South Korea;2019;0.1174
+South Korea;2020;0.1174
+South Korea;2021;0.117
+Kosovo;1998;0.0869
+Kosovo;1999;0.0869
+Kosovo;2000;0.0869
+Kosovo;2001;0.0869
+Kosovo;2002;0.0869
+Kosovo;2003;0.0869
+Kosovo;2004;0.0849
+Kosovo;2005;0.0847
+Kosovo;2006;0.0846
+Kosovo;2007;0.0826
+Kosovo;2008;0.0949
+Kosovo;2009;0.0866
+Kosovo;2010;0.0888
+Kosovo;2011;0.0882
+Kosovo;2012;0.0912
+Kosovo;2013;0.0923
+Kosovo;2014;0.0924
+Kosovo;2015;0.0921
+Kosovo;2016;0.0925
+Kosovo;2017;0.0975
+Kosovo;2018;0.0957
+Kosovo;2019;0.0925
+Kosovo;2020;0.0909
+Kosovo;2021;0.0913
+Kuwait;1998;0.1998
+Kuwait;1999;0.1998
+Kuwait;2000;0.1998
+Kuwait;2001;0.1998
+Kuwait;2002;0.1998
+Kuwait;2003;0.1998
+Kuwait;2004;0.1998
+Kuwait;2005;0.1998
+Kuwait;2006;0.1998
+Kuwait;2007;0.1998
+Kuwait;2008;0.1985
+Kuwait;2009;0.1971
+Kuwait;2010;0.1955
+Kuwait;2011;0.1938
+Kuwait;2012;0.1918
+Kuwait;2013;0.1896
+Kuwait;2014;0.1896
+Kuwait;2015;0.1896
+Kuwait;2016;0.1896
+Kuwait;2017;0.1896
+Kuwait;2018;0.1896
+Kuwait;2019;0.1896
+Kuwait;2020;0.1896
+Kuwait;2021;0.1896
+Kyrgyzstan;1998;0.1558
+Kyrgyzstan;1999;0.1228
+Kyrgyzstan;2000;0.0965
+Kyrgyzstan;2001;0.1112
+Kyrgyzstan;2002;0.1077
+Kyrgyzstan;2003;0.1042
+Kyrgyzstan;2004;0.1396
+Kyrgyzstan;2005;0.1471
+Kyrgyzstan;2006;0.175
+Kyrgyzstan;2007;0.1344
+Kyrgyzstan;2008;0.143
+Kyrgyzstan;2009;0.1443
+Kyrgyzstan;2010;0.1407
+Kyrgyzstan;2011;0.1298
+Kyrgyzstan;2012;0.1265
+Kyrgyzstan;2013;0.1239
+Kyrgyzstan;2014;0.1234
+Kyrgyzstan;2015;0.1459
+Kyrgyzstan;2016;0.1215
+Kyrgyzstan;2017;0.1405
+Kyrgyzstan;2018;0.1416
+Kyrgyzstan;2019;0.1809
+Kyrgyzstan;2020;0.1809
+Kyrgyzstan;2021;0.1809
+Lao PDR;1998;0.1897
+Lao PDR;1999;0.1862
+Lao PDR;2000;0.1856
+Lao PDR;2001;0.184
+Lao PDR;2002;0.1801
+Lao PDR;2003;0.1815
+Lao PDR;2004;0.1847
+Lao PDR;2005;0.1865
+Lao PDR;2006;0.1877
+Lao PDR;2007;0.1894
+Lao PDR;2008;0.1853
+Lao PDR;2009;0.1831
+Lao PDR;2010;0.1802
+Lao PDR;2011;0.177
+Lao PDR;2012;0.1732
+Lao PDR;2013;0.1782
+Lao PDR;2014;0.1836
+Lao PDR;2015;0.1874
+Lao PDR;2016;0.1913
+Lao PDR;2017;0.1944
+Lao PDR;2018;0.1971
+Lao PDR;2019;0.1971
+Lao PDR;2020;0.1971
+Lao PDR;2021;0.1971
+Latin America;1998;0.1977
+Latin America;1999;0.1945
+Latin America;2000;0.1932
+Latin America;2001;0.1962
+Latin America;2002;0.1882
+Latin America;2003;0.2059
+Latin America;2004;0.2093
+Latin America;2005;0.2021
+Latin America;2006;0.1989
+Latin America;2007;0.2185
+Latin America;2008;0.2213
+Latin America;2009;0.2183
+Latin America;2010;0.2242
+Latin America;2011;0.2298
+Latin America;2012;0.2307
+Latin America;2013;0.2275
+Latin America;2014;0.2316
+Latin America;2015;0.2267
+Latin America;2016;0.2242
+Latin America;2017;0.2194
+Latin America;2018;0.2289
+Latin America;2019;0.2245
+Latin America;2020;0.234
+Latin America;2021;0.2347
+Latin America (at market exchange rate);1998;0.2018
+Latin America (at market exchange rate);1999;0.1985
+Latin America (at market exchange rate);2000;0.1988
+Latin America (at market exchange rate);2001;0.2019
+Latin America (at market exchange rate);2002;0.1935
+Latin America (at market exchange rate);2003;0.2103
+Latin America (at market exchange rate);2004;0.2111
+Latin America (at market exchange rate);2005;0.2068
+Latin America (at market exchange rate);2006;0.2048
+Latin America (at market exchange rate);2007;0.2232
+Latin America (at market exchange rate);2008;0.2274
+Latin America (at market exchange rate);2009;0.2181
+Latin America (at market exchange rate);2010;0.2284
+Latin America (at market exchange rate);2011;0.2318
+Latin America (at market exchange rate);2012;0.2316
+Latin America (at market exchange rate);2013;0.2331
+Latin America (at market exchange rate);2014;0.2352
+Latin America (at market exchange rate);2015;0.231
+Latin America (at market exchange rate);2016;0.226
+Latin America (at market exchange rate);2017;0.2198
+Latin America (at market exchange rate);2018;0.2294
+Latin America (at market exchange rate);2019;0.2257
+Latin America (at market exchange rate);2020;0.2342
+Latin America (at market exchange rate);2021;0.2328
+Latvia;1998;0.1097
+Latvia;1999;0.1025
+Latvia;2000;0.1037
+Latvia;2001;0.0978
+Latvia;2002;0.1087
+Latvia;2003;0.1111
+Latvia;2004;0.1131
+Latvia;2005;0.1195
+Latvia;2006;0.0981
+Latvia;2007;0.1087
+Latvia;2008;0.1091
+Latvia;2009;0.1159
+Latvia;2010;0.0976
+Latvia;2011;0.1063
+Latvia;2012;0.1144
+Latvia;2013;0.1173
+Latvia;2014;0.1061
+Latvia;2015;0.101
+Latvia;2016;0.0859
+Latvia;2017;0.0994
+Latvia;2018;0.0992
+Latvia;2019;0.0941
+Latvia;2020;0.0855
+Latvia;2021;0.0864
+Lebanon;1998;0.1941
+Lebanon;1999;0.1941
+Lebanon;2000;0.1941
+Lebanon;2001;0.1941
+Lebanon;2002;0.1941
+Lebanon;2003;0.1941
+Lebanon;2004;0.1941
+Lebanon;2005;0.1941
+Lebanon;2006;0.1928
+Lebanon;2007;0.2096
+Lebanon;2008;0.2101
+Lebanon;2009;0.1979
+Lebanon;2010;0.2019
+Lebanon;2011;0.2057
+Lebanon;2012;0.2086
+Lebanon;2013;0.2038
+Lebanon;2014;0.2053
+Lebanon;2015;0.2053
+Lebanon;2016;0.2053
+Lebanon;2017;0.2053
+Lebanon;2018;0.2053
+Lebanon;2019;0.2053
+Lebanon;2020;0.2053
+Lebanon;2021;0.2053
+Lesotho;1998;0.2046
+Lesotho;1999;0.1997
+Lesotho;2000;0.1949
+Lesotho;2001;0.1901
+Lesotho;2002;0.1853
+Lesotho;2003;0.1826
+Lesotho;2004;0.1799
+Lesotho;2005;0.1771
+Lesotho;2006;0.1744
+Lesotho;2007;0.1717
+Lesotho;2008;0.169
+Lesotho;2009;0.1663
+Lesotho;2010;0.1636
+Lesotho;2011;0.1609
+Lesotho;2012;0.1582
+Lesotho;2013;0.1555
+Lesotho;2014;0.1527
+Lesotho;2015;0.15
+Lesotho;2016;0.1473
+Lesotho;2017;0.1446
+Lesotho;2018;0.1446
+Lesotho;2019;0.1446
+Lesotho;2020;0.1446
+Lesotho;2021;0.1446
+Liberia;1998;0.127
+Liberia;1999;0.127
+Liberia;2000;0.127
+Liberia;2001;0.127
+Liberia;2002;0.127
+Liberia;2003;0.127
+Liberia;2004;0.127
+Liberia;2005;0.127
+Liberia;2006;0.127
+Liberia;2007;0.127
+Liberia;2008;0.1244
+Liberia;2009;0.1218
+Liberia;2010;0.1192
+Liberia;2011;0.1166
+Liberia;2012;0.114
+Liberia;2013;0.1114
+Liberia;2014;0.1088
+Liberia;2015;0.1154
+Liberia;2016;0.122
+Liberia;2017;0.122
+Liberia;2018;0.122
+Liberia;2019;0.122
+Liberia;2020;0.122
+Liberia;2021;0.122
+Libya;1998;0.1394
+Libya;1999;0.1433
+Libya;2000;0.1428
+Libya;2001;0.1405
+Libya;2002;0.1383
+Libya;2003;0.1361
+Libya;2004;0.1339
+Libya;2005;0.1341
+Libya;2006;0.1346
+Libya;2007;0.1343
+Libya;2008;0.134
+Libya;2009;0.1304
+Libya;2010;0.1279
+Libya;2011;0.1257
+Libya;2012;0.1238
+Libya;2013;0.1303
+Libya;2014;0.1373
+Libya;2015;0.1432
+Libya;2016;0.1388
+Libya;2017;0.1343
+Libya;2018;0.1344
+Libya;2019;0.1345
+Libya;2020;0.1345
+Libya;2021;0.1346
+Lithuania;1998;0.0773
+Lithuania;1999;0.0741
+Lithuania;2000;0.082
+Lithuania;2001;0.0831
+Lithuania;2002;0.079
+Lithuania;2003;0.0908
+Lithuania;2004;0.0884
+Lithuania;2005;0.0985
+Lithuania;2006;0.0884
+Lithuania;2007;0.1194
+Lithuania;2008;0.1229
+Lithuania;2009;0.1144
+Lithuania;2010;0.0947
+Lithuania;2011;0.099
+Lithuania;2012;0.1174
+Lithuania;2013;0.1222
+Lithuania;2014;0.1503
+Lithuania;2015;0.1125
+Lithuania;2016;0.1117
+Lithuania;2017;0.1245
+Lithuania;2018;0.1166
+Lithuania;2019;0.1264
+Lithuania;2020;0.1248
+Lithuania;2021;0.125
+Louisiana;1998;0.1598
+Louisiana;1999;0.1503
+Louisiana;2000;0.1525
+Louisiana;2001;0.1452
+Louisiana;2002;0.1384
+Louisiana;2003;0.1355
+Louisiana;2004;0.1395
+Louisiana;2005;0.1738
+Louisiana;2006;0.2183
+Louisiana;2007;0.1572
+Louisiana;2008;0.236
+Louisiana;2009;0.1605
+Louisiana;2010;0.1635
+Louisiana;2011;0.1482
+Louisiana;2012;0.1937
+Louisiana;2013;0.172
+Louisiana;2014;0.1804
+Louisiana;2015;0.1604
+Louisiana;2016;0.1741
+Louisiana;2017;0.1671
+Louisiana;2018;0.1699
+Louisiana;2019;
+Louisiana;2020;
+Louisiana;2021;
+Luxembourg;1998;0.171
+Luxembourg;1999;0.1637
+Luxembourg;2000;0.1721
+Luxembourg;2001;0.1638
+Luxembourg;2002;0.1434
+Luxembourg;2003;0.144
+Luxembourg;2004;0.181
+Luxembourg;2005;0.1853
+Luxembourg;2006;0.1552
+Luxembourg;2007;0.1852
+Luxembourg;2008;0.1737
+Luxembourg;2009;0.1405
+Luxembourg;2010;0.1353
+Luxembourg;2011;0.129
+Luxembourg;2012;0.1587
+Luxembourg;2013;0.1355
+Luxembourg;2014;0.1362
+Luxembourg;2015;0.1062
+Luxembourg;2016;0.121
+Luxembourg;2017;0.1375
+Luxembourg;2018;0.1252
+Luxembourg;2019;0.101
+Luxembourg;2020;0.1233
+Luxembourg;2021;0.1214
+MENA;1998;0.2405
+MENA;1999;0.2395
+MENA;2000;0.2394
+MENA;2001;0.2384
+MENA;2002;0.2357
+MENA;2003;0.2362
+MENA;2004;0.2337
+MENA;2005;0.2252
+MENA;2006;0.2219
+MENA;2007;0.2161
+MENA;2008;0.2139
+MENA;2009;0.2088
+MENA;2010;0.2058
+MENA;2011;0.2035
+MENA;2012;0.2044
+MENA;2013;0.2021
+MENA;2014;0.2112
+MENA;2015;0.217
+MENA;2016;0.2095
+MENA;2017;0.2135
+MENA;2018;0.2116
+MENA;2019;0.2083
+MENA;2020;0.2126
+MENA;2021;0.2069
+MENA (at market exchange rate);1998;0.2794
+MENA (at market exchange rate);1999;0.2762
+MENA (at market exchange rate);2000;0.2758
+MENA (at market exchange rate);2001;0.2753
+MENA (at market exchange rate);2002;0.2718
+MENA (at market exchange rate);2003;0.2714
+MENA (at market exchange rate);2004;0.2716
+MENA (at market exchange rate);2005;0.2646
+MENA (at market exchange rate);2006;0.2633
+MENA (at market exchange rate);2007;0.2587
+MENA (at market exchange rate);2008;0.2535
+MENA (at market exchange rate);2009;0.2473
+MENA (at market exchange rate);2010;0.2436
+MENA (at market exchange rate);2011;0.2405
+MENA (at market exchange rate);2012;0.2395
+MENA (at market exchange rate);2013;0.2371
+MENA (at market exchange rate);2014;0.2412
+MENA (at market exchange rate);2015;0.2449
+MENA (at market exchange rate);2016;0.2399
+MENA (at market exchange rate);2017;0.2418
+MENA (at market exchange rate);2018;0.2455
+MENA (at market exchange rate);2019;0.2438
+MENA (at market exchange rate);2020;0.2431
+MENA (at market exchange rate);2021;0.2387
+Macao;1998;0.0994
+Macao;1999;0.1002
+Macao;2000;0.1046
+Macao;2001;0.1096
+Macao;2002;0.1265
+Macao;2003;0.1323
+Macao;2004;0.1393
+Macao;2005;0.143
+Macao;2006;0.1487
+Macao;2007;0.1538
+Macao;2008;0.1529
+Macao;2009;0.1552
+Macao;2010;0.152
+Macao;2011;0.1467
+Macao;2012;0.1383
+Macao;2013;0.1389
+Macao;2014;0.1374
+Macao;2015;0.14
+Macao;2016;0.14
+Macao;2017;0.14
+Macao;2018;0.14
+Macao;2019;0.14
+Macao;2020;0.0821
+Macao;2021;0.0821
+Madagascar;1998;0.1332
+Madagascar;1999;0.118
+Madagascar;2000;0.1383
+Madagascar;2001;0.1585
+Madagascar;2002;0.1653
+Madagascar;2003;0.172
+Madagascar;2004;0.1788
+Madagascar;2005;0.1857
+Madagascar;2006;0.1859
+Madagascar;2007;0.1862
+Madagascar;2008;0.1865
+Madagascar;2009;0.1868
+Madagascar;2010;0.187
+Madagascar;2011;0.1694
+Madagascar;2012;0.1517
+Madagascar;2013;0.1517
+Madagascar;2014;0.1517
+Madagascar;2015;0.1517
+Madagascar;2016;0.1517
+Madagascar;2017;0.1517
+Madagascar;2018;0.1517
+Madagascar;2019;0.1517
+Madagascar;2020;0.1517
+Madagascar;2021;0.1517
+Maine;1998;0.1473
+Maine;1999;0.1509
+Maine;2000;0.1641
+Maine;2001;0.1324
+Maine;2002;0.1292
+Maine;2003;0.1283
+Maine;2004;0.1402
+Maine;2005;0.1521
+Maine;2006;0.1595
+Maine;2007;0.1561
+Maine;2008;0.1396
+Maine;2009;0.1263
+Maine;2010;0.1308
+Maine;2011;0.1293
+Maine;2012;0.1483
+Maine;2013;0.1301
+Maine;2014;0.1365
+Maine;2015;0.1357
+Maine;2016;0.1485
+Maine;2017;0.1439
+Maine;2018;0.1449
+Maine;2019;
+Maine;2020;
+Maine;2021;
+Malawi;1998;0.1914
+Malawi;1999;0.1914
+Malawi;2000;0.1914
+Malawi;2001;0.1914
+Malawi;2002;0.1914
+Malawi;2003;0.1914
+Malawi;2004;0.1914
+Malawi;2005;0.1961
+Malawi;2006;0.2008
+Malawi;2007;0.2055
+Malawi;2008;0.2102
+Malawi;2009;0.2149
+Malawi;2010;0.2196
+Malawi;2011;0.2353
+Malawi;2012;0.2511
+Malawi;2013;0.2669
+Malawi;2014;0.2826
+Malawi;2015;0.2984
+Malawi;2016;0.3142
+Malawi;2017;0.2596
+Malawi;2018;0.205
+Malawi;2019;0.1502
+Malawi;2020;0.1502
+Malawi;2021;0.1502
+Malaysia;1998;0.1964
+Malaysia;1999;0.1941
+Malaysia;2000;0.192
+Malaysia;2001;0.1901
+Malaysia;2002;0.1884
+Malaysia;2003;0.1788
+Malaysia;2004;0.1691
+Malaysia;2005;0.1732
+Malaysia;2006;0.1772
+Malaysia;2007;0.1813
+Malaysia;2008;0.1809
+Malaysia;2009;0.1805
+Malaysia;2010;0.1752
+Malaysia;2011;0.1699
+Malaysia;2012;0.1646
+Malaysia;2013;0.1566
+Malaysia;2014;0.1487
+Malaysia;2015;0.1487
+Malaysia;2016;0.1487
+Malaysia;2017;0.1487
+Malaysia;2018;0.1487
+Malaysia;2019;0.1487
+Malaysia;2020;0.1487
+Malaysia;2021;0.1487
+Maldives;1998;0.3561
+Maldives;1999;0.3561
+Maldives;2000;0.3561
+Maldives;2001;0.3561
+Maldives;2002;0.3561
+Maldives;2003;0.3324
+Maldives;2004;0.3101
+Maldives;2005;0.287
+Maldives;2006;0.2634
+Maldives;2007;0.2397
+Maldives;2008;0.2131
+Maldives;2009;0.1861
+Maldives;2010;0.1808
+Maldives;2011;0.1712
+Maldives;2012;0.1634
+Maldives;2013;0.1555
+Maldives;2014;0.1471
+Maldives;2015;0.1377
+Maldives;2016;0.1307
+Maldives;2017;0.1308
+Maldives;2018;0.1308
+Maldives;2019;0.1308
+Maldives;2020;0.1308
+Maldives;2021;0.1308
+Mali;1998;0.1716
+Mali;1999;0.1603
+Mali;2000;0.1491
+Mali;2001;0.1379
+Mali;2002;0.1359
+Mali;2003;0.134
+Mali;2004;0.1321
+Mali;2005;0.1301
+Mali;2006;0.1282
+Mali;2007;0.1178
+Mali;2008;0.1073
+Mali;2009;0.0969
+Mali;2010;0.0992
+Mali;2011;0.1016
+Mali;2012;0.104
+Mali;2013;0.1064
+Mali;2014;0.1088
+Mali;2015;0.1112
+Mali;2016;0.1135
+Mali;2017;0.1159
+Mali;2018;0.1183
+Mali;2019;0.1183
+Mali;2020;0.1183
+Mali;2021;0.1183
+Malta;1998;0.0816
+Malta;1999;0.0816
+Malta;2000;0.0816
+Malta;2001;0.0816
+Malta;2002;0.0816
+Malta;2003;0.0816
+Malta;2004;0.0816
+Malta;2005;0.0816
+Malta;2006;0.0816
+Malta;2007;0.0785
+Malta;2008;0.0832
+Malta;2009;0.0883
+Malta;2010;0.0856
+Malta;2011;0.0994
+Malta;2012;0.1032
+Malta;2013;0.1038
+Malta;2014;0.1042
+Malta;2015;0.1063
+Malta;2016;0.1015
+Malta;2017;0.1083
+Malta;2018;0.0995
+Malta;2019;0.1094
+Malta;2020;0.1059
+Malta;2021;0.1065
+Maryland;1998;0.1581
+Maryland;1999;0.1628
+Maryland;2000;0.1769
+Maryland;2001;0.148
+Maryland;2002;0.1373
+Maryland;2003;0.1444
+Maryland;2004;0.1626
+Maryland;2005;0.1729
+Maryland;2006;0.1789
+Maryland;2007;0.1864
+Maryland;2008;0.1517
+Maryland;2009;0.1352
+Maryland;2010;0.1465
+Maryland;2011;0.1479
+Maryland;2012;0.1625
+Maryland;2013;0.1471
+Maryland;2014;0.156
+Maryland;2015;0.1544
+Maryland;2016;0.1537
+Maryland;2017;0.1543
+Maryland;2018;0.1574
+Maryland;2019;
+Maryland;2020;
+Maryland;2021;
+Massachusetts;1998;0.2226
+Massachusetts;1999;0.2421
+Massachusetts;2000;0.3093
+Massachusetts;2001;0.2187
+Massachusetts;2002;0.1841
+Massachusetts;2003;0.198
+Massachusetts;2004;0.2196
+Massachusetts;2005;0.2376
+Massachusetts;2006;0.2472
+Massachusetts;2007;0.2679
+Massachusetts;2008;0.2165
+Massachusetts;2009;0.1875
+Massachusetts;2010;0.229
+Massachusetts;2011;0.2293
+Massachusetts;2012;0.2527
+Massachusetts;2013;0.2284
+Massachusetts;2014;0.2557
+Massachusetts;2015;0.2498
+Massachusetts;2016;0.2388
+Massachusetts;2017;0.2594
+Massachusetts;2018;0.2562
+Massachusetts;2019;
+Massachusetts;2020;
+Massachusetts;2021;
+Mauritania;1998;0.1169
+Mauritania;1999;0.1141
+Mauritania;2000;0.1113
+Mauritania;2001;0.1253
+Mauritania;2002;0.1393
+Mauritania;2003;0.1534
+Mauritania;2004;0.1674
+Mauritania;2005;0.1512
+Mauritania;2006;0.135
+Mauritania;2007;0.1188
+Mauritania;2008;0.1026
+Mauritania;2009;0.1035
+Mauritania;2010;0.1043
+Mauritania;2011;0.1051
+Mauritania;2012;0.1059
+Mauritania;2013;0.1067
+Mauritania;2014;0.1075
+Mauritania;2015;0.1075
+Mauritania;2016;0.1075
+Mauritania;2017;0.1075
+Mauritania;2018;0.1075
+Mauritania;2019;0.1075
+Mauritania;2020;0.1075
+Mauritania;2021;0.1075
+Mauritius;1998;0.1374
+Mauritius;1999;0.1374
+Mauritius;2000;0.1374
+Mauritius;2001;0.1374
+Mauritius;2002;0.1374
+Mauritius;2003;0.1374
+Mauritius;2004;0.1374
+Mauritius;2005;0.1374
+Mauritius;2006;0.1374
+Mauritius;2007;0.1429
+Mauritius;2008;0.1483
+Mauritius;2009;0.1538
+Mauritius;2010;0.1592
+Mauritius;2011;0.1647
+Mauritius;2012;0.1701
+Mauritius;2013;0.1679
+Mauritius;2014;0.1656
+Mauritius;2015;0.1634
+Mauritius;2016;0.1612
+Mauritius;2017;0.1589
+Mauritius;2018;0.1589
+Mauritius;2019;0.1589
+Mauritius;2020;0.1589
+Mauritius;2021;0.1589
+Mexico;1998;0.1203
+Mexico;1999;0.1203
+Mexico;2000;0.1203
+Mexico;2001;0.1203
+Mexico;2002;0.1203
+Mexico;2003;0.143
+Mexico;2004;0.1658
+Mexico;2005;0.1564
+Mexico;2006;0.1471
+Mexico;2007;0.1812
+Mexico;2008;0.2153
+Mexico;2009;0.2344
+Mexico;2010;0.2536
+Mexico;2011;0.2639
+Mexico;2012;0.2741
+Mexico;2013;0.282
+Mexico;2014;0.2898
+Mexico;2015;0.2678
+Mexico;2016;0.2459
+Mexico;2017;0.2706
+Mexico;2018;0.2954
+Mexico;2019;0.2818
+Mexico;2020;0.2681
+Mexico;2021;0.2681
+Michigan;1998;0.1663
+Michigan;1999;0.1583
+Michigan;2000;0.1515
+Michigan;2001;0.1349
+Michigan;2002;0.1373
+Michigan;2003;0.1428
+Michigan;2004;0.154
+Michigan;2005;0.1613
+Michigan;2006;0.1667
+Michigan;2007;0.1794
+Michigan;2008;0.1647
+Michigan;2009;0.1516
+Michigan;2010;0.1686
+Michigan;2011;0.1642
+Michigan;2012;0.1996
+Michigan;2013;0.1767
+Michigan;2014;0.1821
+Michigan;2015;0.1821
+Michigan;2016;0.195
+Michigan;2017;0.1886
+Michigan;2018;0.2012
+Michigan;2019;
+Michigan;2020;
+Michigan;2021;
+Middle Africa;1998;0.2601
+Middle Africa;1999;0.257
+Middle Africa;2000;0.2606
+Middle Africa;2001;0.2641
+Middle Africa;2002;0.2646
+Middle Africa;2003;0.2576
+Middle Africa;2004;0.2541
+Middle Africa;2005;0.2507
+Middle Africa;2006;0.2478
+Middle Africa;2007;0.2475
+Middle Africa;2008;0.2458
+Middle Africa;2009;0.249
+Middle Africa;2010;0.2472
+Middle Africa;2011;0.2511
+Middle Africa;2012;0.2562
+Middle Africa;2013;0.2576
+Middle Africa;2014;0.2561
+Middle Africa;2015;0.256
+Middle Africa;2016;0.2529
+Middle Africa;2017;0.2542
+Middle Africa;2018;0.2557
+Middle Africa;2019;0.2523
+Middle Africa;2020;0.247
+Middle Africa;2021;0.2455
+Middle Africa (at market exchange rate);1998;0.2486
+Middle Africa (at market exchange rate);1999;0.2451
+Middle Africa (at market exchange rate);2000;0.2479
+Middle Africa (at market exchange rate);2001;0.254
+Middle Africa (at market exchange rate);2002;0.2541
+Middle Africa (at market exchange rate);2003;0.2492
+Middle Africa (at market exchange rate);2004;0.2457
+Middle Africa (at market exchange rate);2005;0.2455
+Middle Africa (at market exchange rate);2006;0.2415
+Middle Africa (at market exchange rate);2007;0.2386
+Middle Africa (at market exchange rate);2008;0.2399
+Middle Africa (at market exchange rate);2009;0.2421
+Middle Africa (at market exchange rate);2010;0.2364
+Middle Africa (at market exchange rate);2011;0.2402
+Middle Africa (at market exchange rate);2012;0.2439
+Middle Africa (at market exchange rate);2013;0.245
+Middle Africa (at market exchange rate);2014;0.2434
+Middle Africa (at market exchange rate);2015;0.239
+Middle Africa (at market exchange rate);2016;0.2373
+Middle Africa (at market exchange rate);2017;0.2394
+Middle Africa (at market exchange rate);2018;0.2379
+Middle Africa (at market exchange rate);2019;0.2351
+Middle Africa (at market exchange rate);2020;0.2309
+Middle Africa (at market exchange rate);2021;0.2313
+Middle East;1998;0.2527
+Middle East;1999;0.2517
+Middle East;2000;0.2524
+Middle East;2001;0.251
+Middle East;2002;0.2472
+Middle East;2003;0.2489
+Middle East;2004;0.2465
+Middle East;2005;0.2331
+Middle East;2006;0.231
+Middle East;2007;0.2226
+Middle East;2008;0.2206
+Middle East;2009;0.2163
+Middle East;2010;0.2119
+Middle East;2011;0.2076
+Middle East;2012;0.2107
+Middle East;2013;0.2074
+Middle East;2014;0.2165
+Middle East;2015;0.2223
+Middle East;2016;0.2138
+Middle East;2017;0.2184
+Middle East;2018;0.2195
+Middle East;2019;0.2143
+Middle East;2020;0.2148
+Middle East;2021;0.2106
+Middle East (at market exchange rate);1998;0.2767
+Middle East (at market exchange rate);1999;0.2732
+Middle East (at market exchange rate);2000;0.2721
+Middle East (at market exchange rate);2001;0.2714
+Middle East (at market exchange rate);2002;0.2672
+Middle East (at market exchange rate);2003;0.2678
+Middle East (at market exchange rate);2004;0.2691
+Middle East (at market exchange rate);2005;0.2609
+Middle East (at market exchange rate);2006;0.2574
+Middle East (at market exchange rate);2007;0.2495
+Middle East (at market exchange rate);2008;0.2413
+Middle East (at market exchange rate);2009;0.2328
+Middle East (at market exchange rate);2010;0.2262
+Middle East (at market exchange rate);2011;0.2218
+Middle East (at market exchange rate);2012;0.2201
+Middle East (at market exchange rate);2013;0.2167
+Middle East (at market exchange rate);2014;0.2245
+Middle East (at market exchange rate);2015;0.2297
+Middle East (at market exchange rate);2016;0.2234
+Middle East (at market exchange rate);2017;0.2258
+Middle East (at market exchange rate);2018;0.2281
+Middle East (at market exchange rate);2019;0.2269
+Middle East (at market exchange rate);2020;0.2266
+Middle East (at market exchange rate);2021;0.2233
+Minnesota;1998;0.1682
+Minnesota;1999;0.1664
+Minnesota;2000;0.1777
+Minnesota;2001;0.1525
+Minnesota;2002;0.1474
+Minnesota;2003;0.1549
+Minnesota;2004;0.1648
+Minnesota;2005;0.1799
+Minnesota;2006;0.1841
+Minnesota;2007;0.1913
+Minnesota;2008;0.1771
+Minnesota;2009;0.1551
+Minnesota;2010;0.1745
+Minnesota;2011;0.1644
+Minnesota;2012;0.1892
+Minnesota;2013;0.1617
+Minnesota;2014;0.1777
+Minnesota;2015;0.1762
+Minnesota;2016;0.1749
+Minnesota;2017;0.1736
+Minnesota;2018;0.1772
+Minnesota;2019;
+Minnesota;2020;
+Minnesota;2021;
+Mississippi;1998;0.1471
+Mississippi;1999;0.1478
+Mississippi;2000;0.1458
+Mississippi;2001;0.1389
+Mississippi;2002;0.1359
+Mississippi;2003;0.1388
+Mississippi;2004;0.1328
+Mississippi;2005;0.1588
+Mississippi;2006;0.1817
+Mississippi;2007;0.1621
+Mississippi;2008;0.1646
+Mississippi;2009;0.1415
+Mississippi;2010;0.1716
+Mississippi;2011;0.1343
+Mississippi;2012;0.1592
+Mississippi;2013;0.1446
+Mississippi;2014;0.1463
+Mississippi;2015;0.1474
+Mississippi;2016;0.1567
+Mississippi;2017;0.147
+Mississippi;2018;0.1508
+Mississippi;2019;
+Mississippi;2020;
+Mississippi;2021;
+Missouri;1998;0.1614
+Missouri;1999;0.1632
+Missouri;2000;0.1683
+Missouri;2001;0.1512
+Missouri;2002;0.1444
+Missouri;2003;0.1452
+Missouri;2004;0.156
+Missouri;2005;0.1727
+Missouri;2006;0.1805
+Missouri;2007;0.1928
+Missouri;2008;0.1879
+Missouri;2009;0.1489
+Missouri;2010;0.1657
+Missouri;2011;0.1644
+Missouri;2012;0.1879
+Missouri;2013;0.1674
+Missouri;2014;0.1786
+Missouri;2015;0.1797
+Missouri;2016;0.1778
+Missouri;2017;0.1701
+Missouri;2018;0.1913
+Missouri;2019;
+Missouri;2020;
+Missouri;2021;
+Moldova;1998;0.0925
+Moldova;1999;0.0902
+Moldova;2000;0.09
+Moldova;2001;0.0887
+Moldova;2002;0.0919
+Moldova;2003;0.0969
+Moldova;2004;0.0956
+Moldova;2005;0.0993
+Moldova;2006;0.1015
+Moldova;2007;0.1063
+Moldova;2008;0.1122
+Moldova;2009;0.1142
+Moldova;2010;0.1094
+Moldova;2011;0.1125
+Moldova;2012;0.1113
+Moldova;2013;0.1078
+Moldova;2014;0.1079
+Moldova;2015;0.1134
+Moldova;2016;0.1086
+Moldova;2017;0.1102
+Moldova;2018;0.1091
+Moldova;2019;0.1123
+Moldova;2020;0.1131
+Moldova;2021;0.113
+Mongolia;1998;0.1512
+Mongolia;1999;0.1531
+Mongolia;2000;0.155
+Mongolia;2001;0.1569
+Mongolia;2002;0.1587
+Mongolia;2003;0.1635
+Mongolia;2004;0.1675
+Mongolia;2005;0.171
+Mongolia;2006;0.1721
+Mongolia;2007;0.1686
+Mongolia;2008;0.1615
+Mongolia;2009;0.154
+Mongolia;2010;0.1627
+Mongolia;2011;0.1699
+Mongolia;2012;0.1717
+Mongolia;2013;0.1682
+Mongolia;2014;0.1748
+Mongolia;2015;0.1673
+Mongolia;2016;0.1667
+Mongolia;2017;0.1643
+Mongolia;2018;0.1641
+Mongolia;2019;0.1605
+Mongolia;2020;0.1605
+Mongolia;2021;0.1605
+Montana;1998;0.1367
+Montana;1999;0.1404
+Montana;2000;0.1511
+Montana;2001;0.1397
+Montana;2002;0.1444
+Montana;2003;0.1424
+Montana;2004;0.1512
+Montana;2005;0.1613
+Montana;2006;0.1754
+Montana;2007;0.1793
+Montana;2008;0.1618
+Montana;2009;0.1649
+Montana;2010;0.1543
+Montana;2011;0.1465
+Montana;2012;0.1848
+Montana;2013;0.1438
+Montana;2014;0.1685
+Montana;2015;0.1575
+Montana;2016;0.1548
+Montana;2017;0.1628
+Montana;2018;0.1658
+Montana;2019;
+Montana;2020;
+Montana;2021;
+Montenegro;1998;0.0884
+Montenegro;1999;0.0774
+Montenegro;2000;0.105
+Montenegro;2001;0.0966
+Montenegro;2002;0.0982
+Montenegro;2003;0.0991
+Montenegro;2004;0.0974
+Montenegro;2005;0.094
+Montenegro;2006;0.0878
+Montenegro;2007;0.0914
+Montenegro;2008;0.0964
+Montenegro;2009;0.0934
+Montenegro;2010;0.0968
+Montenegro;2011;0.1034
+Montenegro;2012;0.1043
+Montenegro;2013;0.0947
+Montenegro;2014;0.094
+Montenegro;2015;0.1098
+Montenegro;2016;0.1076
+Montenegro;2017;0.0907
+Montenegro;2018;0.0904
+Montenegro;2019;0.0874
+Montenegro;2020;0.0857
+Montenegro;2021;0.086
+Morocco;1998;0.1416
+Morocco;1999;0.1508
+Morocco;2000;0.16
+Morocco;2001;0.1617
+Morocco;2002;0.1634
+Morocco;2003;0.1652
+Morocco;2004;0.1669
+Morocco;2005;0.1686
+Morocco;2006;0.1703
+Morocco;2007;0.1676
+Morocco;2008;0.1649
+Morocco;2009;0.1622
+Morocco;2010;0.1595
+Morocco;2011;0.1568
+Morocco;2012;0.1541
+Morocco;2013;0.1514
+Morocco;2014;0.1514
+Morocco;2015;0.1514
+Morocco;2016;0.1514
+Morocco;2017;0.1514
+Morocco;2018;0.1514
+Morocco;2019;0.1514
+Morocco;2020;0.1514
+Morocco;2021;0.1514
+Mozambique;1998;0.2457
+Mozambique;1999;0.2481
+Mozambique;2000;0.2506
+Mozambique;2001;0.253
+Mozambique;2002;0.2555
+Mozambique;2003;0.2521
+Mozambique;2004;0.2486
+Mozambique;2005;0.2452
+Mozambique;2006;0.2417
+Mozambique;2007;0.2383
+Mozambique;2008;0.2348
+Mozambique;2009;0.2475
+Mozambique;2010;0.2603
+Mozambique;2011;0.273
+Mozambique;2012;0.2857
+Mozambique;2013;0.2984
+Mozambique;2014;0.3111
+Mozambique;2015;0.3111
+Mozambique;2016;0.3111
+Mozambique;2017;0.3111
+Mozambique;2018;0.3111
+Mozambique;2019;0.3111
+Mozambique;2020;0.3111
+Mozambique;2021;0.3111
+Myanmar;1998;0.2649
+Myanmar;1999;0.2649
+Myanmar;2000;0.2649
+Myanmar;2001;0.2649
+Myanmar;2002;0.2649
+Myanmar;2003;0.2649
+Myanmar;2004;0.2649
+Myanmar;2005;0.2649
+Myanmar;2006;0.2649
+Myanmar;2007;0.2649
+Myanmar;2008;0.2649
+Myanmar;2009;0.2649
+Myanmar;2010;0.2649
+Myanmar;2011;0.2649
+Myanmar;2012;0.2649
+Myanmar;2013;0.2649
+Myanmar;2014;0.2649
+Myanmar;2015;0.2649
+Myanmar;2016;0.2157
+Myanmar;2017;0.1671
+Myanmar;2018;0.1666
+Myanmar;2019;0.1666
+Myanmar;2020;0.1666
+Myanmar;2021;0.1666
+Namibia;1998;0.2687
+Namibia;1999;0.2687
+Namibia;2000;0.2687
+Namibia;2001;0.2687
+Namibia;2002;0.2687
+Namibia;2003;0.2687
+Namibia;2004;0.2677
+Namibia;2005;0.2668
+Namibia;2006;0.2658
+Namibia;2007;0.2648
+Namibia;2008;0.2639
+Namibia;2009;0.2629
+Namibia;2010;0.255
+Namibia;2011;0.2472
+Namibia;2012;0.2393
+Namibia;2013;0.2315
+Namibia;2014;0.2236
+Namibia;2015;0.2157
+Namibia;2016;0.2157
+Namibia;2017;0.2157
+Namibia;2018;0.2157
+Namibia;2019;0.2157
+Namibia;2020;0.2157
+Namibia;2021;0.2157
+Nebraska;1998;0.1645
+Nebraska;1999;0.1547
+Nebraska;2000;0.1645
+Nebraska;2001;0.1387
+Nebraska;2002;0.1339
+Nebraska;2003;0.1321
+Nebraska;2004;0.1485
+Nebraska;2005;0.1529
+Nebraska;2006;0.1761
+Nebraska;2007;0.1786
+Nebraska;2008;0.1575
+Nebraska;2009;0.1318
+Nebraska;2010;0.1527
+Nebraska;2011;0.1304
+Nebraska;2012;0.1729
+Nebraska;2013;0.1339
+Nebraska;2014;0.1595
+Nebraska;2015;0.1379
+Nebraska;2016;0.1416
+Nebraska;2017;0.1444
+Nebraska;2018;0.1472
+Nebraska;2019;
+Nebraska;2020;
+Nebraska;2021;
+Nepal;1998;0.169
+Nepal;1999;0.1666
+Nepal;2000;0.1637
+Nepal;2001;0.1605
+Nepal;2002;0.1594
+Nepal;2003;0.1594
+Nepal;2004;0.1567
+Nepal;2005;0.1548
+Nepal;2006;0.1539
+Nepal;2007;0.1538
+Nepal;2008;0.147
+Nepal;2009;0.144
+Nepal;2010;0.1458
+Nepal;2011;0.1432
+Nepal;2012;0.1427
+Nepal;2013;0.1419
+Nepal;2014;0.1402
+Nepal;2015;0.1375
+Nepal;2016;0.137
+Nepal;2017;0.1372
+Nepal;2018;0.1372
+Nepal;2019;0.1372
+Nepal;2020;0.1372
+Nepal;2021;0.1372
+Netherlands;1998;0.0594
+Netherlands;1999;0.0603
+Netherlands;2000;0.0628
+Netherlands;2001;0.0695
+Netherlands;2002;0.0683
+Netherlands;2003;0.0676
+Netherlands;2004;0.0702
+Netherlands;2005;0.0718
+Netherlands;2006;0.0709
+Netherlands;2007;0.0787
+Netherlands;2008;0.0677
+Netherlands;2009;0.0657
+Netherlands;2010;0.0673
+Netherlands;2011;0.0659
+Netherlands;2012;0.0658
+Netherlands;2013;0.0635
+Netherlands;2014;0.0687
+Netherlands;2015;0.0688
+Netherlands;2016;0.0691
+Netherlands;2017;0.0705
+Netherlands;2018;0.0697
+Netherlands;2019;0.0692
+Netherlands;2020;0.0686
+Netherlands;2021;0.0688
+Nevada;1998;0.2575
+Nevada;1999;0.2472
+Nevada;2000;0.2756
+Nevada;2001;0.2289
+Nevada;2002;0.2266
+Nevada;2003;0.2353
+Nevada;2004;0.3143
+Nevada;2005;0.3371
+Nevada;2006;0.3234
+Nevada;2007;0.3083
+Nevada;2008;0.2453
+Nevada;2009;0.2174
+Nevada;2010;0.2456
+Nevada;2011;0.2238
+Nevada;2012;0.3
+Nevada;2013;0.2774
+Nevada;2014;0.2491
+Nevada;2015;0.2526
+Nevada;2016;0.288
+Nevada;2017;0.2673
+Nevada;2018;0.3116
+Nevada;2019;
+Nevada;2020;
+Nevada;2021;
+New Hampshire;1998;0.1768
+New Hampshire;1999;0.1852
+New Hampshire;2000;0.2155
+New Hampshire;2001;0.1497
+New Hampshire;2002;0.1342
+New Hampshire;2003;0.1384
+New Hampshire;2004;0.1592
+New Hampshire;2005;0.1724
+New Hampshire;2006;0.1853
+New Hampshire;2007;0.1888
+New Hampshire;2008;0.161
+New Hampshire;2009;0.1485
+New Hampshire;2010;0.1695
+New Hampshire;2011;0.1638
+New Hampshire;2012;0.1774
+New Hampshire;2013;0.1509
+New Hampshire;2014;0.1638
+New Hampshire;2015;0.1649
+New Hampshire;2016;0.1735
+New Hampshire;2017;0.175
+New Hampshire;2018;0.1791
+New Hampshire;2019;
+New Hampshire;2020;
+New Hampshire;2021;
+New Jersey;1998;0.1979
+New Jersey;1999;0.2123
+New Jersey;2000;0.2335
+New Jersey;2001;0.2007
+New Jersey;2002;0.1803
+New Jersey;2003;0.1836
+New Jersey;2004;0.196
+New Jersey;2005;0.2073
+New Jersey;2006;0.2126
+New Jersey;2007;0.2306
+New Jersey;2008;0.2082
+New Jersey;2009;0.1811
+New Jersey;2010;0.1945
+New Jersey;2011;0.1948
+New Jersey;2012;0.2143
+New Jersey;2013;0.1988
+New Jersey;2014;0.2062
+New Jersey;2015;0.2038
+New Jersey;2016;0.2004
+New Jersey;2017;0.2092
+New Jersey;2018;0.1966
+New Jersey;2019;
+New Jersey;2020;
+New Jersey;2021;
+New Mexico;1998;0.13
+New Mexico;1999;0.1379
+New Mexico;2000;0.0958
+New Mexico;2001;0.1766
+New Mexico;2002;0.1234
+New Mexico;2003;0.1234
+New Mexico;2004;0.1372
+New Mexico;2005;0.1572
+New Mexico;2006;0.169
+New Mexico;2007;0.1779
+New Mexico;2008;0.1581
+New Mexico;2009;0.1426
+New Mexico;2010;0.1466
+New Mexico;2011;0.1359
+New Mexico;2012;0.1574
+New Mexico;2013;0.1379
+New Mexico;2014;0.1471
+New Mexico;2015;0.1399
+New Mexico;2016;0.1411
+New Mexico;2017;0.1505
+New Mexico;2018;0.1532
+New Mexico;2019;
+New Mexico;2020;
+New Mexico;2021;
+New York;1998;0.2485
+New York;1999;0.2625
+New York;2000;0.267
+New York;2001;0.2796
+New York;2002;0.2331
+New York;2003;0.2471
+New York;2004;0.2859
+New York;2005;0.3073
+New York;2006;0.327
+New York;2007;0.36
+New York;2008;0.3083
+New York;2009;0.2737
+New York;2010;0.2982
+New York;2011;0.2954
+New York;2012;0.326
+New York;2013;0.3099
+New York;2014;0.331
+New York;2015;0.3223
+New York;2016;0.2922
+New York;2017;0.3131
+New York;2018;0.2973
+New York;2019;
+New York;2020;
+New York;2021;
+New Zealand;1998;0.1168
+New Zealand;1999;0.1316
+New Zealand;2000;0.0969
+New Zealand;2001;0.1042
+New Zealand;2002;0.1048
+New Zealand;2003;0.1122
+New Zealand;2004;0.1172
+New Zealand;2005;0.1027
+New Zealand;2006;0.0912
+New Zealand;2007;0.0913
+New Zealand;2008;0.0906
+New Zealand;2009;0.0994
+New Zealand;2010;0.0951
+New Zealand;2011;0.1026
+New Zealand;2012;0.1137
+New Zealand;2013;0.1019
+New Zealand;2014;0.1039
+New Zealand;2015;0.1096
+New Zealand;2016;0.1117
+New Zealand;2017;0.1177
+New Zealand;2018;0.1194
+New Zealand;2019;0.1187
+New Zealand;2020;0.1187
+New Zealand;2021;0.1187
+Nicaragua;1998;0.1895
+Nicaragua;1999;0.1895
+Nicaragua;2000;0.1895
+Nicaragua;2001;0.1985
+Nicaragua;2002;0.19
+Nicaragua;2003;0.2035
+Nicaragua;2004;0.1987
+Nicaragua;2005;0.189
+Nicaragua;2006;0.1895
+Nicaragua;2007;0.2087
+Nicaragua;2008;0.1994
+Nicaragua;2009;0.186
+Nicaragua;2010;0.1943
+Nicaragua;2011;0.1933
+Nicaragua;2012;0.1895
+Nicaragua;2013;0.2013
+Nicaragua;2014;0.202
+Nicaragua;2015;0.1947
+Nicaragua;2016;0.1985
+Nicaragua;2017;0.1914
+Nicaragua;2018;0.1898
+Nicaragua;2019;0.183
+Nicaragua;2020;0.1962
+Nicaragua;2021;0.1962
+Niger;1998;0.1934
+Niger;1999;0.1997
+Niger;2000;0.2061
+Niger;2001;0.2125
+Niger;2002;0.2188
+Niger;2003;0.2252
+Niger;2004;0.2316
+Niger;2005;0.2379
+Niger;2006;0.2006
+Niger;2007;0.163
+Niger;2008;0.1529
+Niger;2009;0.1427
+Niger;2010;0.1324
+Niger;2011;0.1222
+Niger;2012;0.1201
+Niger;2013;0.1181
+Niger;2014;0.116
+Niger;2015;0.1284
+Niger;2016;0.1409
+Niger;2017;0.1533
+Niger;2018;0.1657
+Niger;2019;0.1657
+Niger;2020;0.1657
+Niger;2021;0.1657
+Nigeria;1998;0.1252
+Nigeria;1999;0.1274
+Nigeria;2000;0.1295
+Nigeria;2001;0.1316
+Nigeria;2002;0.1337
+Nigeria;2003;0.1358
+Nigeria;2004;0.1307
+Nigeria;2005;0.1255
+Nigeria;2006;0.1203
+Nigeria;2007;0.1151
+Nigeria;2008;0.1099
+Nigeria;2009;0.1047
+Nigeria;2010;0.0994
+Nigeria;2011;0.0993
+Nigeria;2012;0.0991
+Nigeria;2013;0.0996
+Nigeria;2014;0.1001
+Nigeria;2015;0.1006
+Nigeria;2016;0.1057
+Nigeria;2017;0.1108
+Nigeria;2018;0.1159
+Nigeria;2019;0.1159
+Nigeria;2020;0.1159
+Nigeria;2021;0.1159
+North Africa;1998;0.1645
+North Africa;1999;0.1691
+North Africa;2000;0.1698
+North Africa;2001;0.1673
+North Africa;2002;0.1641
+North Africa;2003;0.1625
+North Africa;2004;0.1605
+North Africa;2005;0.1621
+North Africa;2006;0.1646
+North Africa;2007;0.1648
+North Africa;2008;0.166
+North Africa;2009;0.161
+North Africa;2010;0.1561
+North Africa;2011;0.1507
+North Africa;2012;0.1554
+North Africa;2013;0.16
+North Africa;2014;0.1615
+North Africa;2015;0.1665
+North Africa;2016;0.164
+North Africa;2017;0.1633
+North Africa;2018;0.1624
+North Africa;2019;0.1616
+North Africa;2020;0.1614
+North Africa;2021;0.1666
+North Africa (at market exchange rate);1998;0.1649
+North Africa (at market exchange rate);1999;0.169
+North Africa (at market exchange rate);2000;0.1695
+North Africa (at market exchange rate);2001;0.168
+North Africa (at market exchange rate);2002;0.1661
+North Africa (at market exchange rate);2003;0.1647
+North Africa (at market exchange rate);2004;0.1627
+North Africa (at market exchange rate);2005;0.1641
+North Africa (at market exchange rate);2006;0.1654
+North Africa (at market exchange rate);2007;0.1644
+North Africa (at market exchange rate);2008;0.1671
+North Africa (at market exchange rate);2009;0.161
+North Africa (at market exchange rate);2010;0.1565
+North Africa (at market exchange rate);2011;0.1592
+North Africa (at market exchange rate);2012;0.1591
+North Africa (at market exchange rate);2013;0.1616
+North Africa (at market exchange rate);2014;0.1645
+North Africa (at market exchange rate);2015;0.169
+North Africa (at market exchange rate);2016;0.1664
+North Africa (at market exchange rate);2017;0.1663
+North Africa (at market exchange rate);2018;0.1644
+North Africa (at market exchange rate);2019;0.1643
+North Africa (at market exchange rate);2020;0.1643
+North Africa (at market exchange rate);2021;0.1635
+North America;1998;0.1631
+North America;1999;0.1673
+North America;2000;0.1731
+North America;2001;0.166
+North America;2002;0.1608
+North America;2003;0.1628
+North America;2004;0.1701
+North America;2005;0.1794
+North America;2006;0.1841
+North America;2007;0.1822
+North America;2008;0.1775
+North America;2009;0.1659
+North America;2010;0.178
+North America;2011;0.18
+North America;2012;0.1929
+North America;2013;0.1844
+North America;2014;0.1894
+North America;2015;0.189
+North America;2016;0.1867
+North America;2017;0.1904
+North America;2018;0.1907
+North America;2019;0.1895
+North America;2020;0.179
+North America;2021;0.1899
+North America & Oceania;1998;0.1621
+North America & Oceania;1999;0.1664
+North America & Oceania;2000;0.1731
+North America & Oceania;2001;0.1659
+North America & Oceania;2002;0.1608
+North America & Oceania;2003;0.1629
+North America & Oceania;2004;0.1701
+North America & Oceania;2005;0.1794
+North America & Oceania;2006;0.1841
+North America & Oceania;2007;0.1821
+North America & Oceania;2008;0.1772
+North America & Oceania;2009;0.1652
+North America & Oceania;2010;0.1765
+North America & Oceania;2011;0.1789
+North America & Oceania;2012;0.1909
+North America & Oceania;2013;0.1827
+North America & Oceania;2014;0.1875
+North America & Oceania;2015;0.1881
+North America & Oceania;2016;0.1848
+North America & Oceania;2017;0.1898
+North America & Oceania;2018;0.1891
+North America & Oceania;2019;0.1884
+North America & Oceania;2020;0.1778
+North America & Oceania;2021;0.188
+North America & Oceania (at market exchange rate);1998;0.1621
+North America & Oceania (at market exchange rate);1999;0.1663
+North America & Oceania (at market exchange rate);2000;0.1727
+North America & Oceania (at market exchange rate);2001;0.1655
+North America & Oceania (at market exchange rate);2002;0.1606
+North America & Oceania (at market exchange rate);2003;0.1626
+North America & Oceania (at market exchange rate);2004;0.1701
+North America & Oceania (at market exchange rate);2005;0.1797
+North America & Oceania (at market exchange rate);2006;0.1836
+North America & Oceania (at market exchange rate);2007;0.1814
+North America & Oceania (at market exchange rate);2008;0.1771
+North America & Oceania (at market exchange rate);2009;0.1647
+North America & Oceania (at market exchange rate);2010;0.1765
+North America & Oceania (at market exchange rate);2011;0.1788
+North America & Oceania (at market exchange rate);2012;0.1913
+North America & Oceania (at market exchange rate);2013;0.1827
+North America & Oceania (at market exchange rate);2014;0.1877
+North America & Oceania (at market exchange rate);2015;0.1873
+North America & Oceania (at market exchange rate);2016;0.1839
+North America & Oceania (at market exchange rate);2017;0.1887
+North America & Oceania (at market exchange rate);2018;0.1886
+North America & Oceania (at market exchange rate);2019;0.1865
+North America & Oceania (at market exchange rate);2020;0.1762
+North America & Oceania (at market exchange rate);2021;0.1863
+North America (at market exchange rate);1998;0.1632
+North America (at market exchange rate);1999;0.1675
+North America (at market exchange rate);2000;0.1736
+North America (at market exchange rate);2001;0.1662
+North America (at market exchange rate);2002;0.161
+North America (at market exchange rate);2003;0.1633
+North America (at market exchange rate);2004;0.1706
+North America (at market exchange rate);2005;0.1804
+North America (at market exchange rate);2006;0.1844
+North America (at market exchange rate);2007;0.1829
+North America (at market exchange rate);2008;0.178
+North America (at market exchange rate);2009;0.1664
+North America (at market exchange rate);2010;0.1785
+North America (at market exchange rate);2011;0.1803
+North America (at market exchange rate);2012;0.1939
+North America (at market exchange rate);2013;0.1851
+North America (at market exchange rate);2014;0.1901
+North America (at market exchange rate);2015;0.1896
+North America (at market exchange rate);2016;0.187
+North America (at market exchange rate);2017;0.1911
+North America (at market exchange rate);2018;0.1919
+North America (at market exchange rate);2019;0.1902
+North America (at market exchange rate);2020;0.1791
+North America (at market exchange rate);2021;0.1904
+North Carolina;1998;0.152
+North Carolina;1999;0.151
+North Carolina;2000;0.1589
+North Carolina;2001;0.1412
+North Carolina;2002;0.1418
+North Carolina;2003;0.1475
+North Carolina;2004;0.1568
+North Carolina;2005;0.1702
+North Carolina;2006;0.1791
+North Carolina;2007;0.1779
+North Carolina;2008;0.1517
+North Carolina;2009;0.1386
+North Carolina;2010;0.1474
+North Carolina;2011;0.153
+North Carolina;2012;0.1675
+North Carolina;2013;0.1518
+North Carolina;2014;0.1676
+North Carolina;2015;0.1775
+North Carolina;2016;0.1743
+North Carolina;2017;0.1738
+North Carolina;2018;0.1864
+North Carolina;2019;
+North Carolina;2020;
+North Carolina;2021;
+North Dakota;1998;0.1192
+North Dakota;1999;0.1124
+North Dakota;2000;0.1179
+North Dakota;2001;0.1103
+North Dakota;2002;0.1134
+North Dakota;2003;0.112
+North Dakota;2004;0.1289
+North Dakota;2005;0.1318
+North Dakota;2006;0.1571
+North Dakota;2007;0.1552
+North Dakota;2008;0.1682
+North Dakota;2009;0.1381
+North Dakota;2010;0.1515
+North Dakota;2011;0.1655
+North Dakota;2012;0.2081
+North Dakota;2013;0.1704
+North Dakota;2014;0.1853
+North Dakota;2015;0.1504
+North Dakota;2016;0.1477
+North Dakota;2017;0.1421
+North Dakota;2018;0.1447
+North Dakota;2019;
+North Dakota;2020;
+North Dakota;2021;
+North Korea;1998;0.1289
+North Korea;1999;0.1291
+North Korea;2000;0.132
+North Korea;2001;0.1348
+North Korea;2002;0.1429
+North Korea;2003;0.1439
+North Korea;2004;0.1465
+North Korea;2005;0.147
+North Korea;2006;0.1487
+North Korea;2007;0.1525
+North Korea;2008;0.1535
+North Korea;2009;0.165
+North Korea;2010;0.1681
+North Korea;2011;0.1572
+North Korea;2012;0.1467
+North Korea;2013;0.1457
+North Korea;2014;0.1441
+North Korea;2015;0.1465
+North Korea;2016;0.1476
+North Korea;2017;0.1476
+North Korea;2018;0.1476
+North Korea;2019;0.1476
+North Korea;2020;0.1188
+North Korea;2021;0.1188
+Macedonia;1998;0.083
+Macedonia;1999;0.0785
+Macedonia;2000;0.0791
+Macedonia;2001;0.0907
+Macedonia;2002;0.0768
+Macedonia;2003;0.0785
+Macedonia;2004;0.0755
+Macedonia;2005;0.0747
+Macedonia;2006;0.0744
+Macedonia;2007;0.0733
+Macedonia;2008;0.08
+Macedonia;2009;0.0786
+Macedonia;2010;0.0802
+Macedonia;2011;0.0799
+Macedonia;2012;0.0805
+Macedonia;2013;0.0837
+Macedonia;2014;0.0855
+Macedonia;2015;0.0832
+Macedonia;2016;0.088
+Macedonia;2017;0.0941
+Macedonia;2018;0.0819
+Macedonia;2019;0.0787
+Macedonia;2020;0.0769
+Macedonia;2021;0.0773
+Norway;1998;0.0898
+Norway;1999;0.0998
+Norway;2000;0.1277
+Norway;2001;0.1083
+Norway;2002;0.1159
+Norway;2003;0.1203
+Norway;2004;0.1247
+Norway;2005;0.1291
+Norway;2006;0.1335
+Norway;2007;0.1331
+Norway;2008;0.1405
+Norway;2009;0.1117
+Norway;2010;0.1246
+Norway;2011;0.1247
+Norway;2012;0.1264
+Norway;2013;0.121
+Norway;2014;0.1175
+Norway;2015;0.0997
+Norway;2016;0.0975
+Norway;2017;0.1018
+Norway;2018;0.1107
+Norway;2019;0.0946
+Norway;2020;0.0883
+Norway;2021;0.089
+Oceania;1998;0.1013
+Oceania;1999;0.114
+Oceania;2000;0.1153
+Oceania;2001;0.106
+Oceania;2002;0.1102
+Oceania;2003;0.1162
+Oceania;2004;0.1224
+Oceania;2005;0.122
+Oceania;2006;0.1297
+Oceania;2007;0.1271
+Oceania;2008;0.1148
+Oceania;2009;0.1221
+Oceania;2010;0.1239
+Oceania;2011;0.1175
+Oceania;2012;0.1252
+Oceania;2013;0.1319
+Oceania;2014;0.1278
+Oceania;2015;0.1282
+Oceania;2016;0.1249
+Oceania;2017;0.1381
+Oceania;2018;0.1244
+Oceania;2019;0.1241
+Oceania;2020;0.1245
+Oceania;2021;0.1245
+Oceania (at market exchange rate);1998;0.1024
+Oceania (at market exchange rate);1999;0.1127
+Oceania (at market exchange rate);2000;0.1149
+Oceania (at market exchange rate);2001;0.1068
+Oceania (at market exchange rate);2002;0.113
+Oceania (at market exchange rate);2003;0.1189
+Oceania (at market exchange rate);2004;0.1237
+Oceania (at market exchange rate);2005;0.1222
+Oceania (at market exchange rate);2006;0.1307
+Oceania (at market exchange rate);2007;0.1266
+Oceania (at market exchange rate);2008;0.1147
+Oceania (at market exchange rate);2009;0.1231
+Oceania (at market exchange rate);2010;0.1232
+Oceania (at market exchange rate);2011;0.1198
+Oceania (at market exchange rate);2012;0.1285
+Oceania (at market exchange rate);2013;0.1347
+Oceania (at market exchange rate);2014;0.1286
+Oceania (at market exchange rate);2015;0.1296
+Oceania (at market exchange rate);2016;0.1255
+Oceania (at market exchange rate);2017;0.141
+Oceania (at market exchange rate);2018;0.1259
+Oceania (at market exchange rate);2019;0.1266
+Oceania (at market exchange rate);2020;0.1268
+Oceania (at market exchange rate);2021;0.1271
+Ohio;1998;0.1512
+Ohio;1999;0.1453
+Ohio;2000;0.1449
+Ohio;2001;0.1342
+Ohio;2002;0.1381
+Ohio;2003;0.1364
+Ohio;2004;0.1531
+Ohio;2005;0.1592
+Ohio;2006;0.1678
+Ohio;2007;0.1721
+Ohio;2008;0.1553
+Ohio;2009;0.1376
+Ohio;2010;0.1506
+Ohio;2011;0.1536
+Ohio;2012;0.1733
+Ohio;2013;0.1491
+Ohio;2014;0.1623
+Ohio;2015;0.1602
+Ohio;2016;0.1592
+Ohio;2017;0.1567
+Ohio;2018;0.1678
+Ohio;2019;
+Ohio;2020;
+Ohio;2021;
+Oklahoma;1998;0.147
+Oklahoma;1999;0.1457
+Oklahoma;2000;0.1518
+Oklahoma;2001;0.1446
+Oklahoma;2002;0.1366
+Oklahoma;2003;0.1458
+Oklahoma;2004;0.1655
+Oklahoma;2005;0.176
+Oklahoma;2006;0.1975
+Oklahoma;2007;0.209
+Oklahoma;2008;0.1882
+Oklahoma;2009;0.1615
+Oklahoma;2010;0.1614
+Oklahoma;2011;0.1743
+Oklahoma;2012;0.2064
+Oklahoma;2013;0.1644
+Oklahoma;2014;0.168
+Oklahoma;2015;0.165
+Oklahoma;2016;0.1602
+Oklahoma;2017;0.1626
+Oklahoma;2018;0.1612
+Oklahoma;2019;
+Oklahoma;2020;
+Oklahoma;2021;
+Oman;1998;0.1907
+Oman;1999;0.1907
+Oman;2000;0.1907
+Oman;2001;0.1907
+Oman;2002;0.1907
+Oman;2003;0.1907
+Oman;2004;0.1907
+Oman;2005;0.1907
+Oman;2006;0.1907
+Oman;2007;0.1907
+Oman;2008;0.1907
+Oman;2009;0.1907
+Oman;2010;0.1907
+Oman;2011;0.1907
+Oman;2012;0.1907
+Oman;2013;0.1907
+Oman;2014;0.1907
+Oman;2015;0.1907
+Oman;2016;0.1907
+Oman;2017;0.1907
+Oman;2018;0.1907
+Oman;2019;0.1907
+Oman;2020;0.1907
+Oman;2021;0.1907
+Oregon;1998;0.1541
+Oregon;1999;0.1609
+Oregon;2000;0.1795
+Oregon;2001;0.14
+Oregon;2002;0.1367
+Oregon;2003;0.1437
+Oregon;2004;0.1587
+Oregon;2005;0.1688
+Oregon;2006;0.1797
+Oregon;2007;0.1862
+Oregon;2008;0.1551
+Oregon;2009;0.1419
+Oregon;2010;0.1492
+Oregon;2011;0.1509
+Oregon;2012;0.1678
+Oregon;2013;0.1547
+Oregon;2014;0.1642
+Oregon;2015;0.1687
+Oregon;2016;0.1711
+Oregon;2017;0.1755
+Oregon;2018;0.1738
+Oregon;2019;
+Oregon;2020;
+Oregon;2021;
+Other East Asia;1998;0.1169
+Other East Asia;1999;0.1169
+Other East Asia;2000;0.1228
+Other East Asia;2001;0.128
+Other East Asia;2002;0.1251
+Other East Asia;2003;0.1349
+Other East Asia;2004;0.138
+Other East Asia;2005;0.1406
+Other East Asia;2006;0.1293
+Other East Asia;2007;0.1333
+Other East Asia;2008;0.1299
+Other East Asia;2009;0.1322
+Other East Asia;2010;0.1495
+Other East Asia;2011;0.1525
+Other East Asia;2012;0.1348
+Other East Asia;2013;0.136
+Other East Asia;2014;0.1585
+Other East Asia;2015;0.154
+Other East Asia;2016;0.161
+Other East Asia;2017;0.16
+Other East Asia;2018;0.1601
+Other East Asia;2019;0.1598
+Other East Asia;2020;0.1613
+Other East Asia;2021;0.1621
+Other East Asia (at market exchange rate);1998;0.1249
+Other East Asia (at market exchange rate);1999;0.127
+Other East Asia (at market exchange rate);2000;0.1305
+Other East Asia (at market exchange rate);2001;0.1479
+Other East Asia (at market exchange rate);2002;0.1377
+Other East Asia (at market exchange rate);2003;0.1476
+Other East Asia (at market exchange rate);2004;0.1413
+Other East Asia (at market exchange rate);2005;0.1382
+Other East Asia (at market exchange rate);2006;0.1322
+Other East Asia (at market exchange rate);2007;0.1415
+Other East Asia (at market exchange rate);2008;0.134
+Other East Asia (at market exchange rate);2009;0.1369
+Other East Asia (at market exchange rate);2010;0.1547
+Other East Asia (at market exchange rate);2011;0.1533
+Other East Asia (at market exchange rate);2012;0.1444
+Other East Asia (at market exchange rate);2013;0.1425
+Other East Asia (at market exchange rate);2014;0.1569
+Other East Asia (at market exchange rate);2015;0.1614
+Other East Asia (at market exchange rate);2016;0.1677
+Other East Asia (at market exchange rate);2017;0.1663
+Other East Asia (at market exchange rate);2018;0.167
+Other East Asia (at market exchange rate);2019;0.1663
+Other East Asia (at market exchange rate);2020;0.1594
+Other East Asia (at market exchange rate);2021;0.1589
+Other Latin America;1998;0.1947
+Other Latin America;1999;0.1919
+Other Latin America;2000;0.1914
+Other Latin America;2001;0.2049
+Other Latin America;2002;0.1996
+Other Latin America;2003;0.2153
+Other Latin America;2004;0.1984
+Other Latin America;2005;0.1849
+Other Latin America;2006;0.1846
+Other Latin America;2007;0.2106
+Other Latin America;2008;0.1988
+Other Latin America;2009;0.1829
+Other Latin America;2010;0.1866
+Other Latin America;2011;0.179
+Other Latin America;2012;0.1707
+Other Latin America;2013;0.1816
+Other Latin America;2014;0.1829
+Other Latin America;2015;0.1944
+Other Latin America;2016;0.212
+Other Latin America;2017;0.1847
+Other Latin America;2018;0.1943
+Other Latin America;2019;0.1884
+Other Latin America;2020;0.2053
+Other Latin America;2021;0.2048
+Other Latin America (at market exchange rate);1998;0.2084
+Other Latin America (at market exchange rate);1999;0.2055
+Other Latin America (at market exchange rate);2000;0.2054
+Other Latin America (at market exchange rate);2001;0.2178
+Other Latin America (at market exchange rate);2002;0.2129
+Other Latin America (at market exchange rate);2003;0.225
+Other Latin America (at market exchange rate);2004;0.2099
+Other Latin America (at market exchange rate);2005;0.1984
+Other Latin America (at market exchange rate);2006;0.1978
+Other Latin America (at market exchange rate);2007;0.2259
+Other Latin America (at market exchange rate);2008;0.213
+Other Latin America (at market exchange rate);2009;0.1953
+Other Latin America (at market exchange rate);2010;0.1977
+Other Latin America (at market exchange rate);2011;0.1888
+Other Latin America (at market exchange rate);2012;0.1802
+Other Latin America (at market exchange rate);2013;0.1917
+Other Latin America (at market exchange rate);2014;0.1889
+Other Latin America (at market exchange rate);2015;0.1995
+Other Latin America (at market exchange rate);2016;0.2139
+Other Latin America (at market exchange rate);2017;0.1874
+Other Latin America (at market exchange rate);2018;0.1943
+Other Latin America (at market exchange rate);2019;0.1897
+Other Latin America (at market exchange rate);2020;0.2059
+Other Latin America (at market exchange rate);2021;0.2049
+Other MENA;1998;0.2724
+Other MENA;1999;0.2674
+Other MENA;2000;0.2685
+Other MENA;2001;0.265
+Other MENA;2002;0.2645
+Other MENA;2003;0.2667
+Other MENA;2004;0.2647
+Other MENA;2005;0.2594
+Other MENA;2006;0.2585
+Other MENA;2007;0.2487
+Other MENA;2008;0.2438
+Other MENA;2009;0.2288
+Other MENA;2010;0.2227
+Other MENA;2011;0.2238
+Other MENA;2012;0.2212
+Other MENA;2013;0.2217
+Other MENA;2014;0.2268
+Other MENA;2015;0.2289
+Other MENA;2016;0.2264
+Other MENA;2017;0.224
+Other MENA;2018;0.2277
+Other MENA;2019;0.2297
+Other MENA;2020;0.2308
+Other MENA;2021;0.2286
+Other MENA (at market exchange rate);1998;0.2764
+Other MENA (at market exchange rate);1999;0.2725
+Other MENA (at market exchange rate);2000;0.2703
+Other MENA (at market exchange rate);2001;0.2686
+Other MENA (at market exchange rate);2002;0.2654
+Other MENA (at market exchange rate);2003;0.2678
+Other MENA (at market exchange rate);2004;0.2657
+Other MENA (at market exchange rate);2005;0.2617
+Other MENA (at market exchange rate);2006;0.261
+Other MENA (at market exchange rate);2007;0.2548
+Other MENA (at market exchange rate);2008;0.2443
+Other MENA (at market exchange rate);2009;0.2365
+Other MENA (at market exchange rate);2010;0.238
+Other MENA (at market exchange rate);2011;0.2359
+Other MENA (at market exchange rate);2012;0.2295
+Other MENA (at market exchange rate);2013;0.2295
+Other MENA (at market exchange rate);2014;0.2338
+Other MENA (at market exchange rate);2015;0.2366
+Other MENA (at market exchange rate);2016;0.2318
+Other MENA (at market exchange rate);2017;0.2341
+Other MENA (at market exchange rate);2018;0.2391
+Other MENA (at market exchange rate);2019;0.2404
+Other MENA (at market exchange rate);2020;0.2406
+Other MENA (at market exchange rate);2021;0.2395
+Other North America & Oceania;1998;
+Other North America & Oceania;1999;
+Other North America & Oceania;2000;
+Other North America & Oceania;2001;
+Other North America & Oceania;2002;
+Other North America & Oceania;2003;
+Other North America & Oceania;2004;
+Other North America & Oceania;2005;
+Other North America & Oceania;2006;
+Other North America & Oceania;2007;
+Other North America & Oceania;2008;
+Other North America & Oceania;2009;
+Other North America & Oceania;2010;
+Other North America & Oceania;2011;
+Other North America & Oceania;2012;
+Other North America & Oceania;2013;
+Other North America & Oceania;2014;
+Other North America & Oceania;2015;
+Other North America & Oceania;2016;
+Other North America & Oceania;2017;
+Other North America & Oceania;2018;
+Other North America & Oceania;2019;
+Other North America & Oceania;2020;
+Other North America & Oceania;2021;
+Other Russia & Central Asia;1998;0.1349
+Other Russia & Central Asia;1999;0.1299
+Other Russia & Central Asia;2000;0.1324
+Other Russia & Central Asia;2001;0.1402
+Other Russia & Central Asia;2002;0.1415
+Other Russia & Central Asia;2003;0.1398
+Other Russia & Central Asia;2004;0.1363
+Other Russia & Central Asia;2005;0.1376
+Other Russia & Central Asia;2006;0.147
+Other Russia & Central Asia;2007;0.1414
+Other Russia & Central Asia;2008;0.135
+Other Russia & Central Asia;2009;0.1356
+Other Russia & Central Asia;2010;0.1294
+Other Russia & Central Asia;2011;0.1293
+Other Russia & Central Asia;2012;0.1415
+Other Russia & Central Asia;2013;0.1436
+Other Russia & Central Asia;2014;0.1379
+Other Russia & Central Asia;2015;0.1371
+Other Russia & Central Asia;2016;0.1504
+Other Russia & Central Asia;2017;0.1499
+Other Russia & Central Asia;2018;0.1484
+Other Russia & Central Asia;2019;0.1466
+Other Russia & Central Asia;2020;0.1467
+Other Russia & Central Asia;2021;0.1463
+Other Russia & Central Asia (at market exchange rate);1998;0.1436
+Other Russia & Central Asia (at market exchange rate);1999;0.1395
+Other Russia & Central Asia (at market exchange rate);2000;0.1422
+Other Russia & Central Asia (at market exchange rate);2001;0.1479
+Other Russia & Central Asia (at market exchange rate);2002;0.1493
+Other Russia & Central Asia (at market exchange rate);2003;0.1471
+Other Russia & Central Asia (at market exchange rate);2004;0.1431
+Other Russia & Central Asia (at market exchange rate);2005;0.1455
+Other Russia & Central Asia (at market exchange rate);2006;0.154
+Other Russia & Central Asia (at market exchange rate);2007;0.1468
+Other Russia & Central Asia (at market exchange rate);2008;0.1405
+Other Russia & Central Asia (at market exchange rate);2009;0.1449
+Other Russia & Central Asia (at market exchange rate);2010;0.1399
+Other Russia & Central Asia (at market exchange rate);2011;0.1392
+Other Russia & Central Asia (at market exchange rate);2012;0.1529
+Other Russia & Central Asia (at market exchange rate);2013;0.156
+Other Russia & Central Asia (at market exchange rate);2014;0.1497
+Other Russia & Central Asia (at market exchange rate);2015;0.149
+Other Russia & Central Asia (at market exchange rate);2016;0.1626
+Other Russia & Central Asia (at market exchange rate);2017;0.1641
+Other Russia & Central Asia (at market exchange rate);2018;0.1619
+Other Russia & Central Asia (at market exchange rate);2019;0.1604
+Other Russia & Central Asia (at market exchange rate);2020;0.1609
+Other Russia & Central Asia (at market exchange rate);2021;0.1616
+Other South & South-East Asia;1998;0.2299
+Other South & South-East Asia;1999;0.2317
+Other South & South-East Asia;2000;0.2328
+Other South & South-East Asia;2001;0.2346
+Other South & South-East Asia;2002;0.2306
+Other South & South-East Asia;2003;0.2311
+Other South & South-East Asia;2004;0.2279
+Other South & South-East Asia;2005;0.2305
+Other South & South-East Asia;2006;0.2296
+Other South & South-East Asia;2007;0.2288
+Other South & South-East Asia;2008;0.232
+Other South & South-East Asia;2009;0.2223
+Other South & South-East Asia;2010;0.2302
+Other South & South-East Asia;2011;0.226
+Other South & South-East Asia;2012;0.2228
+Other South & South-East Asia;2013;0.2173
+Other South & South-East Asia;2014;0.2166
+Other South & South-East Asia;2015;0.2117
+Other South & South-East Asia;2016;0.2091
+Other South & South-East Asia;2017;0.204
+Other South & South-East Asia;2018;0.2004
+Other South & South-East Asia;2019;0.1974
+Other South & South-East Asia;2020;0.1862
+Other South & South-East Asia;2021;0.1881
+Other South & South-East Asia (at market exchange rate);1998;0.2654
+Other South & South-East Asia (at market exchange rate);1999;0.2668
+Other South & South-East Asia (at market exchange rate);2000;0.2684
+Other South & South-East Asia (at market exchange rate);2001;0.2726
+Other South & South-East Asia (at market exchange rate);2002;0.2668
+Other South & South-East Asia (at market exchange rate);2003;0.2664
+Other South & South-East Asia (at market exchange rate);2004;0.2617
+Other South & South-East Asia (at market exchange rate);2005;0.2632
+Other South & South-East Asia (at market exchange rate);2006;0.2653
+Other South & South-East Asia (at market exchange rate);2007;0.2644
+Other South & South-East Asia (at market exchange rate);2008;0.2672
+Other South & South-East Asia (at market exchange rate);2009;0.256
+Other South & South-East Asia (at market exchange rate);2010;0.27
+Other South & South-East Asia (at market exchange rate);2011;0.2652
+Other South & South-East Asia (at market exchange rate);2012;0.26
+Other South & South-East Asia (at market exchange rate);2013;0.2535
+Other South & South-East Asia (at market exchange rate);2014;0.2532
+Other South & South-East Asia (at market exchange rate);2015;0.2457
+Other South & South-East Asia (at market exchange rate);2016;0.2437
+Other South & South-East Asia (at market exchange rate);2017;0.2391
+Other South & South-East Asia (at market exchange rate);2018;0.2309
+Other South & South-East Asia (at market exchange rate);2019;0.2264
+Other South & South-East Asia (at market exchange rate);2020;0.2135
+Other South & South-East Asia (at market exchange rate);2021;0.216
+Other Sub-Saharan Africa;1998;0.1941
+Other Sub-Saharan Africa;1999;0.1938
+Other Sub-Saharan Africa;2000;0.1941
+Other Sub-Saharan Africa;2001;0.1957
+Other Sub-Saharan Africa;2002;0.1971
+Other Sub-Saharan Africa;2003;0.1941
+Other Sub-Saharan Africa;2004;0.1917
+Other Sub-Saharan Africa;2005;0.1894
+Other Sub-Saharan Africa;2006;0.1849
+Other Sub-Saharan Africa;2007;0.1845
+Other Sub-Saharan Africa;2008;0.1802
+Other Sub-Saharan Africa;2009;0.1773
+Other Sub-Saharan Africa;2010;0.1741
+Other Sub-Saharan Africa;2011;0.1747
+Other Sub-Saharan Africa;2012;0.1753
+Other Sub-Saharan Africa;2013;0.1763
+Other Sub-Saharan Africa;2014;0.1772
+Other Sub-Saharan Africa;2015;0.1762
+Other Sub-Saharan Africa;2016;0.1758
+Other Sub-Saharan Africa;2017;0.1776
+Other Sub-Saharan Africa;2018;0.1786
+Other Sub-Saharan Africa;2019;0.1773
+Other Sub-Saharan Africa;2020;0.1753
+Other Sub-Saharan Africa;2021;0.175
+Other Sub-Saharan Africa (at market exchange rate);1998;0.5783
+Other Sub-Saharan Africa (at market exchange rate);1999;0.5795
+Other Sub-Saharan Africa (at market exchange rate);2000;0.5661
+Other Sub-Saharan Africa (at market exchange rate);2001;0.5704
+Other Sub-Saharan Africa (at market exchange rate);2002;0.5454
+Other Sub-Saharan Africa (at market exchange rate);2003;0.4998
+Other Sub-Saharan Africa (at market exchange rate);2004;0.4812
+Other Sub-Saharan Africa (at market exchange rate);2005;0.4646
+Other Sub-Saharan Africa (at market exchange rate);2006;0.4501
+Other Sub-Saharan Africa (at market exchange rate);2007;0.44
+Other Sub-Saharan Africa (at market exchange rate);2008;0.391
+Other Sub-Saharan Africa (at market exchange rate);2009;0.3999
+Other Sub-Saharan Africa (at market exchange rate);2010;0.4199
+Other Sub-Saharan Africa (at market exchange rate);2011;0.4379
+Other Sub-Saharan Africa (at market exchange rate);2012;0.4638
+Other Sub-Saharan Africa (at market exchange rate);2013;0.4574
+Other Sub-Saharan Africa (at market exchange rate);2014;0.449
+Other Sub-Saharan Africa (at market exchange rate);2015;0.4478
+Other Sub-Saharan Africa (at market exchange rate);2016;0.4476
+Other Sub-Saharan Africa (at market exchange rate);2017;0.4548
+Other Sub-Saharan Africa (at market exchange rate);2018;0.4691
+Other Sub-Saharan Africa (at market exchange rate);2019;0.4556
+Other Sub-Saharan Africa (at market exchange rate);2020;0.4446
+Other Sub-Saharan Africa (at market exchange rate);2021;0.4469
+Other Western Europe;1998;0.0974
+Other Western Europe;1999;0.0989
+Other Western Europe;2000;0.1029
+Other Western Europe;2001;0.1
+Other Western Europe;2002;0.0955
+Other Western Europe;2003;0.0977
+Other Western Europe;2004;0.1036
+Other Western Europe;2005;0.1059
+Other Western Europe;2006;0.1092
+Other Western Europe;2007;0.1096
+Other Western Europe;2008;0.0976
+Other Western Europe;2009;0.0909
+Other Western Europe;2010;0.0988
+Other Western Europe;2011;0.0995
+Other Western Europe;2012;0.0991
+Other Western Europe;2013;0.0993
+Other Western Europe;2014;0.1029
+Other Western Europe;2015;0.1017
+Other Western Europe;2016;0.1016
+Other Western Europe;2017;0.1019
+Other Western Europe;2018;0.1013
+Other Western Europe;2019;0.0977
+Other Western Europe;2020;0.097
+Other Western Europe;2021;0.098
+Other Western Europe (at market exchange rate);1998;0.1009
+Other Western Europe (at market exchange rate);1999;0.1021
+Other Western Europe (at market exchange rate);2000;0.1071
+Other Western Europe (at market exchange rate);2001;0.1031
+Other Western Europe (at market exchange rate);2002;0.0989
+Other Western Europe (at market exchange rate);2003;0.1025
+Other Western Europe (at market exchange rate);2004;0.1085
+Other Western Europe (at market exchange rate);2005;0.1125
+Other Western Europe (at market exchange rate);2006;0.1163
+Other Western Europe (at market exchange rate);2007;0.116
+Other Western Europe (at market exchange rate);2008;0.1043
+Other Western Europe (at market exchange rate);2009;0.0975
+Other Western Europe (at market exchange rate);2010;0.1074
+Other Western Europe (at market exchange rate);2011;0.1073
+Other Western Europe (at market exchange rate);2012;0.1068
+Other Western Europe (at market exchange rate);2013;0.1059
+Other Western Europe (at market exchange rate);2014;0.1092
+Other Western Europe (at market exchange rate);2015;0.1076
+Other Western Europe (at market exchange rate);2016;0.1072
+Other Western Europe (at market exchange rate);2017;0.1069
+Other Western Europe (at market exchange rate);2018;0.1071
+Other Western Europe (at market exchange rate);2019;0.1022
+Other Western Europe (at market exchange rate);2020;0.1017
+Other Western Europe (at market exchange rate);2021;0.1031
+Pakistan;1998;0.1856
+Pakistan;1999;0.1817
+Pakistan;2000;0.1769
+Pakistan;2001;0.1717
+Pakistan;2002;0.1731
+Pakistan;2003;0.1754
+Pakistan;2004;0.1752
+Pakistan;2005;0.193
+Pakistan;2006;0.1809
+Pakistan;2007;0.1692
+Pakistan;2008;0.1642
+Pakistan;2009;0.1623
+Pakistan;2010;0.1645
+Pakistan;2011;0.1685
+Pakistan;2012;0.1665
+Pakistan;2013;0.1643
+Pakistan;2014;0.169
+Pakistan;2015;0.1726
+Pakistan;2016;0.1702
+Pakistan;2017;0.1684
+Pakistan;2018;0.1665
+Pakistan;2019;0.1665
+Pakistan;2020;0.1665
+Pakistan;2021;0.1665
+Palestina;1998;0.1805
+Palestina;1999;0.1819
+Palestina;2000;0.1834
+Palestina;2001;0.185
+Palestina;2002;0.1868
+Palestina;2003;0.1887
+Palestina;2004;0.1908
+Palestina;2005;0.2008
+Palestina;2006;0.1947
+Palestina;2007;0.2109
+Palestina;2008;0.1964
+Palestina;2009;0.1826
+Palestina;2010;0.1882
+Palestina;2011;0.1756
+Palestina;2012;0.1753
+Palestina;2013;0.175
+Palestina;2014;0.1747
+Palestina;2015;0.1745
+Palestina;2016;0.1742
+Palestina;2017;0.1742
+Palestina;2018;0.1742
+Palestina;2019;0.1742
+Palestina;2020;0.1742
+Palestina;2021;0.1742
+Panama;1998;0.1895
+Panama;1999;0.1895
+Panama;2000;0.1895
+Panama;2001;0.1985
+Panama;2002;0.19
+Panama;2003;0.2035
+Panama;2004;0.1987
+Panama;2005;0.189
+Panama;2006;0.1895
+Panama;2007;0.2087
+Panama;2008;0.1994
+Panama;2009;0.186
+Panama;2010;0.1943
+Panama;2011;0.1933
+Panama;2012;0.1895
+Panama;2013;0.2013
+Panama;2014;0.202
+Panama;2015;0.1947
+Panama;2016;0.1985
+Panama;2017;0.1914
+Panama;2018;0.1898
+Panama;2019;0.183
+Panama;2020;0.1962
+Panama;2021;0.1962
+Papua New Guinea;1998;0.1773
+Papua New Guinea;1999;0.1762
+Papua New Guinea;2000;0.1754
+Papua New Guinea;2001;0.1739
+Papua New Guinea;2002;0.173
+Papua New Guinea;2003;0.172
+Papua New Guinea;2004;0.1705
+Papua New Guinea;2005;0.1696
+Papua New Guinea;2006;0.1688
+Papua New Guinea;2007;0.1674
+Papua New Guinea;2008;0.1651
+Papua New Guinea;2009;0.1621
+Papua New Guinea;2010;0.1638
+Papua New Guinea;2011;0.164
+Papua New Guinea;2012;0.164
+Papua New Guinea;2013;0.1639
+Papua New Guinea;2014;0.1636
+Papua New Guinea;2015;0.1628
+Papua New Guinea;2016;0.1636
+Papua New Guinea;2017;0.1641
+Papua New Guinea;2018;0.164
+Papua New Guinea;2019;0.1637
+Papua New Guinea;2020;0.1637
+Papua New Guinea;2021;0.1637
+Paraguay;1998;0.1895
+Paraguay;1999;0.1895
+Paraguay;2000;0.1895
+Paraguay;2001;0.1985
+Paraguay;2002;0.19
+Paraguay;2003;0.2035
+Paraguay;2004;0.1987
+Paraguay;2005;0.189
+Paraguay;2006;0.1895
+Paraguay;2007;0.2087
+Paraguay;2008;0.1994
+Paraguay;2009;0.186
+Paraguay;2010;0.1943
+Paraguay;2011;0.1933
+Paraguay;2012;0.1895
+Paraguay;2013;0.2013
+Paraguay;2014;0.202
+Paraguay;2015;0.1947
+Paraguay;2016;0.1985
+Paraguay;2017;0.1914
+Paraguay;2018;0.1898
+Paraguay;2019;0.183
+Paraguay;2020;0.1962
+Paraguay;2021;0.1962
+Pennsylvania;1998;0.175
+Pennsylvania;1999;0.1749
+Pennsylvania;2000;0.1808
+Pennsylvania;2001;0.1562
+Pennsylvania;2002;0.1498
+Pennsylvania;2003;0.1567
+Pennsylvania;2004;0.1645
+Pennsylvania;2005;0.1844
+Pennsylvania;2006;0.1948
+Pennsylvania;2007;0.2021
+Pennsylvania;2008;0.1796
+Pennsylvania;2009;0.1614
+Pennsylvania;2010;0.1734
+Pennsylvania;2011;0.1696
+Pennsylvania;2012;0.1944
+Pennsylvania;2013;0.1661
+Pennsylvania;2014;0.1769
+Pennsylvania;2015;0.1849
+Pennsylvania;2016;0.1762
+Pennsylvania;2017;0.1792
+Pennsylvania;2018;0.1847
+Pennsylvania;2019;
+Pennsylvania;2020;
+Pennsylvania;2021;
+Peru;1998;0.2032
+Peru;1999;0.2032
+Peru;2000;0.2032
+Peru;2001;0.2849
+Peru;2002;0.2266
+Peru;2003;0.322
+Peru;2004;0.2564
+Peru;2005;0.2147
+Peru;2006;0.2566
+Peru;2007;0.2834
+Peru;2008;0.2342
+Peru;2009;0.1978
+Peru;2010;0.2431
+Peru;2011;0.2352
+Peru;2012;0.2162
+Peru;2013;0.2335
+Peru;2014;0.2417
+Peru;2015;0.2459
+Peru;2016;0.2292
+Peru;2017;0.2416
+Peru;2018;0.23
+Peru;2019;0.2035
+Peru;2020;0.2812
+Peru;2021;0.2812
+Philippines;1998;0.2382
+Philippines;1999;0.2261
+Philippines;2000;0.2164
+Philippines;2001;0.2066
+Philippines;2002;0.1934
+Philippines;2003;0.1791
+Philippines;2004;0.181
+Philippines;2005;0.1807
+Philippines;2006;0.1796
+Philippines;2007;0.1782
+Philippines;2008;0.1772
+Philippines;2009;0.1786
+Philippines;2010;0.1787
+Philippines;2011;0.177
+Philippines;2012;0.1756
+Philippines;2013;0.175
+Philippines;2014;0.1732
+Philippines;2015;0.172
+Philippines;2016;0.1707
+Philippines;2017;0.1686
+Philippines;2018;0.1662
+Philippines;2019;0.1662
+Philippines;2020;0.1662
+Philippines;2021;0.1662
+Poland;1998;0.1088
+Poland;1999;0.1065
+Poland;2000;0.1043
+Poland;2001;0.1
+Poland;2002;0.1046
+Poland;2003;0.1023
+Poland;2004;0.1296
+Poland;2005;0.1352
+Poland;2006;0.1425
+Poland;2007;0.1577
+Poland;2008;0.1493
+Poland;2009;0.1364
+Poland;2010;0.1343
+Poland;2011;0.1395
+Poland;2012;0.1387
+Poland;2013;0.1363
+Poland;2014;0.1426
+Poland;2015;0.1493
+Poland;2016;0.147
+Poland;2017;0.1451
+Poland;2018;0.1466
+Poland;2019;0.1484
+Poland;2020;0.152
+Poland;2021;0.1516
+Portugal;1998;0.1028
+Portugal;1999;0.1077
+Portugal;2000;0.1045
+Portugal;2001;0.1118
+Portugal;2002;0.1031
+Portugal;2003;0.1031
+Portugal;2004;0.1085
+Portugal;2005;0.1041
+Portugal;2006;0.1052
+Portugal;2007;0.111
+Portugal;2008;0.0973
+Portugal;2009;0.0967
+Portugal;2010;0.1004
+Portugal;2011;0.1116
+Portugal;2012;0.1014
+Portugal;2013;0.1054
+Portugal;2014;0.1072
+Portugal;2015;0.1086
+Portugal;2016;0.1093
+Portugal;2017;0.1165
+Portugal;2018;0.1114
+Portugal;2019;0.1046
+Portugal;2020;0.091
+Portugal;2021;0.0939
+Prussia;1998;
+Prussia;1999;
+Prussia;2000;
+Prussia;2001;
+Prussia;2002;
+Prussia;2003;
+Prussia;2004;
+Prussia;2005;
+Prussia;2006;
+Prussia;2007;
+Prussia;2008;
+Prussia;2009;
+Prussia;2010;
+Prussia;2011;
+Prussia;2012;
+Prussia;2013;
+Prussia;2014;
+Prussia;2015;
+Prussia;2016;
+Prussia;2017;
+Prussia;2018;
+Prussia;2019;
+Prussia;2020;
+Prussia;2021;
+Qatar;1998;0.2105
+Qatar;1999;0.2105
+Qatar;2000;0.2105
+Qatar;2001;0.2105
+Qatar;2002;0.2105
+Qatar;2003;0.2105
+Qatar;2004;0.2105
+Qatar;2005;0.2105
+Qatar;2006;0.2105
+Qatar;2007;0.2105
+Qatar;2008;0.2132
+Qatar;2009;0.2159
+Qatar;2010;0.2187
+Qatar;2011;0.2216
+Qatar;2012;0.2244
+Qatar;2013;0.2244
+Qatar;2014;0.2244
+Qatar;2015;0.2244
+Qatar;2016;0.2244
+Qatar;2017;0.2244
+Qatar;2018;0.2244
+Qatar;2019;0.2244
+Qatar;2020;0.2244
+Qatar;2021;0.2244
+Rhode Island;1998;0.1647
+Rhode Island;1999;0.1614
+Rhode Island;2000;0.1824
+Rhode Island;2001;0.1628
+Rhode Island;2002;0.1447
+Rhode Island;2003;0.1492
+Rhode Island;2004;0.165
+Rhode Island;2005;0.1692
+Rhode Island;2006;0.1822
+Rhode Island;2007;0.1942
+Rhode Island;2008;0.1658
+Rhode Island;2009;0.1462
+Rhode Island;2010;0.1587
+Rhode Island;2011;0.1705
+Rhode Island;2012;0.1786
+Rhode Island;2013;0.1586
+Rhode Island;2014;0.1827
+Rhode Island;2015;0.1654
+Rhode Island;2016;0.1688
+Rhode Island;2017;0.1749
+Rhode Island;2018;0.173
+Rhode Island;2019;
+Rhode Island;2020;
+Rhode Island;2021;
+Romania;1998;0.1347
+Romania;1999;0.124
+Romania;2000;0.1176
+Romania;2001;0.1118
+Romania;2002;0.1287
+Romania;2003;0.1502
+Romania;2004;0.145
+Romania;2005;0.1501
+Romania;2006;0.1472
+Romania;2007;0.1789
+Romania;2008;0.1819
+Romania;2009;0.187
+Romania;2010;0.1459
+Romania;2011;0.1435
+Romania;2012;0.1616
+Romania;2013;0.1488
+Romania;2014;0.1672
+Romania;2015;0.1669
+Romania;2016;0.135
+Romania;2017;0.1363
+Romania;2018;0.1393
+Romania;2019;0.1446
+Romania;2020;0.1447
+Romania;2021;0.1446
+Rural China;1998;0.1138
+Rural China;1999;0.1141
+Rural China;2000;0.1282
+Rural China;2001;0.1311
+Rural China;2002;0.133
+Rural China;2003;0.1297
+Rural China;2004;0.1276
+Rural China;2005;0.1439
+Rural China;2006;0.1468
+Rural China;2007;0.156
+Rural China;2008;0.1482
+Rural China;2009;0.1596
+Rural China;2010;0.1644
+Rural China;2011;0.162
+Rural China;2012;0.1595
+Rural China;2013;0.1585
+Rural China;2014;0.1588
+Rural China;2015;0.1615
+Rural China;2016;
+Rural China;2017;
+Rural China;2018;
+Rural China;2019;
+Rural China;2020;
+Rural China;2021;
+Russia & Central Asia;1998;0.1522
+Russia & Central Asia;1999;0.1844
+Russia & Central Asia;2000;0.2149
+Russia & Central Asia;2001;0.241
+Russia & Central Asia;2002;0.2318
+Russia & Central Asia;2003;0.2271
+Russia & Central Asia;2004;0.2146
+Russia & Central Asia;2005;0.2329
+Russia & Central Asia;2006;0.2401
+Russia & Central Asia;2007;0.251
+Russia & Central Asia;2008;0.2245
+Russia & Central Asia;2009;0.1961
+Russia & Central Asia;2010;0.1824
+Russia & Central Asia;2011;0.1958
+Russia & Central Asia;2012;0.1877
+Russia & Central Asia;2013;0.1976
+Russia & Central Asia;2014;0.1869
+Russia & Central Asia;2015;0.1808
+Russia & Central Asia;2016;0.1886
+Russia & Central Asia;2017;0.192
+Russia & Central Asia;2018;0.1964
+Russia & Central Asia;2019;0.1941
+Russia & Central Asia;2020;0.2215
+Russia & Central Asia;2021;0.2222
+Russia & Central Asia (at market exchange rate);1998;0.158
+Russia & Central Asia (at market exchange rate);1999;0.1922
+Russia & Central Asia (at market exchange rate);2000;0.2241
+Russia & Central Asia (at market exchange rate);2001;0.2509
+Russia & Central Asia (at market exchange rate);2002;0.2459
+Russia & Central Asia (at market exchange rate);2003;0.2381
+Russia & Central Asia (at market exchange rate);2004;0.2245
+Russia & Central Asia (at market exchange rate);2005;0.2456
+Russia & Central Asia (at market exchange rate);2006;0.2522
+Russia & Central Asia (at market exchange rate);2007;0.2635
+Russia & Central Asia (at market exchange rate);2008;0.2295
+Russia & Central Asia (at market exchange rate);2009;0.2054
+Russia & Central Asia (at market exchange rate);2010;0.1915
+Russia & Central Asia (at market exchange rate);2011;0.2025
+Russia & Central Asia (at market exchange rate);2012;0.1935
+Russia & Central Asia (at market exchange rate);2013;0.2016
+Russia & Central Asia (at market exchange rate);2014;0.1949
+Russia & Central Asia (at market exchange rate);2015;0.1887
+Russia & Central Asia (at market exchange rate);2016;0.1958
+Russia & Central Asia (at market exchange rate);2017;0.1998
+Russia & Central Asia (at market exchange rate);2018;0.2042
+Russia & Central Asia (at market exchange rate);2019;0.2017
+Russia & Central Asia (at market exchange rate);2020;0.2299
+Russia & Central Asia (at market exchange rate);2021;0.2304
+Russian Federation;1998;0.1489
+Russian Federation;1999;0.1845
+Russian Federation;2000;0.2159
+Russian Federation;2001;0.2453
+Russian Federation;2002;0.2391
+Russian Federation;2003;0.2325
+Russian Federation;2004;0.2188
+Russian Federation;2005;0.2389
+Russian Federation;2006;0.247
+Russian Federation;2007;0.259
+Russian Federation;2008;0.2375
+Russian Federation;2009;0.2058
+Russian Federation;2010;0.1903
+Russian Federation;2011;0.203
+Russian Federation;2012;0.1881
+Russian Federation;2013;0.1991
+Russian Federation;2014;0.191
+Russian Federation;2015;0.186
+Russian Federation;2016;0.1944
+Russian Federation;2017;0.2
+Russian Federation;2018;0.205
+Russian Federation;2019;0.2021
+Russian Federation;2020;0.2376
+Russian Federation;2021;0.2376
+Rwanda;1998;0.2243
+Rwanda;1999;0.2327
+Rwanda;2000;0.2411
+Rwanda;2001;0.247
+Rwanda;2002;0.2528
+Rwanda;2003;0.2587
+Rwanda;2004;0.2645
+Rwanda;2005;0.2703
+Rwanda;2006;0.2637
+Rwanda;2007;0.257
+Rwanda;2008;0.2503
+Rwanda;2009;0.2436
+Rwanda;2010;0.2369
+Rwanda;2011;0.2337
+Rwanda;2012;0.2305
+Rwanda;2013;0.2273
+Rwanda;2014;0.2178
+Rwanda;2015;0.2083
+Rwanda;2016;0.1989
+Rwanda;2017;0.1989
+Rwanda;2018;0.1989
+Rwanda;2019;0.1989
+Rwanda;2020;0.1989
+Rwanda;2021;0.1989
+Sao Tome and Principe;1998;0.0912
+Sao Tome and Principe;1999;0.0912
+Sao Tome and Principe;2000;0.0912
+Sao Tome and Principe;2001;0.0911
+Sao Tome and Principe;2002;0.0909
+Sao Tome and Principe;2003;0.0907
+Sao Tome and Principe;2004;0.0905
+Sao Tome and Principe;2005;0.0904
+Sao Tome and Principe;2006;0.0902
+Sao Tome and Principe;2007;0.09
+Sao Tome and Principe;2008;0.0898
+Sao Tome and Principe;2009;0.0896
+Sao Tome and Principe;2010;0.0895
+Sao Tome and Principe;2011;0.0895
+Sao Tome and Principe;2012;0.0895
+Sao Tome and Principe;2013;0.0895
+Sao Tome and Principe;2014;0.0895
+Sao Tome and Principe;2015;0.0895
+Sao Tome and Principe;2016;0.0895
+Sao Tome and Principe;2017;0.0895
+Sao Tome and Principe;2018;0.0895
+Sao Tome and Principe;2019;0.0895
+Sao Tome and Principe;2020;0.0895
+Sao Tome and Principe;2021;0.0895
+Saudi Arabia;1998;0.2098
+Saudi Arabia;1999;0.2095
+Saudi Arabia;2000;0.2091
+Saudi Arabia;2001;0.2086
+Saudi Arabia;2002;0.2082
+Saudi Arabia;2003;0.2077
+Saudi Arabia;2004;0.2071
+Saudi Arabia;2005;0.2065
+Saudi Arabia;2006;0.2069
+Saudi Arabia;2007;0.2073
+Saudi Arabia;2008;0.2078
+Saudi Arabia;2009;0.2082
+Saudi Arabia;2010;0.2086
+Saudi Arabia;2011;0.209
+Saudi Arabia;2012;0.2094
+Saudi Arabia;2013;0.209
+Saudi Arabia;2014;0.2111
+Saudi Arabia;2015;0.2115
+Saudi Arabia;2016;0.2109
+Saudi Arabia;2017;0.2103
+Saudi Arabia;2018;0.2098
+Saudi Arabia;2019;0.2098
+Saudi Arabia;2020;0.2098
+Saudi Arabia;2021;0.2098
+Saxony;1998;
+Saxony;1999;
+Saxony;2000;
+Saxony;2001;
+Saxony;2002;
+Saxony;2003;
+Saxony;2004;
+Saxony;2005;
+Saxony;2006;
+Saxony;2007;
+Saxony;2008;
+Saxony;2009;
+Saxony;2010;
+Saxony;2011;
+Saxony;2012;
+Saxony;2013;
+Saxony;2014;
+Saxony;2015;
+Saxony;2016;
+Saxony;2017;
+Saxony;2018;
+Saxony;2019;
+Saxony;2020;
+Saxony;2021;
+Senegal;1998;0.1921
+Senegal;1999;0.1917
+Senegal;2000;0.1913
+Senegal;2001;0.1909
+Senegal;2002;0.1769
+Senegal;2003;0.1629
+Senegal;2004;0.1489
+Senegal;2005;0.135
+Senegal;2006;0.1344
+Senegal;2007;0.1339
+Senegal;2008;0.1334
+Senegal;2009;0.1329
+Senegal;2010;0.1323
+Senegal;2011;0.1318
+Senegal;2012;0.1335
+Senegal;2013;0.1351
+Senegal;2014;0.1367
+Senegal;2015;0.1384
+Senegal;2016;0.14
+Senegal;2017;0.1417
+Senegal;2018;0.1433
+Senegal;2019;0.1433
+Senegal;2020;0.1433
+Senegal;2021;0.1433
+Serbia;1998;0.118
+Serbia;1999;0.1092
+Serbia;2000;0.1445
+Serbia;2001;0.1347
+Serbia;2002;0.1342
+Serbia;2003;0.1397
+Serbia;2004;0.1436
+Serbia;2005;0.1463
+Serbia;2006;0.1364
+Serbia;2007;0.1441
+Serbia;2008;0.1388
+Serbia;2009;0.1287
+Serbia;2010;0.1329
+Serbia;2011;0.1331
+Serbia;2012;0.1433
+Serbia;2013;0.1394
+Serbia;2014;0.162
+Serbia;2015;0.1491
+Serbia;2016;0.161
+Serbia;2017;0.1285
+Serbia;2018;0.1163
+Serbia;2019;0.1499
+Serbia;2020;0.1559
+Serbia;2021;0.1554
+Seychelles;1998;0.2231
+Seychelles;1999;0.2231
+Seychelles;2000;0.2206
+Seychelles;2001;0.2181
+Seychelles;2002;0.2156
+Seychelles;2003;0.2131
+Seychelles;2004;0.2106
+Seychelles;2005;0.2081
+Seychelles;2006;0.2056
+Seychelles;2007;0.2056
+Seychelles;2008;0.2056
+Seychelles;2009;0.2056
+Seychelles;2010;0.2056
+Seychelles;2011;0.2056
+Seychelles;2012;0.2056
+Seychelles;2013;0.2056
+Seychelles;2014;0.2056
+Seychelles;2015;0.2056
+Seychelles;2016;0.2056
+Seychelles;2017;0.2056
+Seychelles;2018;0.2056
+Seychelles;2019;0.2056
+Seychelles;2020;0.2056
+Seychelles;2021;0.2056
+Sierra Leone;1998;0.1573
+Sierra Leone;1999;0.1516
+Sierra Leone;2000;0.1459
+Sierra Leone;2001;0.1403
+Sierra Leone;2002;0.1346
+Sierra Leone;2003;0.1289
+Sierra Leone;2004;0.1262
+Sierra Leone;2005;0.1234
+Sierra Leone;2006;0.1207
+Sierra Leone;2007;0.1179
+Sierra Leone;2008;0.1152
+Sierra Leone;2009;0.1124
+Sierra Leone;2010;0.1097
+Sierra Leone;2011;0.1069
+Sierra Leone;2012;0.1131
+Sierra Leone;2013;0.1193
+Sierra Leone;2014;0.1255
+Sierra Leone;2015;0.1317
+Sierra Leone;2016;0.1379
+Sierra Leone;2017;0.1441
+Sierra Leone;2018;0.1502
+Sierra Leone;2019;0.1502
+Sierra Leone;2020;0.1502
+Sierra Leone;2021;0.1502
+Singapore;1998;0.1126
+Singapore;1999;0.1295
+Singapore;2000;0.1344
+Singapore;2001;0.1525
+Singapore;2002;0.1525
+Singapore;2003;0.1443
+Singapore;2004;0.1381
+Singapore;2005;0.1382
+Singapore;2006;0.1445
+Singapore;2007;0.1428
+Singapore;2008;0.1535
+Singapore;2009;0.1385
+Singapore;2010;0.1359
+Singapore;2011;0.1404
+Singapore;2012;0.1376
+Singapore;2013;0.1376
+Singapore;2014;0.1421
+Singapore;2015;0.1421
+Singapore;2016;0.1421
+Singapore;2017;0.1421
+Singapore;2018;0.1421
+Singapore;2019;0.1421
+Singapore;2020;0.1027
+Singapore;2021;0.1027
+Slovakia;1998;0.0698
+Slovakia;1999;0.078
+Slovakia;2000;0.0743
+Slovakia;2001;0.0876
+Slovakia;2002;0.0885
+Slovakia;2003;0.0816
+Slovakia;2004;0.1019
+Slovakia;2005;0.0967
+Slovakia;2006;0.0978
+Slovakia;2007;0.0937
+Slovakia;2008;0.0874
+Slovakia;2009;0.0945
+Slovakia;2010;0.1117
+Slovakia;2011;0.0955
+Slovakia;2012;0.0946
+Slovakia;2013;0.1178
+Slovakia;2014;0.1029
+Slovakia;2015;0.1116
+Slovakia;2016;0.0911
+Slovakia;2017;0.0847
+Slovakia;2018;0.0786
+Slovakia;2019;0.0752
+Slovakia;2020;0.0718
+Slovakia;2021;0.0721
+Slovenia;1998;0.0721
+Slovenia;1999;0.0775
+Slovenia;2000;0.0726
+Slovenia;2001;0.0688
+Slovenia;2002;0.0699
+Slovenia;2003;0.0751
+Slovenia;2004;0.0762
+Slovenia;2005;0.0747
+Slovenia;2006;0.0779
+Slovenia;2007;0.0815
+Slovenia;2008;0.0807
+Slovenia;2009;0.0713
+Slovenia;2010;0.0717
+Slovenia;2011;0.0702
+Slovenia;2012;0.0693
+Slovenia;2013;0.0705
+Slovenia;2014;0.0782
+Slovenia;2015;0.0711
+Slovenia;2016;0.0738
+Slovenia;2017;0.0795
+Slovenia;2018;0.0804
+Slovenia;2019;0.08
+Slovenia;2020;0.084
+Slovenia;2021;0.0835
+Somalia;1998;0.1244
+Somalia;1999;0.1244
+Somalia;2000;0.1244
+Somalia;2001;0.1244
+Somalia;2002;0.1244
+Somalia;2003;0.1244
+Somalia;2004;0.1244
+Somalia;2005;0.1244
+Somalia;2006;0.1244
+Somalia;2007;0.1244
+Somalia;2008;0.1244
+Somalia;2009;0.1244
+Somalia;2010;0.1244
+Somalia;2011;0.1244
+Somalia;2012;0.1244
+Somalia;2013;0.1244
+Somalia;2014;0.1244
+Somalia;2015;0.1244
+Somalia;2016;0.1244
+Somalia;2017;0.1244
+Somalia;2018;0.1244
+Somalia;2019;0.1244
+Somalia;2020;0.1244
+Somalia;2021;0.1244
+South & South-East Asia;1998;0.1903
+South & South-East Asia;1999;0.1949
+South & South-East Asia;2000;0.1934
+South & South-East Asia;2001;0.1971
+South & South-East Asia;2002;0.1986
+South & South-East Asia;2003;0.2024
+South & South-East Asia;2004;0.2066
+South & South-East Asia;2005;0.2114
+South & South-East Asia;2006;0.2112
+South & South-East Asia;2007;0.2118
+South & South-East Asia;2008;0.2159
+South & South-East Asia;2009;0.2157
+South & South-East Asia;2010;0.214
+South & South-East Asia;2011;0.2147
+South & South-East Asia;2012;0.2117
+South & South-East Asia;2013;0.2105
+South & South-East Asia;2014;0.2092
+South & South-East Asia;2015;0.2134
+South & South-East Asia;2016;0.2083
+South & South-East Asia;2017;0.208
+South & South-East Asia;2018;0.2087
+South & South-East Asia;2019;0.2081
+South & South-East Asia;2020;0.204
+South & South-East Asia;2021;0.204
+South & South-East Asia (at market exchange rate);1998;0.2328
+South & South-East Asia (at market exchange rate);1999;0.2338
+South & South-East Asia (at market exchange rate);2000;0.2309
+South & South-East Asia (at market exchange rate);2001;0.2342
+South & South-East Asia (at market exchange rate);2002;0.2334
+South & South-East Asia (at market exchange rate);2003;0.2357
+South & South-East Asia (at market exchange rate);2004;0.2394
+South & South-East Asia (at market exchange rate);2005;0.2425
+South & South-East Asia (at market exchange rate);2006;0.2426
+South & South-East Asia (at market exchange rate);2007;0.2446
+South & South-East Asia (at market exchange rate);2008;0.2455
+South & South-East Asia (at market exchange rate);2009;0.241
+South & South-East Asia (at market exchange rate);2010;0.2448
+South & South-East Asia (at market exchange rate);2011;0.2423
+South & South-East Asia (at market exchange rate);2012;0.2389
+South & South-East Asia (at market exchange rate);2013;0.2358
+South & South-East Asia (at market exchange rate);2014;0.2351
+South & South-East Asia (at market exchange rate);2015;0.2322
+South & South-East Asia (at market exchange rate);2016;0.2276
+South & South-East Asia (at market exchange rate);2017;0.2223
+South & South-East Asia (at market exchange rate);2018;0.2225
+South & South-East Asia (at market exchange rate);2019;0.2198
+South & South-East Asia (at market exchange rate);2020;0.2158
+South & South-East Asia (at market exchange rate);2021;0.2159
+South Africa;1998;0.1406
+South Africa;1999;0.1475
+South Africa;2000;0.1544
+South Africa;2001;0.1617
+South Africa;2002;0.169
+South Africa;2003;0.1723
+South Africa;2004;0.1743
+South Africa;2005;0.1834
+South Africa;2006;0.1934
+South Africa;2007;0.2033
+South Africa;2008;0.1976
+South Africa;2009;0.1858
+South Africa;2010;0.1877
+South Africa;2011;0.1865
+South Africa;2012;0.1932
+South Africa;2013;0.1931
+South Africa;2014;0.1931
+South Africa;2015;0.1931
+South Africa;2016;0.1931
+South Africa;2017;0.1931
+South Africa;2018;0.1931
+South Africa;2019;0.1931
+South Africa;2020;0.1931
+South Africa;2021;0.1931
+South Africa (at market exchange rate);1998;0.1616
+South Africa (at market exchange rate);1999;0.1689
+South Africa (at market exchange rate);2000;0.176
+South Africa (at market exchange rate);2001;0.1843
+South Africa (at market exchange rate);2002;0.1815
+South Africa (at market exchange rate);2003;0.1815
+South Africa (at market exchange rate);2004;0.1814
+South Africa (at market exchange rate);2005;0.1868
+South Africa (at market exchange rate);2006;0.196
+South Africa (at market exchange rate);2007;0.2052
+South Africa (at market exchange rate);2008;0.2005
+South Africa (at market exchange rate);2009;0.1902
+South Africa (at market exchange rate);2010;0.1903
+South Africa (at market exchange rate);2011;0.1886
+South Africa (at market exchange rate);2012;0.1933
+South Africa (at market exchange rate);2013;0.1939
+South Africa (at market exchange rate);2014;0.1946
+South Africa (at market exchange rate);2015;0.1938
+South Africa (at market exchange rate);2016;0.1935
+South Africa (at market exchange rate);2017;0.1933
+South Africa (at market exchange rate);2018;0.193
+South Africa (at market exchange rate);2019;0.1932
+South Africa (at market exchange rate);2020;0.193
+South Africa (at market exchange rate);2021;0.193
+South Asia;1998;0.1868
+South Asia;1999;0.1854
+South Asia;2000;0.1846
+South Asia;2001;0.1884
+South Asia;2002;0.1935
+South Asia;2003;0.2003
+South Asia;2004;0.2059
+South Asia;2005;0.2103
+South Asia;2006;0.2114
+South Asia;2007;0.2105
+South Asia;2008;0.2097
+South Asia;2009;0.2083
+South Asia;2010;0.2112
+South Asia;2011;0.2176
+South Asia;2012;0.2172
+South Asia;2013;0.2153
+South Asia;2014;0.2131
+South Asia;2015;0.211
+South Asia;2016;0.2112
+South Asia;2017;0.2119
+South Asia;2018;0.21
+South Asia;2019;0.2086
+South Asia;2020;0.2085
+South Asia;2021;0.2095
+South Asia (at market exchange rate);1998;0.307
+South Asia (at market exchange rate);1999;0.3015
+South Asia (at market exchange rate);2000;0.3009
+South Asia (at market exchange rate);2001;0.3025
+South Asia (at market exchange rate);2002;0.3021
+South Asia (at market exchange rate);2003;0.3141
+South Asia (at market exchange rate);2004;0.3077
+South Asia (at market exchange rate);2005;0.3051
+South Asia (at market exchange rate);2006;0.3041
+South Asia (at market exchange rate);2007;0.301
+South Asia (at market exchange rate);2008;0.2887
+South Asia (at market exchange rate);2009;0.2836
+South Asia (at market exchange rate);2010;0.2818
+South Asia (at market exchange rate);2011;0.2781
+South Asia (at market exchange rate);2012;0.2656
+South Asia (at market exchange rate);2013;0.2581
+South Asia (at market exchange rate);2014;0.2572
+South Asia (at market exchange rate);2015;0.2509
+South Asia (at market exchange rate);2016;0.2551
+South Asia (at market exchange rate);2017;0.2553
+South Asia (at market exchange rate);2018;0.2472
+South Asia (at market exchange rate);2019;0.2384
+South Asia (at market exchange rate);2020;0.2448
+South Asia (at market exchange rate);2021;0.2402
+South Carolina;1998;0.1545
+South Carolina;1999;0.1522
+South Carolina;2000;0.1475
+South Carolina;2001;0.1373
+South Carolina;2002;0.1342
+South Carolina;2003;0.1397
+South Carolina;2004;0.1579
+South Carolina;2005;0.1784
+South Carolina;2006;0.1909
+South Carolina;2007;0.1914
+South Carolina;2008;0.1581
+South Carolina;2009;0.1456
+South Carolina;2010;0.1542
+South Carolina;2011;0.1493
+South Carolina;2012;0.171
+South Carolina;2013;0.153
+South Carolina;2014;0.1618
+South Carolina;2015;0.1672
+South Carolina;2016;0.1724
+South Carolina;2017;0.1723
+South Carolina;2018;0.1783
+South Carolina;2019;
+South Carolina;2020;
+South Carolina;2021;
+South Dakota;1998;0.1514
+South Dakota;1999;0.1704
+South Dakota;2000;0.1538
+South Dakota;2001;0.1352
+South Dakota;2002;0.1409
+South Dakota;2003;0.1334
+South Dakota;2004;0.1538
+South Dakota;2005;0.1677
+South Dakota;2006;0.1859
+South Dakota;2007;0.1744
+South Dakota;2008;0.1665
+South Dakota;2009;0.1587
+South Dakota;2010;0.1578
+South Dakota;2011;0.1617
+South Dakota;2012;0.2042
+South Dakota;2013;0.1642
+South Dakota;2014;0.1781
+South Dakota;2015;0.1734
+South Dakota;2016;0.1781
+South Dakota;2017;0.1672
+South Dakota;2018;0.1837
+South Dakota;2019;
+South Dakota;2020;
+South Dakota;2021;
+South Sudan;1998;0.142
+South Sudan;1999;0.142
+South Sudan;2000;0.142
+South Sudan;2001;0.142
+South Sudan;2002;0.142
+South Sudan;2003;0.142
+South Sudan;2004;0.142
+South Sudan;2005;0.142
+South Sudan;2006;0.142
+South Sudan;2007;0.142
+South Sudan;2008;0.142
+South Sudan;2009;0.142
+South Sudan;2010;0.1439
+South Sudan;2011;0.1458
+South Sudan;2012;0.1477
+South Sudan;2013;0.1496
+South Sudan;2014;0.1515
+South Sudan;2015;0.1534
+South Sudan;2016;0.1553
+South Sudan;2017;0.1553
+South Sudan;2018;0.1553
+South Sudan;2019;0.1553
+South Sudan;2020;0.1553
+South Sudan;2021;0.1553
+South-East Asia;1998;0.2126
+South-East Asia;1999;0.2193
+South-East Asia;2000;0.2151
+South-East Asia;2001;0.2179
+South-East Asia;2002;0.2133
+South-East Asia;2003;0.2146
+South-East Asia;2004;0.2146
+South-East Asia;2005;0.2159
+South-East Asia;2006;0.214
+South-East Asia;2007;0.2139
+South-East Asia;2008;0.2207
+South-East Asia;2009;0.2194
+South-East Asia;2010;0.2124
+South-East Asia;2011;0.2115
+South-East Asia;2012;0.2093
+South-East Asia;2013;0.2012
+South-East Asia;2014;0.2037
+South-East Asia;2015;0.2011
+South-East Asia;2016;0.1912
+South-East Asia;2017;0.187
+South-East Asia;2018;0.1925
+South-East Asia;2019;0.1891
+South-East Asia;2020;0.1795
+South-East Asia;2021;0.1805
+South-East Asia (at market exchange rate);1998;0.2492
+South-East Asia (at market exchange rate);1999;0.2585
+South-East Asia (at market exchange rate);2000;0.2523
+South-East Asia (at market exchange rate);2001;0.2545
+South-East Asia (at market exchange rate);2002;0.2503
+South-East Asia (at market exchange rate);2003;0.2486
+South-East Asia (at market exchange rate);2004;0.2494
+South-East Asia (at market exchange rate);2005;0.2495
+South-East Asia (at market exchange rate);2006;0.251
+South-East Asia (at market exchange rate);2007;0.25
+South-East Asia (at market exchange rate);2008;0.2518
+South-East Asia (at market exchange rate);2009;0.248
+South-East Asia (at market exchange rate);2010;0.2446
+South-East Asia (at market exchange rate);2011;0.2422
+South-East Asia (at market exchange rate);2012;0.2397
+South-East Asia (at market exchange rate);2013;0.2338
+South-East Asia (at market exchange rate);2014;0.2329
+South-East Asia (at market exchange rate);2015;0.2286
+South-East Asia (at market exchange rate);2016;0.2189
+South-East Asia (at market exchange rate);2017;0.2149
+South-East Asia (at market exchange rate);2018;0.2145
+South-East Asia (at market exchange rate);2019;0.2095
+South-East Asia (at market exchange rate);2020;0.1987
+South-East Asia (at market exchange rate);2021;0.1996
+Spain;1998;0.1099
+Spain;1999;0.1118
+Spain;2000;0.1101
+Spain;2001;0.1058
+Spain;2002;0.1089
+Spain;2003;0.111
+Spain;2004;0.1098
+Spain;2005;0.1082
+Spain;2006;0.113
+Spain;2007;0.1133
+Spain;2008;0.1163
+Spain;2009;0.1262
+Spain;2010;0.1154
+Spain;2011;0.1135
+Spain;2012;0.1213
+Spain;2013;0.1204
+Spain;2014;0.1214
+Spain;2015;0.1264
+Spain;2016;0.127
+Spain;2017;0.1271
+Spain;2018;0.1254
+Spain;2019;0.1204
+Spain;2020;0.1137
+Spain;2021;0.1144
+Sri Lanka;1998;0.1829
+Sri Lanka;1999;0.19
+Sri Lanka;2000;0.196
+Sri Lanka;2001;0.2016
+Sri Lanka;2002;0.2079
+Sri Lanka;2003;0.21
+Sri Lanka;2004;0.2106
+Sri Lanka;2005;0.2115
+Sri Lanka;2006;0.2128
+Sri Lanka;2007;0.205
+Sri Lanka;2008;0.194
+Sri Lanka;2009;0.1856
+Sri Lanka;2010;0.1959
+Sri Lanka;2011;0.2007
+Sri Lanka;2012;0.2057
+Sri Lanka;2013;0.2058
+Sri Lanka;2014;0.2054
+Sri Lanka;2015;0.2045
+Sri Lanka;2016;0.2047
+Sri Lanka;2017;0.2047
+Sri Lanka;2018;0.2047
+Sri Lanka;2019;0.2047
+Sri Lanka;2020;0.2047
+Sri Lanka;2021;0.2047
+Sub-Saharan Africa;1998;0.2042
+Sub-Saharan Africa;1999;0.2054
+Sub-Saharan Africa;2000;0.2089
+Sub-Saharan Africa;2001;0.2126
+Sub-Saharan Africa;2002;0.2146
+Sub-Saharan Africa;2003;0.2178
+Sub-Saharan Africa;2004;0.2172
+Sub-Saharan Africa;2005;0.2206
+Sub-Saharan Africa;2006;0.2226
+Sub-Saharan Africa;2007;0.2251
+Sub-Saharan Africa;2008;0.2203
+Sub-Saharan Africa;2009;0.2122
+Sub-Saharan Africa;2010;0.2144
+Sub-Saharan Africa;2011;0.2165
+Sub-Saharan Africa;2012;0.2218
+Sub-Saharan Africa;2013;0.2165
+Sub-Saharan Africa;2014;0.2118
+Sub-Saharan Africa;2015;0.2105
+Sub-Saharan Africa;2016;0.2087
+Sub-Saharan Africa;2017;0.2094
+Sub-Saharan Africa;2018;0.2109
+Sub-Saharan Africa;2019;0.2074
+Sub-Saharan Africa;2020;0.2036
+Sub-Saharan Africa;2021;0.2046
+Sub-Saharan Africa (at market exchange rate);1998;0.5246
+Sub-Saharan Africa (at market exchange rate);1999;0.5267
+Sub-Saharan Africa (at market exchange rate);2000;0.5204
+Sub-Saharan Africa (at market exchange rate);2001;0.5323
+Sub-Saharan Africa (at market exchange rate);2002;0.506
+Sub-Saharan Africa (at market exchange rate);2003;0.4623
+Sub-Saharan Africa (at market exchange rate);2004;0.4435
+Sub-Saharan Africa (at market exchange rate);2005;0.426
+Sub-Saharan Africa (at market exchange rate);2006;0.4142
+Sub-Saharan Africa (at market exchange rate);2007;0.4067
+Sub-Saharan Africa (at market exchange rate);2008;0.3622
+Sub-Saharan Africa (at market exchange rate);2009;0.3702
+Sub-Saharan Africa (at market exchange rate);2010;0.3889
+Sub-Saharan Africa (at market exchange rate);2011;0.4056
+Sub-Saharan Africa (at market exchange rate);2012;0.4309
+Sub-Saharan Africa (at market exchange rate);2013;0.4241
+Sub-Saharan Africa (at market exchange rate);2014;0.418
+Sub-Saharan Africa (at market exchange rate);2015;0.4167
+Sub-Saharan Africa (at market exchange rate);2016;0.4176
+Sub-Saharan Africa (at market exchange rate);2017;0.4248
+Sub-Saharan Africa (at market exchange rate);2018;0.4379
+Sub-Saharan Africa (at market exchange rate);2019;0.4292
+Sub-Saharan Africa (at market exchange rate);2020;0.4202
+Sub-Saharan Africa (at market exchange rate);2021;0.4224
+Sudan;1998;0.113
+Sudan;1999;0.113
+Sudan;2000;0.113
+Sudan;2001;0.113
+Sudan;2002;0.113
+Sudan;2003;0.113
+Sudan;2004;0.113
+Sudan;2005;0.113
+Sudan;2006;0.113
+Sudan;2007;0.113
+Sudan;2008;0.113
+Sudan;2009;0.113
+Sudan;2010;0.1211
+Sudan;2011;0.1292
+Sudan;2012;0.1373
+Sudan;2013;0.1454
+Sudan;2014;0.1536
+Sudan;2015;0.1536
+Sudan;2016;0.1536
+Sudan;2017;0.1536
+Sudan;2018;0.1536
+Sudan;2019;0.1536
+Sudan;2020;0.1536
+Sudan;2021;0.1536
+Suriname;1998;0.1895
+Suriname;1999;0.1895
+Suriname;2000;0.1895
+Suriname;2001;0.1985
+Suriname;2002;0.19
+Suriname;2003;0.2035
+Suriname;2004;0.1987
+Suriname;2005;0.189
+Suriname;2006;0.1895
+Suriname;2007;0.2087
+Suriname;2008;0.1994
+Suriname;2009;0.186
+Suriname;2010;0.1943
+Suriname;2011;0.1933
+Suriname;2012;0.1895
+Suriname;2013;0.2013
+Suriname;2014;0.202
+Suriname;2015;0.1947
+Suriname;2016;0.1985
+Suriname;2017;0.1914
+Suriname;2018;0.1898
+Suriname;2019;0.183
+Suriname;2020;0.1962
+Suriname;2021;0.1962
+Swaziland;1998;0.2505
+Swaziland;1999;0.234
+Swaziland;2000;0.2176
+Swaziland;2001;0.2137
+Swaziland;2002;0.2099
+Swaziland;2003;0.2061
+Swaziland;2004;0.2023
+Swaziland;2005;0.1984
+Swaziland;2006;0.1946
+Swaziland;2007;0.1908
+Swaziland;2008;0.187
+Swaziland;2009;0.1832
+Swaziland;2010;0.1846
+Swaziland;2011;0.1861
+Swaziland;2012;0.1875
+Swaziland;2013;0.1889
+Swaziland;2014;0.1904
+Swaziland;2015;0.1918
+Swaziland;2016;0.1933
+Swaziland;2017;0.1933
+Swaziland;2018;0.1933
+Swaziland;2019;0.1933
+Swaziland;2020;0.1933
+Swaziland;2021;0.1933
+Sweden;1998;0.117
+Sweden;1999;0.1186
+Sweden;2000;0.103
+Sweden;2001;0.0897
+Sweden;2002;0.0937
+Sweden;2003;0.1069
+Sweden;2004;0.114
+Sweden;2005;0.1188
+Sweden;2006;0.1305
+Sweden;2007;0.1247
+Sweden;2008;0.1143
+Sweden;2009;0.0994
+Sweden;2010;0.1119
+Sweden;2011;0.1063
+Sweden;2012;0.0999
+Sweden;2013;0.0999
+Sweden;2014;0.1006
+Sweden;2015;0.1058
+Sweden;2016;0.092
+Sweden;2017;0.1002
+Sweden;2018;0.0963
+Sweden;2019;0.1039
+Sweden;2020;0.118
+Sweden;2021;0.117
+Switzerland;1998;0.1168
+Switzerland;1999;0.1106
+Switzerland;2000;0.1147
+Switzerland;2001;0.106
+Switzerland;2002;0.0947
+Switzerland;2003;0.1148
+Switzerland;2004;0.1194
+Switzerland;2005;0.1293
+Switzerland;2006;0.1342
+Switzerland;2007;0.1185
+Switzerland;2008;0.0996
+Switzerland;2009;0.106
+Switzerland;2010;0.1233
+Switzerland;2011;0.1243
+Switzerland;2012;0.1144
+Switzerland;2013;0.1132
+Switzerland;2014;0.1132
+Switzerland;2015;0.1154
+Switzerland;2016;0.1139
+Switzerland;2017;0.1093
+Switzerland;2018;0.1052
+Switzerland;2019;0.1019
+Switzerland;2020;0.0983
+Switzerland;2021;0.0986
+Syrian Arab Republic;1998;0.2191
+Syrian Arab Republic;1999;0.2181
+Syrian Arab Republic;2000;0.217
+Syrian Arab Republic;2001;0.216
+Syrian Arab Republic;2002;0.2149
+Syrian Arab Republic;2003;0.2138
+Syrian Arab Republic;2004;0.2066
+Syrian Arab Republic;2005;0.2066
+Syrian Arab Republic;2006;0.2066
+Syrian Arab Republic;2007;0.2066
+Syrian Arab Republic;2008;0.2066
+Syrian Arab Republic;2009;0.2066
+Syrian Arab Republic;2010;0.2066
+Syrian Arab Republic;2011;0.2066
+Syrian Arab Republic;2012;0.2066
+Syrian Arab Republic;2013;0.2066
+Syrian Arab Republic;2014;0.2066
+Syrian Arab Republic;2015;0.2066
+Syrian Arab Republic;2016;0.2066
+Syrian Arab Republic;2017;0.2066
+Syrian Arab Republic;2018;0.2066
+Syrian Arab Republic;2019;0.2066
+Syrian Arab Republic;2020;0.2066
+Syrian Arab Republic;2021;0.2066
+Taiwan;1998;0.128
+Taiwan;1999;0.1318
+Taiwan;2000;0.1461
+Taiwan;2001;0.1738
+Taiwan;2002;0.1648
+Taiwan;2003;0.1845
+Taiwan;2004;0.1801
+Taiwan;2005;0.1824
+Taiwan;2006;0.1722
+Taiwan;2007;0.1759
+Taiwan;2008;0.1624
+Taiwan;2009;0.1719
+Taiwan;2010;0.1917
+Taiwan;2011;0.1825
+Taiwan;2012;0.1866
+Taiwan;2013;0.183
+Taiwan;2014;0.2158
+Taiwan;2015;0.1833
+Taiwan;2016;0.2023
+Taiwan;2017;0.1933
+Taiwan;2018;0.1933
+Taiwan;2019;0.1933
+Taiwan;2020;0.1933
+Taiwan;2021;0.1933
+Tajikistan;1998;0.1206
+Tajikistan;1999;0.1206
+Tajikistan;2000;0.1259
+Tajikistan;2001;0.1326
+Tajikistan;2002;0.1389
+Tajikistan;2003;0.1404
+Tajikistan;2004;0.1333
+Tajikistan;2005;0.1548
+Tajikistan;2006;0.1642
+Tajikistan;2007;0.1692
+Tajikistan;2008;0.1576
+Tajikistan;2009;0.1468
+Tajikistan;2010;0.1449
+Tajikistan;2011;0.1409
+Tajikistan;2012;0.1414
+Tajikistan;2013;0.1401
+Tajikistan;2014;0.1353
+Tajikistan;2015;0.1306
+Tajikistan;2016;0.1417
+Tajikistan;2017;0.1448
+Tajikistan;2018;0.1453
+Tajikistan;2019;0.1453
+Tajikistan;2020;0.1453
+Tajikistan;2021;0.1453
+Tanzania;1998;0.1244
+Tanzania;1999;0.1256
+Tanzania;2000;0.1269
+Tanzania;2001;0.1318
+Tanzania;2002;0.1367
+Tanzania;2003;0.1416
+Tanzania;2004;0.1466
+Tanzania;2005;0.1515
+Tanzania;2006;0.1564
+Tanzania;2007;0.1613
+Tanzania;2008;0.162
+Tanzania;2009;0.1627
+Tanzania;2010;0.1634
+Tanzania;2011;0.1641
+Tanzania;2012;0.167
+Tanzania;2013;0.1699
+Tanzania;2014;0.1728
+Tanzania;2015;0.1757
+Tanzania;2016;0.1786
+Tanzania;2017;0.1815
+Tanzania;2018;0.1815
+Tanzania;2019;0.1815
+Tanzania;2020;0.1815
+Tanzania;2021;0.1815
+Tennessee;1998;0.1682
+Tennessee;1999;0.1676
+Tennessee;2000;0.166
+Tennessee;2001;0.1564
+Tennessee;2002;0.1488
+Tennessee;2003;0.1602
+Tennessee;2004;0.18
+Tennessee;2005;0.1897
+Tennessee;2006;0.2092
+Tennessee;2007;0.2147
+Tennessee;2008;0.1805
+Tennessee;2009;0.1599
+Tennessee;2010;0.1723
+Tennessee;2011;0.1653
+Tennessee;2012;0.1922
+Tennessee;2013;0.1692
+Tennessee;2014;0.1866
+Tennessee;2015;0.1849
+Tennessee;2016;0.193
+Tennessee;2017;0.1867
+Tennessee;2018;0.2033
+Tennessee;2019;
+Tennessee;2020;
+Tennessee;2021;
+Texas;1998;0.1934
+Texas;1999;0.1922
+Texas;2000;0.2063
+Texas;2001;0.1743
+Texas;2002;0.1586
+Texas;2003;0.1691
+Texas;2004;0.1893
+Texas;2005;0.2222
+Texas;2006;0.2343
+Texas;2007;0.229
+Texas;2008;0.2438
+Texas;2009;0.1844
+Texas;2010;0.2052
+Texas;2011;0.2101
+Texas;2012;0.2445
+Texas;2013;0.2107
+Texas;2014;0.2262
+Texas;2015;0.2116
+Texas;2016;0.1881
+Texas;2017;0.2306
+Texas;2018;0.2131
+Texas;2019;
+Texas;2020;
+Texas;2021;
+Thailand;1998;0.1947
+Thailand;1999;0.2118
+Thailand;2000;0.2166
+Thailand;2001;0.2319
+Thailand;2002;0.2218
+Thailand;2003;0.2367
+Thailand;2004;0.2314
+Thailand;2005;0.2286
+Thailand;2006;0.2259
+Thailand;2007;0.2203
+Thailand;2008;0.231
+Thailand;2009;0.2169
+Thailand;2010;0.2266
+Thailand;2011;0.2192
+Thailand;2012;0.2163
+Thailand;2013;0.2015
+Thailand;2014;0.2045
+Thailand;2015;0.1919
+Thailand;2016;0.1933
+Thailand;2017;0.1879
+Thailand;2018;0.1779
+Thailand;2019;0.1776
+Thailand;2020;0.1776
+Thailand;2021;0.1776
+Timor-Leste;1998;0.1759
+Timor-Leste;1999;0.1759
+Timor-Leste;2000;0.1759
+Timor-Leste;2001;0.1759
+Timor-Leste;2002;0.1697
+Timor-Leste;2003;0.1634
+Timor-Leste;2004;0.1599
+Timor-Leste;2005;0.1552
+Timor-Leste;2006;0.15
+Timor-Leste;2007;0.146
+Timor-Leste;2008;0.1475
+Timor-Leste;2009;0.1507
+Timor-Leste;2010;0.152
+Timor-Leste;2011;0.1521
+Timor-Leste;2012;0.1512
+Timor-Leste;2013;0.1517
+Timor-Leste;2014;0.1533
+Timor-Leste;2015;0.153
+Timor-Leste;2016;0.1533
+Timor-Leste;2017;0.153
+Timor-Leste;2018;0.1523
+Timor-Leste;2019;0.1523
+Timor-Leste;2020;0.1523
+Timor-Leste;2021;0.1523
+Togo;1998;0.1406
+Togo;1999;0.1406
+Togo;2000;0.1406
+Togo;2001;0.1406
+Togo;2002;0.1406
+Togo;2003;0.1406
+Togo;2004;0.1406
+Togo;2005;0.1406
+Togo;2006;0.1406
+Togo;2007;0.1435
+Togo;2008;0.1463
+Togo;2009;0.1492
+Togo;2010;0.152
+Togo;2011;0.1549
+Togo;2012;0.1508
+Togo;2013;0.1467
+Togo;2014;0.1426
+Togo;2015;0.1385
+Togo;2016;0.1418
+Togo;2017;0.1451
+Togo;2018;0.1484
+Togo;2019;0.1484
+Togo;2020;0.1484
+Togo;2021;0.1484
+Trinidad and Tobago;1998;0.1895
+Trinidad and Tobago;1999;0.1895
+Trinidad and Tobago;2000;0.1895
+Trinidad and Tobago;2001;0.1985
+Trinidad and Tobago;2002;0.19
+Trinidad and Tobago;2003;0.2035
+Trinidad and Tobago;2004;0.1987
+Trinidad and Tobago;2005;0.189
+Trinidad and Tobago;2006;0.1895
+Trinidad and Tobago;2007;0.2087
+Trinidad and Tobago;2008;0.1994
+Trinidad and Tobago;2009;0.186
+Trinidad and Tobago;2010;0.1943
+Trinidad and Tobago;2011;0.1933
+Trinidad and Tobago;2012;0.1895
+Trinidad and Tobago;2013;0.2013
+Trinidad and Tobago;2014;0.202
+Trinidad and Tobago;2015;0.1947
+Trinidad and Tobago;2016;0.1985
+Trinidad and Tobago;2017;0.1914
+Trinidad and Tobago;2018;0.1898
+Trinidad and Tobago;2019;0.183
+Trinidad and Tobago;2020;0.1962
+Trinidad and Tobago;2021;0.1962
+Tunisia;1998;0.1642
+Tunisia;1999;0.1623
+Tunisia;2000;0.1604
+Tunisia;2001;0.1537
+Tunisia;2002;0.147
+Tunisia;2003;0.1403
+Tunisia;2004;0.1336
+Tunisia;2005;0.1269
+Tunisia;2006;0.1233
+Tunisia;2007;0.1198
+Tunisia;2008;0.1162
+Tunisia;2009;0.1126
+Tunisia;2010;0.109
+Tunisia;2011;0.109
+Tunisia;2012;0.1091
+Tunisia;2013;0.1091
+Tunisia;2014;0.1091
+Tunisia;2015;0.1091
+Tunisia;2016;0.1091
+Tunisia;2017;0.1091
+Tunisia;2018;0.1091
+Tunisia;2019;0.1091
+Tunisia;2020;0.1091
+Tunisia;2021;0.1091
+Turkey;1998;0.2178
+Turkey;1999;0.2187
+Turkey;2000;0.2195
+Turkey;2001;0.2204
+Turkey;2002;0.2212
+Turkey;2003;0.2156
+Turkey;2004;0.2095
+Turkey;2005;0.1816
+Turkey;2006;0.1717
+Turkey;2007;0.1658
+Turkey;2008;0.1772
+Turkey;2009;0.1906
+Turkey;2010;0.1934
+Turkey;2011;0.1864
+Turkey;2012;0.1925
+Turkey;2013;0.1833
+Turkey;2014;0.2027
+Turkey;2015;0.2091
+Turkey;2016;0.1928
+Turkey;2017;0.2061
+Turkey;2018;0.2038
+Turkey;2019;0.1903
+Turkey;2020;0.2041
+Turkey;2021;0.1878
+Turkmenistan;1998;0.184
+Turkmenistan;1999;0.1843
+Turkmenistan;2000;0.185
+Turkmenistan;2001;0.1867
+Turkmenistan;2002;0.1885
+Turkmenistan;2003;0.1876
+Turkmenistan;2004;0.1837
+Turkmenistan;2005;0.1888
+Turkmenistan;2006;0.1891
+Turkmenistan;2007;0.1878
+Turkmenistan;2008;0.1913
+Turkmenistan;2009;0.1945
+Turkmenistan;2010;0.1937
+Turkmenistan;2011;0.1916
+Turkmenistan;2012;0.1921
+Turkmenistan;2013;0.1916
+Turkmenistan;2014;0.1889
+Turkmenistan;2015;0.1864
+Turkmenistan;2016;0.1929
+Turkmenistan;2017;0.1947
+Turkmenistan;2018;0.195
+Turkmenistan;2019;0.195
+Turkmenistan;2020;0.195
+Turkmenistan;2021;0.195
+USA;1998;0.1632
+USA;1999;0.1676
+USA;2000;0.1735
+USA;2001;0.166
+USA;2002;0.161
+USA;2003;0.1633
+USA;2004;0.1706
+USA;2005;0.1806
+USA;2006;0.1852
+USA;2007;0.1837
+USA;2008;0.1794
+USA;2009;0.1671
+USA;2010;0.179
+USA;2011;0.1808
+USA;2012;0.1948
+USA;2013;0.1847
+USA;2014;0.1897
+USA;2015;0.1889
+USA;2016;0.1867
+USA;2017;0.1905
+USA;2018;0.1925
+USA;2019;0.1906
+USA;2020;0.1788
+USA;2021;0.1903
+Uganda;1998;0.1803
+Uganda;1999;0.1936
+Uganda;2000;0.2046
+Uganda;2001;0.2156
+Uganda;2002;0.2266
+Uganda;2003;0.2111
+Uganda;2004;0.1956
+Uganda;2005;0.1801
+Uganda;2006;0.1813
+Uganda;2007;0.1825
+Uganda;2008;0.1837
+Uganda;2009;0.1849
+Uganda;2010;0.175
+Uganda;2011;0.1651
+Uganda;2012;0.1553
+Uganda;2013;0.1591
+Uganda;2014;0.1629
+Uganda;2015;0.1667
+Uganda;2016;0.1705
+Uganda;2017;0.1779
+Uganda;2018;0.1854
+Uganda;2019;0.1929
+Uganda;2020;0.1929
+Uganda;2021;0.1929
+Ukraine;1998;0.0924
+Ukraine;1999;0.0856
+Ukraine;2000;0.0925
+Ukraine;2001;0.1035
+Ukraine;2002;0.0998
+Ukraine;2003;0.1087
+Ukraine;2004;0.1171
+Ukraine;2005;0.1026
+Ukraine;2006;0.1187
+Ukraine;2007;0.1051
+Ukraine;2008;0.0999
+Ukraine;2009;0.0868
+Ukraine;2010;0.0777
+Ukraine;2011;0.0783
+Ukraine;2012;0.1017
+Ukraine;2013;0.1036
+Ukraine;2014;0.0821
+Ukraine;2015;0.0922
+Ukraine;2016;0.1058
+Ukraine;2017;0.0996
+Ukraine;2018;0.0962
+Ukraine;2019;0.0933
+Ukraine;2020;0.0933
+Ukraine;2021;0.0933
+United Arab Emirates;1998;0.1904
+United Arab Emirates;1999;0.1896
+United Arab Emirates;2000;0.1887
+United Arab Emirates;2001;0.1877
+United Arab Emirates;2002;0.1866
+United Arab Emirates;2003;0.1854
+United Arab Emirates;2004;0.1839
+United Arab Emirates;2005;0.1823
+United Arab Emirates;2006;0.1803
+United Arab Emirates;2007;0.1781
+United Arab Emirates;2008;0.1754
+United Arab Emirates;2009;0.1721
+United Arab Emirates;2010;0.1689
+United Arab Emirates;2011;0.1657
+United Arab Emirates;2012;0.1626
+United Arab Emirates;2013;0.1596
+United Arab Emirates;2014;0.163
+United Arab Emirates;2015;0.1604
+United Arab Emirates;2016;0.1579
+United Arab Emirates;2017;0.1555
+United Arab Emirates;2018;0.1531
+United Arab Emirates;2019;0.1531
+United Arab Emirates;2020;0.1531
+United Arab Emirates;2021;0.1531
+United Kingdom;1998;0.1298
+United Kingdom;1999;0.1215
+United Kingdom;2000;0.1173
+United Kingdom;2001;0.1164
+United Kingdom;2002;0.12
+United Kingdom;2003;0.1314
+United Kingdom;2004;0.1297
+United Kingdom;2005;0.1428
+United Kingdom;2006;0.1467
+United Kingdom;2007;0.1469
+United Kingdom;2008;0.1407
+United Kingdom;2009;0.1427
+United Kingdom;2010;0.1229
+United Kingdom;2011;0.1317
+United Kingdom;2012;0.1276
+United Kingdom;2013;0.1378
+United Kingdom;2014;0.1332
+United Kingdom;2015;0.123
+United Kingdom;2016;0.1248
+United Kingdom;2017;0.1344
+United Kingdom;2018;0.1307
+United Kingdom;2019;0.127
+United Kingdom;2020;0.1274
+United Kingdom;2021;0.1274
+Urban China;1998;0.086
+Urban China;1999;0.0871
+Urban China;2000;0.0881
+Urban China;2001;0.0946
+Urban China;2002;0.1159
+Urban China;2003;0.1245
+Urban China;2004;0.1335
+Urban China;2005;0.1342
+Urban China;2006;0.1412
+Urban China;2007;0.1458
+Urban China;2008;0.1461
+Urban China;2009;0.1469
+Urban China;2010;0.1442
+Urban China;2011;0.1391
+Urban China;2012;0.1301
+Urban China;2013;0.1308
+Urban China;2014;0.13
+Urban China;2015;0.1326
+Urban China;2016;
+Urban China;2017;
+Urban China;2018;
+Urban China;2019;
+Urban China;2020;
+Urban China;2021;
+Uruguay;1998;0.1713
+Uruguay;1999;0.1713
+Uruguay;2000;0.1713
+Uruguay;2001;0.1787
+Uruguay;2002;0.1675
+Uruguay;2003;0.1941
+Uruguay;2004;0.1958
+Uruguay;2005;0.1609
+Uruguay;2006;0.1788
+Uruguay;2007;0.1972
+Uruguay;2008;0.2109
+Uruguay;2009;0.1698
+Uruguay;2010;0.1598
+Uruguay;2011;0.1553
+Uruguay;2012;0.1214
+Uruguay;2013;0.1416
+Uruguay;2014;0.1435
+Uruguay;2015;0.1458
+Uruguay;2016;0.1404
+Uruguay;2017;0.1399
+Uruguay;2018;0.1427
+Uruguay;2019;0.131
+Uruguay;2020;0.1339
+Uruguay;2021;0.1339
+Utah;1998;0.152
+Utah;1999;0.1602
+Utah;2000;0.1693
+Utah;2001;0.1363
+Utah;2002;0.1357
+Utah;2003;0.1457
+Utah;2004;0.1613
+Utah;2005;0.1889
+Utah;2006;0.1999
+Utah;2007;0.2067
+Utah;2008;0.1737
+Utah;2009;0.157
+Utah;2010;0.1576
+Utah;2011;0.1531
+Utah;2012;0.1927
+Utah;2013;0.1561
+Utah;2014;0.1711
+Utah;2015;0.1665
+Utah;2016;0.1778
+Utah;2017;0.1772
+Utah;2018;0.1852
+Utah;2019;
+Utah;2020;
+Utah;2021;
+Uzbekistan;1998;0.1744
+Uzbekistan;1999;0.1732
+Uzbekistan;2000;0.172
+Uzbekistan;2001;0.1693
+Uzbekistan;2002;0.1665
+Uzbekistan;2003;0.1658
+Uzbekistan;2004;0.1658
+Uzbekistan;2005;0.1658
+Uzbekistan;2006;0.1658
+Uzbekistan;2007;0.1658
+Uzbekistan;2008;0.1658
+Uzbekistan;2009;0.1658
+Uzbekistan;2010;0.1658
+Uzbekistan;2011;0.1658
+Uzbekistan;2012;0.1658
+Uzbekistan;2013;0.1658
+Uzbekistan;2014;0.1658
+Uzbekistan;2015;0.1658
+Uzbekistan;2016;0.1629
+Uzbekistan;2017;0.1665
+Uzbekistan;2018;0.1665
+Uzbekistan;2019;0.1665
+Uzbekistan;2020;0.1665
+Uzbekistan;2021;0.1665
+Venezuela;1998;0.1895
+Venezuela;1999;0.1895
+Venezuela;2000;0.1895
+Venezuela;2001;0.1985
+Venezuela;2002;0.19
+Venezuela;2003;0.2035
+Venezuela;2004;0.1987
+Venezuela;2005;0.189
+Venezuela;2006;0.1895
+Venezuela;2007;0.2087
+Venezuela;2008;0.1994
+Venezuela;2009;0.186
+Venezuela;2010;0.1943
+Venezuela;2011;0.1933
+Venezuela;2012;0.1895
+Venezuela;2013;0.2013
+Venezuela;2014;0.202
+Venezuela;2015;0.1947
+Venezuela;2016;0.1985
+Venezuela;2017;0.1914
+Venezuela;2018;0.1898
+Venezuela;2019;0.183
+Venezuela;2020;0.1962
+Venezuela;2021;
+Vermont;1998;0.1474
+Vermont;1999;0.1443
+Vermont;2000;0.1568
+Vermont;2001;0.1299
+Vermont;2002;0.1298
+Vermont;2003;0.123
+Vermont;2004;0.14
+Vermont;2005;0.1602
+Vermont;2006;0.181
+Vermont;2007;0.184
+Vermont;2008;0.1564
+Vermont;2009;0.1332
+Vermont;2010;0.1286
+Vermont;2011;0.1429
+Vermont;2012;0.1525
+Vermont;2013;0.1362
+Vermont;2014;0.1517
+Vermont;2015;0.1444
+Vermont;2016;0.1451
+Vermont;2017;0.1525
+Vermont;2018;0.1505
+Vermont;2019;
+Vermont;2020;
+Vermont;2021;
+Viet Nam;1998;0.1675
+Viet Nam;1999;0.1669
+Viet Nam;2000;0.1699
+Viet Nam;2001;0.1712
+Viet Nam;2002;0.1699
+Viet Nam;2003;0.1657
+Viet Nam;2004;0.1643
+Viet Nam;2005;0.1618
+Viet Nam;2006;0.1589
+Viet Nam;2007;0.1617
+Viet Nam;2008;0.1645
+Viet Nam;2009;0.1824
+Viet Nam;2010;0.1967
+Viet Nam;2011;0.1806
+Viet Nam;2012;0.1651
+Viet Nam;2013;0.1626
+Viet Nam;2014;0.1614
+Viet Nam;2015;0.1631
+Viet Nam;2016;0.1651
+Viet Nam;2017;0.1612
+Viet Nam;2018;0.1574
+Viet Nam;2019;0.1574
+Viet Nam;2020;0.1574
+Viet Nam;2021;0.1574
+Virginia;1998;0.1546
+Virginia;1999;0.1639
+Virginia;2000;0.163
+Virginia;2001;0.1393
+Virginia;2002;0.1347
+Virginia;2003;0.1393
+Virginia;2004;0.1543
+Virginia;2005;0.1688
+Virginia;2006;0.1744
+Virginia;2007;0.1703
+Virginia;2008;0.1535
+Virginia;2009;0.1349
+Virginia;2010;0.1579
+Virginia;2011;0.1522
+Virginia;2012;0.1688
+Virginia;2013;0.1496
+Virginia;2014;0.1595
+Virginia;2015;0.1584
+Virginia;2016;0.1575
+Virginia;2017;0.1628
+Virginia;2018;0.1656
+Virginia;2019;
+Virginia;2020;
+Virginia;2021;
+Washington;1998;0.215
+Washington;1999;0.2653
+Washington;2000;0.243
+Washington;2001;0.1743
+Washington;2002;0.1642
+Washington;2003;0.1673
+Washington;2004;0.1799
+Washington;2005;0.1963
+Washington;2006;0.2071
+Washington;2007;0.219
+Washington;2008;0.1794
+Washington;2009;0.1541
+Washington;2010;0.1671
+Washington;2011;0.1739
+Washington;2012;0.2058
+Washington;2013;0.1755
+Washington;2014;0.1965
+Washington;2015;0.1954
+Washington;2016;0.2087
+Washington;2017;0.202
+Washington;2018;0.2031
+Washington;2019;
+Washington;2020;
+Washington;2021;
+Washington D.C.;1998;0.2271
+Washington D.C.;1999;0.1624
+Washington D.C.;2000;0.2583
+Washington D.C.;2001;0.22
+Washington D.C.;2002;0.1987
+Washington D.C.;2003;0.2275
+Washington D.C.;2004;0.2313
+Washington D.C.;2005;0.2536
+Washington D.C.;2006;0.2591
+Washington D.C.;2007;0.2714
+Washington D.C.;2008;0.2303
+Washington D.C.;2009;0.2296
+Washington D.C.;2010;0.2168
+Washington D.C.;2011;0.2133
+Washington D.C.;2012;0.2734
+Washington D.C.;2013;0.217
+Washington D.C.;2014;0.2258
+Washington D.C.;2015;0.2325
+Washington D.C.;2016;0.2151
+Washington D.C.;2017;0.2176
+Washington D.C.;2018;0.2297
+Washington D.C.;2019;
+Washington D.C.;2020;
+Washington D.C.;2021;
+West Africa;1998;0.1479
+West Africa;1999;0.1534
+West Africa;2000;0.1542
+West Africa;2001;0.1526
+West Africa;2002;0.1529
+West Africa;2003;0.1529
+West Africa;2004;0.149
+West Africa;2005;0.1457
+West Africa;2006;0.1403
+West Africa;2007;0.1364
+West Africa;2008;0.1311
+West Africa;2009;0.1276
+West Africa;2010;0.1238
+West Africa;2011;0.1231
+West Africa;2012;0.1223
+West Africa;2013;0.1236
+West Africa;2014;0.1253
+West Africa;2015;0.1265
+West Africa;2016;0.1303
+West Africa;2017;0.1314
+West Africa;2018;0.1336
+West Africa;2019;0.1336
+West Africa;2020;0.1338
+West Africa;2021;0.1345
+West Africa (at market exchange rate);1998;0.1488
+West Africa (at market exchange rate);1999;0.1534
+West Africa (at market exchange rate);2000;0.1529
+West Africa (at market exchange rate);2001;0.1533
+West Africa (at market exchange rate);2002;0.1556
+West Africa (at market exchange rate);2003;0.155
+West Africa (at market exchange rate);2004;0.1503
+West Africa (at market exchange rate);2005;0.1453
+West Africa (at market exchange rate);2006;0.1421
+West Africa (at market exchange rate);2007;0.1368
+West Africa (at market exchange rate);2008;0.1328
+West Africa (at market exchange rate);2009;0.1293
+West Africa (at market exchange rate);2010;0.1246
+West Africa (at market exchange rate);2011;0.122
+West Africa (at market exchange rate);2012;0.1239
+West Africa (at market exchange rate);2013;0.1254
+West Africa (at market exchange rate);2014;0.1237
+West Africa (at market exchange rate);2015;0.1249
+West Africa (at market exchange rate);2016;0.1298
+West Africa (at market exchange rate);2017;0.134
+West Africa (at market exchange rate);2018;0.135
+West Africa (at market exchange rate);2019;0.1348
+West Africa (at market exchange rate);2020;0.1352
+West Africa (at market exchange rate);2021;0.1354
+West Asia;1998;0.2424
+West Asia;1999;0.2471
+West Asia;2000;0.2632
+West Asia;2001;0.2805
+West Asia;2002;0.2767
+West Asia;2003;0.2713
+West Asia;2004;0.2564
+West Asia;2005;0.2671
+West Asia;2006;0.2689
+West Asia;2007;0.2758
+West Asia;2008;0.2521
+West Asia;2009;0.2271
+West Asia;2010;0.2131
+West Asia;2011;0.2187
+West Asia;2012;0.2069
+West Asia;2013;0.213
+West Asia;2014;0.2086
+West Asia;2015;0.2074
+West Asia;2016;0.2139
+West Asia;2017;0.2173
+West Asia;2018;0.2193
+West Asia;2019;0.2172
+West Asia;2020;0.2313
+West Asia;2021;0.2307
+West Asia (at market exchange rate);1998;0.3011
+West Asia (at market exchange rate);1999;0.2971
+West Asia (at market exchange rate);2000;0.3032
+West Asia (at market exchange rate);2001;0.3123
+West Asia (at market exchange rate);2002;0.3082
+West Asia (at market exchange rate);2003;0.3067
+West Asia (at market exchange rate);2004;0.2956
+West Asia (at market exchange rate);2005;0.3001
+West Asia (at market exchange rate);2006;0.298
+West Asia (at market exchange rate);2007;0.2996
+West Asia (at market exchange rate);2008;0.2738
+West Asia (at market exchange rate);2009;0.2606
+West Asia (at market exchange rate);2010;0.251
+West Asia (at market exchange rate);2011;0.25
+West Asia (at market exchange rate);2012;0.2398
+West Asia (at market exchange rate);2013;0.2434
+West Asia (at market exchange rate);2014;0.2402
+West Asia (at market exchange rate);2015;0.239
+West Asia (at market exchange rate);2016;0.2453
+West Asia (at market exchange rate);2017;0.2481
+West Asia (at market exchange rate);2018;0.2455
+West Asia (at market exchange rate);2019;0.2418
+West Asia (at market exchange rate);2020;0.2545
+West Asia (at market exchange rate);2021;0.2544
+West Virginia;1998;0.1312
+West Virginia;1999;0.129
+West Virginia;2000;0.1274
+West Virginia;2001;0.1271
+West Virginia;2002;0.121
+West Virginia;2003;0.1247
+West Virginia;2004;0.1303
+West Virginia;2005;0.1478
+West Virginia;2006;0.1406
+West Virginia;2007;0.1521
+West Virginia;2008;0.1522
+West Virginia;2009;0.1518
+West Virginia;2010;0.1395
+West Virginia;2011;0.1506
+West Virginia;2012;0.1415
+West Virginia;2013;0.1263
+West Virginia;2014;0.1456
+West Virginia;2015;0.1397
+West Virginia;2016;0.1324
+West Virginia;2017;0.1326
+West Virginia;2018;0.1336
+West Virginia;2019;
+West Virginia;2020;
+West Virginia;2021;
+Western Europe;1998;0.1081
+Western Europe;1999;0.1069
+Western Europe;2000;0.1076
+Western Europe;2001;0.1066
+Western Europe;2002;0.1042
+Western Europe;2003;0.1078
+Western Europe;2004;0.1107
+Western Europe;2005;0.1163
+Western Europe;2006;0.1194
+Western Europe;2007;0.1223
+Western Europe;2008;0.1173
+Western Europe;2009;0.1135
+Western Europe;2010;0.1128
+Western Europe;2011;0.1161
+Western Europe;2012;0.1146
+Western Europe;2013;0.1174
+Western Europe;2014;0.1185
+Western Europe;2015;0.1152
+Western Europe;2016;0.1173
+Western Europe;2017;0.1193
+Western Europe;2018;0.1178
+Western Europe;2019;0.1159
+Western Europe;2020;0.1133
+Western Europe;2021;0.1148
+Western Europe (at market exchange rate);1998;0.11
+Western Europe (at market exchange rate);1999;0.1077
+Western Europe (at market exchange rate);2000;0.1087
+Western Europe (at market exchange rate);2001;0.1073
+Western Europe (at market exchange rate);2002;0.1056
+Western Europe (at market exchange rate);2003;0.1099
+Western Europe (at market exchange rate);2004;0.1128
+Western Europe (at market exchange rate);2005;0.1189
+Western Europe (at market exchange rate);2006;0.1225
+Western Europe (at market exchange rate);2007;0.1244
+Western Europe (at market exchange rate);2008;0.1196
+Western Europe (at market exchange rate);2009;0.1158
+Western Europe (at market exchange rate);2010;0.1158
+Western Europe (at market exchange rate);2011;0.1183
+Western Europe (at market exchange rate);2012;0.1169
+Western Europe (at market exchange rate);2013;0.1191
+Western Europe (at market exchange rate);2014;0.1211
+Western Europe (at market exchange rate);2015;0.1177
+Western Europe (at market exchange rate);2016;0.1192
+Western Europe (at market exchange rate);2017;0.1206
+Western Europe (at market exchange rate);2018;0.1189
+Western Europe (at market exchange rate);2019;0.1176
+Western Europe (at market exchange rate);2020;0.1157
+Western Europe (at market exchange rate);2021;0.117
+Wisconsin;1998;0.1565
+Wisconsin;1999;0.1517
+Wisconsin;2000;0.1568
+Wisconsin;2001;0.1381
+Wisconsin;2002;0.1399
+Wisconsin;2003;0.1415
+Wisconsin;2004;0.1516
+Wisconsin;2005;0.164
+Wisconsin;2006;0.1765
+Wisconsin;2007;0.1752
+Wisconsin;2008;0.1637
+Wisconsin;2009;0.1546
+Wisconsin;2010;0.1587
+Wisconsin;2011;0.1559
+Wisconsin;2012;0.1798
+Wisconsin;2013;0.1592
+Wisconsin;2014;0.1629
+Wisconsin;2015;0.1652
+Wisconsin;2016;0.1696
+Wisconsin;2017;0.16
+Wisconsin;2018;0.172
+Wisconsin;2019;
+Wisconsin;2020;
+Wisconsin;2021;
+World;1998;0.1956
+World;1999;0.1974
+World;2000;0.2012
+World;2001;0.1997
+World;2002;0.1964
+World;2003;0.1986
+World;2004;0.2016
+World;2005;0.2041
+World;2006;0.2071
+World;2007;0.2061
+World;2008;0.2016
+World;2009;0.194
+World;2010;0.1964
+World;2011;0.1983
+World;2012;0.197
+World;2013;0.1946
+World;2014;0.196
+World;2015;0.1957
+World;2016;0.1929
+World;2017;0.1958
+World;2018;0.1941
+World;2019;0.1911
+World;2020;0.1913
+World;2021;0.1935
+World (at market exchange rate);1998;0.2374
+World (at market exchange rate);1999;0.2402
+World (at market exchange rate);2000;0.2426
+World (at market exchange rate);2001;0.2407
+World (at market exchange rate);2002;0.2369
+World (at market exchange rate);2003;0.233
+World (at market exchange rate);2004;0.2405
+World (at market exchange rate);2005;0.2414
+World (at market exchange rate);2006;0.2432
+World (at market exchange rate);2007;0.2445
+World (at market exchange rate);2008;0.2356
+World (at market exchange rate);2009;0.2295
+World (at market exchange rate);2010;0.2329
+World (at market exchange rate);2011;0.2355
+World (at market exchange rate);2012;0.2354
+World (at market exchange rate);2013;0.2344
+World (at market exchange rate);2014;0.2353
+World (at market exchange rate);2015;0.2347
+World (at market exchange rate);2016;0.2312
+World (at market exchange rate);2017;0.2333
+World (at market exchange rate);2018;0.2346
+World (at market exchange rate);2019;0.23
+World (at market exchange rate);2020;0.2301
+World (at market exchange rate);2021;0.2309
+Wyoming;1998;0.2577
+Wyoming;1999;0.2544
+Wyoming;2000;0.2895
+Wyoming;2001;0.2308
+Wyoming;2002;0.2192
+Wyoming;2003;0.2274
+Wyoming;2004;0.2513
+Wyoming;2005;0.2928
+Wyoming;2006;0.3363
+Wyoming;2007;0.343
+Wyoming;2008;0.2852
+Wyoming;2009;0.2046
+Wyoming;2010;0.2755
+Wyoming;2011;0.2153
+Wyoming;2012;0.6868
+Wyoming;2013;0.286
+Wyoming;2014;0.2715
+Wyoming;2015;0.2451
+Wyoming;2016;0.2231
+Wyoming;2017;0.2764
+Wyoming;2018;0.2457
+Wyoming;2019;
+Wyoming;2020;
+Wyoming;2021;
+Württemberg;1998;
+Württemberg;1999;
+Württemberg;2000;
+Württemberg;2001;
+Württemberg;2002;
+Württemberg;2003;
+Württemberg;2004;
+Württemberg;2005;
+Württemberg;2006;
+Württemberg;2007;
+Württemberg;2008;
+Württemberg;2009;
+Württemberg;2010;
+Württemberg;2011;
+Württemberg;2012;
+Württemberg;2013;
+Württemberg;2014;
+Württemberg;2015;
+Württemberg;2016;
+Württemberg;2017;
+Württemberg;2018;
+Württemberg;2019;
+Württemberg;2020;
+Württemberg;2021;
+Yemen;1998;0.2173
+Yemen;1999;0.2262
+Yemen;2000;0.2351
+Yemen;2001;0.2439
+Yemen;2002;0.2527
+Yemen;2003;0.2615
+Yemen;2004;0.2701
+Yemen;2005;0.2788
+Yemen;2006;0.2874
+Yemen;2007;0.2826
+Yemen;2008;0.2777
+Yemen;2009;0.2725
+Yemen;2010;0.267
+Yemen;2011;0.2612
+Yemen;2012;0.2552
+Yemen;2013;0.2488
+Yemen;2014;0.242
+Yemen;2015;0.242
+Yemen;2016;0.242
+Yemen;2017;0.242
+Yemen;2018;0.242
+Yemen;2019;0.242
+Yemen;2020;0.242
+Yemen;2021;0.242
+Zambia;1998;0.2015
+Zambia;1999;0.2001
+Zambia;2000;0.1988
+Zambia;2001;0.1974
+Zambia;2002;0.1961
+Zambia;2003;0.2136
+Zambia;2004;0.2311
+Zambia;2005;0.2235
+Zambia;2006;0.216
+Zambia;2007;0.2246
+Zambia;2008;0.2333
+Zambia;2009;0.2419
+Zambia;2010;0.2506
+Zambia;2011;0.2468
+Zambia;2012;0.243
+Zambia;2013;0.2392
+Zambia;2014;0.2355
+Zambia;2015;0.2317
+Zambia;2016;0.2317
+Zambia;2017;0.2317
+Zambia;2018;0.2317
+Zambia;2019;0.2317
+Zambia;2020;0.2317
+Zambia;2021;0.2317
+Zimbabwe;1998;0.1741
+Zimbabwe;1999;0.1741
+Zimbabwe;2000;0.1741
+Zimbabwe;2001;0.1741
+Zimbabwe;2002;0.1741
+Zimbabwe;2003;0.1741
+Zimbabwe;2004;0.1741
+Zimbabwe;2005;0.1741
+Zimbabwe;2006;0.1741
+Zimbabwe;2007;0.1741
+Zimbabwe;2008;0.1741
+Zimbabwe;2009;0.1741
+Zimbabwe;2010;0.1741
+Zimbabwe;2011;0.1741
+Zimbabwe;2012;0.1742
+Zimbabwe;2013;0.1744
+Zimbabwe;2014;0.1745
+Zimbabwe;2015;0.1746
+Zimbabwe;2016;0.1747
+Zimbabwe;2017;0.1748
+Zimbabwe;2018;0.1928
+Zimbabwe;2019;0.2108
+Zimbabwe;2020;0.2108
+Zimbabwe;2021;0.2108

@@ -1,0 +1,3467 @@
+---
+title: "02_analyses"
+author: "Ella Henninger"
+date: "27 07 2023"
+output: html_document
+---
+
+The following file replicates all analyses and plots to be found in the paper "The Environmental Price of Economic Inequality - Decomposing the Effect of Income Disparities on Exposure to Air Pollution".
+
+# Contents of the replication packet
+
+## Data
+See **01_data_prep.rmd** for details on data sources.
+ 
+ 
+## Code
+ - **01_data_prep.rmd** is replicating the compilation of the data set used in the analyses.
+ - **02_analyses.rmd** is replicating all analyses and plots to be found in the master's thesis.
+
+
+**The code in 02_analyses.rmd is structured as follows**:
+
+1. Set up
+
+2. Load data
+
+3. Descriptives
+3.1 Overview variables
+3.2 Correlation matrix
+3.3 Summary plots (over time)
+3.4 Scatter plots
+
+4. Analyses
+4.1 Base model and its variants
+4.2 Models subgroup analyses
+4.3 Robustness checks - Model-related
+4.4 Mapping within effect
+
+5. Simulations
+5.1 Quantities of interest - Within
+5.1.1 INEQUALITY - Within - EV and FD (max-min) - Average case
+5.1.2 INEQUALITY - Within - EV and FD (max-min) - Observed value
+5.1.3 ECON DEVELOPMENT - Within - EV and FD (max-min) - Observed value
+5.1.4 DEMOCRACY - Within - EV and FD (max-min) - Observed value
+
+5.2 Quantities of interest - Between
+5.2.1 INEQUALITY - Between - EV and FD (max-min) 
+5.2.2 ECON DEVELOPMENT - Between - EV and FD (max-min) 
+5.2.3 DEMOCRACY - Between - EV and FD (max-min) 
+
+5.3 EKC (range of GDP per capita)
+
+5.4 Robustness - Measurement error
+
+
+**As a note**: You may be asked to update some packages, please press "yes" to make sure the file runs smoothly.
+
+# Session info
+R version: 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19045)
+
+These package versions are required to make the code run smoothly:
+rlang: 1.1.0
+dplyr: 1.0.10
+vctrs: 0.5.0
+
+Depending on your R version and existing package versions installed, you may have to update them manually.
+
+
+# Set up
+
+```{r setup, include=FALSE}
+
+## clean environment
+rm(list = ls())
+
+# Define which packages needed for analyses
+p_needed <-
+  c("knitr",
+    "dplyr",
+    "stargazer",
+    "car",
+    "ggplot2",
+    "viridis",
+    "rsample",
+    "MASS",
+    "lme4",
+    "devtools",
+    "modelsummary",
+    "ggmap",
+    "maps",
+    "data.table",
+    "texreg", 
+    "fastDummies")
+
+# Check which packages are already installed on your computer
+packages <- rownames(installed.packages())
+
+# Check which packages are not installed
+p_to_install <- p_needed[!(p_needed %in% packages)]
+
+if (length(p_to_install) > 0) {
+  utils::install.packages(p_to_install)
+}
+sapply(p_needed, require, character.only = TRUE)
+
+
+# Set an option for the final document that can be produced from the .Rmd file.
+knitr::opts_chunk$set(echo = TRUE)
+
+## For replicability: session information 
+session_info <- print(sessionInfo())
+
+```
+
+
+# Load data
+
+```{r load data}
+
+#-------------------------------------------------------------------------------
+## Load the data
+#-------------------------------------------------------------------------------
+load("data/data.RData")
+load("data/data_s.RData")
+
+## group countries
+countries_low_income <- c("Afghanistan", "Burkina Faso", "Burundi", "Central African Republic",
+                          "Chad", "Democratic Republic of the Congo", "Eritrea", "Ethiopia",
+                          "Gambia", "Guinea", "Guinea-Bissau", "North Korea", "Liberia", "Madagascar", "Malawi",
+                          "Mali", "Mozambique", "Niger", "Rwanda", "Sierra Leone", "Somalia",
+                          "South Sudan", "Sudan", "Syria", "Togo", "Uganda", "Yemen", "Zambia")
+
+countries_low_mid_income <- c("Algeria", "Angola", "Bangladesh", "Benin", "Bhutan", "Bolivia",
+                              "Benin", "Cape Verde", "Cambodia", "Cameroon", "Comoros", 
+                              "Republic of Congo", "Cote d'Ivoire", "Djibouti", "Egypt", "El Salvador",
+                              "Swaziland", "Ghana", "Haiti", "Honduras", "India", "Indonesia",
+                              "Iran", "Kenya", "Kiribati", "Kyrgyztan", "Laos", "Lebanon",
+                              "Lesotho", "Mauritania", "Micronesia", "Mongolia", "Morocco",
+                              "Myanmar", "Nepal", "Nicaragua", "Nigeria", "Pakistan", 
+                              "Papua New Guinea", "Philippines", "Samoa", "Sao Tome and Principe",
+                              "Senegal", "Solomon Islands", "Sri Lanka", "Tajikistan", "Tanzania",
+                              "Timor-Leste", "Tunisia", "Ukraine", "Uzbekistan", "Vanuatu",
+                              "Vietnam", "Palestina", "Zimbabwe")
+
+countries_up_mid_income <- c("Albania", "Armenia", "American Samoa", "Argentina", "Azerbaijan",
+                             "Belarus", "Belize", "Bosnia and Herzegovina", "Botswana",
+                             "Brazil", "Bulgaria", "China", "Colombia", "Costa Rica", "Cuba",
+                             "Dominica", "Dominican Republic", "Ecuador", "Equatorial Guinea",
+                             "Fiji", "Gabon", "Georgia", "Grenada", "Guatemala", "Guyana",
+                             "Iraq", "Jamaica", "Jordan", "Kazakhstan", "Kosovo", "Libya",
+                             "Malaysia", "Maldives", "Marshall Islands", "Mauritius", "Mexico",
+                             "Moldova", "Montenegro", "Namibia", "North Macedonia", "Palau",
+                             "Paraguay", "Peru", "Russia", "Serbia", "South Africa", "St. Lucia",
+                             "Saint Vincent and the Grenadines", "Suriname", "Thailand", "Tonga",
+                             "Turkey", "Turkmenistan", "Tuvalu", "Venezuela")
+
+countries_high_income <- c("Andorra", "Antigua and Barbuda", "Aruba", "Australia", "Austria", 
+                           "Bahamas", "Bahrain", "Barbados", "Belgium", "Bermuda", "British Virgin Islands",
+                           "Brunei", "Canada", "Cayman Islands", "Channel Islands", "Chile", "Croatia",
+                           "Curacao", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Faroe Islands", "Finland",
+                           "France", "French Polynesia", "Germany", "Gibraltar", "Greece", "Greenland",
+                           "Guam", "Hong Kong", "Hungary", "Iceland", "Ireland", "Isle of Man", "Israel",
+                           "Italy", "Japan", "Korea, Rep.", "Kuwait", "Latvia", "Liechtenstein",
+                           "Lithuania", "Luxembourg", "Macao", "Malta", "Monaco", "Nauru", "Netherlands",
+                           "New Caledonia", "New Zealand", "Northern Mariana Islands", "Norway", "Oman",
+                           "Panama", "Poland", "Portugal", "Puerto Rico", "Qatar", "Romania", "San Marino",
+                           "Saudi Arabia", "Seychelles", "Singapore", "Sint Marteen", "Slovakia", "Slovenia",
+                           "Spain", "Saint Kitts and Nevis", "Saint Martin", "Sweden", "Switzerland", 
+                           "Trinidad and Tobago", "Turks and Caicos Islands", "United Arab Emirates",
+                           "United Kingdom", "United States", "Uruguay", "Virgin Islands U.S.")
+
+## load world map data
+world <- map_data("world")
+world$region[which(world$region == "USA")] <- "United States"
+world$region[which(world$region == "UK")] <- "United Kingdom"
+world$region[which(world$region == "Ivory Coast")] <- "Cote d'Ivoire"
+  
+```
+
+
+# Descriptives
+
+## Descriptive statistics
+
+```{r descript}
+
+#-------------------------------------------------------------------------------
+## Get data set that corresponds to that used in regressions
+#-------------------------------------------------------------------------------
+data_descript <- data[which(!is.na(data$cpi) &
+                            !is.na(data$trade_openness) &
+                            !is.na(data$pop_dens_log) &
+                            !is.na(data$demeaned_winning) &
+                            !is.na(data$industry_share) &
+                            !is.na(data$top10)),]
+
+#-------------------------------------------------------------------------------
+## Summary stats
+#-------------------------------------------------------------------------------
+# options("modelsummary_format_numeric_latex" = "plain")
+# 
+# datasummary(formula = (`PM$_2.5$ (orig. scale)` = PM25_pop_weighed) + (`PM$_2.5$ (log scale)` = lead_log_PM25) +
+#                       (`Top 10%-share` = top10) + (`Top 1%-share` = top1) + (`Bottom 50%-share` = bottom50) +
+#                       (`T10/B50-ratio` = t10b50ratio) + (`log(GDP per capita)$^2$` = `2_gdp_pc_log`) +
+#                       (`W/S-ratio` = W4) + (`Trade openness` = trade_openness) + (`Corruption`= cpi) +
+#                       (`Industry (% GDP)` = industry_share) + (`log(Pop. density)`= pop_dens_log) + (`Year`= year) +
+#                       (`Polyarchy`= v2x_polyarchy)  + (`GDP per cap. growth` = gdp_pc_growth) +
+#                       (`GDP per cap/km$^2$`= gdp_pc_sqkm) + (`Average temp.`= Annual_temp) +
+#                       (`Precip. variab.` = precip_var) + (`Urban pop. (%)` = urban_pop)
+#                       ~ N + Mean + SD + Min + Median + Max,
+#             data = data_descript,
+#             output = "latex")
+
+#-------------------------------------------------------------------------------
+## Differentiate inequality increasing / decreasing countries over time
+#-------------------------------------------------------------------------------
+
+## create lead variable
+data_trend <- data %>%
+  group_by(country) %>%
+  arrange(year)%>%
+  mutate(lead_top10 = dplyr::lead(top10),
+         lead_PM25 = dplyr::lead(PM25_pop_weighed))    
+
+## name columns
+data_trend <- data_trend[,c("country", "year", "top10", "lead_top10",
+                            "PM25_pop_weighed", "lead_PM25")]
+
+## add inequality trend column
+data_trend$trend_ineq <- NA
+
+## get variable that indicates increase vs. decrease in t+1 compared to t
+for(i in 1:nrow(data_trend)){
+data_trend$trend_ineq[i] <- ifelse((!is.na(data_trend$lead_top10[i]) & !is.na(data_trend$top10[i])),    # if both top10 and lead top10 not NA
+                                   (data_trend$lead_top10[i] - data_trend$top10[i]), NA)                # insert diff between them 
+}
+
+## get overall trend (more increasing vs. more decreasing years)
+summary_trend_ineq <- data_trend %>%
+  group_by(country) %>%
+  summarize(sum_trend_ineq = ifelse(all(is.na(trend_ineq)), NA, sum(trend_ineq, na.rm = TRUE)),
+            var_trend_ineq = ifelse(all(is.na(trend_ineq)), NA, var(trend_ineq, na.rm = TRUE))) 
+
+## colnames
+colnames(summary_trend_ineq)[1:3] <- c("country", "trend_ineq", "var_trend_ineq")
+
+## combine
+data <- left_join(data, summary_trend_ineq, by = "country")
+
+summary(data$trend_ineq)
+summary(data$var_trend_ineq)
+
+## clean up
+remove(data_trend)
+
+
+#-------------------------------------------------------------------------------
+# Plot trend variable
+#-------------------------------------------------------------------------------
+min_diff <- round(min(data$trend_ineq, na.rm = TRUE), digits = 2)
+max_diff <- round(max(data$trend_ineq, na.rm = TRUE), digits = 2)
+
+pdf("plots/Trend_inequality.pdf")
+
+ggplot(data[which(!is.na(data$trend_ineq)),],
+       aes(x = reorder(country, trend_ineq), y = trend_ineq, fill = trend_ineq >= 0)) +
+  theme_classic() +
+  geom_bar(stat = "identity") +
+  labs(y = "Change in Top 10%-share", x = "Countries") +
+
+  scale_fill_manual(name = NULL,
+                    breaks = c("TRUE", "FALSE"),
+                    labels = c("Increase", "Decrease"),
+                    values = c(viridis(3)[2], 
+                               viridis(3)[1])) +
+  
+  theme(axis.text.x = element_blank(), 
+        axis.text.y = element_text(size = 3),
+        axis.ticks.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title = element_text(size = 12),
+        legend.position = "bottom", 
+        legend.text = element_text(size = 10)) +
+  
+  annotate("text", x = 168, y = 3.7, label = "Max (India) \n+0.17", size = 3.2) +
+  annotate("text", x = 10, y = -4, label = "Min (Maldives) \n-0.18", size = 3.2) +
+  coord_flip()
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+# Plot variation
+#-------------------------------------------------------------------------------
+
+pdf("plots/Trend_inequality_var.pdf")
+
+ggplot(data[which(!is.na(data$var_trend_ineq)),],
+       aes(x = reorder(country, var_trend_ineq), y = var_trend_ineq, fill = var_trend_ineq)) +
+  theme_classic() +
+  geom_bar(stat = "identity") +
+  labs(y = "Variance of Top 10%-share", x = "Countries") +
+
+  scale_fill_gradient(low = viridis(1, alpha = 0.5),
+                      high = viridis(1, alpha = 1),
+                      na.value = "grey50",
+                      guide = "colourbar",
+                      aesthetics = "fill") +
+  
+  theme(axis.text.x = element_text(size = 10), 
+        axis.text.y = element_text(size = 3),
+        axis.ticks.y = element_blank(),
+        axis.title = element_text(size = 12),
+        legend.position = "none", 
+        legend.text = element_text(size = 10)) +
+  
+  annotate("text", x = 172, y = 0.026, label = "Max (Singapore)", size = 3.2) +
+ 
+  coord_flip()
+
+dev.off()
+
+```
+
+## Correlation matrix
+
+```{r corr}
+
+#-------------------------------------------------------------------------------
+## Correlation heat map
+#-------------------------------------------------------------------------------
+data_cor <- data_s[,c("lead_log_PM25",
+                      "top10", "top1", "bottom50",
+                      "wealth_top10", "wealth_bottom50",
+                      "2_gdp_pc_log",
+                      "gdp_pc_sqkm",
+                      "trade_openness",
+                      "W4",
+                      "e_p_polity",
+                      "cpi",
+                      "industry_share",
+                      "pop_dens_log",
+                      "urban_pop")]
+
+cormat <- round(cor(data_cor), 2)
+melted_cormat <- melt(cormat)
+
+ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + 
+  scale_fill_gradient2(midpoint= 0, 
+                       low = viridis(3)[1], 
+                       mid = "white",
+                       high = viridis(3)[2], 
+                       na.value = "grey50", space ="Lab") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  geom_tile()
+
+#-------------------------------------------------------------------------------
+## Correlation cpi & democracy / income
+#-------------------------------------------------------------------------------
+cor(data_descript$cpi, data_descript$`2_gdp_pc_log`) ## 0.80
+cor(data_descript$cpi, data_descript$W4)             ## 0.45
+cor(data_descript$W4, data_descript$`2_gdp_pc_log`)  ## 0.36
+
+```
+
+## Summary plots - over time
+
+```{r plot time}
+
+#-------------------------------------------------------------------------------
+# Preparation summary plots
+#-------------------------------------------------------------------------------
+countries <- unique(data$country)
+range_PM <- c(0, 5, 25, 50, 75)
+range_Inequ <- round(seq(min(data$top10, na.rm = T), 
+                         max(data$top10, na.rm = T), 
+                         length.out = 5), digits = 2)
+         
+first <- 1:36
+second <- 37:72
+third <- 73:108
+fourth <- 109:144
+fifth <- 144:179
+sixth <- 180:215
+seventh <- 216:251
+grouped <- list(first, second, third, fourth, fifth, sixth, seventh)
+
+#-------------------------------------------------------------------------------
+## Summary plots - Air pollution (pop_weighed)
+#-------------------------------------------------------------------------------
+pdf("Plots/PM25_over_time_country_pop_weighed.pdf")
+
+for(i in 1:7){
+selected <- grouped[[i]]
+print(ggplot(data = data[which(data$country %in% countries[selected]),], 
+       mapping = aes(x = year, 
+                     y = PM25_pop_weighed)) + 
+
+  geom_point(size = 0.75) + 
+  labs(title = "Variation of exposure to PM2.5 (population-weighted), 1998-2021") + 
+  
+  theme(legend.position = "right", 
+        axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), 
+        legend.title = element_blank(), 
+        plot.title = element_text(size = 10, color = "gray40")) +  
+  
+  scale_y_continuous(breaks = range_PM) +
+  scale_x_continuous(breaks = seq(1998, 2021, by = 10)) + 
+  facet_wrap(~ country) + 
+  theme(legend.position = "none") + 
+  theme(panel.spacing.x = unit(4, "mm")) +
+  geom_hline(yintercept = 5)) 
+} 
+
+dev.off()
+
+#-------------------------------------------------------------------------------
+## Summary plots - Inequality
+#-------------------------------------------------------------------------------
+pdf("Plots/Inequality_over_time_country.pdf")
+
+for(i in 1:7){
+selected <- grouped[[i]]
+print(ggplot(data = data[which(data$country %in% countries[selected]),], 
+       mapping = aes(x = year, 
+                     y = top10)) + 
+
+  geom_point(size = 0.75) + 
+  labs(title = "Variation of Top 10%-share, 1998-2021") + 
+  
+  theme(legend.position = "right", 
+        axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), 
+        legend.title = element_blank(), 
+        plot.title = element_text(size = 10, color = "gray40")) +  
+  
+  scale_y_continuous(breaks = range_Inequ) +
+  scale_x_continuous(breaks = seq(1998, 2021, by = 10)) + 
+  facet_wrap(~ country) + 
+  theme(legend.position = "none") + 
+  theme(panel.spacing.x = unit(4, "mm"))) 
+}
+
+dev.off()
+
+```
+
+## Summary plots - over space
+
+```{r plot space}
+
+#-------------------------------------------------------------------------------
+# Join world data & data
+#-------------------------------------------------------------------------------
+data_map <- cbind(data$PM25_pop_weighed[which(data$year == 2020)],
+                  data$top10[which(data$year == 2020)])
+
+data_map <- as.data.frame(data_map)
+data_map$region <- data$country[which(data$year == 2020)]
+colnames(data_map)[1:2] <- c("PM25", "top10")
+
+world <- left_join(world, data_map, by = "region")
+
+#-------------------------------------------------------------------------------
+# Plot on map air pollution
+#-------------------------------------------------------------------------------
+
+pdf("Plots/Map_PM25.pdf", width = 12)
+
+ggplot() +
+geom_map(data = world, map = world,
+         aes(long, lat, map_id = region, fill = PM25)) +
+  
+scale_fill_gradient(low = viridis(1, alpha = 0.1),
+                     high = viridis(1, alpha = 1),
+                     na.value = "grey50",
+                     guide = "colourbar",
+                     aesthetics = "fill",
+                     name = expression("PM"[2.5])) +
+  
+theme_bw()+
+theme(panel.border = element_blank(),
+      panel.grid = element_blank()) +
+theme(axis.title = element_text(size = 15),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.ticks = element_blank(),
+      legend.title = element_text(size = 15),
+      legend.text = element_text(size = 15))
+
+dev.off()
+
+#-------------------------------------------------------------------------------
+# Plot on map top10
+#-------------------------------------------------------------------------------
+pdf("Plots/Map_Top10.pdf", width = 12)
+
+ggplot() +
+geom_map(data = world, map = world,
+         aes(long, lat, map_id = region, fill = top10)) +
+  
+scale_fill_gradient(low = viridis(1, alpha = 0.1),
+                    high = viridis(1, alpha = 1),
+                    na.value = "grey50",
+                    guide = "colourbar",
+                    aesthetics = "fill",
+                    name = expression("Top 10%")) +
+
+theme_bw() +
+theme(panel.border = element_blank(),
+      panel.grid = element_blank()) +
+theme(axis.title = element_text(size = 15),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.ticks = element_blank(),
+      legend.title = element_text(size = 15),
+      legend.text = element_text(size = 15))
+
+dev.off()
+
+```
+
+## Scatter plots
+
+```{r plot scatter}
+
+#-------------------------------------------------------------------------------
+# Color settings
+#-------------------------------------------------------------------------------
+col_vec <- viridis(4, alpha = 0.3)
+income_col <- ifelse(data$country %in% countries_low_income, 
+                      col_vec[1],
+                      ifelse(data$country %in% countries_low_mid_income, 
+                            col_vec[2], 
+                            ifelse(data$country %in% countries_up_mid_income,
+                                   col_vec[3],
+                                   ifelse(data$country %in% countries_high_income,
+                                          col_vec[4], "grey")))) 
+
+col_legend <- col_vec[1:4]
+
+#-------------------------------------------------------------------------------
+# PM2.5 & T10
+#-------------------------------------------------------------------------------
+pdf("Plots/Scatter_PM25_T10.pdf")
+
+plot(data$top10*100,
+     data$PM25_pop_weighed,
+     pch = 19,
+     ylab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     xlab = "Share of Income for Top 10% [%]",
+     main = "Air Pollution Exposure and Income Inequality",
+     col = col_vec[2],
+     bty = "n")
+
+dev.off()
+
+pdf("Plots/Scatter_PM25_T10_income.pdf")
+
+plot(data$top10*100,
+     data$PM25_pop_weighed,
+     pch = 19,
+     ylab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     xlab = "Share of Income for Top 10% [%]",
+     main = "Air Pollution Exposure and Income Inequality",
+     col = income_col,
+     bty = "n")
+
+legend("topright",
+       col = col_legend,
+       legend = c("Low Income", "Low Middle Income", "Upper Middle Income",
+                  "High Income"),
+       pch = 19,
+       cex = 0.7,
+       bty = "n",
+       title = NULL)
+
+dev.off()
+
+#-------------------------------------------------------------------------------
+# PM2.5 & W4
+#-------------------------------------------------------------------------------
+pdf("Plots/Scatter_WoverS.pdf")
+
+plot(data$W4*100,
+     data$PM25_pop_weighed,
+     pch = 19,
+     ylab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     xlab = "W/S-Ratio [%]",
+     main = "Air Pollution Exposure and Polity",
+     col = col_vec[3],
+     bty = "n")
+
+dev.off()
+
+#-------------------------------------------------------------------------------
+# PM2.5 & Income level
+#-------------------------------------------------------------------------------
+pdf("Plots/Scatter_GDPpc.pdf")
+
+plot(data$`2_gdp_pc_log`,
+     data$PM25_pop_weighed,
+     pch = 19,
+     ylab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     xlab = "GDP per Capita [log(2015 $US)]",
+     main = "Air Pollution Exposure and Income Level",
+     col = col_vec[1],
+     bty = "n")
+
+dev.off()
+
+```
+
+
+# Analyses
+
+## Base model and its variants
+
+```{r base model}
+
+#-------------------------------------------------------------------------------
+# Within-Between - Stepwise
+#-------------------------------------------------------------------------------
+m1_econ_dev <- lmer(lead_log_PM25 ~ demeaned_income + demeaned_income_sq + mean_income + mean_income_sq + 
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                      mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                      (1 | country),
+                    data = data_descript)
+
+m1_democr <- lmer(lead_log_PM25 ~ demeaned_winning + mean_winning +
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                      mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                      (1 | country),
+                    data = data_descript)
+
+m1_inequal <- lmer(lead_log_PM25 ~ demeaned_inequ + mean_inequ + 
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                      mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                      (1 | country),
+                    data = data_descript)
+
+m4_re_wb <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                   demeaned_income + demeaned_income_sq + demeaned_winning +
+                   demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                   mean_income + mean_income_sq + mean_winning +
+                   mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                   (1 | country),
+                 data = data_descript)
+
+# m4_re_wb_scale <- lmer(lead_log_PM25 ~ scale(mean_inequ) + scale(demeaned_inequ) +
+#                          scale(demeaned_income) + scale(demeaned_income_sq) + scale(demeaned_winning) +
+#                          scale(demeaned_trade) + scale(demeaned_cpi) + scale(demeaned_industrial) + scale(demeaned_pop) +
+#                          scale(mean_income) + scale(mean_income_sq) + scale(mean_winning) +
+#                          scale(mean_trade) + scale(mean_cpi) + scale(mean_industrial) + scale(mean_pop) + scale(year) +
+#                          (1  | country),
+#                       data = data)
+
+
+#-------------------------------------------------------------------------------
+# Within-Between - Only inequality 
+#-------------------------------------------------------------------------------
+m1_re_wb <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ +
+                   demeaned_income + demeaned_income_sq + demeaned_winning +
+                   demeaned_trade + demeaned_cpi + demeaned_industrial +
+                   demeaned_pop + year +
+                   (1 | country),
+                 data = data)
+
+m1_re_wb_unlog <- lmer(PM25_pop_weighed ~ mean_inequ + demeaned_inequ +
+                        demeaned_income + demeaned_income_sq + demeaned_winning +
+                        demeaned_trade + demeaned_cpi + demeaned_industrial +
+                        demeaned_pop + year +
+                        (1 | country),
+                       data = data)
+
+## VIF
+vif(m4_re_wb)
+
+## Variance partioning coefficient 
+var_coeff <- VarCorr(m4_re_wb)
+var_coeff <- as.data.frame(var_coeff)
+var_coeff$icc <- var_coeff$vcov/sum(var_coeff$vcov)
+
+## Table Main
+texreg(list(m1_re_wb, m4_re_wb, m1_inequal, m1_econ_dev, m1_democr),
+       stars = c(0.01, 0.05, 0.1),
+       custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:5),
+       caption = "Economic Inequality and Air Pollution - Mixed Effects Linear Regressions",
+       label = "tab:modelspec",
+       caption.above = T,
+       fontsize = "scriptsize",
+       groups = list("Controls (Within)" = 9:12,
+                     "Controls (Between)" = 13:16),
+       custom.coef.map = list("demeaned_inequ" = "Top 10%-share (Within)",
+                              "mean_inequ" = "Top 10%-share (Between)",
+                              "demeaned_income" = "log(GDP per capita) (Within)",
+                              "demeaned_income_sq" = "log(GDP per capita)$^2$ (Within)",
+                              "mean_income" = "log(GDP per capita) (Between)",
+                              "mean_income_sq" = "log(GDP per capita)$^2$ (Between)",
+                              "demeaned_winning" = "Democracy (Within)",
+                              "mean_winning" = "Democracy (Between)",
+                              "demeaned_trade" = "Trade openness",
+                              "demeaned_cpi" = "Corruption",
+                              "demeaned_industrial" = "Industry (% GDP)",
+                              "demeaned_pop" = "log(Pop. density)",
+                              "mean_trade" = "Trade openness.",
+                              "mean_cpi" = "Corruption.",
+                              "mean_industrial" = "Industry (% GDP).",
+                              "mean_pop" = "log(Pop. density).",
+                              "year" = "Year", "(Intercept)" = "Intercept"),
+       custom.gof.names = c("AIC",
+                            "BIC",
+                            "Log Likelihood",
+                            "N",
+                            "N(Countries)",
+                            "Var: Countries (Intercept)",
+                            "Var: Residual"))
+
+#-------------------------------------------------------------------------------
+# TEST which of these fits better: Model 4 or Model 1
+#-------------------------------------------------------------------------------
+Lm4 <- logLik(m4_re_wb)    # Log Likelihood of MODEL 4
+Lm1 <- logLik(m1_re_wb)    # Log Likelihood of MODEL 1
+
+LRT <- -2 * Lm4 + 2 * Lm1  # converges to chi^2 distribution
+
+## df = n - m (coefficients of first - coefficient of second model)
+df <- length(fixef(m4_re_wb))-length(fixef(m1_re_wb))
+LRT > qchisq(0.95, df = df)  
+
+## FALSE -> LRT < 0 (meaning that the firs model fits the data better, first likelihood is significantly larger) 
+## one sided test: test whether second model is better than the first model
+## df = n - m (coefficients of first - coefficient of second model, just 1 because 1 additional parameter) 
+
+
+#-------------------------------------------------------------------------------
+# Coefficient plot 
+#-------------------------------------------------------------------------------
+coefs_main <- as.data.frame(rbind(summary(m4_re_wb)$coefficients["demeaned_inequ",],
+                                  summary(m4_re_wb)$coefficients["mean_inequ",],
+                                  summary(m4_re_wb)$coefficients["demeaned_income",],
+                                  summary(m4_re_wb)$coefficients["demeaned_income_sq",],
+                                  summary(m4_re_wb)$coefficients["mean_income",],
+                                  summary(m4_re_wb)$coefficients["mean_income_sq",],
+                                  summary(m4_re_wb)$coefficients["demeaned_winning",],
+                                  summary(m4_re_wb)$coefficients["mean_winning",]))
+
+coefs_main$CI_low <- coefs_main$Estimate - qnorm(0.95)*coefs_main$`Std. Error`
+coefs_main$CI_up <- coefs_main$Estimate + qnorm(0.95)*coefs_main$`Std. Error`
+
+color_est <- ifelse(coefs_main$CI_low > 0 & coefs_main$CI_up < 0|
+                    coefs_main$CI_low < 0 & coefs_main$CI_up > 0,
+                    "darkgrey", viridis(3)[1])
+
+color_ci <- ifelse(coefs_main$CI_low > 0 & coefs_main$CI_up < 0|
+                   coefs_main$CI_low < 0 & coefs_main$CI_up > 0,
+                   "darkgrey", viridis(3, alpha = 0.4)[1]) 
+
+pdf("Plots/Coefficients_own.pdf", width = 7.5)
+
+par(mar = c(5.1, 10, 2.5, 2.1)) # c(bottom, left, top, right))
+
+plot(1,
+     type = "n",
+     ylim = c(0,2.75),
+     bty = "n",
+     xlab = "Marginal Effect",
+     xlim = c(-1.3, 1.6),
+     ylab = "",
+     yaxt = "n",
+     cex.lab = 1.1)
+
+# add null line
+segments(x0 = 0, y0 = 0,
+         x1 = 0, y1 = 2.75,
+         lty = "dashed", lwd = 2)
+
+# add grid
+segments(x0 = c(-0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1, 1.25), y0 = 0,
+         x1 = c(-0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1, 1.25), y1 = 2.75,
+         col = "lightgrey",
+         lty = "solid", lwd = 0.5)
+
+segments(x0 = -1, y0 = rev(c(0.25, 0.5, 0.75, 1,
+                               1.25, 1.5, 1.75, 2, 2.25, 2.5)),
+         x1 = 1.5, y1 = rev(c(0.25, 0.5, 0.75, 1,
+                               1.25, 1.5, 1.75, 2, 2.25, 2.5)),
+         col = "lightgrey",
+         lty = "solid", lwd = 0.5)
+
+# add point estimates
+points(x = coefs_main$Estimate,
+       y = rev(c(0.25, 0.5, 1,
+               1.25, 1.5, 1.75,
+               2.25, 2.5)),
+       pch = 16,
+       col = color_est,
+       cex = 1.2)
+
+# add CIs
+segments(y0 = rev(c(0.25, 0.5, 1,
+               1.25, 1.5, 1.75,
+               2.25, 2.5)), 
+         y1 = rev(c(0.25, 0.5, 1,
+               1.25, 1.5, 1.75,
+               2.25, 2.5)), 
+         col = color_ci,
+         x0 = coefs_main$CI_low,
+         x1 = coefs_main$CI_up,
+         lwd = 4, cex = 1.5, lend = 1)
+
+# add coefficients text
+text(x = coefs_main$Estimate-0.04,
+     y = rev(c(0.25, 0.5, 1,
+               1.25, 1.5, 1.75,
+               2.25, 2.5))+0.125,
+     labels = as.character(round(coefs_main$Estimate, digits = 2)),
+     col = "black",
+     cex = 0.8)
+
+text(x = -1.05,
+     y = rev(c(0.25, 0.5, 1,
+               1.25, 1.5, 1.75,
+               2.25, 2.5)),
+     labels = c("Top 10%-share (Within)", "Top 10%-share (Between)", 
+                "GDP per capita (Within)", expression("GDP per capita"^2*" (Within)"), 
+                "GDP per capita (Between)", expression("GDP per capita"^2*" (Between)"), 
+                 "Democracy (Within)", "Democracy (Between)"),
+     xpd = T,
+     cex = 0.9,
+     pos = 2)
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+## Plot residuals
+#-------------------------------------------------------------------------------
+pdf("Plots/Residuals.pdf")
+
+par(mfrow = c(1,2)) 
+
+plot(fitted.values(m1_re_wb_unlog),
+     residuals(m1_re_wb_unlog),
+     pch = 19,
+     xlab = "Fitted Values",
+     ylab = "Residuals",
+     col = viridis(2, alpha = 0.4)[1],
+     bty = "n"
+     )
+
+abline(a = 0,
+       b = 0,
+       lty = "dashed",
+       lwd = 2)
+
+plot(fitted.values(m1_re_wb),
+     residuals(m1_re_wb),
+     pch = 19,
+     xlab = "Fitted Values",
+     ylab = "Residuals",
+     ylim = c(-0.5, 0.5),
+     col = viridis(2, alpha = 0.4)[1],
+     bty = "n")
+
+abline(a = 0,
+       b = 0,
+       lty = "dashed",
+       lwd = 2)
+
+dev.off()
+
+```
+
+## Models subgroup analyses
+
+```{r subgroup model}
+
+#-------------------------------------------------------------------------------
+# Within-Between - High vs. Low income
+#-------------------------------------------------------------------------------
+m1_re_wb_low_inc <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                          demeaned_income + demeaned_income_sq + demeaned_winning +
+                          demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                          mean_income + mean_income_sq + mean_winning +
+                          mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                          (1  | country),
+                          data = data[which(data$country %in% countries_low_income |
+                                            data$country %in% countries_low_mid_income),])
+
+
+m1_re_wb_high_inc <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                           demeaned_income + demeaned_income_sq + demeaned_winning +
+                           demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                           mean_income + mean_income_sq + mean_winning +
+                           mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                           (1  | country),
+                          data = data[which(data$country %in% countries_high_income |
+                                            data$country %in% countries_up_mid_income),])
+
+stargazer(m1_re_wb_low_inc, type = "text")
+ranef(m1_re_wb_low_inc)
+
+#-------------------------------------------------------------------------------
+# Within-Between - High vs. Low democracy
+#-------------------------------------------------------------------------------
+data_dem_low <- data[which(data$W4 < mean(data$W4, na.rm = T)),]
+data_dem_high <- data[which(data$W4 >= mean(data$W4, na.rm = T)),]
+
+m1_re_wb_low_dem <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                           demeaned_income + demeaned_income_sq + demeaned_winning +
+                           demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                           mean_income + mean_income_sq + mean_winning +
+                           mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                           (1  | country),
+                          data = data_dem_low)
+
+m1_re_wb_high_dem <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                           demeaned_income + demeaned_income_sq + demeaned_winning +
+                           demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                           mean_income + mean_income_sq + mean_winning +
+                           mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                           (1  | country),
+                          data = data_dem_high)
+
+#-------------------------------------------------------------------------------
+# Within-Between - Increasing vs. Decreasing trend inequality
+#-------------------------------------------------------------------------------
+m1_re_wb_incr <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                           demeaned_income + demeaned_income_sq + demeaned_winning +
+                           demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                           mean_income + mean_income_sq + mean_winning +
+                           mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                           (1  | country),
+                          data = data[which(data$trend_ineq >= 0),])
+
+m1_re_wb_decr <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                           demeaned_income + demeaned_income_sq + demeaned_winning +
+                           demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                           mean_income + mean_income_sq + mean_winning +
+                           mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                           (1  | country),
+                          data = data[which(data$trend_ineq < 0),])
+
+#-------------------------------------------------------------------------------
+# Table
+#-------------------------------------------------------------------------------
+regressions <- list(m1_re_wb_low_inc, m1_re_wb_high_inc,
+                    m1_re_wb_low_dem, m1_re_wb_high_dem, 
+                    m1_re_wb_incr, m1_re_wb_decr)
+
+texreg(regressions,
+       stars = c(0.01, 0.05, 0.1),
+       custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:6),
+       custom.model.names = c("Lower income", "Higher income", 
+                              "Less democratic", "More democratic", 
+                              "Inequ. increase", "Inequ. decrease"),
+       caption = "Economic Inequality and Air Pollution - Subgroup Analyses",
+       label = "tab:modelincdem",
+       caption.above = T,
+       fontsize = "scriptsize",
+       custom.coef.map = list("mean_inequ" = "Top 10%-share (Between)",
+                              "demeaned_inequ" = "Top 10%-share (Within)",
+                              "(Intercept)" = "Intercept"),
+       custom.gof.names = c("AIC",
+                            "BIC",
+                            "Log Likelihood",
+                            "N",
+                            "N (Countries)",
+                            "Var: Countries (Intercept)",
+                            "Var: Residual"),
+       custom.gof.rows = list("Controls (Within)" = c("\\ding{51}", "\\ding{51}", 
+                                             "\\ding{51}", "\\ding{51}", 
+                                             "\\ding{51}", "\\ding{51}"),
+                              "Controls (Between)" = c("\\ding{51}", "\\ding{51}", 
+                                             "\\ding{51}", "\\ding{51}", 
+                                             "\\ding{51}", "\\ding{51}")))
+
+
+#-------------------------------------------------------------------------------
+# Coefficient plot - subgroups
+#-------------------------------------------------------------------------------
+coefs_sub <- as.data.frame(rbind(summary(m1_re_wb_low_inc)$coefficients[3,],
+                                 summary(m1_re_wb_high_inc)$coefficients[3,],
+                                 summary(m1_re_wb_low_dem)$coefficients[3,],
+                                 summary(m1_re_wb_high_dem)$coefficients[3,],
+                                 summary(m1_re_wb_incr)$coefficients[3,],
+                                 summary(m1_re_wb_decr)$coefficients[3,]))
+
+coefs_sub$CI_low <- coefs_sub$Estimate - qnorm(0.95)*coefs_sub$`Std. Error`
+coefs_sub$CI_up <- coefs_sub$Estimate + qnorm(0.95)*coefs_sub$`Std. Error`
+
+color_est <- ifelse(coefs_sub$CI_low > 0 & coefs_sub$CI_up < 0|
+                    coefs_sub$CI_low < 0 & coefs_sub$CI_up > 0,
+                    "darkgrey", viridis(3)[1])
+
+color_ci <- ifelse(coefs_sub$CI_low > 0 & coefs_sub$CI_up < 0|
+                   coefs_sub$CI_low < 0 & coefs_sub$CI_up > 0,
+                   "darkgrey", viridis(3, alpha = 0.4)[1]) 
+
+pdf("Plots/Coefficients_subgroups.pdf", width = 7.5)
+
+par(mar = c(5.1, 9, 2.5, 2.1)) # c(bottom, left, top, right))
+
+plot(1,
+     type = "n",
+     ylim = c(0,2.25),
+     bty = "n",
+     xlab = "Top 10%-share coefficients",
+     xlim = c(-1.6, 0.6),
+     ylab = "",
+     yaxt = "n",
+     cex.lab = 1.1)
+
+# add null line
+segments(x0 = 0, y0 = 0,
+         x1 = 0, y1 = 2.5,
+         lty = "dashed", lwd = 2)
+
+# add grid
+segments(x0 = c(-1.25,-1,-0.75, -0.5, -0.25, 0.25), y0 = 0,
+         x1 = c(-1.25,-1,-0.75, -0.5, -0.25, 0.25), y1 = 2.5,
+         col = "lightgrey",
+         lty = "solid", lwd = 0.7)
+
+segments(x0 = -1.5, y0 = rev(c(0.25, 0.5, 0.75, 1,
+                               1.25, 1.5, 1.75, 2)),
+         x1 = 0.5, y1 = rev(c(0.25, 0.5, 0.75, 1,
+                               1.25, 1.5, 1.75, 2)),
+         col = "lightgrey",
+         lty = "solid", lwd = 0.7)
+
+# add point estimates
+points(x = coefs_sub$Estimate,
+       y = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)),
+       pch = 16,
+       col = color_est,
+       cex = 1.5)
+
+# add CIs
+segments(y0 = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)), 
+         y1 = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)), 
+         col = color_ci,
+         x0 = coefs_sub$CI_low,
+         x1 = coefs_sub$CI_up,
+        # col = color_ci,
+         lwd = 4, cex = 1.5, lend = 1)
+
+# add coefficients text
+text(x = coefs_sub$Estimate-0.04,
+     y = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)) + 0.125,
+     labels = as.character(round(coefs_sub$Estimate, digits = 2)),
+     col = "black",
+     cex = 0.8)
+
+text(x = -2.5,
+     y = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)),
+     labels = c("Lower income", "Higher income", "Less democratic", "More democratic",
+                "Inequ. increase", "Inequ. decrease"),
+     xpd = T,
+     cex = 0.9,
+     pos = 4)
+
+text(x = -1.85,
+     y = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)),
+     labels = c(expression(italic("(n = 65)")), expression(italic("(n = 88)")), 
+                expression(italic("(n = 81)")), expression(italic("(n = 109)")),
+                expression(italic("(n = 59)")), expression(italic("(n = 97)"))),
+     xpd = T,
+     cex = 0.8,
+     pos = 4)
+
+dev.off()
+
+```
+
+## Robustness checks - Model-related
+
+```{r robustnes model}
+
+#-------------------------------------------------------------------------------
+# Robustness - Change Inequality Measure
+#-------------------------------------------------------------------------------
+m1_gini <- lm(lead_log_PM25 ~ gini + 
+               demeaned_income + demeaned_income_sq + demeaned_winning + 
+               demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+               mean_income + mean_income_sq + mean_winning +
+               mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                as.factor(country),
+               data = data)
+
+## lag and lead Top 10%
+data_descript <- data_descript %>%
+  group_by(country) %>%
+  arrange(year)%>%
+  mutate(lag_top_10 = dplyr::lag(top10),  ## lag one year
+         lead_top_10 = dplyr::lead(top10) ## lead one year
+         )    
+
+## build moving average
+data_descript$mov_av_top10 <- rowMeans(data_descript[,c("lag_top_10",
+                                                        "top10",
+                                                        "lead_top_10")])
+
+## calculate group means (country means)
+means_inequ_mov <- aggregate(data_descript$mov_av_top10,
+                             by = list(data_descript$country),
+                             FUN = mean, na.rm = T)
+
+means_inequ_mov[which(means_inequ_mov$x == "NaN"),] <- NA
+
+## rename
+names(means_inequ_mov) <- c("country", "mean")
+
+## put them back into the data frame
+data_descript$mean_inequ_mov <- means_inequ_mov$mean[match(data_descript$country, means_inequ_mov$country)]
+
+## calculate de-meaned variable:
+data_descript$demeaned_inequ_mov <- data_descript$mov_av_top10 - data_descript$mean_inequ_mov
+
+
+## Moving average
+m1_mov_top10 <- lmer(lead_log_PM25 ~ mean_inequ_mov + demeaned_inequ_mov +
+                      demeaned_income + demeaned_income_sq + demeaned_winning + 
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+                      mean_income + mean_income_sq + mean_winning +
+                      mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                     (1  | country),
+                     data = data_descript)
+
+## Top 1%
+m1_t1 <- lmer(lead_log_PM25 ~ mean_inequ_t1 + demeaned_inequ_t1 +
+                demeaned_income + demeaned_income_sq + demeaned_winning + 
+                demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+                mean_income + mean_income_sq + mean_winning +
+                mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                (1  | country),
+               data = data)
+
+## Bottom 50%
+m1_b50 <- lmer(lead_log_PM25 ~ mean_inequ_b50 + demeaned_inequ_b50 +
+                demeaned_income + demeaned_income_sq + demeaned_winning + 
+                demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+                mean_income + mean_income_sq + mean_winning +
+                mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                (1  | country),
+               data = data)
+
+## Ration Top10/Bottom50
+m1_t10b50 <- lmer(lead_log_PM25 ~ mean_inequ_t10b50 + demeaned_inequ_t10b50 + 
+                   demeaned_income + demeaned_income_sq + demeaned_winning + 
+                   demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+                   mean_income + mean_income_sq + mean_winning +
+                   mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                   (1  | country),
+                  data = data)
+
+## Top 10% wealth
+m1_wealth <- lmer(lead_log_PM25 ~ mean_wealth + demeaned_wealth + 
+                   demeaned_income + demeaned_income_sq + demeaned_winning + 
+                   demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+                   mean_income + mean_income_sq + mean_winning +
+                   mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                   (1  | country),
+                  data = data)
+
+
+#-------------------------------------------------------------------------------
+# Robustness - Tables
+#-------------------------------------------------------------------------------
+
+## Table Main
+texreg(list(m1_gini, m1_mov_top10, m1_t1, m1_b50, m1_t10b50, m1_wealth),
+       stars = c(0.01, 0.05, 0.1),
+       custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:6),
+       caption = "Alternative Measures for Economic Inequality",
+       label = "tab:operatinequal",
+       caption.above = T,
+       custom.model.names = c("Gini", "Mov. average Top 10%", "Top 1%", "Bottom 50%", "T10/B50", "Wealth Top 10%"),
+       fontsize = "scriptsize",
+       custom.coef.map = list("gini"= "Economic inequ. (Between)",
+                              "demeaned_inequ_mov" = "Economic inequ. (Within)",
+                              "demeaned_inequ_t1" = "Economic inequ. (Within)",
+                              "demeaned_inequ_b50" = "Economic inequ. (Within)",
+                              "demeaned_inequ_t10b50" = "Economic inequ. (Within)",
+                              "demeaned_wealth" = "Economic inequ. (Within)",
+                              "mean_inequ_mov" = "Economic inequ. (Between)",
+                              "mean_inequ_t1"= "Economic inequ. (Between)",
+                              "mean_inequ_b50"= "Economic inequ. (Between)",
+                              "mean_inequ_t10b50"= "Economic inequ. (Between)",
+                              "mean_wealth" = "Economic inequ. (Between)",
+                              "(Intercept)" = "Intercept"),
+       custom.gof.rows = list("Controls (Within)" = c("\\ding{51}", "\\ding{51}", "\\ding{51}", "\\ding{51}", "\\ding{51}", "\\ding{51}"),
+                              "Controls (Between)" = c("\\ding{51}", "\\ding{51}", "\\ding{51}", "\\ding{51}", "\\ding{51}", "\\ding{51}")),
+       omit.coef = c("country", "W4", "trade_openness","cpi", "industry_share", "pop_dens_log", 
+                   "demeaned_income", "demeaned_income_sq", "demeaned_cpi", "demeaned_trade", 
+                   "demeaned_industrial", "demeaned_pop", "demeaned_winning", "mean_income", 
+                   "mean_income_sq", "mean_trade", "mean_cpi", "mean_industrial", "mean_pop",
+                   "year"))
+
+
+#-------------------------------------------------------------------------------
+# Robustness - Change Polity and GDP Measure
+#------------------------------------------------------------------------------
+m1_gdp_cub <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                   `2_gdp_pc_log` + `2_gdp_pc_log_sq` + `2_gdp_pc_log_cub` + 
+                   W4 + trade_openness + cpi + industry_share + pop_dens_log + year + 
+                   (1  | country),
+                 data = data)
+
+m1_mov_gdp <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                    mov_av_gdp + mov_av_gdp_sq + 
+                    demeaned_winning + demeaned_trade + demeaned_cpi + 
+                    demeaned_industrial + demeaned_pop + year +
+                    (1  | country),
+                   data = data)
+
+m1_polity <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                   demeaned_income + demeaned_income_sq + demeaned_polity +
+                   demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                   mean_income + mean_income_sq + mean_polity +
+                   mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                   (1  | country),
+                  data = data)
+
+
+## Table Main
+texreg(list(m1_gdp_cub, m1_mov_gdp, m1_polity),
+       stars = c(0.01, 0.05, 0.1),
+       custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:3),
+       caption = "Alternative Measures for Income and Polity",
+       label = "tab:operatincomepol",
+       caption.above = T,
+       custom.model.names = c("Model (A8)", "Model (A9)", "Model (A10)"),
+       fontsize = "scriptsize",
+       custom.coef.map = list("demeaned_inequ" = "Top 10%-share (Within)",
+                              "mean_inequ" = "Top 10%-share (Between)",
+                              "`2_gdp_pc_log`" = "log(GDP per capita)",
+                              "`2_gdp_pc_log_sq`" = "log(GDP per capita)$^2$",
+                              "`2_gdp_pc_log_cub`" = "log(GDP per capita)$^3$",
+                              "mov_av_gdp" = "log(Mov. av. GDP per capita)",
+                              "mov_av_gdp_sq" = "log(Mov. av. GDP per capita)$^2$",
+                              "demeaned_polity" = "Polyarchy score (Within)",
+                              "mean_polity" = "Polyarchy score (Between)",
+                              "year" = "Year", "(Intercept)" = "Intercept"),
+       custom.gof.names = c("AIC",
+                            "BIC",
+                            "Log Likelihood",
+                            "N",
+                            "N (Countries)",
+                            "Var: Countries (Intercept)",
+                            "Var: Residual"),
+       custom.gof.rows = list("Controls (Within)" = c("\\ding{51}", "\\ding{51}", "\\ding{51}"),
+                              "Controls (Between)" = c("\\xmark", "\\xmark","\\ding{51}")))
+
+
+#-------------------------------------------------------------------------------
+# Robustness - Additional controls 
+#-------------------------------------------------------------------------------
+
+## add between effects
+means_gdp_growth <- aggregate(data$gdp_pc_growth,
+                              by = list(data$country),
+                              FUN = mean, na.rm = T)
+
+means_gdp_sqkm <- aggregate(data$gdp_pc_sqkm,
+                              by = list(data$country),
+                              FUN = mean, na.rm = T)
+
+means_gdp_growth[which(means_gdp_growth$x == "NaN"),] <- NA
+means_gdp_sqkm[which(means_gdp_sqkm$x == "NaN"),] <- NA
+
+## rename
+names(means_gdp_growth) <- c("country", "mean")
+names(means_gdp_sqkm) <- c("country", "mean")
+
+## put them back into the data frame
+data$mean_gdp_growth <- means_gdp_growth$mean[match(data$country, means_gdp_growth$country)]
+data$mean_gdp_sqkm <- means_gdp_sqkm$mean[match(data$country, means_gdp_sqkm$country)]
+
+## calculate de-meaned variable:
+data$demeaned_gdp_growth <- data$gdp_pc_growth - data$mean_gdp_growth
+data$demeaned_gdp_sqkm <- data$gdp_pc_sqkm - data$mean_gdp_sqkm
+
+m1_controls <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                     demeaned_income + demeaned_income_sq + demeaned_winning +
+                     demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                     demeaned_gdp_growth + demeaned_gdp_sqkm + demeaned_urban + 
+                     mean_income + mean_income_sq + mean_winning +
+                     mean_trade + mean_cpi + mean_industrial + mean_pop +
+                     mean_gdp_growth + mean_gdp_sqkm + mean_urban +
+                     precip_var + Annual_temp + year + 
+                     (1 | country),
+                    data = data)
+
+## Table Statistics
+texreg(list(m4_re_wb, m1_controls),
+       stars = c(0.01, 0.05, 0.1),
+       custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:2),
+       caption = "Economic Inequality and Air Pollution - Additional Controls",
+       label = "tab:addcontrols",
+       caption.above = T,
+       custom.model.names = c("Model (2)", "Model (A1)"),
+       fontsize = "scriptsize",
+       custom.coef.map = list("demeaned_inequ" = "Top 10%-share (Within)",
+                              "mean_inequ" = "Top 10%-share (Between)",
+                              "demeaned_income" = "log(GDP per capita) (Within)",
+                              "demeaned_income_sq" = "log(GDP per capita)$^2$ (Within)",
+                              "mean_income" = "log(GDP per capita) (Between)",
+                              "mean_income_sq" = "log(GDP per capita)$^2$ (Between)",
+                              "demeaned_winning" = "W/S-ratio (Within)",
+                              "mean_winning" = "W/S-ratio (Between)",
+                              "demeaned_trade" = "Trade openness",
+                              "demeaned_cpi" = "Corruption",
+                              "demeaned_industrial" = "Industry (% GDP)",
+                              "demeaned_pop" = "log(Pop. density)",
+                              "demeaned_gdp_growth" = "GDP growth (%)",
+                              "demeaned_gdp_sqkm" = "GDP per km$^2$",
+                              "demeaned_urban" = "Urban pop. (%)",
+                              "mean_trade" = "Trade openness.",
+                              "mean_cpi" = "Corruption.",
+                              "mean_industrial" = "Industry (% GDP).",
+                              "mean_pop" = "log(Pop. density).",
+                              "mean_gdp_growth" = "GDP growth (%).",
+                              "mean_gdp_sqkm" = "GDP per km$^2$.",
+                              "mean_urban" = "Urban pop. (%).",
+                              "precip_var" = "Precipitat. variab.",
+                              "Annual_temp" = "Average temp.",
+                              "year" = "Year", "(Intercept)" = "Intercept"),
+       custom.gof.names = c("AIC",
+                            "BIC",
+                            "Log Likelihood",
+                            "N",
+                            "N (Countries)",
+                            "Var: Countries (Intercept)",
+                            "Var: Residual"),
+       custom.gof.rows = list("Controls (Within)" = c("\\ding{51}", "\\ding{51}"),
+                              "Controls (Between)" = c("\\ding{51}", "\\ding{51}")))
+
+
+#-------------------------------------------------------------------------------
+# Reversed causality
+#-------------------------------------------------------------------------------
+
+## create lead variable
+data_rev <- data %>%
+  group_by(country) %>%
+  arrange(year )%>%
+  mutate(lead_top10 = dplyr::lead(top10))
+
+rev <- lm(lead_top10 ~ PM25_pop_weighed +
+           `2_gdp_pc_log` + `2_gdp_pc_log_sq` + 
+            W4 + trade_openness + cpi + industry_share + pop_dens_log + year +
+           as.factor(country),
+          data = data_rev)
+
+stargazer(rev,
+          type = "text",
+          omit = "country")
+
+remove(data_rev)
+
+
+#-------------------------------------------------------------------------------
+# Most conservative model - Lagged DV & country & year-fixed effects
+#-------------------------------------------------------------------------------
+m1_conserv <- lm(lead_log_PM25 ~ log(PM25_pop_weighed) + top10 + 
+                   `2_gdp_pc_log` + `2_gdp_pc_log_sq` + 
+                    W4 + trade_openness + cpi + industry_share + pop_dens_log + as.factor(year) +
+                    as.factor(country),
+                 data = data_descript)
+
+stargazer(m1_conserv, type = "text", omit = c("country", "year"))
+
+```
+
+## Mapping within effect
+
+```{r within effect}
+
+#-------------------------------------------------------------------------------
+# Estimate random effects model (varying slope & intercept)
+#-------------------------------------------------------------------------------
+m1_random_is <- lmer(lead_log_PM25 ~ demeaned_inequ + 
+                      demeaned_income + demeaned_income_sq + demeaned_winning + 
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + 
+                      demeaned_pop + year + 
+                      (1  + demeaned_inequ| country),
+                     data = data)
+
+m1_random_is_excl_us <- lmer(lead_log_PM25 ~ demeaned_inequ + 
+                              demeaned_income + demeaned_income_sq + demeaned_winning + 
+                              demeaned_trade + demeaned_cpi + demeaned_industrial + 
+                              demeaned_pop + year + 
+                              (1  + demeaned_inequ| country),
+                             data = data[which(data$country != "United States"),])
+
+## Table Main
+texreg(list(m1_random_is,m1_random_is_excl_us),
+       stars = c(0.01, 0.05, 0.1),
+       custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:2),
+       custom.model.names = c("Full model", "Excluding US"),
+       caption = "Economic inequality and air pollution - Varying intercept/varying slope model",
+       label = "tab:varying",
+       caption.above = T,
+       fontsize = "scriptsize",
+       custom.coef.map = list("demeaned_inequ" = "Top 10%-share (Within)",
+                              "(Intercept)" = "Intercept"),
+       custom.gof.names = c("AIC",
+                            "BIC",
+                            "Log Likelihood",
+                            "N",
+                            "N(Countries)",
+                            "Var: Countries (Intercept)",
+                            "Var: Countries (Top 10%-share)",
+                            "Cov: Countries (Intercept/Top 10%-share)",
+                            "Var: Residual"),
+       custom.gof.rows = list("Controls (Between)" = c("\\xmark", "\\xmark"),
+                              "Controls (Within)" = c("\\ding{51}", "\\ding{51}")))
+
+## extract random effects
+random_eff <- ranef(m1_random_is)$country
+inequ_re <- as.data.frame(random_eff[,2])
+country_names <- rownames(random_eff)
+inequ_re$region <- country_names
+colnames(inequ_re)[1] <- "inequ_re"
+
+## join with random effects
+world <- left_join(world, inequ_re, by = "region")
+world <- left_join(world, summary_trend_ineq, by = c("region" = "country"))
+
+#-------------------------------------------------------------------------------
+# Plot on map
+#-------------------------------------------------------------------------------
+pdf("Plots/Map_coef_inequ.pdf", width = 12)
+
+ggplot() +
+geom_map(data = world, map = world,
+         aes(long, lat, map_id = region, fill = inequ_re)) +
+ 
+scale_fill_gradient2(midpoint= 0, 
+                     low = viridis(3)[1], 
+                     mid = "white",
+                     high = viridis(3)[2], 
+                     na.value = "grey50", space ="Lab") +
+theme_bw() +
+theme(panel.border = element_blank(),
+      panel.grid = element_blank()) +
+theme(axis.title = element_text(size = 15),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.ticks = element_blank(),
+      legend.text = element_text(size = 15)) +
+guides(fill = guide_colourbar(title = element_blank()))
+
+dev.off()
+
+## Correlation between inequality trend and random within-country inequality effects?
+cor(ranef(m1_random_is)$country[,"demeaned_inequ"], summary_trend_ineq$sum_trend_ineq[which(summary_trend_ineq$country %in% data_scen$country)])
+
+#-------------------------------------------------------------------------------
+# Plot trend inequality on map
+#-------------------------------------------------------------------------------
+pdf("Plots/Map_trend_inequ.pdf", width = 12)
+
+ggplot() +
+geom_map(data = world, map = world,
+         aes(long, lat, map_id = region, fill = sum_trend_ineq)) +
+ 
+scale_fill_gradient2(midpoint= 0, 
+                     low = viridis(3)[1], 
+                     mid = "white",
+                     high = viridis(3)[2], 
+                     na.value = "grey50", space ="Lab") +
+theme_bw() +
+theme(panel.border = element_blank(),
+      panel.grid = element_blank()) +
+theme(axis.title = element_text(size = 15),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.ticks = element_blank(),
+      legend.text = element_text(size = 15)) +
+guides(fill = guide_colourbar(title = element_blank()))
+
+dev.off()
+
+```
+
+
+
+# Simulations
+
+## Quantities of Interest - WITHIN COUNTRIES
+
+### 1.1 INEQUALITY - Within - EV and FD (min and max economic inequality) - Average case
+
+```{r within av inequ}
+
+#-------------------------------------------------------------------------------
+# First re-estimate fixed effects regression
+#-------------------------------------------------------------------------------
+m1_re_wb_fe <- lm(lead_log_PM25 ~ top10 + 
+                   `2_gdp_pc_log` + `2_gdp_pc_log_sq` + W4 + 
+                   trade_openness + cpi + industry_share + pop_dens_log + year +
+                   as.factor(country),
+                  data = data)
+
+#-------------------------------------------------------------------------------
+# Retransformation - See Rittman et al. (2023)
+#-------------------------------------------------------------------------------
+install_github("mneunhoe/simloglm")
+
+# Function to sample from inverse gamma distribution
+rinvgamma <- function(n, shape, rate = 1, scale = 1/rate){
+  if(missing(rate) && !missing(scale))
+    rate <- 1/scale
+  1/stats::rgamma(n, shape, rate)
+}
+
+# Set up informal posterior of coefficients
+nsim <- 1000 # number of draws
+beta_hat_w <- coef(m1_re_wb_fe)
+sigma_hat_w <- summary(m1_re_wb_fe)$sigma
+X_prime_X_w <- summary(m1_re_wb_fe)$cov.unscaled
+
+# First sigma^2
+set.seed(199610)
+sigma2_tilde_w <- rinvgamma(nsim,
+                            shape = m1_re_wb_fe$df.residual/2,
+                            rate = (sigma_hat_w^2*m1_re_wb_fe$df.residual)/2)
+
+# Now the betas
+beta_tilde_w <- matrix(NA,
+                       nrow = nsim,
+                       ncol = length(beta_hat_w))
+
+for(sim in 1:nsim){
+  beta_tilde_w[sim, ] <-
+    MASS::mvrnorm(1, beta_hat_w, X_prime_X_w * sigma2_tilde_w[sim])
+}
+
+#-------------------------------------------------------------------------------
+# Set scenarios
+#-------------------------------------------------------------------------------
+
+# what's the maximal within-country range of economic inequality?
+range_top10 <- aggregate(data$top10,
+                         by = list(data$country),
+                         FUN = range)
+
+names(range_top10) <- c("country", "range")
+
+# get the difference
+range_top10$diff <- range_top10$range[,2]- range_top10$range[,1]
+
+# get the respective country
+max_range_country <- range_top10$country[which.max(range_top10$diff)]
+
+# and the respective values (min and max > used for setting the scenario)
+min_maldives <- range_top10$range[,1][which.max(range_top10$diff)]
+max_maldives <- range_top10$range[,2][which.max(range_top10$diff)]
+
+# Find min and max random country intercept (could be relevant for FD)
+which.min(summary(m1_re_wb_fe)$coefficients[11:nrow(summary(m1_re_wb_fe)$coefficients),1]) ## Singapore (123)
+which.max(summary(m1_re_wb_fe)$coefficients[11:nrow(summary(m1_re_wb_fe)$coefficients),1]) ## Niger (102)
+
+# run once with reference category (i.e. alphabetically first country)
+length_coefs <- length(coefficients(m1_re_wb_fe)[which(names(coefficients(m1_re_wb_fe)) %like% "as.factor")]) ## 155
+coef_countries_ref <- t(rep(0,length_coefs))
+
+# run once with min
+coef_countries_min <- t(c(rep(0,122), 1, rep(0,32)))
+
+# run once with max 
+coef_countries_max <- t(c(rep(0,101), 1, rep(0,53)))
+
+# To make sure the means are sample-specific!
+data_scen <- data[which(data$top10 %in% m1_re_wb_fe$model$top10 &
+                        data$year <= 2020 &
+                        data$year >= 2000 &
+                        !is.na(data$industry_share) &
+                        !is.na(data$`2_gdp_pc_log`) &
+                        !is.na(data$top10) &
+                        !is.na(data$cpi) &
+                        !is.na(data$trade_openness) &
+                        !is.na(data$pop_dens_log) &
+                        !is.na(data$demeaned_winning)),]
+
+scen_1_min_w_ref <- cbind(1,
+                          min_maldives, 
+                          mean(data_scen$`2_gdp_pc_log`, na.rm = T),
+                          mean(data_scen$`2_gdp_pc_log_sq`, na.rm = T),
+                          mean(data_scen$W4, na.rm = T),
+                          mean(data_scen$trade_openness, na.rm = T),
+                          mean(data_scen$cpi, na.rm = T),
+                          mean(data_scen$industry_share, na.rm = T),
+                          mean(data_scen$pop_dens_log, na.rm = T),
+                          mean(data_scen$year, na.rm = T),
+                          coef_countries_ref)
+
+# colnames
+colnames(scen_1_min_w_ref) <- names(coef(m1_re_wb_fe))
+
+# copy existing scenario1 into new object scenario2 
+scen_1_max_w_ref <- scen_1_min_w_ref
+scen_1_min_w_min <- scen_1_min_w_ref
+scen_1_min_w_max <- scen_1_min_w_ref
+scen_1_max_w_min <- scen_1_min_w_ref
+scen_1_max_w_max <- scen_1_min_w_ref
+
+# switch only the changing values to get scenario with max inequ
+scen_1_max_w_ref[, which(colnames(scen_1_max_w_ref) == "top10")] <- max_maldives 
+scen_1_min_w_min[, which(colnames(scen_1_min_w_min) == "as.factor(country)Singapore")] <- 1
+scen_1_max_w_min[, which(colnames(scen_1_max_w_min) == "top10")] <- max_maldives 
+scen_1_max_w_min[, which(colnames(scen_1_max_w_min) == "as.factor(country)Singapore")] <- 1
+scen_1_min_w_max[, which(colnames(scen_1_min_w_max) == "as.factor(country)Niger")] <- 1
+scen_1_max_w_max[, which(colnames(scen_1_max_w_max) == "top10")] <- max_maldives 
+scen_1_max_w_max[, which(colnames(scen_1_max_w_max) == "as.factor(country)Niger")] <- 1
+
+
+#-------------------------------------------------------------------------------
+# Sample-specific means (understandable scenario)
+#-------------------------------------------------------------------------------
+min_maldives                             ## 0.39
+max_maldives                             ## 0.58
+mean(exp(data_scen$`2_gdp_pc_log`))      ## 13392
+mean(data_scen$W4, na.rm = T)            ## 0.72
+mean(data_scen$trade_openness)           ## 0.85
+mean(data_scen$cpi, na.rm = T)           ## 4.30
+mean(data_scen$industry_share, na.rm =T) ## 0.28
+mean(exp(data_scen$pop_dens_log))        ## 189
+mean(data_scen$year, na.rm = T)          ## 2011
+
+X_c_w_ref <- rbind(scen_1_max_w_ref, scen_1_min_w_ref)
+X_c_w_min <- rbind(scen_1_max_w_min, scen_1_min_w_min)
+X_c_w_max <- rbind(scen_1_max_w_max, scen_1_min_w_max)
+
+# Calculate the linear predictor on log scale
+X_beta_w_ref <- beta_tilde_w %*% t(X_c_w_ref)
+X_beta_w_min <- beta_tilde_w %*% t(X_c_w_min)
+X_beta_w_max <- beta_tilde_w %*% t(X_c_w_max)
+
+# Now transform back to original scale
+
+# First add draws of 1/2*sigma2_tilde to each column
+X_beta_sigma_tilde_w_ref <- apply(X_beta_w_ref, 2, function(x) x + 1/2*sigma2_tilde_w)
+X_beta_sigma_tilde_w_min <- apply(X_beta_w_min, 2, function(x) x + 1/2*sigma2_tilde_w)
+X_beta_sigma_tilde_w_max <- apply(X_beta_w_max, 2, function(x) x + 1/2*sigma2_tilde_w)
+
+# Transform
+E_Y_c_w_ref <- exp(X_beta_sigma_tilde_w_ref)
+E_Y_c_w_min <- exp(X_beta_sigma_tilde_w_min)
+E_Y_c_w_max <- exp(X_beta_sigma_tilde_w_max)
+
+# Summarize to get CIs
+CI_E_Y_c_w_ref <- apply(E_Y_c_w_ref, 2, quantile, c(0.025, 0.975))
+CI_E_Y_c_w_min <- apply(E_Y_c_w_min, 2, quantile, c(0.025, 0.975))
+CI_E_Y_c_w_max <- apply(E_Y_c_w_max, 2, quantile, c(0.025, 0.975))
+
+# Use beta_hat and sigma_hat for point estimates
+X_beta_hat_w_ref <- beta_hat_w %*% t(X_c_w_ref)
+X_beta_hat_w_min <- beta_hat_w %*% t(X_c_w_min)
+X_beta_hat_w_max <- beta_hat_w %*% t(X_c_w_max)
+X_beta_sigma_hat_w_ref <- X_beta_hat_w_ref + 1/2*sigma_hat_w^2
+X_beta_sigma_hat_w_min <- X_beta_hat_w_min + 1/2*sigma_hat_w^2
+X_beta_sigma_hat_w_max <- X_beta_hat_w_max + 1/2*sigma_hat_w^2
+
+# Point estimate
+E_Y_c_hat_w_ref <- exp(X_beta_sigma_hat_w_ref)
+E_Y_c_hat_w_min <- exp(X_beta_sigma_hat_w_min)
+E_Y_c_hat_w_max <- exp(X_beta_sigma_hat_w_max)
+
+# First difference 
+FD_max_min_hat_w_ref <- E_Y_c_hat_w_ref[,1] - E_Y_c_hat_w_ref[,2]
+FD_max_min_hat_w_min <- E_Y_c_hat_w_min[,1] - E_Y_c_hat_w_min[,2]
+FD_max_min_hat_w_max <- E_Y_c_hat_w_max[,1] - E_Y_c_hat_w_max[,2]
+
+FD_max_min_w_ref <- E_Y_c_w_ref[,1] - E_Y_c_w_ref[,2]
+FD_max_min_w_min <- E_Y_c_w_min[,1] - E_Y_c_w_min[,2]
+FD_max_min_w_max <- E_Y_c_w_max[,1] - E_Y_c_w_max[,2]
+
+CI_FD_max_min_w_ref <- quantile(FD_max_min_w_ref, c(0.025, 0.975))
+CI_FD_max_min_w_min <- quantile(FD_max_min_w_min, c(0.025, 0.975))
+CI_FD_max_min_w_max <- quantile(FD_max_min_w_max, c(0.025, 0.975))
+
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV (within)?
+#-------------------------------------------------------------------------------
+
+## Calculate demeaned
+means_pm25 <- aggregate(data_scen$lead_PM25,
+                        by = list(data_scen$country),
+                        FUN = mean, na.rm = T)
+
+## rename
+names(means_pm25) <- c("country", "mean")
+
+## put them back into the data frame
+data_scen$mean_pm25 <- means_pm25$mean[match(data_scen$country, means_pm25$country)]
+
+## calculate de-meaned variable:
+data_scen$demeaned_pm25 <- data_scen$PM25_pop_weighed - data_scen$mean_pm25
+
+## calculate within SD
+sd_pm25_w <- sd(data_scen$demeaned_pm25)
+
+## how does FD compare to SD?
+share_fd_sd_w_ref <- abs(FD_max_min_hat_w_ref)/sd_pm25_w
+share_fd_sd_w_min <- abs(FD_max_min_hat_w_min)/sd_pm25_w
+share_fd_sd_w_max <- abs(FD_max_min_hat_w_max)/sd_pm25_w
+
+
+#-------------------------------------------------------------------------------
+# Plot Reference Category
+#-------------------------------------------------------------------------------
+
+pdf("Plots/EV_max_min_ref.pdf")
+
+# First plot: EV density
+plot(density(E_Y_c_w_ref[,1]),
+     bty = "n",
+     xlim = c(13,21),
+     main = NA,
+     las = 1,
+     ylim = c(0,1.01),
+     yaxt = "n",
+     cex = 1.1,
+     cex.lab = 1.3,
+     xlab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     type = "n")
+
+polygon(density(E_Y_c_w_ref[,1]),
+        col = viridis(3, alpha = 0.4)[1],
+        border = F,
+        main = NULL)
+
+polygon(density(E_Y_c_w_ref[,2]),
+        col = viridis(3, alpha = 0.4)[2],
+        border = F,
+        main = NULL)
+
+lines(density(E_Y_c_w_ref[,1]),
+      col = viridis(3)[1])
+
+lines(density(E_Y_c_w_ref[,2]),
+      col = viridis(3)[2])
+
+abline(v = c(E_Y_c_hat_w_ref[,1],
+             E_Y_c_hat_w_ref[,2]),
+       lty = 2, lwd = 2,
+       col = c(viridis(3)[1],
+               viridis(3)[2]))
+
+legend("topleft",
+       title = "Albania",
+       # title.cex = 1.3,
+       legend = c("Max. Top 10%-Share",
+                  "Min. Top 10%-Share"),
+       col = c(viridis(3, alpha = 0.5)[1],
+               viridis(3, alpha = 0.5)[2]),
+       pch = 19,
+       cex = 1.1,
+       bty = "n")
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+# Plot min
+#-------------------------------------------------------------------------------
+
+pdf("Plots/EV_max_min_min.pdf")
+
+# First plot: EV density
+plot(density(E_Y_c_w_min[,1]),
+     bty = "n",
+     #xlim = c(4.8,8.5),
+     main = NA,
+     las = 1,
+     ylim = c(0,1.6),
+     yaxt = "n",
+     cex = 1.1,
+     cex.lab = 1.3,
+     xlab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     type = "n")
+
+polygon(density(E_Y_c_w_min[,1]),
+        col = viridis(3, alpha = 0.4)[1],
+        border = F,
+        main = NULL)
+
+polygon(density(E_Y_c_w_min[,2]),
+        col = viridis(3, alpha = 0.4)[2],
+        border = F,
+        main = NULL)
+
+lines(density(E_Y_c_w_min[,1]),
+      col = viridis(3)[1])
+
+lines(density(E_Y_c_w_min[,2]),
+      col = viridis(3)[2])
+
+abline(v = c(E_Y_c_hat_w_min[,1],
+             E_Y_c_hat_w_min[,2]),
+       lty = 2, lwd = 2,
+       col = c(viridis(3)[1],
+               viridis(3)[2]))
+
+legend("topleft",
+       title = "Singapore",
+       # title.cex = 1.3,
+       legend = c("Max. Top 10%-Share",
+                  "Min. Top 10%-Share"),
+       col = c(viridis(3, alpha = 0.5)[1],
+               viridis(3, alpha = 0.5)[2]),
+       pch = 19,
+       cex = 1.1,
+       bty = "n")
+
+dev.off()
+
+#-------------------------------------------------------------------------------
+# Plot max
+#-------------------------------------------------------------------------------
+
+pdf("Plots/EV_max_min_max.pdf")
+
+# First plot: EV density
+plot(density(E_Y_c_w_max[,1]),
+     bty = "n",
+   #  xlim = c(60,110),
+     main = NA,
+     las = 1,
+     ylim = c(0,0.07),
+     yaxt = "n",
+     cex = 1.1,
+     cex.lab = 1.3,
+     xlab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     type = "n")
+
+polygon(density(E_Y_c_w_max[,1]),
+        col = viridis(3, alpha = 0.4)[1],
+        border = F,
+        main = NULL)
+
+polygon(density(E_Y_c_w_max[,2]),
+        col = viridis(3, alpha = 0.4)[2],
+        border = F,
+        main = NULL)
+
+lines(density(E_Y_c_w_max[,1]),
+      col = viridis(3)[1])
+
+lines(density(E_Y_c_w_max[,2]),
+      col = viridis(3)[2])
+
+abline(v = c(E_Y_c_hat_w_max[,1],
+             E_Y_c_hat_w_max[,2]),
+       lty = 2, lwd = 2,
+       col = c(viridis(3)[1],
+               viridis(3)[2]))
+
+legend("topleft",
+       title = "Niger",
+       # title.cex = 1.3,
+       legend = c("Max. Top 10%-Share",
+                  "Min. Top 10%-Share"),
+       col = c(viridis(3, alpha = 0.5)[1],
+               viridis(3, alpha = 0.5)[2]),
+       pch = 19,
+       cex = 1.1,
+       bty = "n")
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+# Plot First Differences
+#-------------------------------------------------------------------------------
+pdf("Plots/FD_max_min_all.pdf")
+
+plot(y = 1,
+     x = FD_max_min_hat_w_ref,
+     col = viridis(3)[1],
+     ylim = c(0,2),
+     xlim = c(-15,0.5),
+     xlab = "",
+     pch = 19,
+     main = NULL, 
+     bty = "n",
+     ylab = "",
+     yaxt = "n",
+     cex = 3,
+     cex.lab = 1.1)
+
+## ref
+segments(y0 = 1, x0 = CI_FD_max_min_w_ref[1],
+         y1 = 1, x1 = CI_FD_max_min_w_ref[2],
+         col = viridis(3, alpha = 0.4)[1],
+         lwd = 12, cex = 1.5, lend = 1)
+
+segments(x0 = 0, y0 = 0,
+         x1 = 0, y1 = 2,
+         lty = "dashed", lwd = 2)
+
+## min
+points(y = 1.5,
+       x = FD_max_min_hat_w_min,
+       col = viridis(3)[1],
+       pch = 19,
+       cex = 3)
+
+segments(y0 = 1.5, x0 = CI_FD_max_min_w_min[1],
+         y1 = 1.5, x1 = CI_FD_max_min_w_min[2],
+         col = viridis(3, alpha = 0.4)[1],
+         lwd = 12, cex = 1.5, lend = 1)
+
+## max
+points(y = 0.5,
+       x = FD_max_min_hat_w_max,
+       col = viridis(3)[1],
+       pch = 19,
+       cex = 3)
+
+segments(y0 = 0.5, x0 = CI_FD_max_min_w_max[1],
+         y1 = 0.5, x1 = CI_FD_max_min_w_max[2],
+         col = viridis(3, alpha = 0.4)[1],
+         lwd = 12, cex = 1.5, lend = 1)
+
+text(x = FD_max_min_hat_w_max,
+     y = 0.2,
+     labels = c("First Difference"),
+     cex = 1.3)
+
+text(x = FD_max_min_hat_w_max,
+     y = 0.1,
+     labels = c("(Max - Min)"),
+     cex = 0.9)
+
+text(x = -12,
+     y = 0.5,
+     labels = c("Niger"),
+     cex = 0.9)
+
+text(x = -3,
+     y = 1,
+     labels = c("Albania (Ref. cat.)"),
+     cex = 0.9)
+
+text(x = -1.6,
+     y = 1.5,
+     labels = c("Singapore"),
+     cex = 0.9)
+
+dev.off()
+
+```
+
+### 1.2 INEQUALITY - Within - EV and FD (min and max economic inequality) - Observed value 
+
+```{r within ova inequ}
+
+#-------------------------------------------------------------------------------
+# First re-estimate fixed effects regression
+#-------------------------------------------------------------------------------
+coef(m1_re_wb_fe)
+
+data_scen <- dummy_cols(data_scen,
+                        select_columns = c("country"))
+
+# make sure I will select the right columns for the country dummies
+first_country <- which(colnames(data_scen) == "country_Algeria")
+last_country <- which(colnames(data_scen) == "country_Zimbabwe")
+
+# Get X
+X_w <- as.matrix(cbind(1,
+                       data_scen$top10,
+                       data_scen$`2_gdp_pc_log`, data_scen$`2_gdp_pc_log_sq`,
+                       data_scen$W4, data_scen$trade_openness,
+                       data_scen$cpi, data_scen$industry_share, data_scen$pop_dens_log,
+                       data_scen$year,
+                       data_scen[,c(first_country:last_country)]))
+
+X_w <- na.omit(X_w)
+dim(X_w)
+
+#-------------------------------------------------------------------------------
+# Retransformation - See Rittman et al. (2023)
+#-------------------------------------------------------------------------------
+
+# Set up informal posterior of coefficients
+nsim <- 1000 # number of draws
+beta_hat_w <- coef(m1_re_wb_fe)
+sigma_hat_w <- summary(m1_re_wb_fe)$sigma
+X_prime_X_w <- summary(m1_re_wb_fe)$cov.unscaled
+
+# First sigma^2
+set.seed(199610)
+sigma2_tilde_w <- rinvgamma(nsim,
+                            shape = m1_re_wb_fe$df.residual/2,
+                            rate = (sigma_hat_w^2*m1_re_wb_fe$df.residual)/2)
+
+# Now the betas
+beta_tilde_w <- matrix(NA,
+                       nrow = nsim,
+                       ncol = length(beta_hat_w))
+
+for(sim in 1:nsim){
+  beta_tilde_w[sim, ] <-
+    MASS::mvrnorm(1, beta_hat_w, X_prime_X_w * sigma2_tilde_w[sim])
+}
+
+#-------------------------------------------------------------------------------
+# Set scenarios
+#-------------------------------------------------------------------------------
+
+# Create empty matrix to store the scenarios
+cases <- array(NA, 
+               c(dim(X_w), 2))
+
+# Copy in our X
+cases[,,] <- X_w # because OVA not Average case!
+
+# Select: top 10 and replace with min and max
+cases[ ,2, 2] <- min_maldives # min = scenario 1
+cases[ ,2, 1] <- max_maldives # max = scenario 2
+
+dim(cases) 
+# check dimensions 
+# 2759 rows/datapoints
+# 153 variables (incl. country dummies)
+# 2 scenarios
+
+# Calculate linear predictor on log scale & retransform
+E_Y_c_w <- matrix(NA, nrow = nsim, ncol = 2) # empty matrix for storage
+
+for(i in 1:2){                                # two rounds (for scenario max and min)
+  ev <- beta_tilde_w %*% t(cases[,,i])        # calculate linear predictor on log scale
+  ev_plus_gamma <- ev + 1/2*sigma2_tilde_w    # add draws of 1/2*sigma2_tilde
+  ev_transf <- exp(ev_plus_gamma)             # transform
+  tmp_val <- apply(ev_transf, 1, mean)        # now average results
+  E_Y_c_w[, i] <- tmp_val                     # store in val object
+}
+
+# Summarize to get CIs
+CI_E_Y_c_w <- apply(E_Y_c_w, 2, quantile, c(0.025, 0.975))
+
+# Now get the point estimates 
+E_Y_c_hat_w <- matrix(NA, nrow = 2, ncol = 1)
+
+for(i in 1:2){                                         # two rounds (for scenario max and min)
+  ev_point <- beta_hat_w %*% t(cases[,,i])             # use beta_hat (not simulated)
+  ev_point_plus_gamma <- ev_point + 1/2*sigma_hat_w^2  # use sigma_hat (not simulated)
+  ev_point_transf <- exp(ev_point_plus_gamma)          # transform
+  tmp_val_point <- apply(ev_point_transf, 1, mean)     # average 
+  E_Y_c_hat_w[i,] <- tmp_val_point                     # store
+}
+
+# First difference
+FD_max_min_hat_w <- E_Y_c_hat_w[1,] - E_Y_c_hat_w[2,]  # max - min
+FD_max_min_w <- E_Y_c_w[,1] - E_Y_c_w[,2] 
+CI_FD_max_min_w <- quantile(FD_max_min_w, c(0.025, 0.975))
+
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV (within)?
+#-------------------------------------------------------------------------------
+
+## how does FD compare to SD?
+share_fd_sd_w <- abs(FD_max_min_hat_w)/sd_pm25_w
+
+
+#-------------------------------------------------------------------------------
+# Plot OVA
+#-------------------------------------------------------------------------------
+
+pdf("Plots/EV_max_min_ova.pdf")
+
+# First plot: EV density
+plot(density(E_Y_c_w[,1]),
+     bty = "n",
+     xlim = c(22,26),
+     main = NA,
+     las = 1,
+     ylim = c(0,3),
+     yaxt = "n",
+     cex = 1.1,
+     cex.lab = 1.3,
+     xlab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     type = "n")
+
+polygon(density(E_Y_c_w[,1]),
+        col = viridis(3, alpha = 0.4)[1],
+        border = F,
+        main = NULL)
+
+polygon(density(E_Y_c_w[,2]),
+        col = viridis(3, alpha = 0.4)[2],
+        border = F,
+        main = NULL)
+
+lines(density(E_Y_c_w[,1]),
+      col = viridis(3)[1])
+
+lines(density(E_Y_c_w[,2]),
+      col = viridis(3)[2])
+
+abline(v = c(E_Y_c_hat_w[1,],
+             E_Y_c_hat_w[2,]),
+       lty = 2, lwd = 2,
+       col = c(viridis(3)[1],
+               viridis(3)[2]))
+
+legend("topleft",
+       title = "Observed Value Approach",
+       # title.cex = 1.3,
+       legend = c("Max. Top 10%-Share",
+                  "Min. Top 10%-Share"),
+       col = c(viridis(3, alpha = 0.5)[1],
+               viridis(3, alpha = 0.5)[2]),
+       pch = 19,
+       cex = 1.1,
+       bty = "n")
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+# Plot First Differences
+#-------------------------------------------------------------------------------
+pdf("Plots/FD_max_min_ova.pdf")
+
+plot(y = 1,
+     x = FD_max_min_hat_w,
+     col = viridis(3)[1],
+     ylim = c(0,2),
+     xlim = c(-2.5,0.5),
+     xlab = "",
+     pch = 19,
+     main = NULL, 
+     bty = "n",
+     ylab = "",
+     yaxt = "n",
+     cex = 3,
+     cex.lab = 1.1)
+
+## ref
+segments(y0 = 1, x0 = CI_FD_max_min_w[1],
+         y1 = 1, x1 = CI_FD_max_min_w[2],
+         col = viridis(3, alpha = 0.4)[1],
+         lwd = 12, cex = 1.5, lend = 1)
+
+segments(x0 = 0, y0 = 0,
+         x1 = 0, y1 = 2,
+         lty = "dashed", lwd = 2)
+
+
+text(x = FD_max_min_hat_w,
+     y = 0.8,
+     labels = c("First Difference"),
+     cex = 1.3)
+
+text(x = FD_max_min_hat_w,
+     y = 0.65,
+     labels = c("(Max - Min)"),
+     cex = 0.9)
+
+dev.off()
+
+```
+
+### 1.3 ECON DeVELOPMENT - Within - EV and FD (min and max economic development) - Observed value 
+
+```{r within ova econ}
+
+#-------------------------------------------------------------------------------
+# First re-estimate fixed effects regression
+#-------------------------------------------------------------------------------
+coef(m1_re_wb_fe)
+
+#-------------------------------------------------------------------------------
+# Set scenarios
+#-------------------------------------------------------------------------------
+
+# what's the maximal within-country range of econ dev?
+range_econ <- aggregate(data_scen$`2_gdp_pc_log`,
+                        by = list(data_scen$country),
+                        FUN = range)
+
+names(range_econ) <- c("country", "range")
+
+# get the difference
+range_econ$diff <- range_econ$range[,2]- range_econ$range[,1]
+
+# get the respective country
+max_range_country_econ <- range_econ$country[which.max(range_econ$diff)]
+
+# and the respective values (min and max > used for setting the scenario)
+min_venezuela <- range_econ$range[,1][which.max(range_econ$diff)]
+mean_venezuela <- mean(data_scen$`2_gdp_pc_log`[which(data_scen$country == "Venezuela")], na.rm = T)
+max_venezuela <- range_econ$range[,2][which.max(range_econ$diff)]
+
+# Create empty matrix to store the scenarios
+cases <- array(NA, 
+               c(dim(X_w), 3))
+
+# Copy in our X
+cases[,,] <- X_w # because OVA not Average case!
+
+# Select: gdp and replace with min and max
+cases[ ,3, 3] <- min_venezuela  # min = scenario 3
+cases[ ,3, 2] <- mean_venezuela # mean
+cases[ ,3, 1] <- max_venezuela  # max = scenario 1
+
+# Select: gdp square and replace with min and max
+cases[ ,4, 3] <- min_venezuela^2  # min = scenario 3
+cases[ ,4, 2] <- mean_venezuela^2 # mean
+cases[ ,4, 1] <- max_venezuela^2  # max = scenario 1
+
+
+# Calculate linear predictor on log scale & retransform
+E_Y_c_w_econ <- matrix(NA, nrow = nsim, ncol = 3) # empty matrix for storage
+
+for(i in 1:3){                                # two rounds (for scenario max and min)
+  ev <- beta_tilde_w %*% t(cases[,,i])        # calculate linear predictor on log scale
+  ev_plus_gamma <- ev + 1/2*sigma2_tilde_w    # add draws of 1/2*sigma2_tilde
+  ev_transf <- exp(ev_plus_gamma)             # transform
+  tmp_val <- apply(ev_transf, 1, mean)        # now average results
+  E_Y_c_w_econ[, i] <- tmp_val                # store in val object
+}
+
+# Summarize to get CIs
+CI_E_Y_c_w_econ <- apply(E_Y_c_w_econ, 2, quantile, c(0.025, 0.975))
+
+# Now get the point estimates 
+E_Y_c_hat_w_econ <- matrix(NA, nrow = 3, ncol = 1)
+
+for(i in 1:3){                                         # two rounds (for scenario max and min)
+  ev_point <- beta_hat_w %*% t(cases[,,i])             # use beta_hat (not simulated)
+  ev_point_plus_gamma <- ev_point + 1/2*sigma_hat_w^2  # use sigma_hat (not simulated)
+  ev_point_transf <- exp(ev_point_plus_gamma)          # transform
+  tmp_val_point <- apply(ev_point_transf, 1, mean)     # average 
+  E_Y_c_hat_w_econ[i,] <- tmp_val_point                # store
+}
+
+# First difference MAX - MIN
+FD_max_min_hat_w_econ <- E_Y_c_hat_w_econ[1,] - E_Y_c_hat_w_econ[3,]  # max - min
+FD_max_min_w_econ <- E_Y_c_w_econ[,1] - E_Y_c_w_econ[,3] 
+CI_FD_max_min_w_econ <- quantile(FD_max_min_w_econ, c(0.025, 0.975))
+
+# First difference MAX - MEAN
+FD_max_mean_hat_w_econ <- E_Y_c_hat_w_econ[1,] - E_Y_c_hat_w_econ[2,]  # max - mean
+FD_max_mean_w_econ <- E_Y_c_w_econ[,1] - E_Y_c_w_econ[,2] 
+CI_FD_max_mean_w_econ <- quantile(FD_max_mean_w_econ, c(0.025, 0.975))
+
+# First difference MEAN - MIN
+FD_mean_min_hat_w_econ <- E_Y_c_hat_w_econ[2,] - E_Y_c_hat_w_econ[3,]  # mean - min
+FD_mean_min_w_econ <- E_Y_c_w_econ[,2] - E_Y_c_w_econ[,3] 
+CI_FD_mean_min_w_econ <- quantile(FD_mean_min_w_econ, c(0.025, 0.975))
+
+## Mean pollution at max GDP
+mean(E_Y_c_hat_w_econ[1,])
+
+## Mean pollution at min GDP
+mean(E_Y_c_hat_w_econ[3,])
+
+## Mean pollution at mean GDP
+mean(E_Y_c_hat_w_econ[2,])
+
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV (within)?
+#-------------------------------------------------------------------------------
+
+## how does FD compare to SD?
+share_fd_sd_w_econ <- abs(FD_max_min_hat_w_econ)/sd_pm25_w
+
+```
+
+### 1.4 DEMOCRACY - Within - EV and FD (min and max democracy) - Observed value 
+
+```{r within ova democ}
+
+#-------------------------------------------------------------------------------
+# Set scenarios
+#-------------------------------------------------------------------------------
+
+# what's the maximal within-country range of democracy?
+range_dem <- aggregate(data_scen$W4,
+                       by = list(data_scen$country),
+                       FUN = range)
+
+names(range_dem) <- c("country", "range")
+
+# get the difference
+range_dem$diff <- range_dem$range[,2]- range_dem$range[,1]
+
+# get the respective country
+max_range_country_dem <- range_dem$country[which.max(range_dem$diff)]
+
+# and the respective values (min and max > used for setting the scenario)
+min_libya <- range_dem$range[,1][which.max(range_dem$diff)]
+max_libya <- range_dem$range[,2][which.max(range_dem$diff)]
+
+# Create empty matrix to store the scenarios
+cases <- array(NA, 
+               c(dim(X_w), 2))
+
+# Copy in our X
+cases[,,] <- X_w # because OVA not Average case!
+
+# Select: democracy and replace with min and max
+cases[ ,5, 2] <- min_libya # min = scenario 1
+cases[ ,5, 1] <- max_libya # max = scenario 2
+
+dim(cases) 
+# check dimensions 
+# 2759 rows/datapoints
+# 153 variables (incl. country dummies)
+# 2 scenarios
+
+# Calculate linear predictor on log scale & retransform
+E_Y_c_w_dem <- matrix(NA, nrow = nsim, ncol = 2) # empty matrix for storage
+
+for(i in 1:2){                                # two rounds (for scenario max and min)
+  ev <- beta_tilde_w %*% t(cases[,,i])        # calculate linear predictor on log scale
+  ev_plus_gamma <- ev + 1/2*sigma2_tilde_w    # add draws of 1/2*sigma2_tilde
+  ev_transf <- exp(ev_plus_gamma)             # transform
+  tmp_val <- apply(ev_transf, 1, mean)        # now average results
+  E_Y_c_w_dem[, i] <- tmp_val                 # store in val object
+}
+
+# Summarize to get CIs
+CI_E_Y_c_w_dem <- apply(E_Y_c_w_dem, 2, quantile, c(0.025, 0.975))
+
+# Now get the point estimates 
+E_Y_c_hat_w_dem <- matrix(NA, nrow = 2, ncol = 1)
+
+for(i in 1:2){                                         # two rounds (for scenario max and min)
+  ev_point <- beta_hat_w %*% t(cases[,,i])             # use beta_hat (not simulated)
+  ev_point_plus_gamma <- ev_point + 1/2*sigma_hat_w^2  # use sigma_hat (not simulated)
+  ev_point_transf <- exp(ev_point_plus_gamma)          # transform
+  tmp_val_point <- apply(ev_point_transf, 1, mean)     # average 
+  E_Y_c_hat_w_dem[i,] <- tmp_val_point                     # store
+}
+
+# First difference
+FD_max_min_hat_w_dem <- E_Y_c_hat_w_dem[1,] - E_Y_c_hat_w_dem[2,]  # max - min
+FD_max_min_w_dem <- E_Y_c_w_dem[,1] - E_Y_c_w_dem[,2] 
+CI_FD_max_min_w_dem <- quantile(FD_max_min_w_dem, c(0.025, 0.975))
+
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV (within)?
+#-------------------------------------------------------------------------------
+
+## how does FD compare to SD?
+share_fd_sd_w_dem <- abs(FD_max_min_hat_w_dem)/sd_pm25_w
+
+```
+
+
+## Quantities of Interest - BETWEEN COUNTRIES
+
+### 2.1 INEQUALITY - Between - EV and FD (min and max economic inequality)
+
+```{r between inequ}
+
+#-------------------------------------------------------------------------------
+# Start with set-up for retransformation
+#-------------------------------------------------------------------------------
+fixef(m4_re_wb)
+
+# Set up informal posterior of coefficients
+nsim <- 1000 # number of draws
+beta_hat_b <- c(fixef(m4_re_wb)[[1]],fixef(m4_re_wb)[[2]],fixef(m4_re_wb)[[3]],fixef(m4_re_wb)[[4]],fixef(m4_re_wb)[[5]],
+                fixef(m4_re_wb)[[6]],fixef(m4_re_wb)[[7]],fixef(m4_re_wb)[[8]],fixef(m4_re_wb)[[9]],fixef(m4_re_wb)[[10]],
+                fixef(m4_re_wb)[[11]],fixef(m4_re_wb)[[12]],fixef(m4_re_wb)[[13]],fixef(m4_re_wb)[[14]],fixef(m4_re_wb)[[15]],
+                fixef(m4_re_wb)[[16]], fixef(m4_re_wb)[[17]], fixef(m4_re_wb)[[18]])
+
+sigma_hat_b <- summary(m4_re_wb)$sigma
+X_prime_X_b <- as.matrix(vcov(m4_re_wb))
+
+# First sigma^2
+set.seed(199610)
+sigma2_tilde_b <- rinvgamma(nsim,
+                            shape = df.residual(m4_re_wb)/2,
+                            rate = (sigma_hat_b^2*df.residual(m4_re_wb))/2)
+
+# Now the betas
+beta_tilde_b <- matrix(NA,
+                       nrow = nsim,
+                       ncol = length(beta_hat_b))
+
+for(sim in 1:nsim){
+  beta_tilde_b[sim, ] <-
+    MASS::mvrnorm(1, beta_hat_b, X_prime_X_b * sigma2_tilde_b[sim])
+}
+
+# Set scenarios
+scen_1_min_b <- cbind(1,
+                      min(data_scen$mean_inequ),
+                      mean(data_scen$demeaned_inequ, na.rm = T),
+                      mean(data_scen$demeaned_income, na.rm = T),
+                      mean(data_scen$demeaned_income_sq, na.rm = T),
+                      mean(data_scen$demeaned_winning, na.rm = T),
+                      mean(data_scen$demeaned_trade, na.rm = T),
+                      mean(data_scen$demeaned_cpi, na.rm = T),
+                      mean(data_scen$demeaned_industrial, na.rm = T),
+                      mean(data_scen$demeaned_pop, na.rm = T),
+                      mean(data_scen$mean_income, na.rm = T),
+                      mean(data_scen$mean_income_sq, na.rm = T),
+                      mean(data_scen$mean_winning, na.rm = T),
+                      mean(data_scen$mean_trade, na.rm = T),
+                      mean(data_scen$mean_cpi, na.rm = T),
+                      mean(data_scen$mean_industrial, na.rm = T),
+                      mean(data_scen$mean_pop, na.rm = T),
+                      mean(data_scen$year, na.rm = T))
+
+# colnames
+colnames(scen_1_min_b) <- names(fixef(m4_re_wb))
+
+# copy existing scenario1 into new object scenario2 
+scen_1_max_b <- scen_1_min_b
+
+# switch only the changing values to get scenario with max inequ
+scen_1_max_b[, which(colnames(scen_1_max_b) == "mean_inequ")] <- max(data_scen$mean_inequ)
+
+
+#-------------------------------------------------------------------------------
+# Sample-specific means (understandable scenario)
+#-------------------------------------------------------------------------------
+min(data_scen$mean_inequ)                   ## 0.29
+max(data_scen$mean_inequ)                   ## 0.68
+unique(data_scen$country[which(data_scen$mean_inequ == min(data_scen$mean_inequ))]) ## Netherlands
+unique(data_scen$country[which(data_scen$mean_inequ == max(data_scen$mean_inequ))]) ## Namibia
+mean(exp(data_scen$mean_income))            ## 13 326
+mean(data_scen$mean_winning)                ## 0.71
+mean(data_scen$mean_trade)                  ## 0.84
+mean(data_scen$mean_cpi)                    ## 4.31
+mean(data_scen$mean_industrial, na.rm = T)  ## 0.28
+mean(exp(data_scen$mean_pop))               ## 184
+
+X_c_b <- rbind(scen_1_max_b, scen_1_min_b)
+
+# Calculate the linear predictor on log scale
+X_beta_b <- beta_tilde_b %*% t(X_c_b)
+
+# Now transform back to original scale
+
+# First add draws of 1/2*sigma2_tilde to each column
+X_beta_sigma_tilde_b <- apply(X_beta_b, 2, function(x) x + 1/2*sigma2_tilde_b)
+
+# Transform
+E_Y_c_b <- exp(X_beta_sigma_tilde_b)
+
+# Summarize to get CIs
+CI_E_Y_c_b <- apply(E_Y_c_b, 2, quantile, c(0.025, 0.975))
+
+# Use beta_hat and sigma_hat for point estimates
+X_beta_hat_b <- beta_hat_b %*% t(X_c_b)
+X_beta_sigma_hat_b <- X_beta_hat_b + 1/2*sigma_hat_b^2
+
+# Point estimate
+E_Y_c_hat_b <- exp(X_beta_sigma_hat_b)
+
+# First difference
+FD_max_min_hat_b <- E_Y_c_hat_b[,1] - E_Y_c_hat_b[,2]
+FD_max_min_b <- E_Y_c_b[,1] - E_Y_c_b[,2]
+CI_FD_max_min_b <- quantile(FD_max_min_b, c(0.025, 0.975))
+
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV?
+#-------------------------------------------------------------------------------
+mean_pm25_bc <- aggregate(data_scen$PM25_pop_weighed,
+                          by = list(data_scen$country),
+                          FUN = mean, na.rm = T)
+
+colnames(mean_pm25_bc)[1:2] <- c("country", "mean")
+sd_pm25_b <- sd(mean_pm25_bc$mean)
+share_fd_sd_b <- FD_max_min_hat_b/sd_pm25_b
+
+
+#-------------------------------------------------------------------------------
+# Plot
+#-------------------------------------------------------------------------------
+
+pdf("Plots/EV_max_min_between.pdf")
+
+# First plot: EV density
+plot(density(E_Y_c_b[,1]),
+     bty = "n",
+     xlim = c(19,25),
+     main = NA,
+     las = 1,
+     ylim = c(0,4),
+     yaxt = "n",
+     cex = 1.1,
+     cex.lab = 1.3,
+     xlab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     type = "n")
+
+polygon(density(E_Y_c_b[,1]),
+        col = viridis(3, alpha = 0.4)[1],
+        border = F,
+        main = NULL)
+
+polygon(density(E_Y_c_b[,2]),
+        col = viridis(3, alpha = 0.4)[2],
+        border = F,
+        main = NULL)
+
+lines(density(E_Y_c_b[,1]),
+      col = viridis(3)[1])
+
+lines(density(E_Y_c_b[,2]),
+      col = viridis(3)[2])
+
+abline(v = c(E_Y_c_hat_b[,1],
+             E_Y_c_hat_b[,2]),
+       lty = 2, lwd = 2,
+       col = c(viridis(3)[1],
+               viridis(3)[2]))
+
+legend("top",
+       legend = c("Max. Top 10%-Share",
+                  "Min. Top 10%-Share"),
+       col = c(viridis(3, alpha = 0.5)[1],
+               viridis(3, alpha = 0.5)[2]),
+       pch = 19,
+       cex = 1.1,
+       bty = "n")
+
+dev.off()
+
+
+# Second plot: First difference
+pdf("Plots/FD_max_min_between.pdf")
+
+plot(y = 1,
+     x = FD_max_min_hat_b,
+     col = viridis(3)[1],
+     ylim = c(0,2),
+     xlim = c(-0.5,3),
+     xlab = "",
+     pch = 19,
+     main = NULL, 
+     bty = "n",
+     ylab = "",
+     yaxt = "n",
+     cex = 3,
+     cex.lab = 1.1)
+
+segments(y0 = 1, x0 = CI_FD_max_min_b[1],
+         y1 = 1, x1 = CI_FD_max_min_b[2],
+         col = viridis(3, alpha = 0.4)[1],
+         lwd = 12, cex = 1.5, lend = 1)
+
+segments(x0 = 0, y0 = 0,
+         x1 = 0, y1 = 2,
+         lty = "dashed", lwd = 2)
+
+text(x = FD_max_min_hat_b,
+     y = 0.8,
+     labels = c("First Difference"),
+     cex = 1.3)
+
+text(x = FD_max_min_hat_b,
+     y = 0.65,
+     labels = c("(Max - Min)"),
+     cex = 0.9)
+
+dev.off()
+
+```
+
+### 2.2 ECON DEVELOPMENT - Between - EV and FD (min and max economic development)
+
+```{r between econ}
+
+#-------------------------------------------------------------------------------
+# Scenarios
+#-------------------------------------------------------------------------------
+
+# Set scenarios
+scen_1_min_b_econ <- cbind(1,
+                           mean(data_scen$mean_inequ),
+                           mean(data_scen$demeaned_inequ, na.rm = T),
+                           mean(data_scen$demeaned_income, na.rm = T),
+                           mean(data_scen$demeaned_income_sq, na.rm = T),
+                           mean(data_scen$demeaned_winning, na.rm = T),
+                           mean(data_scen$demeaned_trade, na.rm = T),
+                           mean(data_scen$demeaned_cpi, na.rm = T),
+                           mean(data_scen$demeaned_industrial, na.rm = T),
+                           mean(data_scen$demeaned_pop, na.rm = T),
+                           min(data_scen$mean_income, na.rm = T),
+                           min(data_scen$mean_income_sq, na.rm = T),
+                           mean(data_scen$mean_winning, na.rm = T),
+                           mean(data_scen$mean_trade, na.rm = T),
+                           mean(data_scen$mean_cpi, na.rm = T),
+                           mean(data_scen$mean_industrial, na.rm = T),
+                           mean(data_scen$mean_pop, na.rm = T),
+                           mean(data_scen$year, na.rm = T))
+
+# colnames
+colnames(scen_1_min_b_econ) <- names(fixef(m4_re_wb))
+
+# copy existing scenario1 into new object scenario2 
+scen_1_max_b_econ <- scen_1_min_b_econ
+
+# switch only the changing values to get scenario with max econ
+scen_1_max_b_econ[, which(colnames(scen_1_max_b_econ) == "mean_income")] <- max(data_scen$mean_income)
+scen_1_max_b_econ[, which(colnames(scen_1_max_b_econ) == "mean_income_sq")] <- max(data_scen$mean_income_sq)
+
+# bind scenarios together
+X_c_b_econ <- rbind(scen_1_max_b_econ, scen_1_min_b_econ)
+
+# Calculate the linear predictor on log scale
+X_beta_b_econ <- beta_tilde_b %*% t(X_c_b_econ)
+
+# Now transform back to original scale
+
+# First add draws of 1/2*sigma2_tilde to each column
+X_beta_sigma_tilde_b_dem <- apply(X_beta_b_econ, 2, function(x) x + 1/2*sigma2_tilde_b)
+
+# Transform
+E_Y_c_b_econ <- exp(X_beta_sigma_tilde_b_dem)
+
+# Summarize to get CIs
+CI_E_Y_c_b_econ <- apply(E_Y_c_b_econ, 2, quantile, c(0.025, 0.975))
+
+# Use beta_hat and sigma_hat for point estimates
+X_beta_hat_b <- beta_hat_b %*% t(X_c_b_econ)
+X_beta_sigma_hat_b_econ <- X_beta_hat_b + 1/2*sigma_hat_b^2
+
+# Point estimate
+E_Y_c_hat_b_econ <- exp(X_beta_sigma_hat_b_econ)
+
+# First difference
+FD_max_min_hat_b_econ <- E_Y_c_hat_b_econ[,1] - E_Y_c_hat_b_econ[,2]
+FD_max_min_b_econ <- E_Y_c_b_econ[,1] - E_Y_c_b_econ[,2]
+CI_FD_max_min_b_econ <- quantile(FD_max_min_b_econ, c(0.025, 0.975))
+
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV?
+#-------------------------------------------------------------------------------
+share_fd_sd_b_econ <- abs(FD_max_min_hat_b_econ)/sd_pm25_b
+
+```
+
+### 2.3 DEMOCRACY - Between - EV and FD (min and max democracy)
+
+```{r between democ}
+
+#-------------------------------------------------------------------------------
+# Scenarios
+#-------------------------------------------------------------------------------
+
+# Set scenarios
+scen_1_min_b_dem <- cbind(1,
+                          mean(data_scen$mean_inequ),
+                          mean(data_scen$demeaned_inequ, na.rm = T),
+                          mean(data_scen$demeaned_income, na.rm = T),
+                          mean(data_scen$demeaned_income_sq, na.rm = T),
+                          mean(data_scen$demeaned_winning, na.rm = T),
+                          mean(data_scen$demeaned_trade, na.rm = T),
+                          mean(data_scen$demeaned_cpi, na.rm = T),
+                          mean(data_scen$demeaned_industrial, na.rm = T),
+                          mean(data_scen$demeaned_pop, na.rm = T),
+                          mean(data_scen$mean_income, na.rm = T),
+                          mean(data_scen$mean_income_sq, na.rm = T),
+                          min(data_scen$mean_winning, na.rm = T),
+                          mean(data_scen$mean_trade, na.rm = T),
+                          mean(data_scen$mean_cpi, na.rm = T),
+                          mean(data_scen$mean_industrial, na.rm = T),
+                          mean(data_scen$mean_pop, na.rm = T),
+                          mean(data_scen$year, na.rm = T))
+
+# colnames
+colnames(scen_1_min_b_dem) <- names(fixef(m4_re_wb))
+
+# copy existing scenario1 into new object scenario2 
+scen_1_max_b_dem <- scen_1_min_b_dem
+
+# switch only the changing values to get scenario with max winning
+scen_1_max_b_dem[, which(colnames(scen_1_max_b_dem) == "mean_winning")] <- max(data_scen$mean_winning)
+
+# bind scenarios together
+X_c_b_dem <- rbind(scen_1_max_b_dem, scen_1_min_b_dem)
+
+# Calculate the linear predictor on log scale
+X_beta_b_dem <- beta_tilde_b %*% t(X_c_b_dem)
+
+# Now transform back to original scale
+
+# First add draws of 1/2*sigma2_tilde to each column
+X_beta_sigma_tilde_b_dem <- apply(X_beta_b_dem, 2, function(x) x + 1/2*sigma2_tilde_b)
+
+# Transform
+E_Y_c_b_dem <- exp(X_beta_sigma_tilde_b_dem)
+
+# Summarize to get CIs
+CI_E_Y_c_b_dem <- apply(E_Y_c_b_dem, 2, quantile, c(0.025, 0.975))
+
+# Use beta_hat and sigma_hat for point estimates
+X_beta_hat_b_dem <- beta_hat_b %*% t(X_c_b_dem)
+X_beta_sigma_hat_b_dem <- X_beta_hat_b_dem + 1/2*sigma_hat_b^2
+
+# Point estimate
+E_Y_c_hat_b_dem <- exp(X_beta_sigma_hat_b_dem)
+
+# First difference
+FD_max_min_hat_b_dem <- E_Y_c_hat_b_dem[,1] - E_Y_c_hat_b_dem[,2]
+FD_max_min_b_dem <- E_Y_c_b_dem[,1] - E_Y_c_b_dem[,2]
+CI_FD_max_min_b_dem <- quantile(FD_max_min_b_dem, c(0.025, 0.975))
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV?
+#-------------------------------------------------------------------------------
+share_fd_sd_b_dem <- abs(FD_max_min_hat_b_dem)/sd_pm25_b
+
+```
+
+### Overview Table
+
+```{r table overview}
+
+#-------------------------------------------------------------------------------
+# First difference table
+#-------------------------------------------------------------------------------
+output_w <- rbind(cbind(FD_max_min_hat_w[1],
+                        CI_FD_max_min_w[[1]],
+                        CI_FD_max_min_w[[2]]),
+                  cbind(FD_max_min_hat_w_econ[1],
+                        CI_FD_max_min_w_econ[[1]],
+                        CI_FD_max_min_w_econ[[2]]),
+                  cbind(FD_max_min_hat_w_dem[1],
+                        CI_FD_max_min_w_dem[[1]],
+                        CI_FD_max_min_w_dem[[2]]))
+
+output_b <- rbind(cbind(FD_max_min_hat_b[1],
+                        CI_FD_max_min_b[[1]],
+                        CI_FD_max_min_b[[2]]),
+                  cbind(FD_max_min_hat_b_econ[1],
+                        CI_FD_max_min_b_econ[[1]],
+                        CI_FD_max_min_b_econ[[2]]),
+                  cbind(FD_max_min_hat_b_dem[1],
+                        CI_FD_max_min_b_dem[[1]],
+                        CI_FD_max_min_b_dem[[2]]))
+
+## round
+output_w <- round(output_w, digits = 2)
+output_b <- round(output_b, digits = 2)
+
+colnames(output_w) <- c("FD","2.5%-CI", "97.5%-CI")
+colnames(output_b) <- c("FD","2.5%-CI", "97.5%-CI")
+
+rownames(output_w) <- c("Top 10%-share", "GDP per capita", "Democracy")
+rownames(output_b) <- c("Top 10%-share", "GDP per capita", "Democracy")
+
+
+stargazer(output_w,
+          title = "Comparison of substantive effects - Within",
+          header = F,
+          digits = 2,
+          type = "latex")
+
+stargazer(output_b,
+          title = "Comparison of substantive effects - Between",
+          header = F,
+          digits = 2,
+          type = "latex")
+```
+
+
+## 3 - EKC (range of GDP per capita) - Observed value
+
+```{r ekc}
+
+# Set up informal posterior of coefficients
+nsim <- 1000 # number of draws
+beta_hat_ekc <- coef(m1_re_wb_fe)
+sigma_hat_ekc <- summary(m1_re_wb_fe)$sigma
+X_prime_X_ekc <- summary(m1_re_wb_fe)$cov.unscaled
+
+# First sigma^2
+set.seed(199610)
+sigma2_tilde_ekc <- rinvgamma(nsim,
+                              shape = m1_re_wb_fe$df.residual/2,
+                              rate = (sigma_hat_ekc^2*m1_re_wb_fe$df.residual)/2)
+
+# Now the betas
+beta_tilde_ekc <- matrix(NA,
+                         nrow = nsim,
+                         ncol = length(beta_hat_ekc))
+
+for(sim in 1:nsim){
+  beta_tilde_ekc[sim, ] <-
+    MASS::mvrnorm(1, beta_hat_ekc, X_prime_X_ekc * sigma2_tilde_ekc[sim])
+}
+
+# set scenario
+range_inc <- as.vector(seq(min(data_scen$`2_gdp_pc_log`), max(data_scen$`2_gdp_pc_log`), length.out = 30))
+range_inc_sq <- range_inc^2 
+
+
+# Create empty matrix to store the scenarios
+cases <- array(NA, 
+               c(dim(X_w), length(range_inc)))
+
+# Copy in our X
+cases[,,] <- X_w # because OVA not Average case!
+
+# Select: GDP > over range
+for(i in 1:length(range_inc)){
+  cases[ ,3, i] <- range_inc[i]
+  cases[ ,4, i] <- range_inc_sq[i]
+}
+
+dim(cases) 
+# check dimensions 
+# 2759 rows/datapoints
+# 165 variables (incl. country dummies)
+# 30 scenarios
+
+# Calculate linear predictor on log scale & retransform
+E_Y_c_ekc <- matrix(NA, nrow = nsim, ncol = length(range_inc)) # empty matrix for storage
+
+for(i in 1:length(range_inc)){                # 30 rounds (for range of income variable)
+  ev <- beta_tilde_w %*% t(cases[,,i])        # calculate linear predictor on log scale
+  ev_plus_gamma <- ev + 1/2*sigma2_tilde_w    # add draws of 1/2*sigma2_tilde
+  ev_transf <- exp(ev_plus_gamma)             # transform
+  tmp_val <- apply(ev_transf, 1, mean)        # now average results
+  E_Y_c_ekc[, i] <- tmp_val                   # store in val object
+}
+
+# Summarize to get CIs
+CI_E_Y_c_ekc <- apply(E_Y_c_ekc, 2, quantile, c(0.025, 0.975))
+
+# Now get the point estimates 
+E_Y_c_hat_ekc <- matrix(NA, nrow = length(range_inc), ncol = 1)
+
+for(i in 1:length(range_inc)){                         # 30 rounds (for range of income variable)
+  ev_point <- beta_hat_w %*% t(cases[,,i])             # use beta_hat (not simulated)
+  ev_point_plus_gamma <- ev_point + 1/2*sigma_hat_w^2  # use sigma_hat (not simulated)
+  ev_point_transf <- exp(ev_point_plus_gamma)          # transform
+  tmp_val_point <- apply(ev_point_transf, 1, mean)     # average 
+  E_Y_c_hat_ekc[i,] <- tmp_val_point                   # store
+}
+
+
+#-------------------------------------------------------------------------------
+# Calculate turning point EKC
+#-------------------------------------------------------------------------------
+## First order derivative of X (GDP per capita) and set equal to zero
+## f(x) = 0.53 log(x) - 0.02 log(x)^2
+## f'(x) = 0.53 - 0.02*2 log(x)
+## f'(x) = 0
+## 0.53 - 0.04 log(x) = 0
+## -0.04 log(x) = -0.53
+## log(x) = 13.25
+## x = 568070
+
+turning_point_log <- summary(m1_re_wb)$coefficients[4,1]/(-2*summary(m1_re_wb)$coefficients[5,1])
+turning_point <- exp(turning_point_log)
+
+summary(exp(data_scen$`2_gdp_pc_log`), na.rm = T)
+quantile(exp(data_scen$`2_gdp_pc_log`), 0.97, na.rm = T)
+
+## The turning point is at 1 500 978 $US which is outside the given income range.
+
+
+#-------------------------------------------------------------------------------
+# Plot
+#-------------------------------------------------------------------------------
+
+pdf("Plots/EV_GDP per capita.pdf") 
+
+par(mar = c(5.1, 4.7, 4.1, 2.1)) # c(bottom, left, top, right))
+
+plot(exp(range_inc)/1000,
+     E_Y_c_hat_ekc,
+     type = "n",
+     ylim = c(0, 40),
+     # xlim = c(5, 12),
+     ylab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     xlab = "GDP per capita [$US 1000]",
+     bty = "n",
+     main = NULL,
+     cex.lab = 1.3)
+
+segments(x0 = exp(range_inc)/1000, x1 = exp(range_inc)/1000,
+         y1 = CI_E_Y_c_ekc[2,], y0 = CI_E_Y_c_ekc[1,],
+         col = viridis(3, 0.5)[2],
+         lwd = 3, lend = 1)
+
+points(exp(range_inc)/1000, E_Y_c_hat_ekc, col = viridis(3, 0.8)[2], pch = 20,
+       cex = 1.5)
+
+abline(v = turning_point/1000,
+       lty = 2, lwd = 2,
+       col = "grey")
+
+# Add a "histogram" of actual X1-values.
+axis(1,
+     at = exp(data_scen$`2_gdp_pc_log`)/1000,
+     col.ticks = "gray30",
+     labels = FALSE,
+     tck = 0.02)
+
+dev.off()
+
+```
+
+
+## Robustness
+
+### Measurement error economic inequality
+
+```{r me inequality}
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+country_match <- read.csv2("data/Controls/country_match.csv",
+                           header = T, sep = ";", dec = ".")
+
+iso_match <- read.csv2("data/Controls/iso_match.csv",
+                           header = T, sep = ";", dec = ".")
+
+data_quality <- read.csv2("data/Controls/data-quality.csv",
+                           header = T, sep = ";", dec = ".")
+
+#-------------------------------------------------------------------------------
+# Combine
+#-------------------------------------------------------------------------------
+
+# colnames
+colnames(country_match)[2] <- "iso"
+
+# combine iso and country match
+match <- left_join(country_match, iso_match, by = "iso")
+data_qual <- left_join(match, data_quality, by = "iso2")
+
+# extract relevant variables
+data_qual <- data_qual[,c(1, 5)]
+colnames(data_qual)[1] <- "country"
+
+# impute some values by hand
+data_qual$data_quality[which(data_qual$country == "Ukraine")] <- 1
+data_qual$data_quality[which(data_qual$country == "Venezuela ")] <- 0
+data_qual$data_quality[which(data_qual$country == "Suriname")] <- 0
+data_qual$data_quality[which(data_qual$country == "Reunion")] <- 5
+data_qual$data_quality[which(data_qual$country == "Peru")] <- 4
+data_qual$data_quality[which(data_qual$country == "Panama")] <- 0
+data_qual$data_quality[which(data_qual$country == "Nicaragua")] <- 0
+data_qual$data_quality[which(data_qual$country == "Mexico")] <- 4
+data_qual$data_quality[which(data_qual$country == "Jamaica")] <- 0
+data_qual$data_quality[which(data_qual$country == "Cuba")] <- 0
+data_qual$data_quality[which(data_qual$country == "Dominican Republic")] <- 4
+data_qual$data_quality[which(data_qual$country == "Haiti")] <- 0
+data_qual$data_quality[which(data_qual$country == "Israel")] <- 1
+data_qual$data_quality[which(data_qual$country == "Ireland")] <- 4
+data_qual$data_quality[which(data_qual$country == "Guatemala")] <- 0
+data_qual$data_quality[which(data_qual$country == "Honduras")] <- 0
+data_qual$data_quality[which(data_qual$country == "Greenland")] <- 4
+data_qual$data_quality[which(data_qual$country == "Georgia")] <- 4
+data_qual$data_quality[which(data_qual$country == "El Salvador")] <- 4
+data_qual$data_quality[which(data_qual$country == "Costa Rica")] <- 4
+data_qual$data_quality[which(data_qual$country == "Colombia")] <- 4
+data_qual$data_quality[which(data_qual$country == "Bolivia")] <- 0
+data_qual$data_quality[which(data_qual$country == "Belarus")] <- 1
+data_qual$data_quality[which(data_qual$country == "Belize")] <- 0
+data_qual$data_quality[which(data_qual$country == "Azerbaijan")] <- 1
+data_qual$data_quality[which(data_qual$country == "Armenia")] <- 1
+data_qual$data_quality[which(data_qual$country == "Argentina")] <- 4
+data_qual$data_quality[which(data_qual$country == "Anguilla")] <- 1
+data_qual$data_quality[which(data_qual$country == "United Kingdom")] <- 4
+data_qual$data_quality[which(data_qual$country == "Paraguay")] <- 0
+
+data <- left_join(data, data_qual, by = "country")
+
+
+#-------------------------------------------------------------------------------
+# Add data quality-specific measurement error
+#-------------------------------------------------------------------------------
+data_me <- data[,c("country","data_quality",
+                   "lead_log_PM25", "top10", "2_gdp_pc_log", "2_gdp_pc_log_sq", 
+                   "W4", "trade_openness", "cpi", "industry_share", "pop_dens_log", "year")]
+
+
+## create a matrix with different sigma_err
+sigma_err <- matrix(NA,
+                    nrow = 10,
+                    ncol = 6)
+
+sigma_err[1,] <- c(0.00001, 0.001, 0.002, 0.003, 0.004, 0.005)
+
+for(i in 2:10) {
+  sigma_err[i,] <- sigma_err[1,]*i  ## per row the errors increase (x2, x3, x4, ...)
+}
+
+
+## create a matrix for different top10 (with increasing measurement error)
+top10_me <- matrix(NA,
+                   nrow = nrow(data_me),
+                   ncol = 10)
+
+set.seed(123456)
+
+for(i in 1:nrow(top10_me)){
+  for(j in 1:nrow(sigma_err)){
+      top10_me[i,j] <- ifelse(data_me$data_quality[i] == 5, data_me$top10[i] + rnorm(length(data_me$top10), 0, sigma_err[j,1]),
+                        ifelse(data_me$data_quality[i] == 4, data_me$top10[i] + rnorm(length(data_me$top10), 0, sigma_err[j,2]),
+                         ifelse(data_me$data_quality[i] == 3, data_me$top10[i] + rnorm(length(data_me$top10), 0, sigma_err[j,3]),
+                          ifelse(data_me$data_quality[i] == 2, data_me$top10[i] + rnorm(length(data_me$top10), 0, sigma_err[j,4]),
+                           ifelse(data_me$data_quality[i] == 1, data_me$top10[i] + rnorm(length(data_me$top10), 0, sigma_err[j,5]),
+                            ifelse(data_me$data_quality[i] == 0, data_me$top10[i] + rnorm(length(data_me$top10), 0, sigma_err[j,6]), NA)))))) 
+  }
+}
+
+colnames(top10_me)[1:10] <- c("top10_me1", "top10_me2", "top10_me3", "top10_me4", "top10_me5", 
+                              "top10_me6", "top10_me7", "top10_me8", "top10_me9", "top10_me10")
+
+top10_me <- as.data.frame(top10_me)
+
+## merge back to data_me
+data_me <- cbind(data_me, top10_me)
+
+
+#-------------------------------------------------------------------------------
+# Run regressions with the new top 10s
+#-------------------------------------------------------------------------------
+
+## create list element to store regression results
+reg_res <- list()
+
+## indicate columns of top10
+# make sure I will select the right columns for the country dummies
+first_top10me <- which(colnames(data_me) == "top10_me1")
+last_top10me <- which(colnames(data_me) == "top10_me10")
+col_top10 <- c(4, first_top10me:last_top10me) 
+
+## add column for varying top10
+data_me$var_top10 <- NA
+
+## estimate regression with different variable for top10
+for(i in 1:length(col_top10)){
+  col <- col_top10[i]
+  data_me[,"var_top10"] <- data_me[,col]
+  reg_res[[i]] <- lm(lead_log_PM25 ~ var_top10 + 
+                      `2_gdp_pc_log` + `2_gdp_pc_log_sq` + W4 + 
+                       trade_openness + cpi + industry_share + pop_dens_log + year +
+                       as.factor(country),
+                     data = data_me)
+}
+
+## extract relevant beta coefficients and standard errors
+mod_summary <- list()
+top10_est <- matrix(NA,
+                    nrow = 11,
+                    ncol = 2)
+
+## loop through the 11 regressions and extract
+for(i in 1:11){
+  mod_summary[[i]] <- summary(reg_res[[i]])
+  top10_est[i,1:2] <- mod_summary[[i]]$coefficients[2,1:2]
+}
+
+## add column names
+colnames(top10_est)[1:2] <- c("Est.", "SE")
+
+## get sampling distributions of coefficients
+set.seed(123456)
+nsim <- 1000
+sim_top10 <- matrix(NA,
+                    ncol = nrow(top10_est),
+                    nrow = nsim)
+
+for(j in 1:nrow(top10_est)){
+  sim_top10[,j] <- rnorm(n = nsim,
+                         mean = top10_est[j,1],
+                         sd = top10_est[j,2])
+}
+
+## get point estimates & CIs
+res_top10 <- matrix(NA,
+                    ncol = 3,
+                    nrow = nrow(top10_est))
+
+for(i in 1:nrow(top10_est)){
+  res_top10[i,] <- quantile(x = sim_top10[,i],
+                            probs =  c(0.025, 0.5, 0.975))
+}
+
+## add column names
+colnames(res_top10)[1:3] <- c("CI_low", "Est", "CI_up")
+res_top10 <- as.data.frame(res_top10)
+
+
+#-------------------------------------------------------------------------------
+# Plot the data
+#-------------------------------------------------------------------------------
+color_est <- ifelse(res_top10$CI_low > 0 & res_top10$CI_up < 0|
+                    res_top10$CI_low < 0 & res_top10$CI_up > 0,
+                    "darkgrey", viridis(3)[1])
+
+color_ci <- ifelse(res_top10$CI_low > 0 & res_top10$CI_up < 0|
+                   res_top10$CI_low < 0 & res_top10$CI_up > 0,
+                   "darkgrey", viridis(3, alpha = 0.4)[1]) 
+
+## Plot
+pdf("Plots/Measurement_error.pdf") 
+
+par(mar = c(5.1, 4.1, 2.5, 2.1)) # c(bottom, left, top, right))
+
+plot(y = rev(c(0.2,0.4, 0.6, 0.8, 1, 1.2,
+           1.4, 1.6, 1.8, 2, 2.2)),
+     x = res_top10$Est,
+     col = color_est,
+     ylim = c(0,2.5),
+     xlim = c(-0.5,0.2),
+     xlab = "Point Estimates of Top 10%-Share",
+     pch = 19,
+     main = NULL, 
+     bty = "n",
+     ylab = "",
+     yaxt = "n",
+     cex = 1.5,
+     cex.lab = 1.1)
+
+segments(y0 = rev(c(0.2,0.4, 0.6, 0.8, 1, 1.2,
+                1.4, 1.6, 1.8, 2, 2.2)), 
+         y1 = rev(c(0.2,0.4, 0.6, 0.8, 1, 1.2,
+                1.4, 1.6, 1.8, 2, 2.2)), 
+         x0 = res_top10$CI_low,
+         x1 = res_top10$CI_up,
+         col = color_ci,
+         lwd = 4, cex = 1.5, lend = 1)
+
+text(x = 0.12,
+     y = rev(c(0.2,0.4, 0.6, 0.8, 1, 1.2,
+           1.4, 1.6, 1.8, 2, 2.2)),
+     labels = c("Original", "1. round", "2. round",
+                "3. round", "4. round", "5. round", "6. round",
+                "7. round", "8. round", "9. round", "10. round"),
+     cex = 1)
+
+segments(x0 = 0, y0 = 0,
+         x1 = 0, y1 = 2.5,
+         lty = "dashed", lwd = 2)
+
+dev.off()
+
+```
+
+
+# Exporing causal mechanisms
+
+```{r causal}
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+load("data/Controls/wvs.RData")
+
+
+#-------------------------------------------------------------------------------
+# Plot preference distributions
+#-------------------------------------------------------------------------------
+
+pdf("plots/Preference_distributions.pdf")
+par(mfrow = c(4,2))
+
+# Loop through unique iso values
+for (i in unique(preference_shares$iso)) {
+
+  ## create temporary dataset
+  country_data <- preference_shares[preference_shares$iso == i,]
+
+  ## create a bar plot
+  p <- barplot(country_data$preference_share, 
+          names.arg = levels(factor(country_data$income_dec)),
+          ylim = c(0, 1.1),
+          yaxt = "none",
+          ylab = "Preference share",
+          xlab = "Income decile",
+          main = i,
+          col = viridis(3)[1],
+          cex.names = 0.8,
+          cex.axis = 0.8)
+  
+  ## add customized y-axis
+  axis(2, round(seq(0,1, 0.5), digits = 1), cex.axis = 0.7)
+  
+  ## add text labels
+  text(x = p, y = country_data$preference_share, 
+       labels = paste("n =", as.character(country_data$n)), 
+       pos = 3, cex = 0.5, xpd = NA)
+}
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+# Models - Preference for Environmental Protection Top 20%
+#-------------------------------------------------------------------------------
+
+## subset data
+data_causal <- data[which(!is.na(data$ratio) &
+                          data$year == 2017),]
+
+data_causal <- data_causal[which(!is.na(data_causal$top10) &
+                                 !is.na(data_causal$ratio)),]
+
+## Full model
+m_c <- lm(lead_log_PM25 ~ pref_top_20 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` + v2x_polyarchy + 
+            trade_openness + cpi + industry_share + pop_dens_log, 
+          data = data_causal)
+
+## Model more democratic countries
+m_c_dem <- lm(lead_log_PM25 ~ pref_top_20 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` +  
+                trade_openness + cpi + industry_share + pop_dens_log, 
+              data = data_causal[which(data_causal$v2x_polyarchy > 0.5),])
+
+## Model less democratic countries
+m_c_non_dem <- lm(lead_log_PM25 ~ pref_top_20 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` + 
+                    trade_openness + cpi + industry_share + pop_dens_log,  
+                  data = data_causal[which(data_causal$v2x_polyarchy <= 0.5),])
+
+## Model interaction with democracy
+m_c_int <- lm(lead_log_PM25 ~ pref_top_20 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` +  v2x_polyarchy + 
+               trade_openness + cpi + industry_share + pop_dens_log + pref_top_20*v2x_polyarchy, 
+              data = data_causal)
+
+## Output
+stargazer(m_c, m_c_dem, m_c_non_dem, m_c_int, type = "text")
+
+## Plot
+library(interplot)
+
+interplot(m_c_int,
+          var1 = "pref_top_20",
+          var2 = "v2x_polyarchy",
+          hist = T,
+          ci = 0.9,
+          sims = 1000) +
+  xlab("Electoral democracy") +
+  ylab("Marginal effect") +
+  ggtitle("Effect of preference of Top 20% for environmental protection \nconditional on the level of democracy") +
+  theme_bw() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  theme(axis.line = element_line(colour = "black"),
+        axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        axis.text = element_text(size = 13),
+        plot.title = element_text(size = 17, face = "bold", hjust = 0.5),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+
+
+#-------------------------------------------------------------------------------
+# Models - Preference for Environmental Protection Bottom 50%
+#-------------------------------------------------------------------------------
+
+## Full model
+m_c2 <- lm(lead_log_PM25 ~ pref_bottom_50 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` + v2x_polyarchy + 
+            trade_openness + cpi + industry_share + pop_dens_log, 
+          data = data_causal)
+
+## Model more democratic countries
+m_c_dem2 <- lm(lead_log_PM25 ~ pref_bottom_50 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` +  
+                trade_openness + cpi + industry_share + pop_dens_log, 
+              data = data_causal[which(data_causal$v2x_polyarchy > 0.5),])
+
+## Model less democratic countries
+m_c_non_dem2 <- lm(lead_log_PM25 ~ pref_bottom_50 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` + 
+                    trade_openness + cpi + industry_share + pop_dens_log,  
+                  data = data_causal[which(data_causal$v2x_polyarchy <= 0.5),])
+
+## Model interaction with democracy
+m_c_int2 <- lm(lead_log_PM25 ~ pref_bottom_50 + `2_gdp_pc_log` + `2_gdp_pc_log_sq` +  v2x_polyarchy + 
+               trade_openness + cpi + industry_share + pop_dens_log + pref_bottom_50*v2x_polyarchy, 
+              data = data_causal)
+
+## Output
+stargazer(m_c2, m_c_dem2, m_c_non_dem2, m_c_int2, type = "text")
+
+
+## Plot
+interplot(m_c_int2,
+          var1 = "pref_bottom_50",
+          var2 = "v2x_polyarchy",
+          hist = T,
+          ci = 0.9,
+          sims = 1000) +
+  xlab("Electoral democracy") +
+  ylab("Marginal effect") +
+  ggtitle("Effect of preference of Bottom 50% for environmental protection \nconditional on the level of democracy") +
+  theme_bw() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  theme(axis.line = element_line(colour = "black"),
+        axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        axis.text = element_text(size = 13),
+        plot.title = element_text(size = 17, face = "bold", hjust = 0.5),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+
+
+#-------------------------------------------------------------------------------
+# Models - Preference Ratio
+#-------------------------------------------------------------------------------
+
+## Full model
+m_c3 <- lm(lead_log_PM25 ~ ratio + `2_gdp_pc_log` + `2_gdp_pc_log_sq` + v2x_polyarchy + 
+            trade_openness + cpi + industry_share + pop_dens_log, 
+          data = data_causal)
+
+## Model more democratic countries
+m_c_dem3 <- lm(lead_log_PM25 ~ ratio + `2_gdp_pc_log` + `2_gdp_pc_log_sq` +  
+                trade_openness + cpi + industry_share + pop_dens_log, 
+              data = data_causal[which(data_causal$v2x_polyarchy > 0.5),])
+
+## Model less democratic countries
+m_c_non_dem3 <- lm(lead_log_PM25 ~ ratio + `2_gdp_pc_log` + `2_gdp_pc_log_sq` + 
+                    trade_openness + cpi + industry_share + pop_dens_log,  
+                  data = data_causal[which(data_causal$v2x_polyarchy <= 0.5),])
+
+## Model interaction with democracy
+m_c_int3 <- lm(lead_log_PM25 ~ ratio + `2_gdp_pc_log` + `2_gdp_pc_log_sq` +  v2x_polyarchy + 
+               trade_openness + cpi + industry_share + pop_dens_log + ratio*v2x_polyarchy, 
+              data = data_causal)
+
+## Output
+stargazer(m_c3, m_c_dem3, m_c_non_dem3, m_c_int3, type = "text")
+
+
+## Plot
+interplot(m_c_int3,
+          var1 = "ratio",
+          var2 = "v2x_polyarchy",
+          hist = T,
+          ci = 0.9,
+          sims = 1000) +
+  xlab("Electoral democracy") +
+  ylab("Marginal effect") +
+  ggtitle("Effect of preference ratio on air pollution \nconditional on the level of democracy") +
+  theme_bw() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  theme(axis.line = element_line(colour = "black"),
+        axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        axis.text = element_text(size = 13),
+        plot.title = element_text(size = 17, face = "bold", hjust = 0.5),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+
+
+#-------------------------------------------------------------------------------
+# Plot preference ratio
+#-------------------------------------------------------------------------------
+data_causal$ratio <- data_causal$ratio - 1
+
+pdf("plots/Preference_ratios.pdf")
+
+ggplot(data_causal,
+       aes(x = reorder(country, ratio), y = ratio, fill = ratio >= 0)) +
+  theme_classic() +
+  geom_bar(stat = "identity") +
+  labs(y = "Preference ratio", x = "Countries") +
+
+  scale_fill_manual(name = NULL,
+                    breaks = c("TRUE", "FALSE"),
+                    labels = c("Top 20 > Bottom 50", "Top 20 < Bottom 50"),
+                    values = c(viridis(3)[2], 
+                               viridis(3)[1])) +
+  
+  scale_y_continuous(breaks = c(-0.5, 0, 0.5, 1),
+                     labels = c("0.5", "1", "1.5", "2")) +
+
+  geom_hline(yintercept = 0, color = 1, lwd = 0.2) +
+  theme(axis.text.x = element_text(size = 10), 
+        axis.text.y = element_text(size = 5),
+        axis.ticks.y = element_blank(),
+        axis.title = element_text(size = 12),
+        legend.position = "bottom", 
+        legend.text = element_text(size = 10)) +
+
+  coord_flip()
+
+dev.off()
+
+
+#-------------------------------------------------------------------------------
+# Scatter plot: inequality and preference Top 20%
+#-------------------------------------------------------------------------------
+plot(data_causal$top10, data_causal$pref_top_20,
+     pch = 19,
+   #  ylim = c(0, 2.1),
+     xlim = c(0.2, 0.8),
+     xlab = "Top-10% share",
+     ylab = "Preference ratio",
+     bty = "n")
+
+text(x = data_causal$top10, y = data_causal$pref_top_20, 
+     labels = as.character(data_causal$country), 
+     pos = 3, cex = 0.5, xpd = NA)
+
+abline(h = 1)
+
+#-------------------------------------------------------------------------------
+# Scatter plot: democracy and preference Top 20%
+#-------------------------------------------------------------------------------
+plot(data_causal$v2x_polyarchy, data_causal$pref_top_20,
+     pch = 19,
+   #  ylim = c(0, 2.1),
+     xlim = c(0, 1),
+     xlab = "Electoral democracy",
+     ylab = "Preference ratio",
+     bty = "n")
+
+text(x = data_causal$v2x_polyarchy, y = data_causal$pref_top_20, 
+     labels = as.character(data_causal$country), 
+     pos = 3, cex = 0.5, xpd = NA)
+
+abline(h = 1)
+
+#-------------------------------------------------------------------------------
+# Scatter plot: GDP and preference Top 20%
+#-------------------------------------------------------------------------------
+plot(data_causal$`2_gdp_pc_log`, data_causal$pref_top_20,
+     pch = 19,
+    # ylim = c(0, 2.1),
+    # xlim = c(0, 1),
+     xlab = "GDP per cap (log)",
+     ylab = "Preference ratio",
+     bty = "n")
+
+text(x = data_causal$`2_gdp_pc_log`, y = data_causal$pref_top_20, 
+     labels = as.character(data_causal$country), 
+     pos = 3, cex = 0.5, xpd = NA)
+
+abline(h = 1)
+
+```
+

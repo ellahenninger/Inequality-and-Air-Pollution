@@ -1,0 +1,1464 @@
+---
+title: "01_data_prep"
+author: "Ella Henninger"
+date: "27 07 2023"
+output: html_document
+---
+
+The following file makes transparent the preparatory steps (compilation of the final data set) for the analyses performed in the paper "The Environmental Price of Economic Inequality - Decomposing the Effect of Income Disparities on Exposure to Air Pollution".
+
+
+# Contents of the replication packet
+
+## Data
+ - **Air pollution data**: From Donkelaar et al. (2021), https://sites.wustl.edu/acag/datasets/surface-pm2-5/#TOOLS 
+ - **Inequality data**: From World Inequality Database (2023), https://wid.world/data/ 
+ - **Power distribution**: From V-Dem (2023), https://www.v-dem.net/data/the-v-dem-dataset/
+ - **Gini index**: From World Population Review, https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country (combined from World Bank  and CIA World Factbook)
+ - **Economic data**: 
+     - From World Development Indicators (2023), https://databank.worldbank.org/source/world-development-indicators# 
+     - World Economic Outlook (2022), https://www.imf.org/en/Publications/WEO/weo-database/2022/October/download-entire-database
+     
+ - **Institutional variable**: From Bueno de Mesquita and Smith (2022), https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/UYLXRO
+ - **Corruption data**: From Transparency International - Corruption Perception Index (2023), https://www.transparency.org/en/cpi/2022 
+ - **Population data**: From World Development Indicators (2023): https://data.worldbank.org/indicator/EN.POP.DNST
+ - **Climate data**: From World Bank (2011), https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdatabankfiles.worldbank.org%2Fpublic%2Fddpext_download%2Fcatalog%2Fcckp_historical_data_0.xls&wdOrigin=BROWSELINK (time period of the data: 1961-1999)
+ 
+ 
+## Code
+ - **01_data_prep.rmd** is replicating the compilation of the data set used in the analyses.
+ - **02_analyses.rmd** is replicating all analyses and plots to be found in the master's thesis.
+
+
+**The code in 01_data_prep.rmd is structured as follows**:
+
+1. Set up
+
+2. Load data
+2.1 Air pollution
+2.2 Inequality (Income and wealth)
+2.3 Controls (Trade openness, GDP (per capita, per squ.km, growth, industry share), winning coalition, corruption, population, climatic factors)
+
+3. Compilation of final data set
+
+
+**As a note**: You may be asked to update some packages, please press "yes" to make sure the file runs smoothly.
+
+# Session info
+R version: 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19045)
+
+These package versions are required to make the code run smoothly:
+rlang: 1.1.0
+dplyr: 1.0.10
+vctrs: 0.5.0
+
+Depending on your R version and existing package versions installed, you may have to update them manually.
+
+
+# Set up
+
+```{r setup, include=FALSE}
+
+## clean environment
+rm(list = ls())
+
+# Define which packages needed for analyses
+p_needed <-
+  c("knitr",
+    "dplyr", 
+    "stargazer",
+    "ggplot2",
+    "viridis",
+    "rsample",
+    "data.table",
+    "matrixStats")
+
+# Check which packages are already installed on your computer
+packages <- rownames(installed.packages())
+
+# Check which packages are not installed
+p_to_install <- p_needed[!(p_needed %in% packages)]
+
+if (length(p_to_install) > 0) {
+  install.packages(p_to_install)
+}
+sapply(p_needed, require, character.only = TRUE)
+
+
+# Set an option for the final document that can be produced from the .Rmd file.
+knitr::opts_chunk$set(echo = TRUE)
+
+## For replicability: session information 
+session_info <- print(sessionInfo())
+
+```
+
+
+# Load data
+
+## Dependent variable: Air pollution
+
+```{r air poll}
+
+#-------------------------------------------------------------------------------
+## Load the data
+#-------------------------------------------------------------------------------
+air_pollution <- read.csv2("data/Air Pollution/GlobalPM25-V5GL03-1998-2021(1).csv",
+                           header = T, sep = ",", dec = ".")
+
+
+#-------------------------------------------------------------------------------
+## some cleaning and renaming
+#-------------------------------------------------------------------------------
+
+## rename first column
+colnames(air_pollution)[1:7] <- c("country", "year", "PM25_pop_weighed", "PM25_geo_mean",
+                                  "pop_coverage", "geo_coverage", "pop_tot_mio")
+
+## log
+air_pollution$log_PM <- log(air_pollution$PM25_pop_weighed)
+
+## lead PM2.5
+air_pollution <- air_pollution %>%
+  group_by(country) %>%
+  arrange(year) %>%
+  mutate(lead_PM25 = dplyr::lead(PM25_pop_weighed))
+
+## lead log(PM2.5)
+air_pollution <- air_pollution %>%
+  group_by(country) %>%
+  arrange(year) %>%
+  mutate(lead_log_PM25 = dplyr::lead(log_PM))
+
+```
+
+## Country selection and groups
+
+```{r countries}
+
+## country years for merging
+countries <- air_pollution[,c(1:2)]
+
+## group countries
+countries_low_income <- c("Afghanistan", "Burkina Faso", "Burundi", "Central African Republic",
+                          "Chad", "Democratic Republic of the Congo", "Eritrea", "Ethiopia",
+                          "Gambia", "Guinea", "Guinea-Bissau", "North Korea", "Liberia", "Madagascar", "Malawi",
+                          "Mali", "Mozambique", "Niger", "Rwanda", "Sierra Leone", "Somalia",
+                          "South Sudan", "Sudan", "Syria", "Togo", "Uganda", "Yemen", "Zambia")
+
+countries_low_mid_income <- c("Algeria", "Angola", "Bangladesh", "Benin", "Bhutan", "Bolivia",
+                              "Benin", "Cape Verde", "Cambodia", "Cameroon", "Comoros", 
+                              "Republic of Congo", "Cote d'Ivoire", "Djibouti", "Egypt", "El Salvador",
+                              "Swaziland", "Ghana", "Haiti", "Honduras", "India", "Indonesia",
+                              "Iran", "Kenya", "Kiribati", "Kyrgyztan", "Laos", "Lebanon",
+                              "Lesotho", "Mauritania", "Micronesia", "Mongolia", "Morocco",
+                              "Myanmar", "Nepal", "Nicaragua", "Nigeria", "Pakistan", 
+                              "Papua New Guinea", "Philippines", "Samoa", "Sao Tome and Principe",
+                              "Senegal", "Solomon Islands", "Sri Lanka", "Tajikistan", "Tanzania",
+                              "Timor-Leste", "Tunisia", "Ukraine", "Uzbekistan", "Vanuatu",
+                              "Vietnam", "Palestina", "Zimbabwe")
+
+countries_up_mid_income <- c("Albania", "Armenia", "American Samoa", "Argentina", "Azerbaijan",
+                             "Belarus", "Belize", "Bosnia and Herzegovina", "Botswana",
+                             "Brazil", "Bulgaria", "China", "Colombia", "Costa Rica", "Cuba",
+                             "Dominica", "Dominican Republic", "Ecuador", "Equatorial Guinea",
+                             "Fiji", "Gabon", "Georgia", "Grenada", "Guatemala", "Guyana",
+                             "Iraq", "Jamaica", "Jordan", "Kazakhstan", "Kosovo", "Libya",
+                             "Malaysia", "Maldives", "Marshall Islands", "Mauritius", "Mexico",
+                             "Moldova", "Montenegro", "Namibia", "North Macedonia", "Palau",
+                             "Paraguay", "Peru", "Russia", "Serbia", "South Africa", "St. Lucia",
+                             "Saint Vincent and the Grenadines", "Suriname", "Thailand", "Tonga",
+                             "Turkey", "Turkmenistan", "Tuvalu", "Venezuela")
+
+countries_high_income <- c("Andorra", "Antigua and Barbuda", "Aruba", "Australia", "Austria", 
+                           "Bahamas", "Bahrain", "Barbados", "Belgium", "Bermuda", "British Virgin Islands",
+                           "Brunei", "Canada", "Cayman Islands", "Channel Islands", "Chile", "Croatia",
+                           "Curacao", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Faroe Islands", "Finland",
+                           "France", "French Polynesia", "Germany", "Gibraltar", "Greece", "Greenland",
+                           "Guam", "Hong Kong", "Hungary", "Iceland", "Ireland", "Isle of Man", "Israel",
+                           "Italy", "Japan", "Korea, Rep.", "Kuwait", "Latvia", "Liechtenstein",
+                           "Lithuania", "Luxembourg", "Macao", "Malta", "Monaco", "Nauru", "Netherlands",
+                           "New Caledonia", "New Zealand", "Northern Mariana Islands", "Norway", "Oman",
+                           "Panama", "Poland", "Portugal", "Puerto Rico", "Qatar", "Romania", "San Marino",
+                           "Saudi Arabia", "Seychelles", "Singapore", "Sint Marteen", "Slovakia", "Slovenia",
+                           "Spain", "Saint Kitts and Nevis", "Saint Martin", "Sweden", "Switzerland", 
+                           "Trinidad and Tobago", "Turks and Caicos Islands", "United Arab Emirates",
+                           "United Kingdom", "United States", "Uruguay", "Virgin Islands U.S.")
+
+```
+
+
+# Indendent variables 
+
+## Income inequality 
+
+```{r income inequ}
+
+#-------------------------------------------------------------------------------
+## load WID income inequality 
+#-------------------------------------------------------------------------------
+top_10 <- read.csv2("data/Inequality/top10share.csv",
+                    header = T, sep = ";", dec = ".")
+
+top_1 <- read.csv2("data/Inequality/top1share.csv",
+                    header = T, sep = ";", dec = ".")
+
+bottom_50 <- read.csv2("data/Inequality/bottom50share.csv",
+                    header = T, sep = ";", dec = ".")
+
+#-------------------------------------------------------------------------------
+## organizing and renaming data
+#-------------------------------------------------------------------------------
+inequality <- left_join(top_1, top_10, by = c("country", "year"))
+inequality <- left_join(inequality, bottom_50, by = c("country", "year"))
+
+## Common country identifiers
+inequality$country[which(inequality$country == "USA")] <- "United States"
+inequality$country[which(inequality$country == "DR Congo")] <- "Democratic Republic of the Congo"
+inequality$country[which(inequality$country == "Russian Federation")] <- "Russia"
+inequality$country[which(inequality$country == "Viet Nam")] <- "Vietnam"
+inequality$country[which(inequality$country == "Syrian Arab Republic")] <- "Syria"
+inequality$country[which(inequality$country == "Lao PDR")] <- "Laos"
+inequality$country[which(inequality$country == "Congo")] <- "Republic of Congo"
+inequality$country[which(inequality$country == "Brunei Darussalam")] <- "Brunei"
+inequality$country[which(inequality$country == "Lao PDR")] <- "Laos"
+inequality$country[which(inequality$country == "Cabo Verde")] <- "Cape Verde"
+
+## drop irrelevant variable
+inequality <- inequality[,-c(4:5,7)]
+
+#-------------------------------------------------------------------------------
+## create Top 10/Bottom 50 ratio variable
+#-------------------------------------------------------------------------------
+inequality$t10b50ratio <- inequality$top10/inequality$bottom50
+
+## match to countries
+inequality <- left_join(countries, inequality, by = c("country", "year"))
+
+#-------------------------------------------------------------------------------
+## clean up
+#-------------------------------------------------------------------------------
+remove(top_10)
+remove(bottom_50)
+remove(top_1)
+
+## decrease in cases?
+inequality_na <- na.omit(inequality)
+length(unique(inequality_na$country))
+
+```
+
+## Wealth inequality
+
+```{r wealth inequ}
+
+#-------------------------------------------------------------------------------
+## load WID data - wealth inequality
+#-------------------------------------------------------------------------------
+wealth <- read.csv2("data/Inequality/wealth_inequality.csv",
+                    header = T, sep = ";", dec = ".")
+
+## Common country identifiers
+wealth$country[which(wealth$country == "USA")] <- "United States"
+wealth$country[which(wealth$country == "DR Congo")] <- "Democratic Republic of the Congo"
+wealth$country[which(wealth$country == "Russian Federation")] <- "Russia"
+wealth$country[which(wealth$country == "Viet Nam")] <- "Vietnam"
+wealth$country[which(wealth$country == "Syrian Arab Republic")] <- "Syria"
+wealth$country[which(wealth$country == "Lao PDR")] <- "Laos"
+wealth$country[which(wealth$country == "Congo")] <- "Republic of Congo"
+wealth$country[which(wealth$country == "Brunei Darussalam")] <- "Brunei"
+wealth$country[which(wealth$country == "Lao PDR")] <- "Laos"
+wealth$country[which(wealth$country == "Cabo Verde")] <- "Cape Verde"
+
+#-------------------------------------------------------------------------------
+## organizing and renaming data
+#-------------------------------------------------------------------------------
+wealth_bottom50 <- wealth[which(wealth$name == "p0p50"),]
+wealth_top10 <- wealth[which(wealth$name == "p90p100"),]
+wealth_top1 <- wealth[which(wealth$name == "p99p100"),]
+
+## join together
+wealth <- left_join(wealth_bottom50, wealth_top10, by = c("country", "year"))
+wealth <- left_join(wealth, wealth_top1, by = c("country", "year"))
+
+## select and rename relevant variables
+wealth <- dplyr::select(wealth, country, year, value.x, value.y, value)
+colnames(wealth)[3:5] <- c("wealth_bottom50", "wealth_top10", "wealth_top1")
+
+## Top10/Bottom50 ratio
+wealth$wealth_t10b50 <- wealth$wealth_top10 / wealth$wealth_bottom50
+
+## match to countries
+wealth <- left_join(countries, wealth, by = c("country", "year"))
+
+#-------------------------------------------------------------------------------
+## clean up
+#-------------------------------------------------------------------------------
+remove(wealth_bottom50)
+remove(wealth_top10)
+remove(wealth_top1)
+
+## decrease in cases?
+wealth_na <- na.omit(wealth)
+length(unique(wealth_na$country))
+
+```
+
+## Alternative - Gini
+
+```{r gini}
+
+#-------------------------------------------------------------------------------
+## load data
+#-------------------------------------------------------------------------------
+gini <- read.csv2("data/Controls/gini.csv",
+                   header = T, sep = ",", dec = ".")
+
+country_match <- read.csv2("data/Controls/country_match.csv",
+                           header = T, sep = ";", dec = ".")
+
+#-------------------------------------------------------------------------------
+# Transformations
+#-------------------------------------------------------------------------------
+## colnames
+colnames(country_match)[2] <- "iso"
+
+## delet variables
+gini <- gini[,-c(1:4, 7:14, 19)]
+
+## colnames
+colnames(gini)[2] <- "iso"
+
+## combine
+gini <- left_join(country_match, gini, by = "iso")
+
+## drop double country
+gini <- gini[,-3]
+
+## colnames
+colnames(gini)[1] <- "country"
+
+## create combined gini variable
+gini$gini <- rowMeans(gini[,c("giniWB",
+                              "giniCIA")], 
+                      na.rm = T)
+
+gini$gini[which(gini$gini == "NaN")] <- NA
+
+## rescale to range from 0 to 1
+gini$gini <- gini$gini/100
+
+## years from 1992-2019
+
+```
+
+
+# Controls
+
+## Controls: Trade openness
+
+```{r trade openness}
+
+#-------------------------------------------------------------------------------
+## Import & export - WDI data
+#-------------------------------------------------------------------------------
+
+## Imports----------------------------------------------------------------------
+imports <- read.csv2("data/Controls/imports.csv",
+                  header = T, 
+                  sep = ";", 
+                  dec = ".",
+                  stringsAsFactors = F)
+
+## drop empty rows
+imports <- imports[-c(267:269),]
+
+## drop irrelevant variables
+imports <- imports[,-c(2:4)]
+
+## rename columns
+colnames(imports)[1] <- "country"
+colnames(imports)[2:25] <- 1998:2021
+
+## reshape
+imports_long <- gather(imports,
+                       year,
+                       imports,
+                       "1998":"2021", 
+                       factor_key = TRUE)
+
+## Exports----------------------------------------------------------------------
+exports <- read.csv2("data/Controls/exports.csv",
+                     header = T, 
+                     sep = ";", 
+                     dec = ".",
+                     stringsAsFactors = F)
+
+## drop empty rows
+exports <- exports[-c(267:269),]
+
+## drop irrelevant variables
+exports <- exports[,-c(2:4)]
+
+## rename columns
+colnames(exports)[1] <- "country"
+colnames(exports)[2:25] <- 1998:2021
+
+## reshape
+exports_long <- gather(exports,
+                       year,
+                       exports,
+                       "1998":"2021", 
+                       factor_key = TRUE)
+
+## Combine trade-openness-------------------------------------------------------
+trade <- left_join(imports_long, exports_long, by = c("country", "year"))
+
+## trade-openness variable: (imports + exports)/100
+trade$trade_openness <- (trade$imports + trade$exports)/100
+
+## common country identifier
+trade$country[which(trade$country == "West Bank and Gaza")] <- "Palestina"
+trade$country[which(trade$country == "Yemen, Rep.")] <- "Yemen"
+trade$country[which(trade$country == "Turkiye")] <- "Turkey"
+trade$country[which(trade$country == "Syrian Arab Republic")] <- "Syria"
+trade$country[which(trade$country == "Slovak Republic")] <- "Slovakia"
+trade$country[which(trade$country == "Russian Federation")] <- "Russia"
+trade$country[which(trade$country == "Lao PDR")] <- "Laos"
+trade$country[which(trade$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+trade$country[which(trade$country == "Korea, Rep.")] <- "South Korea"
+trade$country[which(trade$country == "Korea, Dem. People's Rep.")] <- "North Korea"
+trade$country[which(trade$country == "Iran, Islamic Rep.")] <- "Iran"
+trade$country[which(trade$country == "Hong Kong SAR, China")] <- "Hong Kong"
+trade$country[which(trade$country == "Gambia, The")] <- "Gambia"
+trade$country[which(trade$country == "Egypt, Arab Rep.")] <- "Egypt"
+trade$country[which(trade$country == "Czechia")] <- "Czech Republic"
+trade$country[which(trade$country == "Congo, Dem. Rep.")] <- "Democratic Republic of the Congo"
+trade$country[which(trade$country == "Congo, Rep.")] <- "Republic of Congo"
+trade$country[which(trade$country == "Brunei Darussalam")] <- "Brunei"
+trade$country[which(trade$country == "Cabo Verde")] <- "Cape Verde"
+trade$country[which(trade$country == "Bahamas, The")] <- "Bahamas"
+trade$country[which(trade$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+trade$country[which(trade$country == "Venezuela, RB")] <- "Venezuela"
+trade$country[which(trade$country == "North Macedonia")] <- "Macedonia"
+trade$country[which(trade$country == "Eswatini")] <- "Swaziland"
+trade$country[which(trade$country == "Micronesia, Fed. Sts.")] <- "Micronesia"
+trade$country[which(trade$country == "Viet Nam")] <- "Vietnam"
+
+
+## filter to relevant countries
+trade$year <- as.numeric(as.character(trade$year))
+trade <- left_join(countries, trade, by = c("country", "year"))
+
+#-------------------------------------------------------------------------------
+## clean up
+#-------------------------------------------------------------------------------
+remove(exports)
+remove(imports)
+remove(exports_long)
+remove(imports_long)
+
+## decrease in cases?
+trade_na <- na.omit(trade)
+length(unique(trade_na$country))
+
+```
+
+## Controls: GDP per capita
+
+```{r GDP}
+
+#-------------------------------------------------------------------------------
+## GDP and GDP pc - World Economic Outlook 
+#-------------------------------------------------------------------------------
+econ <- read.csv2("data/Controls/WEO2.csv",
+                  header = T,
+                  sep = ";",
+                  dec = ".",
+                  na.strings = "",
+                  stringsAsFactors = F)
+
+## Drop irrelevant years
+econ <- econ[,-c(10:27)]
+econ <- econ[,-c(34:40)]
+
+## Replace n/a with NA
+econ[econ == ""] <- NA
+
+## Common country identifier
+colnames(econ)[4] <- "country"
+colnames(econ)[10:33] <- 1998:2021
+
+## reshape
+econ_long <- gather(econ,
+                    year,
+                    value,
+                    "1998":"2021",
+                    factor_key = TRUE)
+
+econ_long$year <- as.numeric(as.character(econ_long$year))
+
+gdp <- econ_long[which(econ_long$WEO.Subject.Code == "NGDPD"),]
+gdp_ppp <- econ_long[which(econ_long$WEO.Subject.Code == "NGDPRPPPPC"),]
+
+
+gdp <- dplyr::select(gdp, country, year, value)
+colnames(gdp)[3] <- "gdp"
+
+gdp_ppp <- dplyr::select(gdp_ppp, country, year, value)
+colnames(gdp_ppp)[3] <- "gdp_ppp"
+
+
+#-------------------------------------------------------------------------------
+## compile one data frame for econ variables
+#-------------------------------------------------------------------------------
+data_gdp <- left_join(gdp, gdp_ppp, by = c("country", "year"))
+
+## common country identifier
+data_gdp$country[which(data_gdp$country == "West Bank and Gaza")] <- "Palestina"
+data_gdp$country[which(data_gdp$country == "Yemen, Rep.")] <- "Yemen"
+data_gdp$country[which(data_gdp$country == "Turkiye")] <- "Turkey"
+data_gdp$country[which(data_gdp$country == "Syrian Arab Republic")] <- "Syria"
+data_gdp$country[which(data_gdp$country == "Slovak Republic")] <- "Slovakia"
+data_gdp$country[which(data_gdp$country == "Russian Federation")] <- "Russia"
+data_gdp$country[which(data_gdp$country == "Lao P.D.R.")] <- "Laos"
+data_gdp$country[which(data_gdp$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+data_gdp$country[which(data_gdp$country == "Korea")] <- "South Korea"
+data_gdp$country[which(data_gdp$country == "Korea, Dem. People's Rep.")] <- "North Korea"
+data_gdp$country[which(data_gdp$country == "Islamic Republic of Iran")] <- "Iran"
+data_gdp$country[which(data_gdp$country == "Hong Kong SAR")] <- "Hong Kong"
+data_gdp$country[which(data_gdp$country == "The Gambia")] <- "Gambia"
+data_gdp$country[which(data_gdp$country == "Egypt, Arab Rep.")] <- "Egypt"
+data_gdp$country[which(data_gdp$country == "Czechia")] <- "Czech Republic"
+data_gdp$country[which(data_gdp$country == "Congo, Dem. Rep.")] <- "Democratic Republic of the Congo"
+data_gdp$country[which(data_gdp$country == "Congo, Rep.")] <- "Republic of Congo"
+data_gdp$country[which(data_gdp$country == "Brunei Darussalam")] <- "Brunei"
+data_gdp$country[which(data_gdp$country == "Taiwan Province of China")] <- "Taiwan"
+data_gdp$country[which(data_gdp$country == "St. Kitts and Nevis")] <- "Saint Kitts and Nevis"
+data_gdp$country[which(data_gdp$country == "St. Lucia")] <- "Saint Lucia"
+data_gdp$country[which(data_gdp$country == "St. Vincent and the Grenadines")] <- "Saint Vincent and the Grenadines"
+data_gdp$country[which(data_gdp$country == "North Macedonia")] <- "Macedonia"
+data_gdp$country[which(data_gdp$country == "Eswatini")] <- "Swaziland"
+data_gdp$country[which(data_gdp$country == "Cabo Verde")] <- "Cape Verde"
+data_gdp$country[which(data_gdp$country == "Bahamas, The")] <- "Bahamas"
+data_gdp$country[which(data_gdp$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+data_gdp$country[which(data_gdp$country == "Venezuela, RB")] <- "Venezuela"
+data_gdp$country[which(data_gdp$country == "Viet Nam")] <- "Vietnam"
+
+## final combine
+data_gdp <- left_join(countries, data_gdp, by = c("country", "year"))
+
+## add gdp in thousands
+data_gdp$gdp_pc_thousands <- data_gdp$gdp_ppp/1000
+
+
+#-------------------------------------------------------------------------------
+## clean up
+#-------------------------------------------------------------------------------
+remove(econ)
+remove(econ_long)
+remove(gdp)
+remove(gdp_ppp)
+
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+gdp_pc <- read.csv2("data/Controls/gdp_per_capita.csv",
+                     header = T, 
+                     sep = ";", 
+                     dec = ".",
+                     stringsAsFactors = F)
+
+## join 
+gdp_pc <- left_join(country_match, gdp_pc, by = "iso")
+gdp_pc <- gdp_pc[,-c(2,3)]
+
+## rename
+colnames(gdp_pc)[1] <- "country"
+colnames(gdp_pc)[2:22] <- 2000:2020
+
+## reshape
+gdp_long <- gather(gdp_pc,
+                   year,
+                   gdp_pc,
+                   "2000":"2020", 
+                   factor_key = TRUE)
+
+gdp_long$year <- as.numeric(as.character(gdp_long$year))
+
+## delete white space at the end of string
+library(stringr)
+gdp_long$country <- str_trim(gdp_long$country, side = c("right"))
+
+## join to gdp
+gdp <- left_join(countries, gdp_long, by = c("country", "year"))
+
+## transform variable log and then square
+gdp$gdp_pc_log <- log(gdp$gdp_pc)
+gdp$gdp_pc_log_sq <- gdp$gdp_pc_log^2
+gdp$gdp_pc_log_cub <- gdp$gdp_pc_log^3
+
+## rename
+colnames(gdp)[3:6] <- c("2_gdp_pc", "2_gdp_pc_log", "2_gdp_pc_log_sq", "2_gdp_pc_log_cub")
+
+
+#-------------------------------------------------------------------------------
+## Get a "three year average of lagged GDP per capita"
+#-------------------------------------------------------------------------------
+
+## lag and lead gdp per capita
+gdp <- gdp %>%
+  group_by(country) %>%
+  arrange(year)%>%
+  mutate(lag_gdp_pc = dplyr::lag(`2_gdp_pc_log`),  ## lag one year
+         lead_gdp_pc = dplyr::lead(`2_gdp_pc_log`) ## lead one year
+         )    
+
+## fill some empty spots
+gdp$gdp_pc_cur <- ifelse(!is.na(gdp$`2_gdp_pc_log`),                      ## if GDP is not NA
+                                gdp$`2_gdp_pc_log`, gdp$lag_gdp_pc)       ## keep value, if it is NA, use t = -1 value
+
+gdp$lead_gdp_pc <- ifelse(!is.na(gdp$lead_gdp_pc),                        ## if lead GDP is not NA
+                                 gdp$lead_gdp_pc, gdp$`2_gdp_pc_log`)     ## keep value, if it is NA, use t = 0 value
+
+gdp$lag_gdp_pc <- ifelse(!is.na(gdp$lag_gdp_pc),                          ## if lag GDP is not NA
+                                gdp$lag_gdp_pc, gdp$`2_gdp_pc_log`)       ## keep value, if it is NA, use t = 0 value
+
+## build moving average
+gdp$mov_av_gdp <- rowMeans(gdp[,c("lag_gdp_pc",
+                                  "gdp_pc_cur",
+                                  "lead_gdp_pc")])
+
+
+## get this variable squared and cubic
+gdp$mov_av_gdp_sq <- gdp$mov_av_gdp^2
+gdp$mov_av_gdp_cub <- gdp$mov_av_gdp^3
+
+## relace NaN with NA
+gdp[gdp == "NaN"] <- NA
+
+#-------------------------------------------------------------------------------
+## clean up
+#-------------------------------------------------------------------------------
+remove(gdp_long)
+remove(gdp_pc)
+
+## decrease in cases?
+data_gdp_na <- na.omit(data_gdp)
+gdp_na <- na.omit(gdp)
+
+length(unique(data_gdp_na$country))
+length(unique(gdp_na$country))
+
+```
+
+## Controls: GDP per square kilometer
+
+```{r GDP km}
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+area_sqkm <- read.csv2("data/Controls/area_sqkm.csv",
+                      header = T, 
+                      sep = ";", 
+                      dec = ".",
+                      stringsAsFactors = F)
+
+## drop and rename
+colnames(area_sqkm)[1] <- "country"
+colnames(area_sqkm)[3] <- "area_sqkm"
+
+## common country identifier
+area_sqkm$country[which(area_sqkm$country == "West Bank and Gaza")] <- "Palestina"
+area_sqkm$country[which(area_sqkm$country == "Yemen, Rep.")] <- "Yemen"
+area_sqkm$country[which(area_sqkm$country == "Turkiye")] <- "Turkey"
+area_sqkm$country[which(area_sqkm$country == "Syrian Arab Republic")] <- "Syria"
+area_sqkm$country[which(area_sqkm$country == "Slovak Republic")] <- "Slovakia"
+area_sqkm$country[which(area_sqkm$country == "Russian Federation")] <- "Russia"
+area_sqkm$country[which(area_sqkm$country == "Lao PDR")] <- "Laos"
+area_sqkm$country[which(area_sqkm$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+area_sqkm$country[which(area_sqkm$country == "Korea, Rep.")] <- "South Korea"
+area_sqkm$country[which(area_sqkm$country == "Korea, Dem. People's Rep.")] <- "North Korea"
+area_sqkm$country[which(area_sqkm$country == "Iran, Islamic Rep.")] <- "Iran"
+area_sqkm$country[which(area_sqkm$country == "Hong Kong SAR, China")] <- "Hong Kong"
+area_sqkm$country[which(area_sqkm$country == "Gambia, The")] <- "Gambia"
+area_sqkm$country[which(area_sqkm$country == "Egypt, Arab Rep.")] <- "Egypt"
+area_sqkm$country[which(area_sqkm$country == "Czechia")] <- "Czech Republic"
+area_sqkm$country[which(area_sqkm$country == "Congo, Dem. Rep.")] <- "Democratic Republic of the Congo"
+area_sqkm$country[which(area_sqkm$country == "Congo, Rep.")] <- "Republic of Congo"
+area_sqkm$country[which(area_sqkm$country == "Macao SAR, China")] <- "Macao"
+area_sqkm$country[which(area_sqkm$country == "Brunei Darussalam")] <- "Brunei"
+area_sqkm$country[which(area_sqkm$country == "Taiwan Province of China")] <- "Taiwan"
+area_sqkm$country[which(area_sqkm$country == "St. Kitts and Nevis")] <- "Saint Kitts and Nevis"
+area_sqkm$country[which(area_sqkm$country == "St. Lucia")] <- "Saint Lucia"
+area_sqkm$country[which(area_sqkm$country == "St. Vincent and the Grenadines")] <- "Saint Vincent and the Grenadines"
+area_sqkm$country[which(area_sqkm$country == "North Macedonia")] <- "Macedonia"
+area_sqkm$country[which(area_sqkm$country == "Eswatini")] <- "Swaziland"
+area_sqkm$country[which(area_sqkm$country == "Micronesia, Fed. Sts.")] <- "Micronesia"
+area_sqkm$country[which(area_sqkm$country == "Cabo Verde")] <- "Cape Verde"
+area_sqkm$country[which(area_sqkm$country == "Bahamas, The")] <- "Bahamas"
+area_sqkm$country[which(area_sqkm$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+area_sqkm$country[which(area_sqkm$country == "Venezuela, RB")] <- "Venezuela"
+area_sqkm$country[which(area_sqkm$country == "Yemen, Rep.")] <- "Yemen"
+area_sqkm$country[which(area_sqkm$country == "Viet Nam")] <- "Vietnam"
+
+## join to gdp
+data_gdp <- left_join(data_gdp, area_sqkm, by = "country")
+
+## add GDP per square km
+data_gdp$gdp_sqkm <- data_gdp$gdp/data_gdp$area_sqkm
+
+#-------------------------------------------------------------------------------
+# clean up
+#-------------------------------------------------------------------------------
+remove(area_sqkm)
+
+## decrease in cases?
+data_gdp_na <- na.omit(data_gdp)
+length(unique(data_gdp_na$country))
+
+```
+
+## Controls: GDP per capita growth
+
+```{r GDP growth}
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+gdp_pc_growth <- read.csv2("data/Controls/gdp_pc_growth.csv",
+                           header = T, 
+                           sep = ";", 
+                           dec = ".",
+                           stringsAsFactors = F)
+
+## rename
+colnames(gdp_pc_growth)[3:23] <- 2000:2020
+
+## common country identifier
+gdp_pc_growth$country[which(gdp_pc_growth$country == "West Bank and Gaza")] <- "Palestina"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Yemen, Rep.")] <- "Yemen"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Turkiye")] <- "Turkey"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Syrian Arab Republic")] <- "Syria"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Slovak Republic")] <- "Slovakia"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Russian Federation")] <- "Russia"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Lao PDR")] <- "Laos"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Korea, Rep.")] <- "South Korea"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Korea, Dem. People's Rep.")] <- "North Korea"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Iran, Islamic Rep.")] <- "Iran"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Hong Kong SAR, China")] <- "Hong Kong"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Gambia, The")] <- "Gambia"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Egypt, Arab Rep.")] <- "Egypt"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Czechia")] <- "Czech Republic"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Congo, Dem. Rep.")] <- "Democratic Republic of the Congo"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Congo, Rep.")] <- "Republic of Congo"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Macao SAR, China")] <- "Macao"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Brunei Darussalam")] <- "Brunei"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Taiwan Province of China")] <- "Taiwan"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "St. Kitts and Nevis")] <- "Saint Kitts and Nevis"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "St. Lucia")] <- "Saint Lucia"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "St. Vincent and the Grenadines")] <- "Saint Vincent and the Grenadines"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "North Macedonia")] <- "Macedonia"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Eswatini")] <- "Swaziland"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Micronesia, Fed. Sts.")] <- "Micronesia"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Cabo Verde")] <- "Cape Verde"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Bahamas, The")] <- "Bahamas"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Venezuela, RB")] <- "Venezuela"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Yemen, Rep.")] <- "Yemen"
+gdp_pc_growth$country[which(gdp_pc_growth$country == "Viet Nam")] <- "Vietnam"
+
+## reshape
+growth_long <- gather(gdp_pc_growth,
+                       year,
+                       gdp_pc_growth,
+                       "2000":"2020", 
+                       factor_key = TRUE)
+
+growth_long <- growth_long[,-2]
+growth_long$year <- as.numeric(as.character(growth_long$year))
+
+## join to gdp
+data_gdp <- left_join(data_gdp, growth_long, by = c("country", "year"))
+
+## transform variable
+data_gdp$gdp_pc_growth <- data_gdp$gdp_pc_growth/100
+
+
+#-------------------------------------------------------------------------------
+# clean up
+#-------------------------------------------------------------------------------
+remove(gdp_pc_growth)
+remove(growth_long)
+
+## decrease in cases?
+data_gdp_na <- na.omit(data_gdp)
+length(unique(data_gdp_na$country))
+
+```
+
+## Controls: Industry as share of GDP
+
+```{r industry}
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+industry <- read.csv2("data/Controls/industry.csv",
+                      header = T, 
+                      sep = ";", 
+                      dec = ".",
+                      stringsAsFactors = F)
+
+## rename
+colnames(industry)[1] <- "country"
+colnames(industry)[3:23] <- 2000:2020
+
+## reshape
+industry_long <- gather(industry,
+                        year,
+                        industry_share,
+                        "2000":"2020", 
+                        factor_key = TRUE)
+
+industry_long <- industry_long[,-2]
+industry_long$year <- as.numeric(as.character(industry_long$year))
+
+## common country identifier
+industry_long$country[which(industry_long$country == "West Bank and Gaza")] <- "Palestina"
+industry_long$country[which(industry_long$country == "Yemen, Rep.")] <- "Yemen"
+industry_long$country[which(industry_long$country == "Turkiye")] <- "Turkey"
+industry_long$country[which(industry_long$country == "Syrian Arab Republic")] <- "Syria"
+industry_long$country[which(industry_long$country == "Slovak Republic")] <- "Slovakia"
+industry_long$country[which(industry_long$country == "Russian Federation")] <- "Russia"
+industry_long$country[which(industry_long$country == "Lao PDR.")] <- "Laos"
+industry_long$country[which(industry_long$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+industry_long$country[which(industry_long$country == "Korea, Rep.")] <- "South Korea"
+industry_long$country[which(industry_long$country == "Korea, Dem. People's Rep.")] <- "North Korea"
+industry_long$country[which(industry_long$country == "Iran, Islamic Rep.")] <- "Iran"
+industry_long$country[which(industry_long$country == "Hong Kong SAR, China")] <- "Hong Kong"
+industry_long$country[which(industry_long$country == "Gambia, The")] <- "Gambia"
+industry_long$country[which(industry_long$country == "Egypt, Arab Rep.")] <- "Egypt"
+industry_long$country[which(industry_long$country == "Czechia")] <- "Czech Republic"
+industry_long$country[which(industry_long$country == "Congo, Dem. Rep.")] <- "Democratic Republic of the Congo"
+industry_long$country[which(industry_long$country == "Congo, Rep.")] <- "Republic of Congo"
+industry_long$country[which(industry_long$country == "Macao SAR, China")] <- "Macao"
+industry_long$country[which(industry_long$country == "Brunei Darussalam")] <- "Brunei"
+industry_long$country[which(industry_long$country == "Taiwan Province of China")] <- "Taiwan"
+industry_long$country[which(industry_long$country == "St. Kitts and Nevis")] <- "Saint Kitts and Nevis"
+industry_long$country[which(industry_long$country == "St. Lucia")] <- "Saint Lucia"
+industry_long$country[which(industry_long$country == "St. Vincent and the Grenadines")] <- "Saint Vincent and the Grenadines"
+industry_long$country[which(industry_long$country == "North Macedonia")] <- "Macedonia"
+industry_long$country[which(industry_long$country == "Eswatini")] <- "Swaziland"
+industry_long$country[which(industry_long$country == "Micronesia, Fed. Sts.")] <- "Micronesia"
+industry_long$country[which(industry_long$country == "Cabo Verde")] <- "Cape Verde"
+industry_long$country[which(industry_long$country == "Bahamas, The")] <- "Bahamas"
+industry_long$country[which(industry_long$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+industry_long$country[which(industry_long$country == "Venezuela, RB")] <- "Venezuela"
+industry_long$country[which(industry_long$country == "Yemen, Rep.")] <- "Yemen"
+industry_long$country[which(industry_long$country == "Viet Nam")] <- "Vietnam"
+
+## join to gdp
+data_gdp <- left_join(data_gdp, industry_long, by = c("country", "year"))
+
+## transform variable
+data_gdp$industry_share <- data_gdp$industry_share/100
+
+#-------------------------------------------------------------------------------
+# clean up
+#-------------------------------------------------------------------------------
+remove(industry)
+remove(industry_long)
+
+## decrease in cases?
+data_gdp_na <- na.omit(data_gdp)
+length(unique(data_gdp_na$country))
+
+```
+
+## Controls: Winning coalition
+
+```{r winning coal}
+
+#-------------------------------------------------------------------------------
+## Winning coalition / Selectorate
+#-------------------------------------------------------------------------------
+wovers <- read.csv2("data/Controls/NewWmeasure.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".",
+                  na.strings = "",
+                  stringsAsFactors = F)
+
+## drop irrelevant variables
+wovers <- wovers[,-3]
+
+## filter years
+wovers <- wovers[which(wovers$year >= 1998),]
+
+## change column name
+colnames(wovers)[1] <- "country"
+
+## common country identifiers
+wovers$country[which(wovers$country == "United States of America")] <- "United States"
+wovers$country[which(wovers$country == "The Gambia")] <- "Gambia"
+wovers$country[which(wovers$country == "Republic of the Congo")] <- "Republic of Congo"
+wovers$country[which(wovers$country == "Republic of Vietnam")] <- "Vietnam"
+wovers$country[which(wovers$country == "Burma/Myanmar")] <- "Myanmar"
+wovers$country[which(wovers$country == "Ivory Coast")] <- "Cote d'Ivoire"
+wovers$country[which(wovers$country == "Eswatini")] <- "Swaziland"
+
+## match to countries
+wovers <- left_join(countries, wovers, by = c("country", "year"))
+
+## decrease in cases?
+wovers_na <- na.omit(wovers)
+length(unique(wovers_na$country))
+
+```
+
+## Controls: Polyarchy
+
+```{r polyarchy}
+
+#-------------------------------------------------------------------------------
+# load data
+#-------------------------------------------------------------------------------
+vdem <- readRDS("data/Controls/V-Dem-CY-Full+Others-v13.rds")
+
+colnames(vdem)[2] <- "iso"
+vdem$iso[which(vdem$iso == "PSG")] <- "PSE"
+
+## filter years
+vdem <- vdem[which(vdem$year >= 2000),]
+
+## filter indicators
+vdem_s <- vdem[,c("country_name",
+                  "iso",
+                  "year",
+                  "v2x_polyarchy",    ## electoral democracy index
+                  "e_p_polity"        ## polity score (-10 (autocratic) +10 (democratic)) Standarized authority codes (i.e. -66, -77, -88)
+                  )]
+
+## combine
+vdem_s <- left_join(vdem_s, country_match, by = "iso")
+
+## drop first variable
+data_vdem <- vdem_s[,-1]
+
+## set -66, -77, -88 to NA
+data_vdem$e_p_polity[which(data_vdem$e_p_polity < -10)] <- NA
+
+data_vdem <- data_vdem[which(data_vdem$iso != "ZZB"),]
+data_vdem <- data_vdem[which(data_vdem$iso != "SML"),]
+
+data_vdem_dup <- data_vdem[!duplicated(data_vdem), ]
+
+## match
+data_vdem <- left_join(countries, data_vdem, by = c("country", "year"))
+
+
+#-------------------------------------------------------------------------------
+# Clean up
+#-------------------------------------------------------------------------------
+remove(vdem)
+remove(vdem_s)
+
+## decrease in cases?
+data_vdem_na <- na.omit(data_vdem)
+length(unique(data_vdem_na$country))
+
+```
+
+## Controls: Corruption
+
+```{r corrupt}
+
+#-------------------------------------------------------------------------------
+## Load data
+#-------------------------------------------------------------------------------
+load("data/Controls/data_cpi.RData")
+
+## add missing country names
+cpi$country[which(cpi$iso == "MAC")] <- "Macau"
+cpi$country[which(cpi$iso == "KIR")] <- "Kiribati"
+cpi$country[which(cpi$iso == "PRI")] <- "Puerto Rico"
+cpi$country[which(cpi$iso == "WSM")] <- "Samoa"
+cpi$country[which(cpi$iso == "TON")] <- "Tonga"
+
+## common country identifier
+cpi$country[which(cpi$country == "Cabo Verde")] <- "Cape Verde"
+cpi$country[which(cpi$country == "Brunei Darussalam")] <- "Brunei"
+cpi$country[which(cpi$country == "Korea, South")] <- "South Korea"
+cpi$country[which(cpi$country == "Korea, North")] <- "North Korea"
+cpi$country[which(cpi$country == "United States of America")] <- "United States"
+cpi$country[which(cpi$country == "Saint-Martin")] <- "Sint Maarten"
+cpi$country[which(cpi$country == "North Macedonia")] <- "Macedonia"
+cpi$country[which(cpi$country == "Eswatini")] <- "Swaziland"
+
+## combine with countries
+data_cpi <- left_join(countries, cpi, by = c("country", "year"))
+
+## remove duplicates
+data_cpi <- data_cpi[!duplicated(data_cpi), ]
+
+## remove duplicate Costa Rica 2003
+duplic_costa_rica <- which(data_cpi$country == "Costa Rica" &
+                           data_cpi$year == 2003 &
+                           data_cpi$cpi == 2.1)
+
+duplic_namibia <- which(data_cpi$country == "Namibia" &
+                        data_cpi$year == 2006 &
+                        data_cpi$cpi == 2.5)
+
+duplic_iceland <- which(data_cpi$country == "Iceland" &
+                        data_cpi$year == 2009 &
+                        data_cpi$cpi == 8.0)
+
+duplic_bolivia <- which(data_cpi$country == "Bolivia" &
+                        data_cpi$year == 2004 &
+                        data_cpi$cpi == 2.2)
+
+duplic_el_salv <- which(data_cpi$country == "El Salvador" &
+                        data_cpi$year == 2009 &
+                        data_cpi$cpi == 6.6)
+
+duplic_niger <- which(data_cpi$country == "Niger" &
+                      data_cpi$year == 2006 &
+                      data_cpi$cpi == 2.2)
+
+data_cpi <- data_cpi[-c(duplic_costa_rica,
+                        duplic_iceland,
+                        duplic_namibia,
+                        duplic_bolivia,
+                        duplic_el_salv,
+                        duplic_niger),]
+
+#-------------------------------------------------------------------------------
+## Clean up
+#-------------------------------------------------------------------------------
+remove(cpi)
+
+## decrease in cases?
+data_cpi_na <- na.omit(data_cpi)
+length(unique(data_cpi_na$country))
+
+```
+
+## Controls: WVS
+
+```{r wvs}
+
+#-------------------------------------------------------------------------------
+# Load data
+#-------------------------------------------------------------------------------
+load("data/Controls/wvs.RData")
+
+## combine
+wvs <- left_join(country_match, pref_ratio, by = "iso")
+wvs <- left_join(wvs, preference_per_country, by = "iso")
+
+```
+
+## Controls: Population density
+
+```{r pop dens}
+
+#-------------------------------------------------------------------------------
+## Load data
+#-------------------------------------------------------------------------------
+pop_dens <- read.csv2("data/Controls/WDI_Population density.csv",
+                        header = T, sep = ",", dec = ".")
+
+## Filter data
+pop_dens <- pop_dens[,-c(66:67)]
+pop_dens <- pop_dens[,-c(3:44)]
+
+## Common country identifier
+colnames(pop_dens)[1] <- "country"
+colnames(pop_dens)[3:23] <- 2000:2020
+
+## common country identifier
+pop_dens$country[which(pop_dens$country == "Turkiye")] <- "Turkey"
+pop_dens$country[which(pop_dens$country == "Syrian Arab Republic")] <- "Syria"
+pop_dens$country[which(pop_dens$country == "Slovak Republic")] <- "Slovakia"
+pop_dens$country[which(pop_dens$country == "Russian Federation")] <- "Russia"
+pop_dens$country[which(pop_dens$Country.Code == " Rep." &
+                       pop_dens$country == "Korea")] <- "South Korea"
+pop_dens$country[which(pop_dens$Country.Code == " Dem. People's Rep." &
+                       pop_dens$country == "Korea")] <- "North Korea"
+pop_dens$country[which(pop_dens$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+pop_dens$country[which(pop_dens$country == "Hong Kong SAR")] <- "Hong Kong"
+pop_dens$country[which(pop_dens$country == "Brunei Darussalam")] <- "Brunei"
+pop_dens$country[which(pop_dens$country == "West Bank and Gaza")] <- "Palestina"
+pop_dens$country[which(pop_dens$Country.Code == " Dem. Rep." &
+                       pop_dens$country == "Congo")] <- "Democratic Republic of the Congo"
+pop_dens$country[which(pop_dens$Country.Code == " Rep." &
+                       pop_dens$country == "Congo")] <- "Republic of Congo" 
+pop_dens$country[which(pop_dens$country %like% "Czech")] <- "Czech Republic" 
+pop_dens$country[which(pop_dens$country == "Taiwan Province of China")] <- "Taiwan"
+pop_dens$country[which(pop_dens$country == "St. Kitts and Nevis")] <- "Saint Kitts and Nevis"
+pop_dens$country[which(pop_dens$country == "St. Lucia")] <- "Saint Lucia"
+pop_dens$country[which(pop_dens$country == "St. Vincent and the Grenadines")] <- "Saint Vincent and the Grenadines"
+pop_dens$country[which(pop_dens$country == "North Macedonia")] <- "Macedonia"
+pop_dens$country[which(pop_dens$country == "Eswatini")] <- "Swaziland"
+pop_dens$country[which(pop_dens$country == "Cabo Verde")] <- "Cape Verde"
+pop_dens$country[which(pop_dens$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+pop_dens$country[which(pop_dens$country == "Lao PDR")] <- "Laos"
+
+## reshape
+pop_long <- gather(pop_dens,
+                    year,
+                    value,
+                    "2000":"2020", 
+                    factor_key = TRUE)
+
+colnames(pop_long)[4] <- "pop_dens"
+pop_long$year <- as.numeric(as.character(pop_long$year))
+
+## filter countries
+data_pop <- left_join(countries, pop_long, by = c("country", "year"))
+
+## get the variable logged, in thousands, squared and cubic
+data_pop$pop_dens_log <- log(data_pop$pop_dens)
+data_pop$pop_dens_thous <- data_pop$pop_dens/10000 ## 10 000 per sq km
+data_pop$pop_dens_sq <- data_pop$pop_dens_thous^2
+data_pop$pop_dens_cub <- data_pop$pop_dens_thous^3
+
+#-------------------------------------------------------------------------------
+## Clean up
+#-------------------------------------------------------------------------------
+remove(pop_dens)
+remove(pop_long)
+
+## decrease in cases?
+data_pop_na <- na.omit(data_pop)
+length(unique(data_pop_na$country))
+
+```
+
+## Controls: Urban population
+
+```{r urban pop}
+
+#-------------------------------------------------------------------------------
+## Load data
+#-------------------------------------------------------------------------------
+urban_pop <- read.csv2("data/Controls/urban_pop.csv",
+                        header = T, sep = ";", dec = ".")
+
+## Filter data
+urban_pop <- urban_pop[,-c(2:4)]
+
+## Common country identifier
+colnames(urban_pop)[1] <- "country"
+colnames(urban_pop)[2:24] <- 1999:2021
+urban_pop <- urban_pop[,-25]
+
+## common country identifier
+urban_pop$country[which(urban_pop$country == "West Bank and Gaza")] <- "Palestina"
+urban_pop$country[which(urban_pop$country == "Yemen, Rep.")] <- "Yemen"
+urban_pop$country[which(urban_pop$country == "Turkiye")] <- "Turkey"
+urban_pop$country[which(urban_pop$country == "Syrian Arab Republic")] <- "Syria"
+urban_pop$country[which(urban_pop$country == "Slovak Republic")] <- "Slovakia"
+urban_pop$country[which(urban_pop$country == "Russian Federation")] <- "Russia"
+urban_pop$country[which(urban_pop$country == "Lao PDR")] <- "Laos"
+urban_pop$country[which(urban_pop$country == "Kyrgyz Republic")] <- "Kyrgyzstan"
+urban_pop$country[which(urban_pop$country == "Korea, Rep.")] <- "South Korea"
+urban_pop$country[which(urban_pop$country == "Korea, Dem. People's Rep.")] <- "North Korea"
+urban_pop$country[which(urban_pop$country == "Iran, Islamic Rep.")] <- "Iran"
+urban_pop$country[which(urban_pop$country == "Hong Kong SAR, China")] <- "Hong Kong"
+urban_pop$country[which(urban_pop$country == "Gambia, The")] <- "Gambia"
+urban_pop$country[which(urban_pop$country == "Egypt, Arab Rep.")] <- "Egypt"
+urban_pop$country[which(urban_pop$country == "Czechia")] <- "Czech Republic"
+urban_pop$country[which(urban_pop$country == "Congo, Dem. Rep.")] <- "Democratic Republic of the Congo"
+urban_pop$country[which(urban_pop$country == "Congo, Rep.")] <- "Republic of Congo"
+urban_pop$country[which(urban_pop$country == "Macao SAR, China")] <- "Macao"
+urban_pop$country[which(urban_pop$country == "Brunei Darussalam")] <- "Brunei"
+urban_pop$country[which(urban_pop$country == "Taiwan Province of China")] <- "Taiwan"
+urban_pop$country[which(urban_pop$country == "St. Kitts and Nevis")] <- "Saint Kitts and Nevis"
+urban_pop$country[which(urban_pop$country == "St. Lucia")] <- "Saint Lucia"
+urban_pop$country[which(urban_pop$country == "St. Vincent and the Grenadines")] <- "Saint Vincent and the Grenadines"
+urban_pop$country[which(urban_pop$country == "North Macedonia")] <- "Macedonia"
+urban_pop$country[which(urban_pop$country == "Eswatini")] <- "Swaziland"
+urban_pop$country[which(urban_pop$country == "Micronesia, Fed. Sts.")] <- "Micronesia"
+urban_pop$country[which(urban_pop$country == "Cabo Verde")] <- "Cape Verde"
+urban_pop$country[which(urban_pop$country == "Bahamas, The")] <- "Bahamas"
+urban_pop$country[which(urban_pop$country == "Virgin Islands (U.S.)")] <- "Virgin Islands U.S."
+urban_pop$country[which(urban_pop$country == "Venezuela, RB")] <- "Venezuela"
+urban_pop$country[which(urban_pop$country == "Yemen, Rep.")] <- "Yemen"
+
+## reshape
+urban_long <- gather(urban_pop,
+                     year,
+                     value,
+                     "1999":"2021", 
+                     factor_key = TRUE)
+
+colnames(urban_long)[3] <- "urban_pop"
+urban_long$year <- as.numeric(as.character(urban_long$year))
+
+## filter countries
+data_urban <- left_join(countries, urban_long, by = c("country", "year"))
+
+#-------------------------------------------------------------------------------
+## Clean up
+#-------------------------------------------------------------------------------
+remove(urban_pop)
+remove(urban_long)
+
+## decrease in cases?
+data_urban_na <- na.omit(data_urban)
+length(unique(data_urban_na$country))
+
+```
+
+## Controls: Climate data
+
+```{r climate}
+
+#-------------------------------------------------------------------------------
+## Load data
+#-------------------------------------------------------------------------------
+temp <- read.csv2("data/Controls/temperature.csv",
+                    header = T, sep = ";", dec = ".")
+
+precipit <- read.csv2("data/Controls/precipitation.csv",
+                    header = T, sep = ";", dec = ".")
+
+## add country names
+colnames(country_match)[2] <- "ISO_3DIGIT"
+climate <- left_join(temp, precipit, by = "ISO_3DIGIT")
+climate <- left_join(climate, country_match, by = "ISO_3DIGIT")
+
+## calculate precipitation variability 
+climate$precip_var <- rowSds(as.matrix(climate[,c(15:26)]))
+
+## calculate precipitation variability coefficient
+climate$precip_var_coef <- climate$precip_var / climate$Annual_precip
+
+## select relevant variables
+climate <- dplyr::select(climate, country, Annual_temp, Annual_precip, precip_var, precip_var_coef)
+
+#-------------------------------------------------------------------------------
+## Clean up
+#-------------------------------------------------------------------------------
+remove(temp)
+remove(precipit)
+
+```
+
+
+# Compile data set 
+
+```{r compile}
+
+#-------------------------------------------------------------------------------
+## Combine everything
+#-------------------------------------------------------------------------------
+data <- left_join(air_pollution, inequality, by = c("country", "year"))
+data <- left_join(data, wealth, by = c("country", "year"))
+data <- left_join(data, data_gdp, by = c("country", "year"))
+data <- left_join(data, trade, by = c("country", "year"))
+data <- left_join(data, wovers, by = c("country", "year"))
+data <- left_join(data, data_cpi, by = c("country", "year"))
+data <- left_join(data, data_pop, by = c("country", "year"))
+data <- left_join(data, data_urban, by = c("country", "year"))
+data <- left_join(data, gdp, by = c("country", "year"))
+data <- left_join(data, data_vdem, by = c("country", "year"))
+data <- left_join(data, gini, by = c("country"))
+data <- left_join(data, climate, by = c("country"))
+data <- left_join(data, wvs, by = c("country"))
+
+#-------------------------------------------------------------------------------
+# different version GDP per sqkm
+#-------------------------------------------------------------------------------
+data$gdp_pc_sqkm <- data$gdp_pc_thousands*data$pop_dens_thous
+
+
+#-------------------------------------------------------------------------------
+# Add mean and demeaned variables
+#-------------------------------------------------------------------------------
+## calculate group means (country means)
+means_inequ <- aggregate(data$top10,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_inequ_b50 <- aggregate(data$bottom50,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_inequ_t1 <- aggregate(data$top1,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_inequ_t10b50 <- aggregate(data$t10b50ratio,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_wealth <- aggregate(data$wealth_top10,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_winning <- aggregate(data$W4,
+                           by = list(data$country),
+                           FUN = mean, na.rm = T)
+
+means_polity <- aggregate(data$v2x_polyarchy,
+                           by = list(data$country),
+                           FUN = mean, na.rm = T)
+
+means_income <- aggregate(data$`2_gdp_pc_log`,
+                           by = list(data$country),
+                           FUN = mean, na.rm = T)
+
+means_income_sq <- aggregate(data$`2_gdp_pc_log_sq`,
+                           by = list(data$country),
+                           FUN = mean, na.rm = T)
+
+means_trade <- aggregate(data$trade_openness,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_cpi <- aggregate(data$cpi,
+                       by = list(data$country),
+                       FUN = mean, na.rm = T)
+
+means_pop <- aggregate(data$pop_dens_log,
+                       by = list(data$country),
+                       FUN = mean, na.rm = T)
+
+means_urban <- aggregate(data$urban_pop,
+                         by = list(data$country),
+                         FUN = mean, na.rm = T)
+
+means_industrial <- aggregate(data$industry_share,
+                       by = list(data$country),
+                       FUN = mean, na.rm = T)
+
+means_inequ[which(means_inequ$x == "NaN"),] <- NA
+means_wealth[which(means_wealth$x == "NaN"),] <- NA
+means_inequ_b50[which(means_inequ_b50$x == "NaN"),] <- NA
+means_inequ_t1[which(means_inequ_t1$x == "NaN"),] <- NA
+means_inequ_t10b50[which(means_inequ_t10b50$x == "NaN"),] <- NA
+means_winning[which(means_winning$x == "NaN"),] <- NA
+means_polity[which(means_polity$x == "NaN"),] <- NA
+means_income[which(means_income$x == "NaN"),] <- NA
+means_income_sq[which(means_income_sq$x == "NaN"),] <- NA
+means_trade[which(means_trade$x == "NaN"),] <- NA
+means_cpi[which(means_cpi$x == "NaN"),] <- NA
+means_pop[which(means_pop$x == "NaN"),] <- NA
+means_urban[which(means_urban$x == "NaN"),] <- NA
+means_industrial[which(means_industrial$x == "NaN"),] <- NA
+
+## rename
+names(means_inequ) <- c("country", "mean")
+names(means_wealth) <- c("country", "mean")
+names(means_inequ_b50) <- c("country", "mean")
+names(means_inequ_t1) <- c("country", "mean")
+names(means_inequ_t10b50) <- c("country", "mean")
+names(means_winning) <- c("country", "mean")
+names(means_polity) <- c("country", "mean")
+names(means_income) <- c("country", "mean")
+names(means_income_sq) <- c("country", "mean")
+names(means_trade) <- c("country", "mean")
+names(means_cpi) <- c("country", "mean")
+names(means_pop) <- c("country", "mean")
+names(means_urban) <- c("country", "mean")
+names(means_industrial) <- c("country", "mean")
+
+## put them back into the data frame
+data$mean_inequ <- means_inequ$mean[match(data$country, means_inequ$country)]
+data$mean_wealth <- means_wealth$mean[match(data$country, means_wealth$country)]
+data$mean_inequ_b50 <- means_inequ_b50$mean[match(data$country, means_inequ_b50$country)]
+data$mean_inequ_t1 <- means_inequ_t1$mean[match(data$country, means_inequ_t1$country)]
+data$mean_inequ_t10b50 <- means_inequ_t10b50$mean[match(data$country, means_inequ_t10b50$country)]
+data$mean_winning <- means_winning$mean[match(data$country, means_winning$country)]
+data$mean_polity <- means_polity$mean[match(data$country, means_polity$country)]
+data$mean_income <- means_income$mean[match(data$country, means_income$country)]
+data$mean_income_sq <- means_income_sq$mean[match(data$country, means_income_sq$country)]
+data$mean_trade <- means_trade$mean[match(data$country, means_trade$country)]
+data$mean_cpi <- means_cpi$mean[match(data$country, means_cpi$country)]
+data$mean_pop <- means_pop$mean[match(data$country, means_pop$country)]
+data$mean_urban <- means_urban$mean[match(data$country, means_urban$country)]
+data$mean_industrial <- means_industrial$mean[match(data$country, means_industrial$country)]
+
+## calculate de-meaned variable:
+data$demeaned_inequ <- data$top10 - data$mean_inequ
+data$demeaned_wealth <- data$wealth_top10 - data$mean_wealth
+data$demeaned_inequ_b50 <- data$bottom50 - data$mean_inequ_b50
+data$demeaned_inequ_t1 <- data$top1 - data$mean_inequ_t1
+data$demeaned_inequ_t10b50 <- data$t10b50ratio - data$mean_inequ_t10b50
+data$demeaned_winning <- data$W4 - data$mean_winning
+data$demeaned_polity <- data$v2x_polyarchy - data$mean_polity
+data$demeaned_income <- data$`2_gdp_pc_log` - data$mean_income
+data$demeaned_income_sq <- data$`2_gdp_pc_log_sq` - data$mean_income_sq
+data$demeaned_trade <- data$trade_openness - data$mean_trade
+data$demeaned_cpi <- data$cpi - data$mean_cpi
+data$demeaned_pop <- data$pop_dens_log - data$mean_pop
+data$demeaned_urban <- data$urban_pop - data$mean_urban
+data$demeaned_industrial <- data$industry_share - data$mean_industrial
+
+
+#-------------------------------------------------------------------------------
+# Subset data (no NA)
+#-------------------------------------------------------------------------------
+
+## Select relevant variables
+data <- dplyr::select(data, country, year, PM25_pop_weighed, lead_PM25, lead_log_PM25, 
+                        top10, bottom50, top1, t10b50ratio, wealth_bottom50, wealth_top10, wealth_top1, wealth_t10b50, gini,
+                        mov_av_gdp, mov_av_gdp_sq, `2_gdp_pc_log`, `2_gdp_pc_log_sq`, `2_gdp_pc_log_cub`,  
+                        mean_inequ, mean_wealth, mean_inequ_b50, mean_inequ_t1, mean_inequ_t10b50, 
+                        mean_winning, mean_polity, mean_income, mean_income_sq, mean_industrial,
+                        demeaned_inequ, demeaned_wealth, demeaned_inequ_b50, demeaned_inequ_t1, demeaned_inequ_t10b50, 
+                        demeaned_winning, demeaned_polity, demeaned_income, demeaned_income_sq, demeaned_industrial,
+                        mean_trade, mean_cpi, mean_pop, mean_urban, demeaned_trade, demeaned_cpi, demeaned_pop, demeaned_urban,
+                        W4, gdp_pc_growth, gdp_sqkm, gdp_pc_sqkm, industry_share, trade_openness,
+                        e_p_polity, v2x_polyarchy, cpi, pop_dens_log, urban_pop, Annual_temp, precip_var,
+                        pref_bottom_50, pref_top_20, ratio, env_prot_eco_grow)
+
+## remove NAs
+data_s <- na.omit(data)
+length(unique(data$country))   ## 246
+length(unique(data_s$country)) ## 128
+
+## -----------------------------------------------------------------------
+## Sample training  and test data
+## -----------------------------------------------------------------------
+
+## Set seed
+set.seed(199610)
+
+data_descript <- data[which(!is.na(data$cpi) &
+                             !is.na(data$trade_openness) &
+                             !is.na(data$pop_dens_log) &
+                             !is.na(data$demeaned_winning) &
+                             !is.na(data$industry_share) &
+                             !is.na(data$top10)),]
+
+## use the package rsample to split our data
+split_strata <- initial_split(data_descript,
+                              prop = 0.7,
+                              strata = "PM25_pop_weighed") ## here we make sure that our DV stays balanced
+
+data_train <- training(split_strata)
+data_test <- testing(split_strata)
+
+
+## -----------------------------------------------------------------------
+## Save data
+## -----------------------------------------------------------------------
+save(data, file = "data/data.RData")
+save(data_s, file = "data/data_s.RData")
+save(data_train, file = "data/data_train.RData")
+save(data_test, file = "data/data_test.RData")
+
+## clean environment
+rm(list = ls())
+
+```

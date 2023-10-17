@@ -1,0 +1,194 @@
+---
+title: "corruption_data"
+author: "Ella Henninger"
+date: "2023-03-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+
+```
+
+
+# Load single CPI files
+
+```{r}
+
+#-------------------------------------------------------------------------------
+## Load data 2000-2011
+#-------------------------------------------------------------------------------
+cpi_2000 <- read.csv2("data/Controls/Corruption/CPI-2000.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2001 <- read.csv2("data/Controls/Corruption/CPI-2001.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2002 <- read.csv2("data/Controls/Corruption/CPI-2002.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2003 <- read.csv2("data/Controls/Corruption/CPI-2003.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2004 <- read.csv2("data/Controls/Corruption/CPI-2004.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2005 <- read.csv2("data/Controls/Corruption/CPI-2005.csv",
+                  header = T, 
+                  sep = ";", 
+                  dec = ".",
+                  na.strings = "",
+                  stringsAsFactors = F)
+
+cpi_2006 <- read.csv2("data/Controls/Corruption/CPI-2006.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2007 <- read.csv2("data/Controls/Corruption/CPI-2007.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2008 <- read.csv2("data/Controls/Corruption/CPI-2008.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2009 <- read.csv2("data/Controls/Corruption/CPI-2009.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2010 <- read.csv2("data/Controls/Corruption/CPI-2010.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+cpi_2011 <- read.csv2("data/Controls/Corruption/CPI-2011.csv",
+                  header = T, 
+                  sep = ",", 
+                  dec = ".")
+
+#-------------------------------------------------------------------------------
+## Load data 2012-2022
+#-------------------------------------------------------------------------------
+cpi_2012_2022 <- read.csv2("data/Controls/Corruption/CPI-2012-2022.csv",
+                  header = T, 
+                  sep = ";", 
+                  dec = ".")
+```
+
+
+# Compile together
+
+```{r}
+
+#-------------------------------------------------------------------------------
+## Combine
+#-------------------------------------------------------------------------------
+
+## colname country 
+colnames(cpi_2012_2022)[1] <- "country"
+colnames(cpi_2012_2022)[2] <- "iso"
+
+
+## drop some columns
+cpi_2012_2022 <- cpi_2012_2022[,c(1,2,4,8,12,16,20,24,28,31,34,37,40)]
+cpi_2000 <- cpi_2000[,c(2,4)]
+cpi_2001 <- cpi_2001[,c(2,4)]
+cpi_2002 <- cpi_2002[,c(2,4)]
+cpi_2003 <- cpi_2003[,c(2,4)]
+cpi_2004 <- cpi_2004[,c(2,4)]
+cpi_2005 <- cpi_2005[,c(2,4)]
+cpi_2006 <- cpi_2006[,c(2,4)]
+cpi_2007 <- cpi_2007[,c(2,4)]
+cpi_2008 <- cpi_2008[,c(2,4)]
+cpi_2009 <- cpi_2009[,c(2,4)]
+cpi_2010 <- cpi_2010[,c(2,4)]
+cpi_2011 <- cpi_2011[,c(2,4)]
+
+## rename some columns
+colnames(cpi_2000)[2] <- "CPI.score.2000"
+colnames(cpi_2001)[2] <- "CPI.score.2001"
+colnames(cpi_2002)[2] <- "CPI.score.2002"
+colnames(cpi_2003)[2] <- "CPI.score.2003"
+colnames(cpi_2004)[2] <- "CPI.score.2004"
+colnames(cpi_2005)[2] <- "CPI.score.2005"
+colnames(cpi_2006)[2] <- "CPI.score.2006"
+colnames(cpi_2007)[2] <- "CPI.score.2007"
+colnames(cpi_2008)[2] <- "CPI.score.2008"
+colnames(cpi_2009)[2] <- "CPI.score.2009"
+colnames(cpi_2010)[2] <- "CPI.score.2010"
+colnames(cpi_2011)[2] <- "CPI.score.2011"
+
+## combine
+cpi_all <- left_join(cpi_2011, cpi_2012_2022, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2010, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2009, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2008, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2007, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2006, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2005, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2004, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2003, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2002, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2001, by = "iso")
+cpi_all <- left_join(cpi_all, cpi_2000, by = "iso")
+
+## reorder
+cpi_all <- cpi_all[,c(1,3,4:14,2,15:25)]
+
+## rescale 2012-2022
+cpi_all$CPI.score.2022 <- cpi_all$CPI.score.2022/10
+cpi_all$CPI.score.2021 <- cpi_all$CPI.score.2021/10
+cpi_all$CPI.score.2020 <- cpi_all$CPI.score.2020/10
+cpi_all$CPI.score.2019 <- cpi_all$CPI.score.2019/10
+cpi_all$CPI.score.2018 <- cpi_all$CPI.score.2018/10
+cpi_all$CPI.score.2017 <- cpi_all$CPI.score.2017/10
+cpi_all$CPI.score.2016 <- cpi_all$CPI.score.2016/10
+cpi_all$CPI.score.2015 <- cpi_all$CPI.score.2015/10
+cpi_all$CPI.score.2014 <- cpi_all$CPI.score.2014/10
+cpi_all$CPI.Score.2013 <- cpi_all$CPI.Score.2013/10
+cpi_all$CPI.Score.2012 <- cpi_all$CPI.Score.2012/10
+
+
+## rename year variables
+colnames(cpi_all)[3:25] <- 2022:2000
+
+## reshape
+cpi_long <- gather(cpi_all,
+                   year,
+                   cpi,
+                   "2022":"2000", 
+                   factor_key = TRUE)
+
+cpi_long$year <- as.numeric(as.character(cpi_long$year))
+
+## rename
+cpi <- cpi_long
+
+```
+
+
+# Save
+
+```{r}
+
+#-------------------------------------------------------------------------------
+## Save
+#-------------------------------------------------------------------------------
+save(cpi, file = "data/Controls/data_cpi.RData")
+
+```
