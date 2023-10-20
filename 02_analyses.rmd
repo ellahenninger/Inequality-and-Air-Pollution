@@ -3168,6 +3168,127 @@ dev.off()
 
 ```
 
+### Drop one country at a time
+
+```{r drop country}
+
+#-------------------------------------------------------------------------------
+# Loop over country list
+#-------------------------------------------------------------------------------
+countries <- c(unique(data_descript$country))
+
+top10_country_drop_w <- matrix(NA,
+                               nrow = length(countries),
+                               ncol = 2)
+
+top10_country_drop_b <- matrix(NA,
+                               nrow = length(countries),
+                               ncol = 2)
+
+for(i in 1:length(countries)){
+ country_drop <- countries[i]
+ multi_countries <- list()
+ multi_countries[[i]] <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                               demeaned_income + demeaned_income_sq + demeaned_winning +
+                               demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                               mean_income + mean_income_sq + mean_winning +
+                               mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                               (1 | country),
+                              data = data_descript[which(data_descript != country_drop),])
+ 
+ mod_summary <- list()
+ mod_summary[[i]] <- summary(multi_countries[[i]])
+ top10_country_drop_b[i,1:2] <- mod_summary[[i]]$coefficients[2,1:2]
+ top10_country_drop_w[i,1:2] <- mod_summary[[i]]$coefficients[3,1:2] 
+}
+
+
+#-------------------------------------------------------------------------------
+# Formatting output
+#-------------------------------------------------------------------------------
+
+## colnames
+colnames(top10_country_drop_b)[1:2] <- c("top_10_b", "se_b")
+colnames(top10_country_drop_w)[1:2] <- c("top_10_w", "se_w")
+
+## combine in one dataframe
+data_drop <- as.data.frame(cbind(top10_country_drop_w, top10_country_drop_b))
+
+## add countries
+data_drop$country <- NA
+data_drop$country <- countries
+
+## get CIs
+data_drop$ci_up_b <- NA
+data_drop$ci_low_b <- NA
+data_drop$ci_up_w <- NA
+data_drop$ci_low_w <- NA
+
+for(i in 1:nrow(data_drop)){
+  data_drop[i,"ci_up_b"] <- data_drop[i, "top_10_b"] + 1.96*data_drop[i, "se_b"]
+  data_drop[i,"ci_low_b"] <- data_drop[i, "top_10_b"] - 1.96*data_drop[i, "se_b"]
+  data_drop[i,"ci_up_w"] <- data_drop[i, "top_10_w"] + 1.96*data_drop[i, "se_w"]
+  data_drop[i,"ci_low_w"] <- data_drop[i, "top_10_w"] - 1.96*data_drop[i, "se_w"]
+}
+
+
+#-------------------------------------------------------------------------------
+# Plot
+#-------------------------------------------------------------------------------
+data_drop$significance_b <- ifelse(data_drop$ci_low_b > 0 & data_drop$ci_up_b < 0|
+                                   data_drop$ci_low_b < 0 & data_drop$ci_up_b > 0,
+                                   FALSE, TRUE)
+
+data_drop$significance_w <- ifelse(data_drop$ci_low_w > 0 & data_drop$ci_up_w < 0|
+                                   data_drop$ci_low_w < 0 & data_drop$ci_up_w > 0,
+                                   FALSE, TRUE)
+
+# Sort the data frame by coefficient
+data_drop$country <- factor(data_drop$country, levels = data_drop$country[order(data_drop$top_10_b, decreasing = TRUE)])
+
+# Create the plot
+pdf("plots/Drop_country_between.pdf")
+
+ggplot(data_drop, aes(x = top_10_b, y = factor(country))) +
+  geom_errorbarh(aes(xmin = ci_low_b, xmax = ci_up_b), height = 0.2, color = "grey") +
+  geom_point(aes(color = significance_b), size = 1) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  scale_color_manual(values = c("darkgrey", viridis(3)[2])) +
+  labs(x = "Coefficient Top 10%-Share (Between)", y = "Dropped Country") +
+  theme_classic() +
+  theme(axis.text.x = element_text(size = 10), 
+        axis.text.y = element_text(size = 3),
+        axis.ticks.y = element_blank(),
+        axis.title = element_text(size = 12),
+        legend.position = "none", 
+        legend.text = element_text(size = 10))
+
+dev.off()
+
+# Sort the data frame by coefficient
+data_drop$country <- factor(data_drop$country, levels = data_drop$country[order(data_drop$top_10_w, decreasing = TRUE)])
+
+# Create the plot
+pdf("plots/Drop_country_within.pdf")
+
+ggplot(data_drop, aes(x = top_10_w, y = factor(country))) +
+  geom_point(aes(color = significance_w), size = 1) +
+  geom_errorbarh(aes(xmin = ci_low_w, xmax = ci_up_w), height = 0.2, color = viridis(3, alpha = 0.5)[1]) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  scale_color_manual(values = c(viridis(3)[1], "darkgrey")) +
+  labs(x = "Coefficient Top 10%-Share (Within)", y = "Dropped Country") +
+  theme_classic() +
+  theme(axis.text.x = element_text(size = 10), 
+        axis.text.y = element_text(size = 3),
+        axis.ticks.y = element_blank(),
+        axis.title = element_text(size = 12),
+        legend.position = "none", 
+        legend.text = element_text(size = 10))
+
+dev.off()
+
+```
+
 
 # Exporing causal mechanisms
 
