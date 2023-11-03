@@ -2392,7 +2392,7 @@ beta_hat_b <- c(fixef(m4_re_wb)[[1]],fixef(m4_re_wb)[[2]],fixef(m4_re_wb)[[3]],f
                 fixef(m4_re_wb)[[16]], fixef(m4_re_wb)[[17]], fixef(m4_re_wb)[[18]])
 
 sigma_hat_b <- summary(m4_re_wb)$sigma
-X_prime_X_b <- as.matrix(vcov(m4_re_wb)) / summary(m4_re_wb)$sigma^2
+X_prime_X_b <- as.matrix(vcov(m4_re_wb)) / summary(m4_re_wb)$sigma^2 ## equivalent to vcov$unscaled
 
 # First sigma^2
 set.seed(199610)
@@ -2635,10 +2635,10 @@ X_beta_b_econ <- beta_tilde_b %*% t(X_c_b_econ)
 # Now transform back to original scale
 
 # First add draws of 1/2*sigma2_tilde to each column
-X_beta_sigma_tilde_b_dem <- apply(X_beta_b_econ, 2, function(x) x + 1/2*sigma2_tilde_b)
+X_beta_sigma_tilde_b_econ <- apply(X_beta_b_econ, 2, function(x) x + 1/2*sigma2_tilde_b)
 
 # Transform
-E_Y_c_b_econ <- exp(X_beta_sigma_tilde_b_dem)
+E_Y_c_b_econ <- exp(X_beta_sigma_tilde_b_econ)
 
 # Summarize to get CIs
 CI_E_Y_c_b_econ <- apply(E_Y_c_b_econ, 2, quantile, c(0.025, 0.975))
@@ -2662,6 +2662,168 @@ CI_FD_max_min_b_econ <- quantile(FD_max_min_b_econ, c(0.025, 0.975))
 share_fd_sd_b_econ <- abs(FD_max_min_hat_b_econ)/sd_pm25_b
 
 ```
+
+### 2.2 EXPLORE ECON DEVELOPMENT - Between - EV and FD (min and max economic development)
+
+```{r between econ explore}
+
+#-------------------------------------------------------------------------------
+# Marginal effects logged GDP
+#-------------------------------------------------------------------------------
+
+# you need to include mean_income as an interaction, so that margin knows 
+# mean_income and mean_income_sq comes from the same variable
+# (necessary for differentiation when calculating marginal effects)
+# this only works with I(mean_income*mean_income) for some reason
+library(margins)
+install.packages("diagram")
+library(diagram)
+library(shape)
+
+m4_re_wb_2 <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                   demeaned_income + demeaned_income_sq + demeaned_winning +
+                   demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                   mean_income + I(mean_income*mean_income) + mean_winning +
+                   mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                   (1 | country),
+                 data = data_descript)
+
+# check whether coefficients stay the same
+summary(m4_re_wb_2)
+
+# margins package to compute marginal effects (zero for reference)
+marginal_effects_mean_income <- 
+  margins(m4_re_wb_2, 
+          variables = "mean_income", 
+          at = list(mean_income = c(0,
+                                    seq(min(data_scen$mean_income),
+                                        max(data_scen$mean_income),
+                                        length.out = 10))))
+
+marginal_effects_mean_income_s <- summary(marginal_effects_mean_income)
+
+# plot
+pdf("plots/marginal_GDP.pdf")
+
+plot(x = marginal_effects_mean_income_s$mean_income,
+     y = marginal_effects_mean_income_s$AME,
+     bty = "n",
+     col = viridis(3)[1],
+     ylim = c(-1.1, 0.3),
+     pch = 19,
+     las = 1,
+     cex = 1.2,
+     cex.lab = 1.3,
+     xlab = "GDP per capita (log)",
+     ylab = "Marginal Effect of GDP per capita (log)")
+
+abline(h = 0)
+abline(v = min(data_scen$mean_income),
+       lty = 2, lwd = 2, 
+       col = "grey")
+
+segments(x0 = marginal_effects_mean_income_s$mean_income,
+         x1 = marginal_effects_mean_income_s$mean_income,
+         y0 = marginal_effects_mean_income_s$lower,
+         y1 = marginal_effects_mean_income_s$upper,
+         col = viridis(3, alpha = 0.5)[1],
+         lwd = 3, lend = 1)
+
+text(x = 1.25,
+     y = -0.6,
+     labels = c("Coefficient\n of -0.46"),
+     cex = 0.9)
+
+text(x = 6.15,
+     y = -0.8,
+     labels = c("Begin of observable \nGDP per capita (log) range"),
+     cex = 0.9,
+     col = "grey", srt = 90)
+
+dev.off()
+
+
+
+#-------------------------------------------------------------------------------
+# Scenarios
+#-------------------------------------------------------------------------------
+
+# Range mean GDP (logged) & squared
+range_eco_dev_mean <- as.vector(seq(min(data_scen$mean_income), max(data_scen$mean_income), length.out = 30))
+range_eco_dev_mean_sq <- range_eco_dev_mean^2
+
+# Set scenarios
+scen_1_ran_b_econ <- cbind(1,
+                           mean(data_scen$mean_inequ),
+                           mean(data_scen$demeaned_inequ, na.rm = T),
+                           mean(data_scen$demeaned_income, na.rm = T),
+                           mean(data_scen$demeaned_income_sq, na.rm = T),
+                           mean(data_scen$demeaned_winning, na.rm = T),
+                           mean(data_scen$demeaned_trade, na.rm = T),
+                           mean(data_scen$demeaned_cpi, na.rm = T),
+                           mean(data_scen$demeaned_industrial, na.rm = T),
+                           mean(data_scen$demeaned_pop, na.rm = T),
+                           range_eco_dev_mean,
+                           range_eco_dev_mean_sq,
+                           mean(data_scen$mean_winning, na.rm = T),
+                           mean(data_scen$mean_trade, na.rm = T),
+                           mean(data_scen$mean_cpi, na.rm = T),
+                           mean(data_scen$mean_industrial, na.rm = T),
+                           mean(data_scen$mean_pop, na.rm = T),
+                           mean(data_scen$year, na.rm = T))
+
+# colnames
+colnames(scen_1_ran_b_econ) <- names(fixef(m4_re_wb))
+
+
+# Calculate the linear predictor on log scale
+X_beta_b_econ_ran <- beta_tilde_b %*% t(scen_1_ran_b_econ)
+
+# Now transform back to original scale
+
+# First add draws of 1/2*sigma2_tilde to each column
+X_beta_sigma_tilde_b_econ_ran <- apply(X_beta_b_econ_ran, 2, function(x) x + 1/2*sigma2_tilde_b)
+
+# Transform
+E_Y_c_b_econ_ran <- exp(X_beta_sigma_tilde_b_econ_ran)
+
+# Summarize to get CIs
+CI_E_Y_c_b_econ_ran <- apply(E_Y_c_b_econ_ran, 2, quantile, c(0.025, 0.975))
+
+# Use beta_hat and sigma_hat for point estimates
+X_beta_hat_b_ran <- beta_hat_b %*% t(scen_1_ran_b_econ)
+X_beta_sigma_hat_b_econ_ran <- X_beta_hat_b_ran + 1/2*sigma_hat_b^2
+
+# Point estimate
+E_Y_c_hat_b_econ_ran <- exp(X_beta_sigma_hat_b_econ_ran)
+
+# Plot
+pdf("plots/GDP_expected values.pdf")
+
+par(mar = c(5.1, 4.7, 4.1, 2.1)) # c(bottom, left, top, right))
+
+plot(range_eco_dev_mean,
+     E_Y_c_hat_b_econ_ran,
+     type = "n",
+     ylim = c(0, 45),
+     ylab = expression("Exposure to PM"[2.5]*" ["*mu~"g/m"^3*"]"),
+     xlab = "GDP per capita (log)",
+     bty = "n",
+     main = NULL,
+     cex.lab = 1.3)
+
+segments(x0 = range_eco_dev_mean, x1 = range_eco_dev_mean,
+         y1 = CI_E_Y_c_b_econ_ran[2,], y0 = CI_E_Y_c_b_econ_ran[1,],
+         col = viridis(3, 0.5)[1],
+         lwd = 3, lend = 1)
+
+points(range_eco_dev_mean, E_Y_c_hat_b_econ_ran, col = viridis(3, 0.8)[1], pch = 20,
+       cex = 1.5)
+
+dev.off()
+
+```
+
 
 ### 2.3 DEMOCRACY - Between - EV and FD (min and max democracy)
 
@@ -2735,6 +2897,80 @@ CI_FD_max_min_b_dem <- quantile(FD_max_min_b_dem, c(0.025, 0.975))
 share_fd_sd_b_dem <- abs(FD_max_min_hat_b_dem)/sd_pm25_b
 
 ```
+
+### 2.4 INDUSTRY - Between - EV and FD (min and max industry (% GDP))
+
+```{r between industry}
+
+#-------------------------------------------------------------------------------
+# Scenarios
+#-------------------------------------------------------------------------------
+
+# Set scenarios
+scen_1_min_b_indu <- cbind(1,
+                          mean(data_scen$mean_inequ),
+                          mean(data_scen$demeaned_inequ, na.rm = T),
+                          mean(data_scen$demeaned_income, na.rm = T),
+                          mean(data_scen$demeaned_income_sq, na.rm = T),
+                          mean(data_scen$demeaned_winning, na.rm = T),
+                          mean(data_scen$demeaned_trade, na.rm = T),
+                          mean(data_scen$demeaned_cpi, na.rm = T),
+                          mean(data_scen$demeaned_industrial, na.rm = T),
+                          mean(data_scen$demeaned_pop, na.rm = T),
+                          mean(data_scen$mean_income, na.rm = T),
+                          mean(data_scen$mean_income_sq, na.rm = T),
+                          mean(data_scen$mean_winning, na.rm = T),
+                          mean(data_scen$mean_trade, na.rm = T),
+                          mean(data_scen$mean_cpi, na.rm = T),
+                          min(data_scen$mean_industrial, na.rm = T),
+                          mean(data_scen$mean_pop, na.rm = T),
+                          mean(data_scen$year, na.rm = T))
+
+# colnames
+colnames(scen_1_min_b_indu) <- names(fixef(m4_re_wb))
+
+# copy existing scenario1 into new object scenario2 
+scen_1_max_b_indu <- scen_1_min_b_indu
+
+# switch only the changing values to get scenario with max winning
+scen_1_max_b_indu[, which(colnames(scen_1_max_b_indu) == "mean_industrial")] <- max(data_scen$mean_industrial)
+
+# bind scenarios together
+X_c_b_indu <- rbind(scen_1_max_b_indu, scen_1_min_b_indu)
+
+# Calculate the linear predictor on log scale
+X_beta_b_indu <- beta_tilde_b %*% t(X_c_b_indu)
+
+# Now transform back to original scale
+
+# First add draws of 1/2*sigma2_tilde to each column
+X_beta_sigma_tilde_b_indu <- apply(X_beta_b_indu, 2, function(x) x + 1/2*sigma2_tilde_b)
+
+# Transform
+E_Y_c_b_indu <- exp(X_beta_sigma_tilde_b_indu)
+
+# Summarize to get CIs
+CI_E_Y_c_b_indu <- apply(E_Y_c_b_indu, 2, quantile, c(0.025, 0.975))
+
+# Use beta_hat and sigma_hat for point estimates
+X_beta_hat_b_indu <- beta_hat_b %*% t(X_c_b_indu)
+X_beta_sigma_hat_b_indu <- X_beta_hat_b_indu + 1/2*sigma_hat_b^2
+
+# Point estimate
+E_Y_c_hat_b_indu <- exp(X_beta_sigma_hat_b_indu)
+
+# First difference
+FD_max_min_hat_b_indu <- E_Y_c_hat_b_indu[,1] - E_Y_c_hat_b_indu[,2]
+FD_max_min_b_indu <- E_Y_c_b_indu[,1] - E_Y_c_b_indu[,2]
+CI_FD_max_min_b_indu <- quantile(FD_max_min_b_indu, c(0.025, 0.975))
+
+#-------------------------------------------------------------------------------
+# How "big" is the first difference compared to the SD of the DV?
+#-------------------------------------------------------------------------------
+share_fd_sd_b_indu <- abs(FD_max_min_hat_b_indu)/sd_pm25_b
+
+```
+
 
 ### Overview Table
 
