@@ -92,7 +92,8 @@ p_needed <-
     "maps",
     "data.table",
     "texreg", 
-    "fastDummies")
+    "fastDummies",
+    "margins")
 
 # Check which packages are already installed on your computer
 packages <- rownames(installed.packages())
@@ -770,7 +771,7 @@ plot(1,
      type = "n",
      ylim = c(0,2.75),
      bty = "n",
-     xlab = "Marginal Effect",
+     xlab = "Regression coefficients",
      xlim = c(-1.3, 1.6),
      ylab = "",
      yaxt = "n",
@@ -894,7 +895,6 @@ m1_re_wb_low_inc <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ +
                           data = data[which(data$country %in% countries_low_income |
                                             data$country %in% countries_low_mid_income),])
 
-
 m1_re_wb_high_inc <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
                            demeaned_income + demeaned_income_sq + demeaned_winning +
                            demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
@@ -903,9 +903,6 @@ m1_re_wb_high_inc <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ +
                            (1  | country),
                           data = data[which(data$country %in% countries_high_income |
                                             data$country %in% countries_up_mid_income),])
-
-stargazer(m1_re_wb_low_inc, type = "text")
-ranef(m1_re_wb_low_inc)
 
 #-------------------------------------------------------------------------------
 # Within-Between - High vs. Low democracy
@@ -2673,10 +2670,6 @@ share_fd_sd_b_econ <- abs(FD_max_min_hat_b_econ)/sd_pm25_b
 # mean_income and mean_income_sq comes from the same variable
 # (necessary for differentiation when calculating marginal effects)
 # this only works with I(mean_income*mean_income) for some reason
-library(margins)
-install.packages("diagram")
-library(diagram)
-library(shape)
 
 m4_re_wb_2 <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
                    demeaned_income + demeaned_income_sq + demeaned_winning +
@@ -2739,7 +2732,6 @@ text(x = 6.15,
      col = "grey", srt = 90)
 
 dev.off()
-
 
 
 #-------------------------------------------------------------------------------
