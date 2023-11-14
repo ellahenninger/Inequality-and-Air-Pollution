@@ -1460,8 +1460,6 @@ guides(fill = guide_colourbar(title = element_blank()))
 
 dev.off()
 
-## Correlation between inequality trend and random within-country inequality effects?
-cor(ranef(m1_random_is)$country[,"demeaned_inequ"], summary_trend_ineq$sum_trend_ineq[which(summary_trend_ineq$country %in% data_scen$country)])
 
 #-------------------------------------------------------------------------------
 # Plot trend inequality on map
@@ -1470,7 +1468,7 @@ pdf("Plots/Map_trend_inequ.pdf", width = 12)
 
 ggplot() +
 geom_map(data = world, map = world,
-         aes(long, lat, map_id = region, fill = sum_trend_ineq)) +
+         aes(long, lat, map_id = region, fill = trend_ineq)) +
  
 scale_fill_gradient2(midpoint= 0, 
                      low = viridis(3)[1], 
