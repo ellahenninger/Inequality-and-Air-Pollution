@@ -1,6 +1,6 @@
 # Overview
 
-This repository includes replication material for all analyses and plots to be found in the paper *"The Environmental Price of Economic Inequality - Decomposing the Effect of Income Disparities on Exposure to Air Pollution"*.
+This repository includes replication material for all analyses and plots to be found in the paper *"Beyond the Haze: Decomposing the Effect of Economic Inequality on Global Air Quality from 2000-2020"*.
 
 
 # Content of the replication packet

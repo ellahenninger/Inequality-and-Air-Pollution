@@ -5,7 +5,7 @@ date: "27 07 2023"
 output: html_document
 ---
 
-The following file replicates all analyses and plots to be found in the paper "The Environmental Price of Economic Inequality - Decomposing the Effect of Income Disparities on Exposure to Air Pollution".
+The following file replicates all analyses and plots to be found in the paper "Beyond the Haze: Decomposing the Effect of Economic Inequality on Global Air Quality from 2000-2020".
 
 # Contents of the replication packet
 

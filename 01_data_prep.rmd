@@ -5,7 +5,7 @@ date: "27 07 2023"
 output: html_document
 ---
 
-The following file makes transparent the preparatory steps (compilation of the final data set) for the analyses performed in the paper "The Environmental Price of Economic Inequality - Decomposing the Effect of Income Disparities on Exposure to Air Pollution".
+The following file makes transparent the preparatory steps (compilation of the final data set) for the analyses performed in the paper "Beyond the Haze: Decomposing the Effect of Economic Inequality on Global Air Quality from 2000-2020".
 
 
 # Contents of the replication packet
