@@ -761,7 +761,7 @@ color_est <- ifelse(coefs_main$CI_low > 0 & coefs_main$CI_up < 0|
 
 color_ci <- ifelse(coefs_main$CI_low > 0 & coefs_main$CI_up < 0|
                    coefs_main$CI_low < 0 & coefs_main$CI_up > 0,
-                   "darkgrey", viridis(3, alpha = 0.4)[1]) 
+                   adjustcolor("darkgrey", alpha = 0.7), viridis(3, alpha = 0.4)[1]) 
 
 pdf("Plots/Coefficients_own.pdf", width = 7.5)
 
@@ -814,7 +814,7 @@ segments(y0 = rev(c(0.25, 0.5, 1,
          col = color_ci,
          x0 = coefs_main$CI_low,
          x1 = coefs_main$CI_up,
-         lwd = 4, cex = 1.5, lend = 1)
+         lwd = 5, cex = 1.5, lend = 1)
 
 # add coefficients text
 text(x = coefs_main$Estimate-0.04,
@@ -999,7 +999,7 @@ color_est <- ifelse(coefs_sub$CI_low > 0 & coefs_sub$CI_up < 0|
 
 color_ci <- ifelse(coefs_sub$CI_low > 0 & coefs_sub$CI_up < 0|
                    coefs_sub$CI_low < 0 & coefs_sub$CI_up > 0,
-                   "darkgrey", viridis(3, alpha = 0.4)[1]) 
+                   adjustcolor("darkgrey", alpha = 0.7), viridis(3, alpha = 0.4)[1]) 
 
 pdf("Plots/Coefficients_subgroups.pdf", width = 7.5)
 
@@ -1046,8 +1046,7 @@ segments(y0 = rev(c(0.25, 0.5, 1, 1.25, 1.75, 2)),
          col = color_ci,
          x0 = coefs_sub$CI_low,
          x1 = coefs_sub$CI_up,
-        # col = color_ci,
-         lwd = 4, cex = 1.5, lend = 1)
+         lwd = 5, cex = 1.5, lend = 1)
 
 # add coefficients text
 text(x = coefs_sub$Estimate-0.04,
@@ -2547,7 +2546,7 @@ pdf("Plots/FD_max_min_between.pdf")
 
 plot(y = 1,
      x = FD_max_min_hat_b,
-     col = viridis(3)[1],
+     col = "darkgrey",
      ylim = c(0,2),
      xlim = c(-5.5,11),
      xlab = "",
@@ -2561,7 +2560,7 @@ plot(y = 1,
 
 segments(y0 = 1, x0 = CI_FD_max_min_b[1],
          y1 = 1, x1 = CI_FD_max_min_b[2],
-         col = viridis(3, alpha = 0.4)[1],
+         col = adjustcolor("darkgrey", alpha = 0.4),
          lwd = 12, cex = 1.5, lend = 1)
 
 segments(x0 = 0, y0 = 0,
@@ -2691,13 +2690,22 @@ marginal_effects_mean_income <-
 
 marginal_effects_mean_income_s <- summary(marginal_effects_mean_income)
 
+# set colors
+color_est <- ifelse(marginal_effects_mean_income_s$lower > 0 & marginal_effects_mean_income_s$upper < 0|
+                    marginal_effects_mean_income_s$lower < 0 & marginal_effects_mean_income_s$upper > 0,
+                    "darkgrey", viridis(3)[1])
+
+color_ci <- ifelse(marginal_effects_mean_income_s$lower > 0 & marginal_effects_mean_income_s$upper < 0|
+                   marginal_effects_mean_income_s$lower < 0 & marginal_effects_mean_income_s$upper > 0,
+                   adjustcolor("darkgrey", alpha = 0.4), viridis(3, alpha = 0.4)[1]) 
+
 # plot
 pdf("plots/marginal_GDP.pdf")
 
 plot(x = marginal_effects_mean_income_s$mean_income,
      y = marginal_effects_mean_income_s$AME,
      bty = "n",
-     col = viridis(3)[1],
+     col = color_est,
      ylim = c(-1.1, 0.3),
      pch = 19,
      las = 1,
@@ -2715,7 +2723,7 @@ segments(x0 = marginal_effects_mean_income_s$mean_income,
          x1 = marginal_effects_mean_income_s$mean_income,
          y0 = marginal_effects_mean_income_s$lower,
          y1 = marginal_effects_mean_income_s$upper,
-         col = viridis(3, alpha = 0.5)[1],
+         col = color_ci,
          lwd = 3, lend = 1)
 
 text(x = 1.25,
@@ -3345,7 +3353,7 @@ color_est <- ifelse(res_top10$CI_low > 0 & res_top10$CI_up < 0|
 
 color_ci <- ifelse(res_top10$CI_low > 0 & res_top10$CI_up < 0|
                    res_top10$CI_low < 0 & res_top10$CI_up > 0,
-                   "darkgrey", viridis(3, alpha = 0.4)[1]) 
+                   adjustcolor("darkgrey", alpha = 0.55), viridis(3, alpha = 0.4)[1]) 
 
 ## Plot
 pdf("Plots/Measurement_error.pdf") 
@@ -3374,7 +3382,7 @@ segments(y0 = rev(c(0.2,0.4, 0.6, 0.8, 1, 1.2,
          x0 = res_top10$CI_low,
          x1 = res_top10$CI_up,
          col = color_ci,
-         lwd = 4, cex = 1.5, lend = 1)
+         lwd = 5, cex = 1.5, lend = 1)
 
 text(x = 0.12,
      y = rev(c(0.2,0.4, 0.6, 0.8, 1, 1.2,
