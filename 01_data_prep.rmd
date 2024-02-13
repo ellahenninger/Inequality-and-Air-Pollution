@@ -1587,14 +1587,13 @@ so2 <- read.csv2("data/Air pollution/so2.csv",
 #-------------------------------------------------------------------------------
 # Change format
 #-------------------------------------------------------------------------------
-colnames(so2)[3:19] <- 1999:2015
-so2 <- so2[,-c(20:21)]
+colnames(so2)[3:22] <- 1999:2018
 
 ## reshape
 so2_long <- gather(so2,
                    year,
                    so2,
-                   "1999":"2015", 
+                   "1999":"2018", 
                    factor_key = TRUE)
 
 so2_long$year <- as.numeric(as.character(so2_long$year))
