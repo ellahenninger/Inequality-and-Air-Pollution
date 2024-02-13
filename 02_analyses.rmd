@@ -87,6 +87,7 @@ p_needed <-
     "MASS",
     "lme4",
     "devtools",
+    "haven",
     "modelsummary",
     "ggmap",
     "maps",
@@ -655,6 +656,7 @@ m4_re_wb <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ +
                    (1 | country),
                  data = data_descript)
 
+
 # m4_re_wb_scale <- lmer(lead_log_PM25 ~ scale(mean_inequ) + scale(demeaned_inequ) +
 #                          scale(demeaned_income) + scale(demeaned_income_sq) + scale(demeaned_winning) +
 #                          scale(demeaned_trade) + scale(demeaned_cpi) + scale(demeaned_industrial) + scale(demeaned_pop) +
@@ -722,6 +724,7 @@ texreg(list(m1_re_wb, m4_re_wb, m1_inequal, m1_econ_dev, m1_democr),
                             "N(Countries)",
                             "Var: Countries (Intercept)",
                             "Var: Residual"))
+
 
 #-------------------------------------------------------------------------------
 # TEST which of these fits better: Model 4 or Model 1
@@ -832,7 +835,7 @@ text(x = -1.05,
      labels = c("Top 10%-share (Within)", "Top 10%-share (Between)", 
                 "GDP per capita (Within)", expression("GDP per capita"^2*" (Within)"), 
                 "GDP per capita (Between)", expression("GDP per capita"^2*" (Between)"), 
-                 "Democracy (Within)", "Democracy (Between)"),
+                "Democracy (Within)", "Democracy (Between)"),
      xpd = T,
      cex = 0.9,
      pos = 2)
@@ -1373,6 +1376,96 @@ m1_conserv <- lm(lead_log_PM25 ~ log(PM25_pop_weighed) + top10 +
                  data = data_descript)
 
 stargazer(m1_conserv, type = "text", omit = c("country", "year"))
+
+```
+
+## Robustness checks - Pollutant-related
+
+```{r robustness pollutant}
+
+#-------------------------------------------------------------------------------
+# CO2
+#-------------------------------------------------------------------------------
+m4_re_wb_co2 <- lmer(lead_log_co2 ~ mean_inequ + demeaned_inequ + 
+                   demeaned_income + demeaned_income_sq + demeaned_winning +
+                   demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                   mean_income + mean_income_sq + mean_winning +
+                   mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                   (1 | country),
+                 data = data_descript)
+
+#-------------------------------------------------------------------------------
+# NO2
+#-------------------------------------------------------------------------------
+m4_re_wb_nox <- lmer(lead_log_nox ~ mean_inequ + demeaned_inequ + 
+                      demeaned_income + demeaned_income_sq + demeaned_winning +
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                      mean_income + mean_income_sq + mean_winning +
+                      mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                      (1 | country),
+                     data = data_descript)
+
+# m4_re_wb_no2_f <- lm(lead_log_no2_combo ~ demeaned_inequ + 
+#                       demeaned_income + demeaned_income_sq + demeaned_winning +
+#                       demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+#                       year + as.factor(country),
+#                      data = data_descript)
+# 
+# ## Let's see how many outliers we have, and what they are
+# outliers <- rownames(m4_re_wb_no2_f$model)[rstandard(m4_re_wb_no2_f) > 1.5]
+# outliers_detail <- data_descript[rownames(data_descript) %in% outliers,]
+# data_no_outliers <- data_descript[!(rownames(data_descript) %in% outliers), ]
+# 
+# plot(fitted.values(m4_re_wb_no2),
+#      residuals(m4_re_wb_no2))
+
+#-------------------------------------------------------------------------------
+# SO2
+#-------------------------------------------------------------------------------
+m4_re_wb_so2 <- lmer(lead_log_so2 ~ mean_inequ + demeaned_inequ + 
+                      demeaned_income + demeaned_income_sq + demeaned_winning +
+                      demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                      mean_income + mean_income_sq + mean_winning +
+                      mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                      (1 | country),
+                     data = data_descript)
+
+
+## Table Alternative Models
+texreg(list(m4_re_wb, m4_re_wb_co2, m4_re_wb_so2, m4_re_wb_nox),
+       stars = c(0.01, 0.05, 0.1),
+       caption = "Alternative Measures for Air Pollution",
+       label = "tab:pollutants",
+       caption.above = T,
+       custom.model.names = c("$PM_{2.5}$", "$CO_{2}$", "$SO_{2}$", "$NO_{x}$"),
+       fontsize = "scriptsize",
+       groups = list("Controls (Within)" = 9:12,
+                     "Controls (Between)" = 13:16),
+       custom.coef.map = list("demeaned_inequ" = "Top 10%-share (Within)",
+                              "mean_inequ" = "Top 10%-share (Between)",
+                              "demeaned_income" = "log(GDP per capita) (Within)",
+                              "demeaned_income_sq" = "log(GDP per capita)$^2$ (Within)",
+                              "mean_income" = "log(GDP per capita) (Between)",
+                              "mean_income_sq" = "log(GDP per capita)$^2$ (Between)",
+                              "demeaned_winning" = "Democracy (Within)",
+                              "mean_winning" = "Democracy (Between)",
+                              "demeaned_trade" = "Trade openness",
+                              "demeaned_cpi" = "Corruption",
+                              "demeaned_industrial" = "Industry (% GDP)",
+                              "demeaned_pop" = "log(Pop. density)",
+                              "mean_trade" = "Trade openness.",
+                              "mean_cpi" = "Corruption.",
+                              "mean_industrial" = "Industry (% GDP).",
+                              "mean_pop" = "log(Pop. density).",
+                              "year" = "Year", "(Intercept)" = "Intercept"),
+       custom.gof.names = c("AIC",
+                            "BIC",
+                            "Log Likelihood",
+                            "N",
+                            "N(Countries)",
+                            "Var: Countries (Intercept)",
+                            "Var: Residual"))
+
 
 ```
 
