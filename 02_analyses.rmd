@@ -201,8 +201,8 @@ data_descript <- data[which(!is.na(data$cpi) &
 #-------------------------------------------------------------------------------
 ## Summary stats
 #-------------------------------------------------------------------------------
-# options("modelsummary_format_numeric_latex" = "plain")
-# 
+#options("modelsummary_format_numeric_latex" = "plain")
+
 # datasummary(formula = (`PM$_2.5$ (orig. scale)` = PM25_pop_weighed) + (`PM$_2.5$ (log scale)` = lead_log_PM25) +
 #                       (`Top 10%-share` = top10) + (`Top 1%-share` = top1) + (`Bottom 50%-share` = bottom50) +
 #                       (`T10/B50-ratio` = t10b50ratio) + (`log(GDP per capita)$^2$` = `2_gdp_pc_log`) +
@@ -210,7 +210,10 @@ data_descript <- data[which(!is.na(data$cpi) &
 #                       (`Industry (% GDP)` = industry_share) + (`log(Pop. density)`= pop_dens_log) + (`Year`= year) +
 #                       (`Polyarchy`= v2x_polyarchy)  + (`GDP per cap. growth` = gdp_pc_growth) +
 #                       (`GDP per cap/km$^2$`= gdp_pc_sqkm) + (`Average temp.`= Annual_temp) +
-#                       (`Precip. variab.` = precip_var) + (`Urban pop. (%)` = urban_pop)
+#                       (`Precip. variab.` = precip_var) + (`Urban pop. (%)` = urban_pop) +
+#                       (`CO$_2$ (orig. scale)` = co2) + (`CO$_2$ (log scale)` = log_co2) +
+#                       (`SO$_2$ (orig. scale)` = so2) + (`SO$_2$ (log scale)` = log_so2) +
+#                       (`NO$_x$ (orig. scale)` = nox) + (`NO$_x$ (log scale)` = log_nox) 
 #                       ~ N + Mean + SD + Min + Median + Max,
 #             data = data_descript,
 #             output = "latex")
@@ -1468,6 +1471,42 @@ texreg(list(m4_re_wb, m4_re_wb_co2, m4_re_wb_so2, m4_re_wb_nox),
 
 
 ```
+
+## Robustness checks - HDI instead of GDP per capita
+
+```{r hdi}
+
+## data for this analysis
+data_hdi <- data[which(data$year >= 2018),]
+
+means_hdi <- aggregate(data_hdi$hdi,
+                       by = list(data_hdi$country),
+                       FUN = mean, na.rm = T)
+
+means_hdi[which(means_hdi$x == "NaN"),] <- NA
+
+## rename
+names(means_hdi) <- c("country", "mean")
+
+## put them back into the data_hdi frame
+data_hdi$mean_hdi <- means_hdi$mean[match(data_hdi$country, means_hdi$country)]
+
+## calculate de-meaned variable:
+data_hdi$demeaned_hdi <- data_hdi$hdi - data_hdi$mean_hdi
+
+
+m4_re_wb_hdi <- lmer(lead_log_PM25 ~ mean_inequ + demeaned_inequ + 
+                       demeaned_hdi + demeaned_winning +
+                       demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop +
+                       mean_hdi + mean_winning +
+                       mean_trade + mean_cpi + mean_industrial + mean_pop + year + 
+                      (1 | country),
+                     data = data_hdi)
+
+stargazer(m4_re_wb_hdi, type = "text", omit = "country")
+
+```
+
 
 ## Mapping within effect
 
