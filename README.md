@@ -10,7 +10,7 @@ This repository includes replication material for all analyses and plots to be f
  - The folder **plots** includes all plots included in the paper as well as some additional plots.
 
 # Data
- - **Air pollution data**: For PM$_{2.5}$ from Donkelaar et al. (2021), https://sites.wustl.edu/acag/datasets/surface-pm2-5/#TOOLS, for SO$_2$ and NO$_x$ EDGAR (2024), https://edgar.jrc.ec.europa.eu/dataset_ap50, for CO$_2$ from World Development Indicator (2023) https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+ - **Air pollution data**: For PM2.5 from Donkelaar et al. (2021), https://sites.wustl.edu/acag/datasets/surface-pm2-5/#TOOLS, for SO2 and NOx EDGAR (2024), https://edgar.jrc.ec.europa.eu/dataset_ap50, for CO2 from World Development Indicator (2023) https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
  - **Inequality data**: From World Inequality Database (2023), https://wid.world/data/ 
  - **Power distribution**: From V-Dem (2023), https://www.v-dem.net/data/the-v-dem-dataset/
  - **Gini index**: From World Population Review, https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country (combined from World Bank  and CIA World Factbook)
