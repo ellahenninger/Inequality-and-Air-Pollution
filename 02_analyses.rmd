@@ -201,8 +201,8 @@ data_descript <- data[which(!is.na(data$cpi) &
 #-------------------------------------------------------------------------------
 ## Summary stats
 #-------------------------------------------------------------------------------
-#options("modelsummary_format_numeric_latex" = "plain")
-
+# options("modelsummary_format_numeric_latex" = "plain")
+# 
 # datasummary(formula = (`PM$_2.5$ (orig. scale)` = PM25_pop_weighed) + (`PM$_2.5$ (log scale)` = lead_log_PM25) +
 #                       (`Top 10%-share` = top10) + (`Top 1%-share` = top1) + (`Bottom 50%-share` = bottom50) +
 #                       (`T10/B50-ratio` = t10b50ratio) + (`log(GDP per capita)$^2$` = `2_gdp_pc_log`) +
@@ -213,7 +213,7 @@ data_descript <- data[which(!is.na(data$cpi) &
 #                       (`Precip. variab.` = precip_var) + (`Urban pop. (%)` = urban_pop) +
 #                       (`CO$_2$ (orig. scale)` = co2) + (`CO$_2$ (log scale)` = log_co2) +
 #                       (`SO$_2$ (orig. scale)` = so2) + (`SO$_2$ (log scale)` = log_so2) +
-#                       (`NO$_x$ (orig. scale)` = nox) + (`NO$_x$ (log scale)` = log_nox) 
+#                       (`NO$_x$ (orig. scale)` = nox) + (`NO$_x$ (log scale)` = log_nox)
 #                       ~ N + Mean + SD + Min + Median + Max,
 #             data = data_descript,
 #             output = "latex")

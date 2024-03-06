@@ -1624,40 +1624,6 @@ remove(so2_match)
 
 ```
 
-# Load and match data revision: HDI
-
-```{r data revis2}
-
-#-------------------------------------------------------------------------------
-## Load the data CO2
-#-------------------------------------------------------------------------------
-hdi <- read.csv2("data/Controls/hdi.csv", 
-                 header = T, 
-                 sep = ";", 
-                 dec = ".",
-                 stringsAsFactors = F)
-
-## Common country identifier
-colnames(hdi)[2:9] <- c(1990, 2000, 2010, 2015, 2018:2021)
-
-## reshape
-hdi_long <- gather(hdi,
-                   year,
-                   hdi,
-                   "1990":"2021", 
-                   factor_key = TRUE)
-
-hdi_long$year <- as.numeric(as.character(hdi_long$year))
-
-# join to prior data
-data <- left_join(data, hdi_long, by = c("country", "year"))
-
-# clean up
-remove(hdi)
-remove(hdi_long)
-
-```
-
 
 ## Save data
 
