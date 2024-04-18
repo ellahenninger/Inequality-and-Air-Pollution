@@ -1097,6 +1097,15 @@ m1_gini <- lm(lead_log_PM25 ~ gini +
                 as.factor(country),
                data = data)
 
+m1_gini_alt <- lmer(lead_log_PM25 ~ gini + 
+                     demeaned_income + demeaned_income_sq + demeaned_winning + 
+                     demeaned_trade + demeaned_cpi + demeaned_industrial + demeaned_pop + 
+                     mean_income + mean_income_sq + mean_winning +
+                     mean_trade + mean_cpi + mean_industrial + mean_pop + year +
+                     (1  | country),
+                   data = data)
+
+
 ## lag and lead Top 10%
 data_descript <- data_descript %>%
   group_by(country) %>%
@@ -1178,7 +1187,7 @@ m1_wealth <- lmer(lead_log_PM25 ~ mean_wealth + demeaned_wealth +
 #-------------------------------------------------------------------------------
 
 ## Table Main
-texreg(list(m1_gini, m1_mov_top10, m1_t1, m1_b50, m1_t10b50, m1_wealth),
+texreg(list(m1_gini_alt, m1_mov_top10, m1_t1, m1_b50, m1_t10b50, m1_wealth),
        stars = c(0.01, 0.05, 0.1),
        custom.header = list("log(Exposure to $PM_{2.5}$)" = 1:6),
        caption = "Alternative Measures for Economic Inequality",
