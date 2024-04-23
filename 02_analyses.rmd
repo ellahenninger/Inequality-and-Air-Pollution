@@ -1009,6 +1009,8 @@ color_ci <- ifelse(coefs_sub$CI_low > 0 & coefs_sub$CI_up < 0|
 
 pdf("Plots/Coefficients_subgroups.pdf", width = 7.5)
 
+png("Plots/Coefficients_subgroups.png", width = 480, height = 400, units = "px", pointsize = 15)
+
 par(mar = c(5.1, 9, 2.5, 2.1)) # c(bottom, left, top, right))
 
 plot(1,
